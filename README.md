@@ -11,13 +11,13 @@ Step Two: Clone benchmark repo
 
 ```
 git clone https://github.com/tensorflow/benchmarks.git
-git clone https://github.com/chuanli11/tensorflow-benchmark.git
+git clone https://github.com/lambdal/lambda-tensorflow-benchmark.git
 ```
 
 Step Three: Run benchmark
 ===
 
-Notice: This assumes the __benchmarks__ repo is inside of your home directory. Otherwise you need to change the SCRIPT_DIR variable in tensorflow-benchmark/script_benchmark.sh accordinly.
+Notice: __This assumes the tensorflow/benchmarks repo is inside of your home directory__. Otherwise you need to change the SCRIPT_DIR variable in lambda-tensorflow-benchmark/script_benchmark.sh accordinly.
 
 ```
 cd tensorflow-benchmark
