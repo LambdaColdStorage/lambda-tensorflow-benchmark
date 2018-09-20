@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-SUMMARY_NAME="../../summary.md"
+SUMMARY_NAME="summary.md"
 
 CPU_NAME="$(lscpu | grep "Model name:" | sed -r 's/Model name:\s{1,}//g' | awk '{ print $4 }')";
 if [ $CPU_NAME = "CPU" ]; then
@@ -147,12 +147,12 @@ main() {
 
                 result=0
 
-                # for iter in $(seq 1 $ITERATIONS); do
-                #   image_per_sec=$(run_report "$model" $batch_size $config_name $num_gpus $iter $data_mode $variable_update $distortions)
-                #   result=$(echo "$result + $image_per_sec" | bc -l)
-                # done
-                # result=$(echo "scale=2; $result / $ITERATIONS" | bc -l)
-                # result_line+="${result} |"
+                for iter in $(seq 1 $ITERATIONS); do
+                  image_per_sec=$(run_report "$model" $batch_size $config_name $num_gpus $iter $data_mode $variable_update $distortions)
+                  result=$(echo "$result + $image_per_sec" | bc -l)
+                done
+                result=$(echo "scale=2; $result / $ITERATIONS" | bc -l)
+                result_line+="${result} |"
 
               done
               

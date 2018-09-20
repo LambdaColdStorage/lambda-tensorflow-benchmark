@@ -63,6 +63,7 @@ run_benchmark() {
   local update_mode=$7
   local distortions=$8
 
+  pushd "$SCRIPT_DIR" &> /dev/null
   local args=()
   local output="${LOG_DIR}/${model}-${data_mode}-${variable_update}"
 
@@ -86,7 +87,8 @@ run_benchmark() {
   
   # echo $output
   echo ${args[@]}
-  python tf_cnn_benchmarks/tf_cnn_benchmarks.py "${args[@]}" |& tee "$output"
+  python tf_cnn_benchmarks.py "${args[@]}" |& tee "$output"
+  popd &> /dev/null
 }
 
 run_benchmark_all() {
