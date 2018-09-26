@@ -1,3 +1,8 @@
+
+This is the code used for a few of the blog posts on: https://lambdalabs.com/blog including:
+
+- 2080 Ti Deep Learning Benchmarks: https://lambdalabs.com/blog/2080-ti-deep-learning-benchmarks/
+
 #### Step One: Download mini imagenet data (1.5 GB)
 
 
