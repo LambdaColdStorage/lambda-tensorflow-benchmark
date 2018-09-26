@@ -17,7 +17,7 @@ echo $CONFIG_NAME
 DATA_DIR="/home/${USER}/data/imagenet_mini"
 LOG_DIR="/home/${USER}/imagenet_benchmark_logs/${CONFIG_NAME}"
 
-ITERATIONS=3
+ITERATIONS=10
 NUM_BATCHES=100
 
 MODELS=(
@@ -36,7 +36,6 @@ VARIABLE_UPDATE=(
 
 DATA_MODE=(
   syn
-  real
 )
 
 declare -A BATCH_SIZES=(
