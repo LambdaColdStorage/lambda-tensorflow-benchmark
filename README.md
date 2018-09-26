@@ -20,7 +20,10 @@ Step Three: Run benchmark
 Notice: __This assumes the tensorflow/benchmarks repo is inside of your home directory__. Otherwise you need to change the SCRIPT_DIR variable in lambda-tensorflow-benchmark/script_benchmark.sh accordinly.
 
 ```
-cd lambda-tensorflow-benchmark
+cd benchmarks
+git checkout 44aeb98
+
+cd ~/lambda-tensorflow-benchmark
 ./script_benchmark.sh
 ```
 
