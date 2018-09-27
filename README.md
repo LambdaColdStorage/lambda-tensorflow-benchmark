@@ -26,10 +26,7 @@ git clone https://github.com/lambdal/lambda-tensorflow-benchmark.git
 Note: __This script assumes the tensorflow/benchmarks repo is inside of your home directory__. If you've cloned it elsewhere, you need to change the SCRIPT_DIR variable in lambda-tensorflow-benchmark/script_benchmark.sh accordinly.
 
 ```
-cd ~/benchmarks
-git checkout lambda
-
-cd ~/lambda-tensorflow-benchmark
+cd lambda-tensorflow-benchmark
 ./script_benchmark.sh
 ```
 

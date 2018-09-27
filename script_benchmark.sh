@@ -100,7 +100,7 @@ run_benchmark() {
   
   # echo $output
   echo ${args[@]}
-  python tf_cnn_benchmarks.py "${args[@]}" |& tee "$output"
+  python3 tf_cnn_benchmarks.py "${args[@]}" |& tee "$output"
   popd &> /dev/null
 }
 
