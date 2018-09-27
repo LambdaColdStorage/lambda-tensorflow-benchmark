@@ -8,7 +8,7 @@ if [ $CPU_NAME = "CPU" ]; then
   CPU_NAME="$(lscpu | grep "Model name:" | sed -r 's/Model name:\s{1,}//g' | awk '{ print $3 }')";
 fi
 
-GPU_NAME=1080TI
+GPU_NAME=2080TI
 
 CONFIG_NAME="${CPU_NAME}-${GPU_NAME}"
 echo $CONFIG_NAME
@@ -47,7 +47,7 @@ declare -A BATCH_SIZES=(
   [inception4]=16
   [vgg16]=64
   [alexnet]=512
-  [ssd300]=16
+  [ssd300]=32
 )
 
 declare -A DATASET_NAMES=(
