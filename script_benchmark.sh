@@ -36,6 +36,7 @@ VARIABLE_UPDATE=(
 
 DATA_MODE=(
   syn
+  # real
 )
 
 declare -A BATCH_SIZES=(

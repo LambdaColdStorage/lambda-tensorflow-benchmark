@@ -3,6 +3,12 @@ This is the code used for a few of the blog posts on: https://lambdalabs.com/blo
 
 - 2080 Ti Deep Learning Benchmarks: https://lambdalabs.com/blog/2080-ti-deep-learning-benchmarks/
 
+Environment:
+- OS: Ubuntu 18.04
+- TensorFlow version: 1.11.0-rc1
+- CUDA Version 10.0
+- CUDNN Version 7.3.0
+
 <!-- #### Step One: Download mini imagenet data (1.5 GB)
 
 
@@ -23,7 +29,7 @@ git clone https://github.com/lambdal/lambda-tensorflow-benchmark.git
 #### Step Two: Run benchmark
 
 
-Note: __This script assumes the tensorflow/benchmarks repo is inside of your home directory__. If you've cloned it elsewhere, you need to change the SCRIPT_DIR variable in lambda-tensorflow-benchmark/script_benchmark.sh accordinly.
+Note: __This script assumes the lambdal/benchmarks repo is inside of your home directory__. If you've cloned it elsewhere, you need to change the SCRIPT_DIR variable in lambda-tensorflow-benchmark/script_benchmark.sh accordinly.
 
 ```
 cd lambda-tensorflow-benchmark

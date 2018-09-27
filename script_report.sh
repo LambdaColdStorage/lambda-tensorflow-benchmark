@@ -8,25 +8,21 @@ if [ $CPU_NAME = "CPU" ]; then
   CPU_NAME="$(lscpu | grep "Model name:" | sed -r 's/Model name:\s{1,}//g' | awk '{ print $3 }')";
 fi
 
-GPU_NAME=2080TI
+GPU_NAME=1080TI
 
 CONFIG_NAME="${CPU_NAME}-${GPU_NAME}"
 echo $CONFIG_NAME
 
-DATA_DIR="/home/${USER}/data/imagenet_mini"
-
-ITERATIONS=3
-
-DATA_NAME=imagenet
+ITERATIONS=10
 
 MODELS=(
   resnet50
-  resnet101
   resnet152
   inception3
   inception4
   vgg16
   alexnet
+  ssd300
 )
 
 
@@ -40,7 +36,7 @@ VARIABLE_UPDATE=(
 
 DATA_MODE=(
   syn
-  real
+  # real
 )
 
 declare -A BATCH_SIZES=(
@@ -106,14 +102,14 @@ main() {
   echo "SUMMARY" > $SUMMARY_NAME
   echo "===" >> $SUMMARY_NAME
 
-  echo "| model | input size | param mem | feat. mem | flops | performance |" >> $SUMMARY_NAME
-  echo "|-------|------------|--------------|----------------|-------|-------------|" >> $SUMMARY_NAME
-  echo "| [resnet-50](reports/resnet-50.md) | 224 x 224 | 98 MB | 103 MB | 4 BFLOPs | 24.60 / 7.70 |" >> $SUMMARY_NAME
-  echo "| [resnet-101](reports/resnet-101.md) | 224 x 224 | 170 MB | 155 MB | 8 BFLOPs | 23.40 / 7.00 |" >> $SUMMARY_NAME
-  echo "| [resnet-152](reports/resnet-152.md) | 224 x 224 | 230 MB | 219 MB | 11 BFLOPs | 23.00 / 6.70 |" >> $SUMMARY_NAME  
-  echo "| [inception-v3](reports/inception-v3.md) | 299 x 299 | 91 MB | 89 MB | 6 BFLOPs | 22.55 / 6.44 |" >> $SUMMARY_NAME
-  echo "| [vgg-vd-19](reports/vgg-vd-19.md) | 224 x 224 | 548 MB | 63 MB | 20 BFLOPs | 28.70 / 9.90 |" >> $SUMMARY_NAME
-  echo "| [alexnet](reports/alexnet.md) | 227 x 227 | 233 MB | 3 MB | 1.5 BFLOPs | 41.80 / 19.20 |" >> $SUMMARY_NAME
+  echo "| model | input size | param mem | feat. mem | flops  |" >> $SUMMARY_NAME
+  echo "|-------|------------|--------------|----------------|-------------|" >> $SUMMARY_NAME
+  echo "| resnet-50 | 224 x 224 | 98 MB | 103 MB | 4 BFLOPs |" >> $SUMMARY_NAME
+  echo "| resnet-152 | 224 x 224 | 230 MB | 219 MB | 11 BFLOPs |" >> $SUMMARY_NAME
+  echo "| inception-v3 | 299 x 299 | 91 MB | 89 MB | 6 BFLOPs |" >> $SUMMARY_NAME
+  echo "| vgg-vd-19 | 224 x 224 | 548 MB | 63 MB | 20 BFLOPs |" >> $SUMMARY_NAME
+  echo "| alexnet | 227 x 227 | 233 MB | 3 MB | 1.5 BFLOPs |" >> $SUMMARY_NAME
+  echo "| ssd-300 | 300 x 300 | 100 MB | 116 MB | 31 GFLOPS |" >> $SUMMARY_NAME
 
   config_line="Config |"
   table_line=":------:|"
