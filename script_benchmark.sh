@@ -17,17 +17,21 @@ echo $CONFIG_NAME
 DATA_DIR="/home/${USER}/data/imagenet_mini"
 LOG_DIR="/home/${USER}/imagenet_benchmark_logs/${CONFIG_NAME}"
 
-ITERATIONS=10
+ITERATIONS=2
 NUM_BATCHES=100
+
+# MODELS=(
+#   resnet50
+#   resnet152
+#   inception3
+#   inception4
+#   vgg16
+#   alexnet
+# )
 
 MODELS=(
   resnet50
-  resnet101
-  resnet152
-  inception3
-  inception4
-  vgg16
-  alexnet
+  ssd300
 )
 
 VARIABLE_UPDATE=(
@@ -46,6 +50,18 @@ declare -A BATCH_SIZES=(
   [inception4]=16
   [vgg16]=64
   [alexnet]=512
+  [ssd300]=16
+)
+
+declare -A DATASET_NAMES=(
+  [resnet50]=imagenet
+  [resnet101]=imagenet
+  [resnet152]=imagenet
+  [inception3]=imagenet
+  [inception4]=imagenet
+  [vgg16]=imagenet
+  [alexnet]=imagenet
+  [ssd300]=coco  
 )
 
 MIN_NUM_GPU=1
@@ -61,6 +77,7 @@ run_benchmark() {
   local data_mode=$6
   local update_mode=$7
   local distortions=$8
+  local dataset_name=$9
 
   pushd "$SCRIPT_DIR" &> /dev/null
   local args=()
@@ -73,6 +90,7 @@ run_benchmark() {
   args+=("--variable_update=$variable_update")
   args+=("--distortions=$distortions")
   args+=("--num_batches=$NUM_BATCHES")
+  args+=("--data_name=$dataset_name")
 
   if [ $data_mode = real ]; then
     args+=("--data_dir=$DATA_DIR")
@@ -97,9 +115,10 @@ run_benchmark_all() {
 
   for model in "${MODELS[@]}"; do
     local batch_size=${BATCH_SIZES[$model]}
+    local dataset_name=${DATASET_NAMES[$model]}
     for num_gpu in `seq ${MAX_NUM_GPU} -1 ${MIN_NUM_GPU}`; do 
       for iter in $(seq 1 $ITERATIONS); do
-        run_benchmark "$model" $batch_size $CONFIG_NAME $num_gpu $iter $data_mode $variable_update $distortions
+        run_benchmark "$model" $batch_size $CONFIG_NAME $num_gpu $iter $data_mode $variable_update $distortions $dataset_name
       done
     done
   done  
