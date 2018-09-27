@@ -8,7 +8,7 @@ if [ $CPU_NAME = "CPU" ]; then
   CPU_NAME="$(lscpu | grep "Model name:" | sed -r 's/Model name:\s{1,}//g' | awk '{ print $3 }')";
 fi
 
-GPU_NAME=2080TI
+GPU_NAME=1080TI
 
 CONFIG_NAME="${CPU_NAME}-${GPU_NAME}"
 echo $CONFIG_NAME
@@ -17,20 +17,16 @@ echo $CONFIG_NAME
 DATA_DIR="/home/${USER}/data/imagenet_mini"
 LOG_DIR="/home/${USER}/imagenet_benchmark_logs/${CONFIG_NAME}"
 
-ITERATIONS=2
+ITERATIONS=10
 NUM_BATCHES=100
-
-# MODELS=(
-#   resnet50
-#   resnet152
-#   inception3
-#   inception4
-#   vgg16
-#   alexnet
-# )
 
 MODELS=(
   resnet50
+  resnet152
+  inception3
+  inception4
+  vgg16
+  alexnet
   ssd300
 )
 
