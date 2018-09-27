@@ -29,16 +29,18 @@ git clone https://github.com/lambdal/lambda-tensorflow-benchmark.git
 #### Step Two: Run benchmark
 
 
-Note: __This script assumes the lambdal/benchmarks repo is inside of your home directory__. If you've cloned it elsewhere, you need to change the SCRIPT_DIR variable in lambda-tensorflow-benchmark/script_benchmark.sh accordingly.
+Note:
+* __This script assumes the lambdal/benchmarks repo is inside of your home directory__. If you've cloned it elsewhere, you need to change the SCRIPT_DIR variable in lambda-tensorflow-benchmark/script_benchmark.sh accordingly.
 
+* Input a unique hardware configuration name for your benchmark. For example "2080TI".
 ```
 cd lambda-tensorflow-benchmark
-./script_benchmark.sh
+./script_benchmark.sh 2080TI
 ```
 
 #### Step Three: Report results
 
 
 ```
-./script_report.sh
+./script_report.sh 2080TI
 ```

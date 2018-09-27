@@ -1,14 +1,13 @@
 #!/bin/bash -e
-SCRIPT_DIR="/home/${USER}/benchmarks/scripts/tf_cnn_benchmarks"
+GPU_NAME=$1
 
+SCRIPT_DIR="/home/${USER}/benchmarks/scripts/tf_cnn_benchmarks"
 
 CPU_NAME="$(lscpu | grep "Model name:" | sed -r 's/Model name:\s{1,}//g' | awk '{ print $4 }')";
 if [ $CPU_NAME = "CPU" ]; then
   # CPU can show up at different locations
   CPU_NAME="$(lscpu | grep "Model name:" | sed -r 's/Model name:\s{1,}//g' | awk '{ print $3 }')";
 fi
-
-GPU_NAME=2080TI
 
 CONFIG_NAME="${CPU_NAME}-${GPU_NAME}"
 echo $CONFIG_NAME
