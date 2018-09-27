@@ -16,7 +16,7 @@ curl https://s3-us-west-2.amazonaws.com/lambdalabs-files/imagenet_mini.tar.gz | 
 
 ```
 cd ~
-git clone https://github.com/tensorflow/benchmarks.git
+git clone https://github.com/lambdal/benchmarks.git
 git clone https://github.com/lambdal/lambda-tensorflow-benchmark.git
 ```
 
