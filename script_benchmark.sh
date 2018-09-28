@@ -21,7 +21,7 @@ echo $CONFIG_NAME
 
 
 DATA_DIR="/home/${USER}/data/imagenet_mini"
-LOG_DIR="/home/${USER}/imagenet_benchmark_logs/${CONFIG_NAME}"
+LOG_DIR="$(pwd)/${CONFIG_NAME}.logs"
 
 ITERATIONS=10
 NUM_BATCHES=100

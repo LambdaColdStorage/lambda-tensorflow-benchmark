@@ -1,15 +1,9 @@
 #!/bin/bash -e
-GPU_NAME=$1
 
-SUMMARY_NAME="summary.md"
+REPORT_DIR=$1
+SUMMARY_NAME="${2:-summary.md}"
 
-CPU_NAME="$(lscpu | grep "Model name:" | sed -r 's/Model name:\s{1,}//g' | awk '{ print $4 }')";
-if [ $CPU_NAME = "CPU" ]; then
-  # CPU can show up at different locations
-  CPU_NAME="$(lscpu | grep "Model name:" | sed -r 's/Model name:\s{1,}//g' | awk '{ print $3 }')";
-fi
-
-CONFIG_NAME="${CPU_NAME}-${GPU_NAME}"
+CONFIG_NAME="${REPORT_DIR%.logs}"
 echo $CONFIG_NAME
 
 ITERATIONS=10
@@ -79,7 +73,7 @@ run_report() {
   local variable_update=$7
   local distortions=$8
 
-  local output="${LOG_DIR}/${model}-${data_mode}-${variable_update}"
+  local output="$(pwd)/${config_name}.logs/${model}-${data_mode}-${variable_update}"
 
   if $distortions; then
     output+="-distortions"
@@ -138,11 +132,7 @@ main() {
               local batch_size=${BATCH_SIZES[$model]}
               result_line="${model} |"
               for config_name in "${CONFIG_NAMES[@]}"; do
-
-                LOG_DIR="/home/${USER}/imagenet_benchmark_logs/${config_name}"
-
                 result=0
-
                 for iter in $(seq 1 $ITERATIONS); do
                   image_per_sec=$(run_report "$model" $batch_size $config_name $num_gpus $iter $data_mode $variable_update $distortions)
                   result=$(echo "$result + $image_per_sec" | bc -l)
