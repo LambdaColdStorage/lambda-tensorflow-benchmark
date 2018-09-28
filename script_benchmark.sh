@@ -3,6 +3,9 @@
 GPU_INDEX=$1
 GPU_INDEX=${GPU_INDEX:-0}
 
+ITERATIONS=$2
+ITERATIONS=${ITERATIONS:-10}
+
 export CUDA_VISIBLE_DEVICES=$GPU_INDEX
 
 SCRIPT_DIR="$(pwd)/benchmarks/scripts/tf_cnn_benchmarks"
@@ -23,7 +26,6 @@ echo $CONFIG_NAME
 DATA_DIR="/home/${USER}/data/imagenet_mini"
 LOG_DIR="$(pwd)/${CONFIG_NAME}.logs"
 
-ITERATIONS=10
 NUM_BATCHES=100
 
 MODELS=(

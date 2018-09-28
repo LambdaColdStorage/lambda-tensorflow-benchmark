@@ -1,12 +1,14 @@
 #!/bin/bash -e
 
 REPORT_DIR=$1
-SUMMARY_NAME="${2:-summary.md}"
+
+ITERATIONS=$2
+ITERATIONS=${ITERATIONS:-10}
+
+SUMMARY_NAME="${3:-summary.md}"
 
 CONFIG_NAME="${REPORT_DIR%.logs}"
 echo $CONFIG_NAME
-
-ITERATIONS=10
 
 MODELS=(
   resnet50

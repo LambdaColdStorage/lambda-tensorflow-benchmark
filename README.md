@@ -30,15 +30,15 @@ git clone https://github.com/lambdal/lambda-tensorflow-benchmark.git --recursive
 Note:
 * __This script assumes the lambdal/benchmarks repo is inside of your home directory__. If you've cloned it elsewhere, you need to change the SCRIPT_DIR variable in lambda-tensorflow-benchmark/script_benchmark.sh accordingly.
 
-* Input a unique hardware configuration name for your benchmark. For example "2080TI".
+* Input a proper gpu_index (default 0) and num_iterations (default 10)
 ```
 cd lambda-tensorflow-benchmark
-./script_benchmark.sh
+./script_benchmark.sh gpu_index num_iterations
 ```
 
 #### Step Three: Report results
 
 * Check the repo directory for folder \<cpu>-\<gpu>.logs
 ```
-./script_report.sh <cpu>-<gpu>.logs
+./script_report.sh <cpu>-<gpu>.logs num_iterations
 ```
