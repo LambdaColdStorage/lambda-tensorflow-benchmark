@@ -21,7 +21,7 @@ curl https://s3-us-west-2.amazonaws.com/lambdalabs-files/imagenet_mini.tar.gz | 
 
 
 ```
-git clone https://github.com/lambdal/benchmarks.git --recursive
+git clone https://github.com/lambdal/lambda-tensorflow-benchmark.git --recursive
 ```
 
 #### Step Two: Run benchmark
@@ -33,12 +33,12 @@ Note:
 * Input a unique hardware configuration name for your benchmark. For example "2080TI".
 ```
 cd lambda-tensorflow-benchmark
-./script_benchmark.sh 2080TI
+./script_benchmark.sh
 ```
 
 #### Step Three: Report results
 
-
+* Check the repo directory for folder \<cpu>-\<gpu>.logs
 ```
-./script_report.sh 2080TI
+./script_report.sh <cpu>-<gpu>.logs
 ```
