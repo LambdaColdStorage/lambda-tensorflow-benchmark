@@ -1,5 +1,9 @@
 #!/bin/bash -e
-GPU_NAME=$1
+
+GPU_INDEX=$1
+GPU_INDEX=${GPU_INDEX:-0}
+
+export CUDA_VISIBLE_DEVICES=$GPU_INDEX
 
 SCRIPT_DIR="$(pwd)/benchmarks/scripts/tf_cnn_benchmarks"
 
@@ -8,6 +12,9 @@ if [ $CPU_NAME = "CPU" ]; then
   # CPU can show up at different locations
   CPU_NAME="$(lscpu | grep "Model name:" | sed -r 's/Model name:\s{1,}//g' | awk '{ print $3 }')";
 fi
+
+GPU_NAME="$(nvidia-smi -i ${GPU_INDEX} --query-gpu=gpu_name --format=csv,noheader)"
+GPU_NAME="${GPU_NAME// /_}"
 
 CONFIG_NAME="${CPU_NAME}-${GPU_NAME}"
 echo $CONFIG_NAME
