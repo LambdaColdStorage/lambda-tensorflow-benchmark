@@ -33,12 +33,12 @@ Note:
 * Input a proper gpu_index (default 0) and num_iterations (default 10)
 ```
 cd lambda-tensorflow-benchmark
-./script_benchmark.sh gpu_index num_iterations
+./benchmark.sh gpu_index num_iterations
 ```
 
 #### Step Three: Report results
 
 * Check the repo directory for folder \<cpu>-\<gpu>.logs
 ```
-./script_report.sh <cpu>-<gpu>.logs num_iterations
+./report.sh <cpu>-<gpu>.logs num_iterations
 ```
