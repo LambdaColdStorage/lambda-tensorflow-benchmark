@@ -1,7 +1,7 @@
 #!/bin/bash -e
 GPU_NAME=$1
 
-SCRIPT_DIR="/home/${USER}/benchmarks/scripts/tf_cnn_benchmarks"
+SCRIPT_DIR="$(pwd)/benchmarks/scripts/tf_cnn_benchmarks"
 
 CPU_NAME="$(lscpu | grep "Model name:" | sed -r 's/Model name:\s{1,}//g' | awk '{ print $4 }')";
 if [ $CPU_NAME = "CPU" ]; then
