@@ -1,12 +1,9 @@
 #!/bin/bash -e
 
-GPU_INDEX=$1
-GPU_INDEX=${GPU_INDEX:-0}
-
-ITERATIONS=$2
+ITERATIONS=$1
 ITERATIONS=${ITERATIONS:-10}
 
-export CUDA_VISIBLE_DEVICES=$GPU_INDEX
+NUM_GPU=${2:-1}
 
 SCRIPT_DIR="$(pwd)/benchmarks/scripts/tf_cnn_benchmarks"
 
@@ -16,7 +13,7 @@ if [ $CPU_NAME = "CPU" ]; then
   CPU_NAME="$(lscpu | grep "Model name:" | sed -r 's/Model name:\s{1,}//g' | awk '{ print $3 }')";
 fi
 
-GPU_NAME="$(nvidia-smi -i ${GPU_INDEX} --query-gpu=gpu_name --format=csv,noheader)"
+GPU_NAME="$(nvidia-smi -i 0 --query-gpu=gpu_name --format=csv,noheader)"
 GPU_NAME="${GPU_NAME// /_}"
 
 CONFIG_NAME="${CPU_NAME}-${GPU_NAME}"
@@ -29,22 +26,21 @@ LOG_DIR="$(pwd)/${CONFIG_NAME}.logs"
 NUM_BATCHES=100
 
 MODELS=(
-  resnet50
-  resnet152
-  inception3
-  inception4
-  vgg16
+#  resnet50
+#  resnet152
+#  inception3
+#  inception4
+#  vgg16
   alexnet
   ssd300
 )
 
 VARIABLE_UPDATE=(
-  parameter_server
+  replicated
 )
 
 DATA_MODE=(
   syn
-  # real
 )
 
 declare -A BATCH_SIZES=(
@@ -70,7 +66,7 @@ declare -A DATASET_NAMES=(
 )
 
 MIN_NUM_GPU=1
-MAX_NUM_GPU=1
+MAX_NUM_GPU=$NUM_GPU
 
 run_benchmark() {
 
@@ -96,6 +92,7 @@ run_benchmark() {
   args+=("--distortions=$distortions")
   args+=("--num_batches=$NUM_BATCHES")
   args+=("--data_name=$dataset_name")
+  # args+=("--all_reduce_spec=nccl")
 
   if [ $data_mode = real ]; then
     args+=("--data_dir=$DATA_DIR")

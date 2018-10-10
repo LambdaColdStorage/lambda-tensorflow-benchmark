@@ -5,7 +5,9 @@ REPORT_DIR=$1
 ITERATIONS=$2
 ITERATIONS=${ITERATIONS:-10}
 
-SUMMARY_NAME="${3:-summary.md}"
+NUM_GPU=${3:-1}
+
+SUMMARY_NAME="${4:-summary}"
 
 CONFIG_NAME="${REPORT_DIR%.logs}"
 echo $CONFIG_NAME
@@ -26,12 +28,11 @@ CONFIG_NAMES=(
 )
 
 VARIABLE_UPDATE=(
-  parameter_server
+  replicated
 )
 
 DATA_MODE=(
   syn
-  # real
 )
 
 declare -A BATCH_SIZES=(
@@ -46,7 +47,7 @@ declare -A BATCH_SIZES=(
 )
 
 MIN_NUM_GPU=1
-MAX_NUM_GPU=1
+MAX_NUM_GPU=$NUM_GPU
 
 
 get_benchmark_name() {
@@ -95,26 +96,28 @@ run_report() {
 main() {
   local data_mode variable_update distortion_mode model num_gpus iter benchmark_name distortions
   local config_line table_line
-  echo "SUMMARY" > $SUMMARY_NAME
-  echo "===" >> $SUMMARY_NAME
-
-  echo "| model | input size | param mem | feat. mem | flops  |" >> $SUMMARY_NAME
-  echo "|-------|------------|--------------|----------------|-------------|" >> $SUMMARY_NAME
-  echo "| resnet-50 | 224 x 224 | 98 MB | 103 MB | 4 BFLOPs |" >> $SUMMARY_NAME
-  echo "| resnet-152 | 224 x 224 | 230 MB | 219 MB | 11 BFLOPs |" >> $SUMMARY_NAME
-  echo "| inception-v3 | 299 x 299 | 91 MB | 89 MB | 6 BFLOPs |" >> $SUMMARY_NAME
-  echo "| vgg-vd-19 | 224 x 224 | 548 MB | 63 MB | 20 BFLOPs |" >> $SUMMARY_NAME
-  echo "| alexnet | 227 x 227 | 233 MB | 3 MB | 1.5 BFLOPs |" >> $SUMMARY_NAME
-  echo "| ssd-300 | 300 x 300 | 100 MB | 116 MB | 31 GFLOPS |" >> $SUMMARY_NAME
-
-  config_line="Config |"
-  table_line=":------:|"
-  for config_name in "${CONFIG_NAMES[@]}"; do
-    config_line+=" ${config_name} |"
-    table_line+=":------:|"
-  done
 
   for num_gpus in `seq ${MAX_NUM_GPU} -1 ${MIN_NUM_GPU}`; do 
+    local summary_file="${SUMMARY_NAME}_gpu${num_gpus}.md"
+    echo "SUMMARY" > $summary_file
+    echo "===" >> $summary_file
+
+    echo "| model | input size | param mem | feat. mem | flops  |" >> $summary_file
+    echo "|-------|------------|--------------|----------------|-------------|" >> $summary_file
+    echo "| resnet-50 | 224 x 224 | 98 MB | 103 MB | 4 BFLOPs |" >> $summary_file
+    echo "| resnet-152 | 224 x 224 | 230 MB | 219 MB | 11 BFLOPs |" >> $summary_file
+    echo "| inception-v3 | 299 x 299 | 91 MB | 89 MB | 6 BFLOPs |" >> $summary_file
+    echo "| vgg-vd-19 | 224 x 224 | 548 MB | 63 MB | 20 BFLOPs |" >> $summary_file
+    echo "| alexnet | 227 x 227 | 233 MB | 3 MB | 1.5 BFLOPs |" >> $summary_file
+    echo "| ssd-300 | 300 x 300 | 100 MB | 116 MB | 31 GFLOPS |" >> $summary_file
+
+    config_line="Config |"
+    table_line=":------:|"
+    for config_name in "${CONFIG_NAMES[@]}"; do
+      config_line+=" ${config_name} |"
+      table_line+=":------:|"
+    done
+
     for data_mode in "${DATA_MODE[@]}"; do
       for variable_update in "${VARIABLE_UPDATE[@]}"; do
         for distortions in true false; do
@@ -125,10 +128,10 @@ main() {
           else
             benchmark_name=$(get_benchmark_name $num_gpus $data_mode $variable_update $distortions)
           
-            echo $'\n' >> $SUMMARY_NAME
-            echo "**${benchmark_name}**"$'\n' >> $SUMMARY_NAME
-            echo "${config_line}" >> $SUMMARY_NAME
-            echo "${table_line}" >> $SUMMARY_NAME
+            echo $'\n' >> $summary_file
+            echo "**${benchmark_name}**"$'\n' >> $summary_file
+            echo "${config_line}" >> $summary_file
+            echo "${table_line}" >> $summary_file
                 
             for model in "${MODELS[@]}"; do
               local batch_size=${BATCH_SIZES[$model]}
@@ -144,7 +147,7 @@ main() {
 
               done
               
-              echo "${result_line}" >> $SUMMARY_NAME
+              echo "${result_line}" >> $summary_file
             done 
           fi
 
