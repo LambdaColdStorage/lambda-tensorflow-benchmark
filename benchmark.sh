@@ -26,11 +26,11 @@ LOG_DIR="$(pwd)/${CONFIG_NAME}.logs"
 NUM_BATCHES=100
 
 MODELS=(
-#  resnet50
-#  resnet152
-#  inception3
-#  inception4
-#  vgg16
+  resnet50
+  resnet152
+  inception3
+  inception4
+  vgg16
   alexnet
   ssd300
 )
