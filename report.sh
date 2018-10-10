@@ -5,9 +5,10 @@ REPORT_DIR=$1
 ITERATIONS=$2
 ITERATIONS=${ITERATIONS:-10}
 
-NUM_GPU=${3:-1}
+MIN_NUM_GPU=${3:-1}
+MAX_NUM_GPU=${4:-1}
 
-SUMMARY_NAME="${4:-summary}"
+SUMMARY_NAME="${5:-summary}"
 
 CONFIG_NAME="${REPORT_DIR%.logs}"
 echo $CONFIG_NAME
@@ -29,10 +30,16 @@ CONFIG_NAMES=(
 
 VARIABLE_UPDATE=(
   replicated
+  parameter_server
 )
 
 DATA_MODE=(
   syn
+)
+
+PRECISION=(
+  fp32
+  fp16
 )
 
 declare -A BATCH_SIZES=(
@@ -46,18 +53,15 @@ declare -A BATCH_SIZES=(
   [ssd300]=32
 )
 
-MIN_NUM_GPU=1
-MAX_NUM_GPU=$NUM_GPU
-
-
 get_benchmark_name() {
 
   local num_gpus=$1
   local data_mode=$2
   local variable_update=$3
   local distortions=$4
+  local precision=$5
 
-  local benchmark_name="${data_mode}-${variable_update}"
+  local benchmark_name="${data_mode}-${variable_update}-${precision}"
 
   if $distortions; then
     benchmark_name+="-distortions"
@@ -75,8 +79,9 @@ run_report() {
   local data_mode=$6
   local variable_update=$7
   local distortions=$8
+  local precision=$9
 
-  local output="$(pwd)/${config_name}.logs/${model}-${data_mode}-${variable_update}"
+  local output="$(pwd)/${config_name}.logs/${model}-${data_mode}-${variable_update}-${precision}"
 
   if $distortions; then
     output+="-distortions"
@@ -99,6 +104,7 @@ main() {
 
   for num_gpus in `seq ${MAX_NUM_GPU} -1 ${MIN_NUM_GPU}`; do 
     local summary_file="${SUMMARY_NAME}_gpu${num_gpus}.md"
+    echo $summary_file
     echo "SUMMARY" > $summary_file
     echo "===" >> $summary_file
 
@@ -118,39 +124,41 @@ main() {
       table_line+=":------:|"
     done
 
-    for data_mode in "${DATA_MODE[@]}"; do
-      for variable_update in "${VARIABLE_UPDATE[@]}"; do
-        for distortions in true false; do
+    for precision in "${PRECISION[@]}"; do
+      for data_mode in "${DATA_MODE[@]}"; do
+        for variable_update in "${VARIABLE_UPDATE[@]}"; do
+          for distortions in true false; do
 
-          if [ $data_mode = syn ] && $distortions ; then
-            # skip distortion for synthetic data
-            :
-          else
-            benchmark_name=$(get_benchmark_name $num_gpus $data_mode $variable_update $distortions)
-          
-            echo $'\n' >> $summary_file
-            echo "**${benchmark_name}**"$'\n' >> $summary_file
-            echo "${config_line}" >> $summary_file
-            echo "${table_line}" >> $summary_file
-                
-            for model in "${MODELS[@]}"; do
-              local batch_size=${BATCH_SIZES[$model]}
-              result_line="${model} |"
-              for config_name in "${CONFIG_NAMES[@]}"; do
-                result=0
-                for iter in $(seq 1 $ITERATIONS); do
-                  image_per_sec=$(run_report "$model" $batch_size $config_name $num_gpus $iter $data_mode $variable_update $distortions)
-                  result=$(echo "$result + $image_per_sec" | bc -l)
+            if [ $data_mode = syn ] && $distortions ; then
+              # skip distortion for synthetic data
+              :
+            else
+              benchmark_name=$(get_benchmark_name $num_gpus $data_mode $variable_update $distortions $precision)
+            
+              echo $'\n' >> $summary_file
+              echo "**${benchmark_name}**"$'\n' >> $summary_file
+              echo "${config_line}" >> $summary_file
+              echo "${table_line}" >> $summary_file
+                  
+              for model in "${MODELS[@]}"; do
+                local batch_size=${BATCH_SIZES[$model]}
+                result_line="${model} |"
+                for config_name in "${CONFIG_NAMES[@]}"; do
+                  result=0
+                  for iter in $(seq 1 $ITERATIONS); do
+                    image_per_sec=$(run_report "$model" $batch_size $config_name $num_gpus $iter $data_mode $variable_update $distortions $precision)
+                    result=$(echo "$result + $image_per_sec" | bc -l)
+                  done
+                  result=$(echo "scale=2; $result / $ITERATIONS" | bc -l)
+                  result_line+="${result} |"
+
                 done
-                result=$(echo "scale=2; $result / $ITERATIONS" | bc -l)
-                result_line+="${result} |"
+                
+                echo "${result_line}" >> $summary_file
+              done 
+            fi
 
-              done
-              
-              echo "${result_line}" >> $summary_file
-            done 
-          fi
-
+          done
         done
       done
     done
