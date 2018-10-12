@@ -1,10 +1,13 @@
 #!/bin/bash -e
 
-ITERATIONS=$1
-ITERATIONS=${ITERATIONS:-10}
+GPU_INDEX=${1:-0}
+IFS=', ' read -r -a gpus <<< "$GPU_INDEX"
 
-MIN_NUM_GPU=${2:-1}
-MAX_NUM_GPU=${3:-1}
+ITERATIONS=${2:-10}
+
+MIN_NUM_GPU=${#gpus[@]}
+MAX_NUM_GPU=$MIN_NUM_GPU
+export CUDA_VISIBLE_DEVICES=$GPU_INDEX
 
 SCRIPT_DIR="$(pwd)/benchmarks/scripts/tf_cnn_benchmarks"
 
