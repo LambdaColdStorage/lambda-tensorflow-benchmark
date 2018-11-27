@@ -3,7 +3,7 @@
 GPU_INDEX=${1:-0}
 IFS=', ' read -r -a gpus <<< "$GPU_INDEX"
 
-ITERATIONS=${2:-10}
+ITERATIONS=${2:-100}
 
 MIN_NUM_GPU=${#gpus[@]}
 MAX_NUM_GPU=$MIN_NUM_GPU
@@ -100,7 +100,7 @@ run_benchmark() {
   args+=("--distortions=$distortions")
   args+=("--num_batches=$NUM_BATCHES")
   args+=("--data_name=$dataset_name")
-  # args+=("--all_reduce_spec=nccl")
+  args+=("--all_reduce_spec=nccl")
 
   if [ $data_mode = real ]; then
     args+=("--data_dir=$DATA_DIR")
