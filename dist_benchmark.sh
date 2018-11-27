@@ -3,7 +3,7 @@
 GPU_INDEX=${1:-0}
 IFS=', ' read -r -a gpus <<< "$GPU_INDEX"
 
-ITERATIONS=${2:-10}
+ITERATIONS=${2:-1}
 
 PS_HOSTS=${3:-10.0.0.1:50000}
 WORKER_HOSTS=${4:-10.0.0.1:50001}
@@ -31,16 +31,16 @@ echo $CONFIG_NAME
 DATA_DIR="/home/${USER}/data/imagenet_mini"
 LOG_DIR="$(pwd)/${CONFIG_NAME}.logs"
 
-NUM_BATCHES=10
+NUM_BATCHES=100
 
 MODELS=(
   resnet50
-#  resnet152
-#  inception3
-#  inception4
-#  vgg16
+  resnet152
+  inception3
+  inception4
+  vgg16
   alexnet
-#  ssd300
+  ssd300
 )
 
 VARIABLE_UPDATE=(
