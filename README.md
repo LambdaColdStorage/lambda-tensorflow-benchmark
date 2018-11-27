@@ -39,3 +39,13 @@ cd lambda-tensorflow-benchmark
 ```
 ./report.sh <cpu>-<gpu>.logs num_iterations gpu_indices
 ```
+
+#### Batch process:
+
+```
+./batch_benchmark.sh min_num_gpus max_num_gpus num_iterations
+
+./batch_report.sh <cpu>-<gpu>.logs min_num_gpus max_num_gpus num_iterations
+
+./gether.sh
+```
