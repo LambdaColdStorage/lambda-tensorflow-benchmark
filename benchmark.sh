@@ -41,7 +41,7 @@ MODELS=(
 
 VARIABLE_UPDATE=(
   replicated
-  parameter_server
+#  parameter_server
 )
 
 DATA_MODE=(
