@@ -24,19 +24,19 @@ CONFIG_NAME="${CPU_NAME}-${GPU_NAME}"
 echo $CONFIG_NAME
 
 
-DATA_DIR="/home/${USER}/data/imagenet_mini"
+DATA_DIR="/home/${USER}/nfs/imagenet_mini"
 LOG_DIR="$(pwd)/${CONFIG_NAME}.logs"
 
 NUM_BATCHES=100
 
 MODELS=(
   resnet50
-  resnet152
-  inception3
-  inception4
-  vgg16
-  alexnet
-  ssd300
+  # resnet152
+  # inception3
+  # inception4
+  # vgg16
+  # alexnet
+  # ssd300
 )
 
 VARIABLE_UPDATE=(
@@ -45,12 +45,13 @@ VARIABLE_UPDATE=(
 )
 
 DATA_MODE=(
-  syn
+#  syn
+  real
 )
 
 PRECISION=(
   fp32
-  fp16
+  # fp16
 )
 
 declare -A BATCH_SIZES=(

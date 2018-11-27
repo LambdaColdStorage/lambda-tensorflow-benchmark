@@ -35,12 +35,12 @@ NUM_BATCHES=100
 
 MODELS=(
   resnet50
-  resnet152
-  inception3
-  inception4
-  vgg16
-  alexnet
-  ssd300
+  # resnet152
+  # inception3
+  # inception4
+  # vgg16
+  # alexnet
+  # ssd300
 )
 
 VARIABLE_UPDATE=(
@@ -53,7 +53,7 @@ DATA_MODE=(
 
 PRECISION=(
   fp32
-  fp16
+  # fp16
 )
 
 declare -A BATCH_SIZES=(
