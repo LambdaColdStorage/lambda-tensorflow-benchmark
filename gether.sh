@@ -5,8 +5,9 @@ MAX_NUM_GPU=${2:-8}
 
 CONFIG=(
 #  E5_2650-1080_TI
-  E5-2650-2080_Ti-410-cuda10
+#  E5-2650-2080_Ti-410-cuda10
 #  E5_2650-Tesla_V100
+   i9-7920X-GeForce_RTX_2080_Ti
 )
 
 MODELS=(
@@ -26,7 +27,7 @@ PRECISION=(
 
 VARIABLE_UPDATE=(
   replicated
-  parameter_server
+#  parameter_server
 )
 
 DATA_MODE=(

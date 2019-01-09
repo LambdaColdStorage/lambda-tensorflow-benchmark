@@ -31,12 +31,12 @@ NUM_BATCHES=100
 
 MODELS=(
   resnet50
-  # resnet152
-  # inception3
-  # inception4
-  # vgg16
-  # alexnet
-  # ssd300
+  resnet152
+  inception3
+  inception4
+  vgg16
+  alexnet
+  ssd300
 )
 
 VARIABLE_UPDATE=(
@@ -45,25 +45,43 @@ VARIABLE_UPDATE=(
 )
 
 DATA_MODE=(
-#  syn
-  real
+  syn
+#  real
 )
 
 PRECISION=(
   fp32
-  # fp16
+  fp16
 )
 
-declare -A BATCH_SIZES=(
-  [resnet50]=64
-  [resnet101]=64
-  [resnet152]=32
-  [inception3]=64
-  [inception4]=16
-  [vgg16]=64
-  [alexnet]=512
-  [ssd300]=32
+RUN_MODE=(
+  train
+  inference
 )
+
+# For GPUs with ~12 GB memory
+declare -A BATCH_SIZES=(
+ [resnet50]=64
+ [resnet101]=64
+ [resnet152]=32
+ [inception3]=64
+ [inception4]=16
+ [vgg16]=64
+ [alexnet]=512
+ [ssd300]=32
+)
+
+# For GPUs with ~24 GB memory
+# declare -A BATCH_SIZES=(
+#   [resnet50]=128
+#   [resnet101]=128
+#   [resnet152]=64
+#   [inception3]=128
+#   [inception4]=32
+#   [vgg16]=128
+#   [alexnet]=1024
+#   [ssd300]=64
+# )
 
 declare -A DATASET_NAMES=(
   [resnet50]=imagenet
@@ -88,6 +106,7 @@ run_benchmark() {
   local distortions=$8
   local dataset_name=$9
   local precision="${10}"
+  local run_mode="${11}"
 
   pushd "$SCRIPT_DIR" &> /dev/null
   local args=()
@@ -112,6 +131,11 @@ run_benchmark() {
   if [ $precision = fp16 ]; then
     args+=("--use_fp16=True")
   fi
+  if [ $run_mode == inference ]; then
+    args+=("--forward_only=True")
+    output+="-inference"
+  fi
+
   output+="-${num_gpus}gpus-${batch_size}-${iter}.log"
 
   mkdir -p "${LOG_DIR}" || true
@@ -127,13 +151,14 @@ run_benchmark_all() {
   local variable_update="$2"
   local distortions="$3"
   local precision="$4"
+  local run_mode="$5"
 
   for model in "${MODELS[@]}"; do
     local batch_size=${BATCH_SIZES[$model]}
     local dataset_name=${DATASET_NAMES[$model]}
     for num_gpu in `seq ${MAX_NUM_GPU} -1 ${MIN_NUM_GPU}`; do 
       for iter in $(seq 1 $ITERATIONS); do
-        run_benchmark "$model" $batch_size $CONFIG_NAME $num_gpu $iter $data_mode $variable_update $distortions $dataset_name $precision
+        run_benchmark "$model" $batch_size $CONFIG_NAME $num_gpu $iter $data_mode $variable_update $distortions $dataset_name $precision $run_mode
       done
     done
   done  
@@ -142,20 +167,23 @@ run_benchmark_all() {
 main() {
   local data_mode variable_update distortion_mode model num_gpu iter benchmark_name distortions precision
   local cpu_line table_line
-  for precision in "${PRECISION[@]}"; do
-    for data_mode in "${DATA_MODE[@]}"; do
-      for variable_update in "${VARIABLE_UPDATE[@]}"; do
-        for distortions in true false; do
-          if [ $data_mode = syn ] && $distortions ; then
-            # skip distortion for synthetic data
-            :
-          else
-            run_benchmark_all $data_mode $variable_update $distortions $precision
-          fi
+  for run_mode in "${RUN_MODE[@]}"; do
+    for precision in "${PRECISION[@]}"; do
+      for data_mode in "${DATA_MODE[@]}"; do
+        for variable_update in "${VARIABLE_UPDATE[@]}"; do
+          for distortions in true false; do
+            if [ $data_mode = syn ] && $distortions ; then
+              # skip distortion for synthetic data
+              :
+            else
+              run_benchmark_all $data_mode $variable_update $distortions $precision $run_mode
+            fi
+          done
         done
       done
     done
   done
+
 
 }
 
