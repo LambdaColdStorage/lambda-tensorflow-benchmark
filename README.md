@@ -17,6 +17,12 @@ Environment:
 curl https://s3-us-west-2.amazonaws.com/lambdalabs-files/imagenet_mini.tar.gz | tar xvz -C ~/data)
 ``` -->
 
+#### Step Zero: Install expect to use unbuffer
+
+```
+sudo apt-get install expect
+```
+
 #### Step One: Clone benchmark repo
 
 
