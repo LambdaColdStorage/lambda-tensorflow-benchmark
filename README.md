@@ -9,7 +9,7 @@ Environment:
 - CUDA Version 10.0
 - CUDNN Version 7.3.0
 
-#### Step Zero: Install expect to use unbuffer
+#### Install
 
 ```
 sudo apt-get install expect
@@ -25,15 +25,18 @@ git clone https://github.com/lambdal/lambda-tensorflow-benchmark.git --recursive
 #### Step Two: Run benchmark with thermal profile
 
 ```
-./batch_benchmark.sh min_num_gpus max_num_gpus num_runs thermal_sampling_frequency
+./batch_benchmark.sh min_num_gpus max_num_gpus num_runs num_batches_per_run thermal_sampling_frequency
 python display_thermal.py path-to-thermal.log
 
-# example of benchmarking 4 GPU (all used), 1 run, measuring thermal every 2 second
-./batch_benchmark.sh 4 4 1 2
+# example of benchmarking 4 GPU (all used), 1 run, 200 batches per run, measuring thermal every 2 second
+./batch_benchmark.sh 4 4 1 200 2
 python display_thermal.py i9-7920X-GeForce_RTX_2080_Ti.logs/resnet152-syn-replicated-fp32-4gpus-32-1-thermal.log
 
 ```
 
+#### Note
+
+Use large num_batches_per_run for a thorough test.
 
 
 <!-- #### Step Two: Run benchmark

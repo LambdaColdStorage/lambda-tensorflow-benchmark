@@ -4,8 +4,8 @@ GPU_INDEX=${1:-0}
 IFS=', ' read -r -a gpus <<< "$GPU_INDEX"
 
 ITERATIONS=${2:-100}
-
-THERMAL_INTERVAL=${3:-1}
+NUM_BATCHES=${3:-100}
+THERMAL_INTERVAL=${4:-1}
 
 MIN_NUM_GPU=${#gpus[@]}
 MAX_NUM_GPU=$MIN_NUM_GPU
@@ -29,7 +29,6 @@ echo $CONFIG_NAME
 DATA_DIR="/home/${USER}/nfs/imagenet_mini"
 LOG_DIR="$(pwd)/${CONFIG_NAME}.logs"
 
-NUM_BATCHES=20000
 
 MODELS=(
   #resnet50
