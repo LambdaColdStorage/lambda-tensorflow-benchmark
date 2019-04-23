@@ -29,10 +29,10 @@ echo $CONFIG_NAME
 DATA_DIR="/home/${USER}/nfs/imagenet_mini"
 LOG_DIR="$(pwd)/${CONFIG_NAME}.logs"
 
-NUM_BATCHES=200
+NUM_BATCHES=20000
 
 MODELS=(
-  resnet50
+  #resnet50
   resnet152
   #inception3
   #inception4
@@ -73,28 +73,28 @@ RUN_MODE=(
 # )
 
 
-# For GPUs with ~8 GB memory
-declare -A BATCH_SIZES=(
- [resnet50]=48
- [resnet152]=32
- [inception3]=48
- [inception4]=12
- [vgg16]=48
- [alexnet]=384
- [ssd300]=32
-)
-
-
-# # For GPUs with ~12 GB memory
+# # For GPUs with ~8 GB memory
 # declare -A BATCH_SIZES=(
-#  [resnet50]=64
+#  [resnet50]=48
 #  [resnet152]=32
-#  [inception3]=64
-#  [inception4]=16
-#  [vgg16]=64
-#  [alexnet]=512
+#  [inception3]=48
+#  [inception4]=12
+#  [vgg16]=48
+#  [alexnet]=384
 #  [ssd300]=32
 # )
+
+
+# For GPUs with ~12 GB memory
+declare -A BATCH_SIZES=(
+ [resnet50]=64
+ [resnet152]=32
+ [inception3]=64
+ [inception4]=16
+ [vgg16]=64
+ [alexnet]=512
+ [ssd300]=32
+)
 
 # For GPUs with ~24 GB memory
 # declare -A BATCH_SIZES=(

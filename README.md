@@ -9,14 +9,6 @@ Environment:
 - CUDA Version 10.0
 - CUDNN Version 7.3.0
 
-<!-- #### Step One: Download mini imagenet data (1.5 GB)
-
-
-```
-(mkdir ~/data;
-curl https://s3-us-west-2.amazonaws.com/lambdalabs-files/imagenet_mini.tar.gz | tar xvz -C ~/data)
-``` -->
-
 #### Step Zero: Install expect to use unbuffer
 
 ```
@@ -30,7 +22,21 @@ sudo apt-get install expect
 git clone https://github.com/lambdal/lambda-tensorflow-benchmark.git --recursive
 ```
 
-#### Step Two: Run benchmark
+#### Step Two: Run benchmark with thermal profile
+
+```
+./batch_benchmark.sh min_num_gpus max_num_gpus num_runs thermal_sampling_frequency
+python display_thermal.py path-to-thermal.log
+
+# example of benchmarking 4 GPU (all used), 1 run, measuring thermal every 2 second
+./batch_benchmark.sh 4 4 1 2
+python display_thermal.py i9-7920X-GeForce_RTX_2080_Ti.logs/resnet152-syn-replicated-fp32-4gpus-32-1-thermal.log
+
+```
+
+
+
+<!-- #### Step Two: Run benchmark
 
 * Input proper gpu_indices (a comma seperated list, default 0) and num_iterations (default 10)
 ```
@@ -55,3 +61,5 @@ cd lambda-tensorflow-benchmark
 
 ./gether.sh
 ```
+
+ -->
