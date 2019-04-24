@@ -7,10 +7,13 @@ def main():
 	parser = argparse.ArgumentParser(description='Process some integers.')
 	parser.add_argument('file_name', type=str,
 	                    help='name of the thermal log file')
+	parser.add_argument('--thermal_threshold', type=int, default=0,
+	                    help='Threshold for the card to throttle')
 
 	args = parser.parse_args()
 	
 	file_name = args.file_name
+	thermal_threshold = args.thermal_threshold
 
 	t = []
 	throughput = []
@@ -48,15 +51,18 @@ def main():
 	ax0.set_title('Throughput')
 	ax0.set_xlabel('Time (sec)')
 	ax0.set_ylabel('Throughput (images/sec)')	
-	ax0.plot(t, throughput, 'r+')
+	ax0.plot(t, throughput, 'b')
 
 	ax1.set_xlim((t[0], t[-1]))
-	ax1.set_ylim((0, np.amax(np.amax(temperature)) * 1.1))
+	ax1.set_ylim((0, np.amax(np.amax(temperature)) * 1.25))
 	ax1.set_title('temperature')
 	ax1.set_xlabel('Time (sec)')
 	ax1.set_ylabel('Degree (celsius)')		
 	for i in range(num_gpu):
-		ax1.plot(t, temperature[i], 'r+')
+		ax1.plot(t, temperature[i], 'b')
+	
+	if thermal_threshold > 0:
+		ax1.plot(t, thermal_threshold * np.ones_like(t), 'r')
 
 	plt.show()
 
