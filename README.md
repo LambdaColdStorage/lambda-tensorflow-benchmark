@@ -5,9 +5,9 @@ This is the code used for a few of the blog posts on: https://lambdalabs.com/blo
 
 Environment:
 - OS: Ubuntu 18.04
-- TensorFlow version: 1.11.0-rc1
+- TensorFlow version: 1.14.0
 - CUDA Version 10.0
-- CUDNN Version 7.3.0
+- CUDNN Version 7.6.2
 
 #### Install
 
@@ -25,11 +25,11 @@ git clone https://github.com/lambdal/lambda-tensorflow-benchmark.git --recursive
 #### Step Two: Run benchmark with thermal profile
 
 ```
-./batch_benchmark.sh min_num_gpus max_num_gpus num_runs num_batches_per_run thermal_sampling_frequency
+TF_XLA_FLAGS=--tf_xla_auto_jit=2 ./batch_benchmark.sh min_num_gpus max_num_gpus num_runs num_batches_per_run thermal_sampling_frequency
 python display_thermal.py path-to-thermal.log --thermal_threshold
 
 # example of benchmarking 4 2080_Ti (all used), 1 run, 200 batches per run, measuring thermal every 2 second. 2080_Ti throttles at 89 C.
-./batch_benchmark.sh 4 4 1 200 2
+TF_XLA_FLAGS=--tf_xla_auto_jit=2 ./batch_benchmark.sh 4 4 1 200 2
 python display_thermal.py i9-7920X-GeForce_RTX_2080_Ti.logs/resnet152-syn-replicated-fp32-4gpus-32-1-thermal.log --thermal_threshold 89
 
 ```
@@ -58,7 +58,7 @@ cd lambda-tensorflow-benchmark
 #### Batch process:
 
 ```
-./batch_benchmark.sh min_num_gpus max_num_gpus num_iterations
+TF_XLA_FLAGS=--tf_xla_auto_jit=2 ./batch_benchmark.sh min_num_gpus max_num_gpus num_iterations
 
 ./batch_report.sh <cpu>-<gpu>.logs min_num_gpus max_num_gpus num_iterations
 
