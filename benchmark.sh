@@ -191,30 +191,20 @@ run_benchmark() {
   
   # echo $output
   echo ${args[@]}
+
+  num_sec=0
+  while :; do
+	  local info="$(nvidia-smi --query-gpu=temperature.gpu,utilization.gpu,utilization.memory\
+		  --format=csv,noheader,nounits)"
+	  echo "${num_sec}, ${info}" >> "$output_thermal"
+	  num_sec=$((num_sec + THERMAL_INTERVAL))
+	  sleep $THERMAL_INTERVAL
+  done &
+  thermal_loop="$!" # process ID of while loop
+
   stdbuf -oL  python3 tf_cnn_benchmarks.py "${args[@]}" |& tee "$output"
 
-  flag_thermal=true
-  num_sec=0
-  while $flag_thermal;
-  do
-    head="$(cat $output | grep "images/sec:" | tail -1 | awk '{ print $1 }')"
-    throughput="$(cat $output | grep "images/sec:" | tail -1 | awk '{ print $3 }')"
-
-    if [ "$head" = "total" ]
-    then
-      flag_thermal=false
-    else
-      if [ ! -z "$throughput" ]
-      then
-        num_sec=$((num_sec + THERMAL_INTERVAL))
-        thermal="$(nvidia-smi --query-gpu=temperature.gpu,utilization.gpu,utilization.memory --format=csv | awk '{ print $1 }' | tail -n +2 | tr '\n' ' ')"
-        echo "${num_sec}, ${throughput}, ${thermal}" >> "$output_thermal"
-      fi      
-    fi
-
-    sleep $THERMAL_INTERVAL
-  done
-
+  kill "$thermal_loop"
   popd &> /dev/null
 }
 
