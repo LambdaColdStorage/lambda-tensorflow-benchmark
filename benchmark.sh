@@ -191,7 +191,7 @@ run_benchmark() {
   
   # echo $output
   echo ${args[@]}
-  unbuffer python3 tf_cnn_benchmarks.py "${args[@]}" |& tee "$output" &
+  stdbuf -oL  python3 tf_cnn_benchmarks.py "${args[@]}" |& tee "$output"
 
   flag_thermal=true
   num_sec=0
