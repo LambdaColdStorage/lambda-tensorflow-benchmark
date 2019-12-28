@@ -13,13 +13,14 @@ export CUDA_VISIBLE_DEVICES=$GPU_INDEX
 
 SCRIPT_DIR="$(pwd)/benchmarks/scripts/tf_cnn_benchmarks"
 
-CPU_NAME="$(lscpu | grep "Model name:" | sed -r 's/Model name:\s{1,}//g' | awk '{ print $4 }')";
-if [ $CPU_NAME = "CPU" ]; then
+CPU_NAME="$(lscpu | awk '/Model\ name:/ {
   # CPU can show up at different locations
-  CPU_NAME="$(lscpu | grep "Model name:" | sed -r 's/Model name:\s{1,}//g' | awk '{ print $3 }')";
-fi
+  if($5 ~ "CPU") print $4;
+  else print $5;
+  exit
+}')"
 
-GPU_NAME="$(nvidia-smi -i 0 --query-gpu=gpu_name --format=csv,noheader)"
+GPU_NAME="$([ which nvidia-smi &>/dev/null ] && nvidia-smi -i 0 --query-gpu=gpu_name --format=csv,noheader || echo PLACEHOLDER )"
 GPU_NAME="${GPU_NAME// /_}"
 
 CONFIG_NAME="${CPU_NAME}-${GPU_NAME}"
