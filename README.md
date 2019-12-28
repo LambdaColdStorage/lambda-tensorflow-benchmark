@@ -9,12 +9,6 @@ Environment:
 - CUDA Version 10.0
 - CUDNN Version 7.6.2
 
-#### Install
-
-```
-sudo apt-get install expect
-```
-
 #### Step One: Clone benchmark repo
 
 
