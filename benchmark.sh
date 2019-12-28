@@ -157,7 +157,9 @@ run_benchmark() {
 
   pushd "$SCRIPT_DIR" &> /dev/null
   local args=()
-  local output="${LOG_DIR}/${model}-${data_mode}-${variable_update}-${precision}"
+
+  # Example: syn-replicated-fp32-1gpus
+  local outer_dir="${data_mode}-${variable_update}-${precision}-${num_gpus}gpus"
 
   args+=("--optimizer=sgd")
   args+=("--model=$model")
@@ -173,22 +175,24 @@ run_benchmark() {
     args+=("--data_dir=$DATA_DIR")
   fi
   if $distortions; then
-    output+="-distortions"
+    outer_dir+="-distortions"
   fi
   if [ $precision = fp16 ]; then
     args+=("--use_fp16=True")
   fi
   if [ $run_mode == inference ]; then
     args+=("--forward_only=True")
-    output+="-inference"
+    outer_dir+="-inference"
   fi
 
-  output_thermal="${output}-${num_gpus}gpus-${batch_size}-${iter}-thermal.log"
-  output+="-${num_gpus}gpus-${batch_size}-${iter}.log"
+  inner_dir="${model}-${batch_size}"
+  local         output="${LOG_DIR}/${outer_dir}/${inner_dir}/${iter}"
+  local output_thermal="${LOG_DIR}/${outer_dir}/${inner_dir}/thermal/${iter}"
   
-  rm -f $outupt
+  rm -f $output
   rm -f $output_thermal
-  mkdir -p "${LOG_DIR}" || true
+  mkdir -p "$(dirname $output)" || true
+  mkdir -p "$(dirname $output_thermal)" || true
   
   # echo $output
   echo ${args[@]}
