@@ -207,8 +207,8 @@ run_thermal() {
 
 run_benchmark_all() {
   for model in "${MODELS[@]}"; do
-    local batch_size=${BATCH_SIZES[$model]}
-    local dataset_name=${DATASET_NAMES[$model]}
+    batch_size=${BATCH_SIZES[$model]}
+    dataset_name=${DATASET_NAMES[$model]}
     for num_gpus in `seq ${MAX_NUM_GPU} -1 ${MIN_NUM_GPU}`; do 
       for iter in $(seq 1 $ITERATIONS); do
         run_benchmark
