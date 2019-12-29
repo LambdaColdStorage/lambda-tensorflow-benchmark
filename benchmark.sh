@@ -219,12 +219,6 @@ run_thermal() {
 }
 
 run_benchmark_all() {
-  local data_mode="$1" 
-  local variable_update="$2"
-  local distortions="$3"
-  local precision="$4"
-  local run_mode="$5"
-
   for model in "${MODELS[@]}"; do
     local batch_size=${BATCH_SIZES[$model]}
     local dataset_name=${DATASET_NAMES[$model]}
@@ -239,8 +233,6 @@ run_benchmark_all() {
 
 
 main() {
-  local data_mode variable_update distortion_mode model num_gpu iter benchmark_name distortions precision
-  local cpu_line table_line
   for run_mode in "${RUN_MODE[@]}"; do
     for precision in "${PRECISION[@]}"; do
       for data_mode in "${DATA_MODE[@]}"; do
@@ -250,7 +242,7 @@ main() {
               # skip distortion for synthetic data
               :
             else
-              run_benchmark_all $data_mode $variable_update $distortions $precision $run_mode
+              run_benchmark_all
             fi
           done
         done
