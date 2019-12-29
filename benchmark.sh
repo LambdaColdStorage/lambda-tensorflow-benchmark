@@ -209,9 +209,10 @@ run_benchmark() {
 run_thermal() {
   local num_sec=0
   while :; do
-	  local info="$(nvidia-smi --query-gpu=temperature.gpu,utilization.gpu,utilization.memory\
+	  local info="$(nvidia-smi \
+		  --query-gpu=temperature.gpu,utilization.gpu,utilization.memory\
 		  --format=csv,noheader,nounits)"
-	  echo "${num_sec}, ${info}"
+	  printf "${num_sec}\n${info}\n\n"
 	  num_sec=$((num_sec + THERMAL_INTERVAL))
 	  sleep $THERMAL_INTERVAL
   done
