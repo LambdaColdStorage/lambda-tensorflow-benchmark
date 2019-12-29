@@ -1,11 +1,5 @@
 #!/bin/sh
-decomment() {
-	sed -E '/#/d' $*
-}
-
-
-# parse will take the following
-#
+# this script will take the following input:
 # MODELS
 # inception3 48
 # resnet152 32
@@ -17,28 +11,24 @@ decomment() {
 # resnet152="32"
 # ...
 
-parse() {
-	decomment $* | awk -v RS='\n\n' -v FS='\n' '
+sed -E '/#/d' $* | awk -v RS='\n\n' -v FS='\n' '
 	$1 ~ /.+/ && $2 ~ /.+/ {
-		for (i=2; i <= NF; i++) {
-			split($i, arr, " ");
-			if (arr[2]) {
-				v=arr[2]
-				for (j=3; j < length(arr); j++) {
-					v = v " " arr[j]
-				}
-				printf "%s=\"%s\"\n", arr[1], v
+	for (i=2; i <= NF; i++) {
+		len = split($i, arr, " ");
+		if (arr[2]) {
+			v=arr[2]
+			for (j=3; j < len; j++) {
+				v = v " " arr[j];
 			}
-			headarr[k++] = arr[1];
+			printf "%s=\"%s\"\n", arr[1], v
 		}
-		v=headarr[0]
-		for (i=1; i < k; i++) {
-			v = v " " headarr[i]
-		}
-		printf "%s=\"%s\"\n", $1, v
-		delete headarr
-		delete arr
-	}'
-}
-
-parse $*
+		headarr[k++] = arr[1];
+	}
+	v=headarr[0]
+	for (i=1; i < k; i++) {
+		v = v " " headarr[i]
+	}
+	printf "%s=\"%s\"\n", $1, v
+	delete headarr
+	delete arr
+}'
