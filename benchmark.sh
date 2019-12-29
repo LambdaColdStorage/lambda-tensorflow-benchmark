@@ -142,24 +142,11 @@ declare -A DATASET_NAMES=(
 
 
 run_benchmark() {
-
-  local model="$1"
-  local batch_size=$2
-  local config_name=$3
-  local num_gpus=$4
-  local iter=$5
-  local data_mode=$6
-  local update_mode=$7
-  local distortions=$8
-  local dataset_name=$9
-  local precision="${10}"
-  local run_mode="${11}"
-
   pushd "$SCRIPT_DIR" &> /dev/null
   local args=()
 
   # Example: syn-replicated-fp32-1gpus
-  local outer_dir="${data_mode}-${variable_update}-${precision}-${num_gpus}gpus"
+  outer_dir="${data_mode}-${variable_update}-${precision}-${num_gpus}gpus"
 
   args+=("--optimizer=sgd")
   args+=("--model=$model")
@@ -222,9 +209,9 @@ run_benchmark_all() {
   for model in "${MODELS[@]}"; do
     local batch_size=${BATCH_SIZES[$model]}
     local dataset_name=${DATASET_NAMES[$model]}
-    for num_gpu in `seq ${MAX_NUM_GPU} -1 ${MIN_NUM_GPU}`; do 
+    for num_gpus in `seq ${MAX_NUM_GPU} -1 ${MIN_NUM_GPU}`; do 
       for iter in $(seq 1 $ITERATIONS); do
-        run_benchmark "$model" $batch_size $CONFIG_NAME $num_gpu $iter $data_mode $variable_update $distortions $dataset_name $precision $run_mode
+        run_benchmark
       done
     done
   done  
