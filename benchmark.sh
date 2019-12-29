@@ -1,5 +1,7 @@
 #!/bin/bash -e
 
+CONFIG="$(pwd)/.config"
+
 GPU_INDEX=${1:-0}
 IFS=', ' read -r -a gpus <<< "$GPU_INDEX"
 
@@ -31,104 +33,6 @@ DATA_DIR="/home/${USER}/nfs/imagenet_mini"
 LOG_DIR="$(pwd)/${CONFIG_NAME}.logs"
 
 
-MODELS=(
-  resnet50
-  resnet152
-  inception3
-  inception4
-  vgg16
-  alexnet
-  ssd300
-)
-
-VARIABLE_UPDATE=(
-  replicated
-#  parameter_server
-)
-
-DATA_MODE=(
-  syn
-#  real
-)
-
-PRECISION=(
-  fp32
-  fp16
-)
-
-RUN_MODE=(
-  train
-  inference
-)
-
-# # For GPUs with ~6 GB memory
-# declare -A BATCH_SIZES=(
-#  [resnet50]=32
-#  [resnet152]=16
-#  [inception3]=32
-#  [inception4]=8
-#  [vgg16]=32
-#  [alexnet]=256
-#  [ssd300]=16
-# )
-
-
-# # For GPUs with ~8 GB memory
-# declare -A BATCH_SIZES=(
-#  [resnet50]=48
-#  [resnet152]=32
-#  [inception3]=48
-#  [inception4]=12
-#  [vgg16]=48
-#  [alexnet]=384
-#  [ssd300]=32
-# )
-
-
-## For GPUs with ~12 GB memory
-#declare -A BATCH_SIZES=(
-# [resnet50]=64
-# [resnet152]=32
-# [inception3]=64
-# [inception4]=16
-# [vgg16]=64
-# [alexnet]=512
-# [ssd300]=32
-#)
-
-# For GPUs with ~24 GB memory
-# declare -A BATCH_SIZES=(
-#   [resnet50]=128
-#   [resnet152]=64
-#   [inception3]=128
-#   [inception4]=32
-#   [vgg16]=128
-#   [alexnet]=1024
-#   [ssd300]=64
-# )
-
-# For GPUs with ~32 GB memory
-declare -A BATCH_SIZES=(
-  [resnet50]=192
-  [resnet152]=96
-  [inception3]=192
-  [inception4]=48
-  [vgg16]=192
-  [alexnet]=1536
-  [ssd300]=96
-)
-
-## For GPUs with ~48 GB memory
-#declare -A BATCH_SIZES=(
-#  [resnet50]=256
-#  [resnet152]=128
-#  [inception3]=256
-#  [inception4]=64
-#  [vgg16]=256
-#  [alexnet]=2048
-#  [ssd300]=128
-#)
-
 declare -A DATASET_NAMES=(
   [resnet50]=imagenet
   [resnet101]=imagenet
@@ -154,15 +58,18 @@ run_thermal() {
 
 run_benchmark() {
   pushd "$SCRIPT_DIR" &> /dev/null
-  local args=()
 
+  # Example: model=alexnet; alexnet=1536
+  eval batch_size=\$$model
   # Example: syn-replicated-fp32-1gpus
   outer_dir="${data_mode}-${variable_update}-${precision}-${num_gpus}gpus"
 
+
+  local args=()
   args+=("--optimizer=sgd")
   args+=("--model=$model")
   args+=("--num_gpus=$num_gpus")
-  args+=("--batch_size=${BATCH_SIZES[$model]}")
+  args+=("--batch_size=$batch_size")
   args+=("--variable_update=$variable_update")
   args+=("--distortions=$distortions")
   args+=("--num_batches=$NUM_BATCHES")
@@ -217,10 +124,12 @@ run_benchmark_all() {
 
 
 main() {
-  for run_mode in "${RUN_MODE[@]}"; do
-    for precision in "${PRECISION[@]}"; do
-      for data_mode in "${DATA_MODE[@]}"; do
-        for variable_update in "${VARIABLE_UPDATE[@]}"; do
+  eval $(parse_config $CONFIG)
+
+  for run_mode in "${RUN_MODE}"; do
+    for precision in "${PRECISION}"; do
+      for data_mode in "${DATA_MODE}"; do
+        for variable_update in "${VARIABLE_UPDATE}"; do
           for distortions in true false; do
             if [ $data_mode = syn ] && $distortions; then
               # skip distortion for synthetic data
@@ -233,8 +142,6 @@ main() {
       done
     done
   done
-
-
 }
 
 main "$@"
