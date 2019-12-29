@@ -140,6 +140,17 @@ declare -A DATASET_NAMES=(
   [ssd300]=coco  
 )
 
+run_thermal() {
+  local num_sec=0
+  while :; do
+	  local info="$(nvidia-smi \
+		  --query-gpu=temperature.gpu,utilization.gpu,utilization.memory\
+		  --format=csv,noheader,nounits)"
+	  printf "${num_sec}\n${info}\n\n"
+	  num_sec=$((num_sec + THERMAL_INTERVAL))
+	  sleep $THERMAL_INTERVAL
+  done
+}
 
 run_benchmark() {
   pushd "$SCRIPT_DIR" &> /dev/null
@@ -151,11 +162,11 @@ run_benchmark() {
   args+=("--optimizer=sgd")
   args+=("--model=$model")
   args+=("--num_gpus=$num_gpus")
-  args+=("--batch_size=$batch_size")
+  args+=("--batch_size=${BATCH_SIZES[$model]}")
   args+=("--variable_update=$variable_update")
   args+=("--distortions=$distortions")
   args+=("--num_batches=$NUM_BATCHES")
-  args+=("--data_name=$dataset_name")
+  args+=("--data_name=${DATASET_NAMES[$model]}")
   args+=("--all_reduce_spec=nccl")
 
   if [ $data_mode = real ]; then
@@ -193,22 +204,8 @@ run_benchmark() {
   popd &> /dev/null
 }
 
-run_thermal() {
-  local num_sec=0
-  while :; do
-	  local info="$(nvidia-smi \
-		  --query-gpu=temperature.gpu,utilization.gpu,utilization.memory\
-		  --format=csv,noheader,nounits)"
-	  printf "${num_sec}\n${info}\n\n"
-	  num_sec=$((num_sec + THERMAL_INTERVAL))
-	  sleep $THERMAL_INTERVAL
-  done
-}
-
 run_benchmark_all() {
   for model in "${MODELS[@]}"; do
-    batch_size=${BATCH_SIZES[$model]}
-    dataset_name=${DATASET_NAMES[$model]}
     for num_gpus in `seq ${MAX_NUM_GPU} -1 ${MIN_NUM_GPU}`; do 
       for iter in $(seq 1 $ITERATIONS); do
         run_benchmark
@@ -225,7 +222,7 @@ main() {
       for data_mode in "${DATA_MODE[@]}"; do
         for variable_update in "${VARIABLE_UPDATE[@]}"; do
           for distortions in true false; do
-            if [ $data_mode = syn ] && $distortions ; then
+            if [ $data_mode = syn ] && $distortions; then
               # skip distortion for synthetic data
               :
             else
