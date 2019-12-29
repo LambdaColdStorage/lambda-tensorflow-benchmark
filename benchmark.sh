@@ -197,14 +197,7 @@ run_benchmark() {
   # echo $output
   echo ${args[@]}
 
-  num_sec=0
-  while :; do
-	  local info="$(nvidia-smi --query-gpu=temperature.gpu,utilization.gpu,utilization.memory\
-		  --format=csv,noheader,nounits)"
-	  echo "${num_sec}, ${info}" >> "$output_thermal"
-	  num_sec=$((num_sec + THERMAL_INTERVAL))
-	  sleep $THERMAL_INTERVAL
-  done &
+  run_thermal >> $output_thermal &
   thermal_loop="$!" # process ID of while loop
 
   stdbuf -oL  python3 tf_cnn_benchmarks.py "${args[@]}" |& tee "$output"
@@ -214,53 +207,13 @@ run_benchmark() {
 }
 
 run_thermal() {
-  local model="$1"
-  local batch_size=$2
-  local config_name=$3
-  local num_gpus=$4
-  local iter=$5
-  local data_mode=$6
-  local update_mode=$7
-  local distortions=$8
-  local dataset_name=$9
-  local precision="${10}"
-  local run_mode="${11}"
-
-  pushd "$SCRIPT_DIR" &> /dev/null
-  local args=()
-  local output="${LOG_DIR}/${model}-${data_mode}-${variable_update}-${precision}"
-
-  args+=("--optimizer=sgd")
-  args+=("--model=$model")
-  args+=("--num_gpus=$num_gpus")
-  args+=("--batch_size=$batch_size")
-  args+=("--variable_update=$variable_update")
-  args+=("--distortions=$distortions")
-  args+=("--num_batches=$NUM_BATCHES")
-  args+=("--data_name=$dataset_name")
-  args+=("--all_reduce_spec=nccl")
-
-  if [ $data_mode = real ]; then
-    args+=("--data_dir=$DATA_DIR")
-  fi
-  if $distortions; then
-    output+="-distortions"
-  fi
-  if [ $precision = fp16 ]; then
-    args+=("--use_fp16=True")
-  fi
-  if [ $run_mode == inference ]; then
-    args+=("--forward_only=True")
-    output+="-inference"
-  fi
-
-  output+="-${num_gpus}gpus-${batch_size}-${iter}.log"
-
-  while true;
-  do
-    throughput="$(cat $output | grep "images/sec:" | tail -1 | awk '{ print $3 }')"
-    echo $throughput
-    sleep 1
+  local num_sec=0
+  while :; do
+	  local info="$(nvidia-smi --query-gpu=temperature.gpu,utilization.gpu,utilization.memory\
+		  --format=csv,noheader,nounits)"
+	  echo "${num_sec}, ${info}"
+	  num_sec=$((num_sec + THERMAL_INTERVAL))
+	  sleep $THERMAL_INTERVAL
   done
 }
 
