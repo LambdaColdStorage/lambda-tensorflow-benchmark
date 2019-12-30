@@ -44,6 +44,48 @@ declare -A DATASET_NAMES=(
   [ssd300]=coco  
 )
 
+metadata() {
+	OFS='\t'
+	#OFS=','
+
+	awk="awk -v OFS=$OFS"
+	print="printf %s$OFS%s\n"
+
+	# Total RAM
+	$awk '/MemTotal:/ { print "Memory", ($2 / 1000000) "GB"}' /proc/meminfo
+
+	# GPU Models
+	nvidia-smi --query-gpu=index,gpu_name --format=csv,noheader | \
+		$awk -v FS=', ' '{ print "GPU " $1, $2 }'
+
+	# CPU Model
+	lscpu | $awk '/Model name:/ {
+		if($5 ~ "CPU") cpu=$4;
+		else cpu=$5;
+		print "CPU", cpu;
+		exit;
+	}'
+
+	# CUDA Toolkit Version
+	nvcc --version | $awk '/release/ { print "CUDA", $6 }'
+	# Nvidia Driver Version
+	modinfo nvidia | $awk '/^version:/ { print "Nvidia", $2 }'
+
+	# Tensorflow Version
+	$print 'TF' $(python3 2>/dev/null <<- EOF 
+		import tensorflow
+		print(tensorflow.__version__)
+		EOF
+	)
+	
+	# Kernel Version
+	$print Kernel "$(uname -r)"
+
+	# Python Version
+	python3 --version | tr ' ' "$OFS"
+
+}
+
 run_thermal() {
   local num_sec=0
   while :; do
@@ -127,7 +169,11 @@ run_benchmark_all() {
 
 
 main() {
+  mkdir -p "$LOG_DIR" || true
+  metadata > "$LOG_DIR/metadata"
+
   eval $(./parse_config.sh $CONFIG)
+
   for run_mode in $RUN_MODE; do
     for precision in $PRECISION; do
       for data_mode in $DATA_MODE; do
