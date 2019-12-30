@@ -103,7 +103,6 @@ run_benchmark() {
 
   # Example: model=alexnet; alexnet=1536
   eval batch_size=\$$model
-  echo HERE
   # Example: syn-replicated-fp32-1gpus
   outer_dir="${data_mode}-${variable_update}-${precision}-${num_gpus}gpus"
 
@@ -157,9 +156,7 @@ run_benchmark() {
 run_benchmark_all() {
   for model in $MODELS; do
     for num_gpus in `seq ${MAX_NUM_GPU} -1 ${MIN_NUM_GPU}`; do 
-	echo numGPUs: $num_gpus
       for iter in $(seq 1 $ITERATIONS); do
-	echo iter: $iter
         run_benchmark
       done
     done
@@ -183,7 +180,6 @@ main() {
               # skip distortion for synthetic data
               :
             else
-		    echo hello
               run_benchmark_all
             fi
           done
