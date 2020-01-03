@@ -44,6 +44,15 @@ declare -A DATASET_NAMES=(
   [ssd300]=coco  
 )
 
+source_config() {
+	if [ ! -r $CONFIG ];
+	then
+		cp "$CONFIG.default" $CONFIG
+	fi
+
+	eval $(./parse_config.sh $CONFIG)
+}
+
 metadata() {
 	OFS='\t'
 	#OFS=','
@@ -167,9 +176,9 @@ run_benchmark_all() {
 
 main() {
   mkdir -p "$LOG_DIR" || true
-  metadata > "$LOG_DIR/metadata"
+  source_config
 
-  eval $(./parse_config.sh $CONFIG)
+  metadata > "$LOG_DIR/metadata"
 
   for run_mode in $RUN_MODE; do
     for precision in $PRECISION; do
