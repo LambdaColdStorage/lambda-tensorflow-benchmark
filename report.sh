@@ -37,12 +37,12 @@ EOF
 #  .............................
 
 # $1: i9-9920X-2080Ti.logs
-cd $1 
+cd $1 || exit 1
 
 for i in *; do
 
 	# $i: syn-replicated-fp16-1gpus/
-	cd "$i"
+	cd "$i" || continue
 
 	#
 	# $j: resnet152-32 (model-batchsize)
@@ -52,7 +52,7 @@ for i in *; do
 	Config | REFERENCE |
 	:------:|:------:|
 	$(for j in *; do
-		model=$(basename $j)
+		model="$(basename $j)"
 		avg="$(awk '/total\ images/ { s+=$3 } END { print s/(ARGC-1) }' `find $j -type f`)"
 		echo "$model | $avg |"
 	done)
@@ -60,5 +60,5 @@ for i in *; do
 
 	EOF
 
-	cd ..
+	cd .. || exit 1
 done
