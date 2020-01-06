@@ -49,8 +49,7 @@ source_config() {
 	then
 		cp "$CONFIG.default" $CONFIG
 	fi
-
-	eval $(./parse_config.sh $CONFIG)
+	. $CONFIG
 }
 
 metadata() {

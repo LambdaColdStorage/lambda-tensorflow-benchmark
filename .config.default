@@ -1,25 +1,16 @@
-# This is a comment
-MODELS
-inception3 48
-resnet152 32
-resnet50 48
-alexnet 384
-inception4 12
-vgg16 64
-ssd300 32
+#!/bin/sh
+batch_size=${1:-${BATCH_SIZE:-'12GB'}}
 
-VARIABLE_UPDATE
-replicated
-parameter_server
+MODELS="inception3 resnet152 resnet50 alexnet inception4 vgg16 ssd300"
+VARIABLE_UPDATE="replicated parameter_server"
+PRECISION="fp32 fp16"
+RUN_MODE="train inference"
+DATA_MODE="syn"
 
-PRECISION
-fp32
-fp16
-
-RUN_MODE
-train
-inference
-
-DATA_MODE
-#real
-syn
+inception3="48"
+resnet152="32"
+resnet50="48"
+alexnet="384"
+inception4="12"
+vgg16="64"
+ssd300="32"
