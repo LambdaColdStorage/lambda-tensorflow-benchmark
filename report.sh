@@ -39,21 +39,20 @@ EOF
 # $1: i9-9920X-2080Ti.logs
 cd $1 || exit 1
 
-for i in *; do
+for param_dir in */; do
 
-	# $i: syn-replicated-fp16-1gpus/
-	cd "$i" || continue
+	# $i: "syn-replicated-fp16-1gpus/"
+	cd "$param_dir" || continue
 
-	#
-	# $j: resnet152-32 (model-batchsize)
+	# $j: "resnet152-32/" (model-batchsize)
 	cat <<- EOF
-	**$i**
+	**$(basename $param_dir)**
 
 	Config | REFERENCE |
 	:------:|:------:|
-	$(for j in *; do
-		model="$(basename $j)"
-		avg="$(awk '/total\ images/ { s+=$3 } END { print s/(ARGC-1) }' `find $j -type f`)"
+	$(for model_dir in *; do
+		model="$(basename $model_dir)"
+		avg="$(awk '/total images/ { s+=$3 } END { print s/(ARGC-1) }' `find $model_dir -type f`)"
 		echo "$model | $avg |"
 	done)
 
