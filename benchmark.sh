@@ -16,8 +16,8 @@ export CUDA_VISIBLE_DEVICES=$GPU_INDEX
 SCRIPT_DIR="$(pwd)/benchmarks/scripts/tf_cnn_benchmarks"
 
 CPU_NAME="$(lscpu | awk '/Model\ name:/ {
-  # CPU can show up at different locations
-  if($5 ~ "CPU") print $4;
+  if ($3" "$4 ~ "AMD Ryzen") print $6;
+  else if ($5 ~ "CPU") print $4;
   else print $5;
   exit
 }')"
