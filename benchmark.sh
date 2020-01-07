@@ -22,7 +22,7 @@ CPU_NAME="$(lscpu | awk '/Model\ name:/ {
   exit
 }')"
 
-GPU_NAME="$([ which nvidia-smi &>/dev/null ] && nvidia-smi -i 0 --query-gpu=gpu_name --format=csv,noheader || echo PLACEHOLDER )"
+GPU_NAME="$(nvidia-smi -i 0 --query-gpu=gpu_name --format=csv,noheader 2>/dev/null || echo PLACEHOLDER )"
 GPU_NAME="${GPU_NAME// /_}"
 
 CONFIG_NAME="${CPU_NAME}-${GPU_NAME}"
