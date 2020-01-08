@@ -157,7 +157,7 @@ run_benchmark() {
 
   stdbuf -oL  python3 tf_cnn_benchmarks.py "${args[@]}" |& tee "$output"
 
-  kill "$thermal_loop"
+  kill "$thermal_loop" 2>/dev/null
   popd &> /dev/null
 }
 
