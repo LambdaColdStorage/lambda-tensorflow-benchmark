@@ -42,6 +42,13 @@ declare -A DATASET_NAMES=(
   [ssd300]=coco  
 )
 
+
+# submodules that aren't initialized in `git submodule status` show up with a '-' in front
+if git submodule status | grep -q ^-; then
+	echo "${0##*/}: initializing submodules" 1>&2
+	git submodule update --init --recursive
+fi
+
 metadata() {
 	OFS='\t'
 	#OFS=','

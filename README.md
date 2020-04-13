@@ -13,7 +13,7 @@ Environment:
 
 
 ```
-git clone https://github.com/lambdal/lambda-tensorflow-benchmark.git --recursive
+git clone https://github.com/lambdal/lambda-tensorflow-benchmark.git
 ```
 
 #### Step Two: Run benchmark with thermal profile
