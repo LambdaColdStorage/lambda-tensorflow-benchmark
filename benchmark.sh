@@ -1,7 +1,5 @@
 #!/bin/bash -e
 
-CONFIG="$(pwd)/.config"
-
 GPU_INDEX=${1:-0}
 IFS=', ' read -r -a gpus <<< "$GPU_INDEX"
 
@@ -15,7 +13,7 @@ export CUDA_VISIBLE_DEVICES=$GPU_INDEX
 
 SCRIPT_DIR="$(pwd)/benchmarks/scripts/tf_cnn_benchmarks"
 
-CPU_NAME="$(lscpu | awk '/Model\ name:/ {
+CPU_NAME="$(lscpu | awk '/Model name:/ {
   if ($3" "$4 ~ "AMD Ryzen") print $6;
   else if ($5 ~ "CPU") print $4;
   else print $5;
@@ -43,14 +41,6 @@ declare -A DATASET_NAMES=(
   [alexnet]=imagenet
   [ssd300]=coco  
 )
-
-source_config() {
-	if [ ! -r $CONFIG ];
-	then
-		cp "$CONFIG.default" $CONFIG
-	fi
-	. $CONFIG
-}
 
 metadata() {
 	OFS='\t'
@@ -175,7 +165,7 @@ run_benchmark_all() {
 
 main() {
   mkdir -p "$LOG_DIR" || true
-  source_config
+  . config.sh
 
   metadata > "$LOG_DIR/metadata"
 
