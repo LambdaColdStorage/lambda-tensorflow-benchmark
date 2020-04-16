@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import argparse
 import matplotlib.pyplot as plt
 import numpy as np
@@ -18,7 +19,7 @@ def main():
 	t = []
 	throughput = []
 	
-
+	# second, throughput, temp[, temp[, temp...]]
 	with open(file_name) as f:
 		for line in f:
 			iterms = line.split(', ')
