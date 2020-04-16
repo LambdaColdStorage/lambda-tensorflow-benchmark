@@ -98,25 +98,21 @@ metadata() {
 }
 
 run_thermal() {
-  local num_sec=0
-  while :; do
-	  # Outputs
-	  #
-	  #    second
-	  #    temp, utilization, memory utilization
-	  #    [temp, utilization, memory utilization
-	  #    [temp, utilization, memory utilization
-	  #    ... ]]
-	  #
-	  # Records are "\n\n" delimited
-	  #
-	  local info="$(nvidia-smi \
-		  --query-gpu=temperature.gpu,utilization.gpu,utilization.memory\
-		  --format=csv,noheader,nounits)"
-	  printf "${num_sec}\n${info}\n\n"
-	  num_sec=$((num_sec + THERMAL_INTERVAL))
-	  sleep $THERMAL_INTERVAL
-  done
+	# Outputs
+	#
+	#    UNIX Timestamp
+	#    temp, utilization, memory utilization
+	#    [temp, utilization, memory utilization
+	#    [temp, utilization, memory utilization
+	#    ... ]]
+	#
+	# Records are "\n\n" delimited
+	#
+	while printf "%s\n%s\n\n" "$(date +%s)" "$(nvidia-smi \
+		--query-gpu=temperature.gpu,utilization.gpu,utilization.memory\
+		--format=csv,noheader,nounits)"; do
+		sleep $THERMAL_INTERVAL
+	done
 }
 
 run_benchmark() {
@@ -168,7 +164,17 @@ run_benchmark() {
   run_thermal >> $thermal &
   thermal_loop="$!" # process ID of while loop
 
-  stdbuf -oL  python3 tf_cnn_benchmarks.py "${args[@]}" |& tee "$throughput"
+  # append timestamp to 'images/sec' value to be parsed later
+  # this could be replaced with an awk script
+  # awk '/images\/sec/ { printf("%s ", $0); system("date +%s"); next  } 1 { print; system(""); }' |
+  # awk needs the `system("")` call because it will buffer output otherwise
+  python3 -u tf_cnn_benchmarks.py "${args[@]}" |&
+    while read line; do
+      case "$line" in
+        *images/sec*) echo "$line $(date +%s)";;
+        *) echo "$line";;
+      esac
+    done | tee "$throughput"
 
   kill "$thermal_loop" 2>/dev/null
   popd &> /dev/null
