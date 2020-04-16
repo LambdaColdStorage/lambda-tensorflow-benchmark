@@ -1,13 +1,11 @@
 #!/bin/sh
-GPU_RAM=${BATCH_SIZE:-'12GB'}
-
 MODELS="inception3 resnet152 resnet50 alexnet inception4 vgg16 ssd300"
 VARIABLE_UPDATE="replicated parameter_server"
 PRECISION="fp32 fp16"
 RUN_MODE="train inference"
 DATA_MODE="syn"
 
-case "$GPU_RAM" in
+case "${GPU_RAM:-'12GB'}" in
 	'6GB') 
 		resnet50=32
 		resnet152=16
@@ -62,7 +60,5 @@ case "$GPU_RAM" in
                 alexnet=2048
                 ssd300=128
 		;;
-	*)
-
-		echo "Batchsize for VRAM size '$GPU_RAM' not optimized" >&2
+	*) echo "Batchsize for VRAM size '$GPU_RAM' not optimized" >&2;;
 esac

@@ -1,5 +1,4 @@
-#!/bin/bash -e
-
+#!/bin/bash -e 
 GPU_INDEX=${1:-0}
 IFS=', ' read -r -a gpus <<< "$GPU_INDEX"
 
@@ -48,6 +47,13 @@ if git submodule status | grep -q ^-; then
 	echo "${0##*/}: initializing submodules" 1>&2
 	git submodule update --init --recursive
 fi
+
+gpu_ram() {
+	# Prints all GPUs' memory in GB
+	nvidia-smi --query-gpu=memory.total --format=csv,noheader | awk '{ printf "%.0f\n", $1 / 1000 }' | head -n1
+	# head -n1 becuase we're assuming all GPUs have the same capacity.
+	# It might be interesting to explore supporting different GPUs in the same machine but not right now
+}
 
 metadata() {
 	OFS='\t'
@@ -172,6 +178,7 @@ run_benchmark_all() {
 
 main() {
   mkdir -p "$LOG_DIR" || true
+  GPU_RAM="$(gpu_ram)GB" 
   . config.sh
 
   metadata > "$LOG_DIR/metadata"
