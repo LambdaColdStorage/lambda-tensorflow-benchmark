@@ -1,4 +1,10 @@
 #!/bin/sh
+
+if [ "$#" -lt 1 ] || [ ! -d "$1" ]; then
+	echo "${0##*/}: provide a directory as the first argument"
+	exit 1
+fi
+
 cat << EOF
 SUMMARY
 ===
