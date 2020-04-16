@@ -100,6 +100,16 @@ metadata() {
 run_thermal() {
   local num_sec=0
   while :; do
+	  # Outputs
+	  #
+	  #    second
+	  #    temp, utilization, memory utilization
+	  #    [temp, utilization, memory utilization
+	  #    [temp, utilization, memory utilization
+	  #    ... ]]
+	  #
+	  # Records are "\n\n" delimited
+	  #
 	  local info="$(nvidia-smi \
 		  --query-gpu=temperature.gpu,utilization.gpu,utilization.memory\
 		  --format=csv,noheader,nounits)"
@@ -144,21 +154,21 @@ run_benchmark() {
   fi
 
   inner_dir="${model}-${batch_size}"
-  local         output="${LOG_DIR}/${outer_dir}/${inner_dir}/${iter}"
-  local output_thermal="${LOG_DIR}/${outer_dir}/${inner_dir}/thermal/${iter}"
+  local throughput="${LOG_DIR}/${outer_dir}/${inner_dir}/throughput/${iter}"
+  local    thermal="${LOG_DIR}/${outer_dir}/${inner_dir}/thermal/${iter}"
   
-  rm -f $output
-  rm -f $output_thermal
-  mkdir -p "$(dirname $output)" || true
-  mkdir -p "$(dirname $output_thermal)" || true
+  rm -f $throughput
+  rm -f $thermal
+  mkdir -p "$(dirname $throughput)" || true
+  mkdir -p "$(dirname $thermal)" || true
   
   # echo $output
   echo ${args[@]}
 
-  run_thermal >> $output_thermal &
+  run_thermal >> $thermal &
   thermal_loop="$!" # process ID of while loop
 
-  stdbuf -oL  python3 tf_cnn_benchmarks.py "${args[@]}" |& tee "$output"
+  stdbuf -oL  python3 tf_cnn_benchmarks.py "${args[@]}" |& tee "$throughput"
 
   kill "$thermal_loop" 2>/dev/null
   popd &> /dev/null

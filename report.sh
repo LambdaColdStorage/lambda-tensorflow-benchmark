@@ -19,17 +19,19 @@ EOF
 #  i9-9920X-PLACEHOLDER.logs
 #  ├── syn-replicated-fp16-1gpus
 #  │   ├── alexnet-512
-#  │   │   ├── 1
-#  │   │   ├── 2   <- Iteration number
-#  │   │   ├── 3
+#  │   │   ├── throughput
+#  │   │   │   └── 1
+#  │   │   │   └── 2   <- Iteration number
+#  │   │   │   └── 3
 #  │   │   └── thermal
 #  │   │       └── 1
 #  │   │       └── 2
 #  │   │       └── 3
 #  │   ├── inception3-64
-#  │   │   ├── 1
-#  │   │   ├── 2
-#  │   │   ├── 3
+#  │   │   ├── throughput
+#  │   │   │   └── 1
+#  │   │   │   └── 2
+#  │   │   │   └── 3
 #  │   │   └── thermal
 #  │   │       └── 1
 #  │   │       └── 2
@@ -41,10 +43,10 @@ cd $1 || exit 1
 
 for param_dir in */; do
 
-	# $i: "syn-replicated-fp16-1gpus/"
+	# $param_dir: "syn-replicated-fp16-1gpus/"
 	cd "$param_dir" || continue
 
-	# $j: "resnet152-32/" (model-batchsize)
+	# $model_dir: "resnet152-32/" (model-batchsize)
 	cat <<- EOF
 	**$(basename $param_dir)**
 
@@ -52,7 +54,7 @@ for param_dir in */; do
 	:------:|:------:|
 	$(for model_dir in *; do
 		model="$(basename $model_dir)"
-		avg="$(awk '/total images/ { s+=$3 } END { print s/(ARGC-1) }' `find $model_dir -type f`)"
+		avg="$(awk '/total images/ { s+=$3 } END { print s/(ARGC-1) }' `find $model_dir/throughput -type f`)"
 		echo "$model | $avg |"
 	done)
 
