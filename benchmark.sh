@@ -29,6 +29,9 @@ echo $CONFIG_NAME
 DATA_DIR="/home/${USER}/nfs/imagenet_mini"
 LOG_DIR="$(pwd)/${CONFIG_NAME}.logs"
 
+THROUGHPUT="$(mktemp)"
+echo 0 > $THROUGHPUT
+
 
 declare -A DATASET_NAMES=(
   [resnet50]=imagenet
@@ -99,18 +102,9 @@ metadata() {
 
 run_thermal() {
 	# Outputs
-	#
-	#    UNIX Timestamp
-	#    temp, utilization, memory utilization
-	#    [temp, utilization, memory utilization
-	#    [temp, utilization, memory utilization
-	#    ... ]]
-	#
-	# Records are "\n\n" delimited
-	#
-	while printf "%s\n%s\n\n" "$(date +%s)" "$(nvidia-smi \
-		--query-gpu=temperature.gpu,utilization.gpu,utilization.memory\
-		--format=csv,noheader,nounits)"; do
+	# UNIX Timestamp, throughput, temp[, temp[, temp...]]
+	while printf "%s, %s, %s, \n" "$(date +%s)" "$(cat $THROUGHPUT)" "$(nvidia-smi \
+		--query-gpu=temperature.gpu --format=csv,noheader,nounits)"; do
 		sleep $THERMAL_INTERVAL
 	done
 }
@@ -150,18 +144,18 @@ run_benchmark() {
   fi
 
   inner_dir="${model}-${batch_size}"
-  local throughput="${LOG_DIR}/${outer_dir}/${inner_dir}/throughput/${iter}"
-  local    thermal="${LOG_DIR}/${outer_dir}/${inner_dir}/thermal/${iter}"
+  local throughput_log="${LOG_DIR}/${outer_dir}/${inner_dir}/throughput/${iter}"
+  local    thermal_log="${LOG_DIR}/${outer_dir}/${inner_dir}/thermal/${iter}"
   
-  rm -f $throughput
-  rm -f $thermal
-  mkdir -p "$(dirname $throughput)" || true
-  mkdir -p "$(dirname $thermal)" || true
+  rm -f $throughput_log
+  rm -f $thermal_log
+  mkdir -p "$(dirname $throughput_log)" || :
+  mkdir -p "$(dirname $thermal_log)" || :
   
   # echo $output
   echo ${args[@]}
 
-  run_thermal >> $thermal &
+  run_thermal >> $thermal_log &
   thermal_loop="$!" # process ID of while loop
 
   # append timestamp to 'images/sec' value to be parsed later
@@ -171,10 +165,10 @@ run_benchmark() {
   python3 -u tf_cnn_benchmarks.py "${args[@]}" |&
     while read line; do
       case "$line" in
-        *images/sec*) echo "$line $(date +%s)";;
+	*images/sec*) set $line; echo "$3" > "$THROUGHPUT"; echo "$line $(date +%s)";;
         *) echo "$line";;
       esac
-    done | tee "$throughput"
+    done | tee "$throughput_log"
 
   kill "$thermal_loop" 2>/dev/null
   popd &> /dev/null
