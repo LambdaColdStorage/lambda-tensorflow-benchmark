@@ -103,8 +103,8 @@ metadata() {
 run_thermal() {
 	# Outputs
 	# UNIX Timestamp, throughput, temp[, temp[, temp...]]
-	while printf "%s, %s, %s, \n" "$(date +%s)" "$(cat $THROUGHPUT)" "$(nvidia-smi \
-		--query-gpu=temperature.gpu --format=csv,noheader,nounits)"; do
+	while printf "%s, %s, %s\n" "$(date +%s)" "$(cat $THROUGHPUT)" "$(nvidia-smi \
+		--query-gpu=temperature.gpu --format=csv,noheader,nounits | awk '{ printf("%s, ", $0) }')"; do
 		sleep $THERMAL_INTERVAL
 	done
 }
