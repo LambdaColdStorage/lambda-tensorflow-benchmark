@@ -102,7 +102,7 @@ metadata() {
 
 run_thermal() {
 	# Outputs
-	# UNIX Timestamp, throughput, temp[, temp[, temp...]]
+	# timestamp, throughput, temp[, temp[, temp...]]
 	while printf "%s, %s, %s\n" "$(date +%s)" "$(cat $THROUGHPUT)" "$(nvidia-smi \
 		--query-gpu=temperature.gpu --format=csv,noheader,nounits | awk '{ printf("%s, ", $0) }')"; do
 		sleep $THERMAL_INTERVAL
@@ -158,14 +158,20 @@ run_benchmark() {
   run_thermal >> $thermal_log &
   thermal_loop="$!" # process ID of while loop
 
-  # append timestamp to 'images/sec' value to be parsed later
-  # this could be replaced with an awk script
-  # awk '/images\/sec/ { printf("%s ", $0); system("date +%s"); next  } 1 { print; system(""); }' |
-  # awk needs the `system("")` call because it will buffer output otherwise
   python3 -u tf_cnn_benchmarks.py "${args[@]}" |&
     while read line; do
       case "$line" in
-	*images/sec*) set $line; echo "$3" > "$THROUGHPUT"; echo "$line $(date +%s)";;
+	# Here's is an example of the line we're looking for:
+	# 100	images/sec: 95.8 +/- 0.0 (jitter = 0.4)	7.427 1587077440
+	#
+	# Not to be confused with:
+	# total images/sec: 95.80 1587077440
+	#
+	# We could use Awk here instead of the whileloop but getting it
+	# to not buffer output doesn't look pretty
+	#
+	# We append a timestamp to the line for no reason
+	[0-9]*images/sec*) set $line; echo "$3" > "$THROUGHPUT"; echo "$line $(date +%s)";;
         *) echo "$line";;
       esac
     done | tee "$throughput_log"
