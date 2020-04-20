@@ -66,7 +66,7 @@ metadata() {
 	print="printf %s$OFS%s\n"
 
 	# Total RAM
-	$awk '/MemTotal:/ { print "Memory", ($2 / 1000000) "GB"}' /proc/meminfo
+	$awk '/MemTotal:/ { print "Memory", ($2 / (1024^2)) "GB"}' /proc/meminfo
 
 	# GPU Models
 	nvidia-smi --query-gpu=index,gpu_name --format=csv,noheader | \
