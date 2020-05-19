@@ -9,17 +9,11 @@ Environment:
 - CUDA Version 10.0
 - CUDNN Version 7.6.2
 
-#### Install
-
-```
-sudo apt-get install expect
-```
-
 #### Step One: Clone benchmark repo
 
 
 ```
-git clone https://github.com/lambdal/lambda-tensorflow-benchmark.git --recursive
+git clone https://github.com/lambdal/lambda-tensorflow-benchmark.git
 ```
 
 #### Step Two: Run benchmark with thermal profile

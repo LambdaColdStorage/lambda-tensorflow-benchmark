@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import argparse
 import matplotlib.pyplot as plt
 import numpy as np
@@ -17,8 +18,9 @@ def main():
 
 	t = []
 	throughput = []
+	start = 0
 	
-
+	# second, throughput, temp[, temp[, temp...]]
 	with open(file_name) as f:
 		for line in f:
 			iterms = line.split(', ')
@@ -32,8 +34,10 @@ def main():
 	with open(file_name) as f:
 		for line in f:
 			iterms = line.split(', ')
+			if start is 0:
+				start = int(iterms[0])
 			print(iterms)
-			t.append(int(iterms[0]))
+			t.append(int(iterms[0]) - start)
 			throughput.append(float(iterms[1]))
 			for i in range(2, len(iterms) - 1):
 				temperature[i-2].append(int(iterms[i]))
