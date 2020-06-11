@@ -53,7 +53,7 @@ fi
 
 gpu_ram() {
 	# Prints all GPUs' memory in GB
-	nvidia-smi --query-gpu=memory.total --format=csv,noheader | awk '{ printf "%.0f\n", $1 / 1000 }' | head -n1
+	nvidia-smi --query-gpu=memory.total --format=csv,noheader | awk '{ printf "%.0f\n", int($1 / 1000)}' | head -n1
 	# head -n1 becuase we're assuming all GPUs have the same capacity.
 	# It might be interesting to explore supporting different GPUs in the same machine but not right now
 }

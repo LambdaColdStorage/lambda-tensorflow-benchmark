@@ -14,6 +14,8 @@ Environment:
 
 ```
 git clone https://github.com/lambdal/lambda-tensorflow-benchmark.git
+
+git checkout tf2
 ```
 
 #### Step Two: Run benchmark with thermal profile
