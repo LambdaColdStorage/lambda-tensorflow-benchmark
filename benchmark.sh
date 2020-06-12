@@ -5,10 +5,19 @@ IFS=', ' read -r -a gpus <<< "$GPU_INDEX"
 ITERATIONS=${2:-100}
 NUM_BATCHES=${3:-100}
 THERMAL_INTERVAL=${4:-1}
+GPU_VENDOR=${5:-nvidia}
 
 MIN_NUM_GPU=${#gpus[@]}
 MAX_NUM_GPU=$MIN_NUM_GPU
-export CUDA_VISIBLE_DEVICES=$GPU_INDEX
+
+if [ $GPU_VENDOR = nvidia ]; then
+  export CUDA_VISIBLE_DEVICES=$GPU_INDEX
+  GPU_NAME="$(nvidia-smi -i 0 --query-gpu=gpu_name --format=csv,noheader 2>/dev/null || echo PLACEHOLDER )"
+else
+  export HIP_VISIBLE_DEVICES=$GPU_INDEX
+  GPU_NAME=RadeonVII
+fi
+
 
 SCRIPT_DIR="$(pwd)/benchmarks/scripts/tf_cnn_benchmarks"
 
@@ -19,7 +28,6 @@ CPU_NAME="$(lscpu | awk '/Model name:/ {
   exit
 }')"
 
-GPU_NAME="$(nvidia-smi -i 0 --query-gpu=gpu_name --format=csv,noheader 2>/dev/null || echo PLACEHOLDER )"
 GPU_NAME="${GPU_NAME// /_}"
 
 CONFIG_NAME="${CPU_NAME}-${GPU_NAME}"
@@ -53,7 +61,11 @@ fi
 
 gpu_ram() {
 	# Prints all GPUs' memory in GB
-	nvidia-smi --query-gpu=memory.total --format=csv,noheader | awk '{ printf "%.0f\n", int($1 / 1000)}' | head -n1
+  if [ $GPU_VENDOR = nvidia ]; then
+    nvidia-smi --query-gpu=memory.total --format=csv,noheader | awk '{ printf "%.0f\n", int($1 / 1000)}' | head -n1
+  else
+    echo 16
+  fi
 	# head -n1 becuase we're assuming all GPUs have the same capacity.
 	# It might be interesting to explore supporting different GPUs in the same machine but not right now
 }
@@ -155,8 +167,11 @@ run_benchmark() {
   # echo $output
   echo ${args[@]}
 
-  run_thermal >> $thermal_log &
-  thermal_loop="$!" # process ID of while loop
+  if [ $GPU_VENDOR = nvidia ]; then
+    run_thermal >> $thermal_log &
+    thermal_loop="$!" # process ID of while loop
+  fi
+
 
   python3 -u tf_cnn_benchmarks.py "${args[@]}" |&
     while read line; do
@@ -176,7 +191,10 @@ run_benchmark() {
       esac
     done | tee "$throughput_log"
 
-  kill "$thermal_loop" 2>/dev/null
+  if [ $GPU_VENDOR = nvidia ]; then
+    kill "$thermal_loop" 2>/dev/null
+  fi
+  
   popd &> /dev/null
 }
 
@@ -197,7 +215,9 @@ main() {
   GPU_RAM="$(gpu_ram)GB" 
   . config.sh
 
-  metadata > "$LOG_DIR/metadata"
+  if [ $GPU_VENDOR = nvidia ]; then
+    metadata > "$LOG_DIR/metadata"
+  fi
 
   for run_mode in $RUN_MODE; do
     for precision in $PRECISION; do
