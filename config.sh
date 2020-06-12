@@ -5,7 +5,7 @@ PRECISION="fp32 fp16"
 RUN_MODE="train inference"
 DATA_MODE="syn"
 
-case "${GPU_RAM:-'12GB'}" in
+case "${GPU_RAM}" in
 	'6GB') 
 		resnet50=32
 		resnet152=16
@@ -24,7 +24,7 @@ case "${GPU_RAM:-'12GB'}" in
 		alexnet=384
 		ssd300=32
 		;;
-	'12GB')
+	'11GB'|'12GB') # 11GB for 2080Ti
 		resnet50=64
 		resnet152=32
 		inception3=64
@@ -51,7 +51,7 @@ case "${GPU_RAM:-'12GB'}" in
 		alexnet=1536
 		ssd300=96
 		;;
-	'48GB')
+	'47GB'|'48GB') # 47GB for Quadro RTX
 		resnet50=256
                 resnet152=128
                 inception3=256
@@ -60,5 +60,11 @@ case "${GPU_RAM:-'12GB'}" in
                 alexnet=2048
                 ssd300=128
 		;;
-	*) echo "Batchsize for VRAM size '$GPU_RAM' not optimized" >&2;;
+	*)
+		cat 1>&2 <<- EOF
+		Batchsize for VRAM size $GPU_RAM is not optimized.
+		Try adding $GPU_RAM to the case statement in config.sh.
+		EOF
+		exit 1
+		;;
 esac
