@@ -28,6 +28,38 @@ python display_thermal.py i9-7920X-GeForce_RTX_2080_Ti.logs/resnet152-syn-replic
 
 ```
 
+#### AMD
+
+Follow the guidance [here](https://github.com/ROCmSoftwarePlatform/tensorflow-upstream)
+
+```
+alias drun='sudo docker run \
+      -it \
+      --network=host \
+      --device=/dev/kfd \
+      --device=/dev/dri \
+      --ipc=host \
+      --shm-size 16G \
+      --group-add video \
+      --cap-add=SYS_PTRACE \
+      --security-opt seccomp=unconfined \
+      -v $HOME/dockerx:/dockerx'
+
+drun rocm/tensorflow:latest
+
+apt install rocm-libs hipcub miopen-hip
+pip3 install --user tensorflow-rocm --upgrade
+pip3 install tensorflow
+
+cd /home/dockerx
+git clone https://github.com/lambdal/lambda-tensorflow-benchmark.git --recursive
+git checkout tf2
+git submodule update --init --recursive
+
+./batch_benchmark.sh 1 1 1 100 2 amd
+```
+
+
 #### Note
 
 Use large num_batches_per_run for a thorough test.
