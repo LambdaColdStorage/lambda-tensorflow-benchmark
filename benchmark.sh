@@ -9,7 +9,21 @@ PYTHON=python3
 
 MIN_NUM_GPU=${#gpus[@]}
 MAX_NUM_GPU=$MIN_NUM_GPU
-export CUDA_VISIBLE_DEVICES=$GPU_INDEX
+
+installed() {
+	command -v "$1" >/dev/null 2>&1
+} 
+
+if installed nvidia-smi; then
+  export CUDA_VISIBLE_DEVICES=$GPU_INDEX
+  GPU_VENDOR=${5:-nvidia}
+  GPU_NAME="$(nvidia-smi -i 0 --query-gpu=gpu_name --format=csv,noheader 2>/dev/null || echo PLACEHOLDER )"
+elif installed rocm-smi; then
+  export HIP_VISIBLE_DEVICES=$GPU_INDEX
+  GPU_VENDOR=${5:-amd}
+  GPU_NAME=$(rocm-smi --showproductname | awk -F'\t' '/Card series/ { print $5 }')
+fi
+
 
 SCRIPT_DIR="$(pwd)/benchmarks/scripts/tf_cnn_benchmarks"
 
@@ -20,7 +34,6 @@ CPU_NAME="$(lscpu | awk '/Model name:/ {
   exit
 }')"
 
-GPU_NAME="$(nvidia-smi -i 0 --query-gpu=gpu_name --format=csv,noheader 2>/dev/null || echo PLACEHOLDER )"
 GPU_NAME="${GPU_NAME// /_}"
 
 CONFIG_NAME="${CPU_NAME}-${GPU_NAME}"
@@ -54,20 +67,24 @@ fi
 
 gpu_ram() {
 	# Prints all GPUs' memory in GB
-	nvidia-smi --query-gpu=memory.total --format=csv,noheader |
-		awk '{ printf "%.0f\n", $1 / 1024 }' | head -n1
-	# NVidia-SMI reports in MiB.
-	# 1GB = 953.674MiB
-	# 2070 Max-Q       advertised:  8GB - NVidia-SMI: 7,982MiB  or  8.4GB or  7.8GiB
-	# GTX Titan        advertised: 12GB - NVidia-SMI: 12,212MiB or 12.8GB or 11.9GiB
-	# Titan  RTX       advertised: 24GB - NVidia-SMI: 24,219MiB or 25.4GB or 23.7GiB
-	# Quadro RTX 8000  advertised: 48GB - NVidia-SMI: 48,601MiB or 51.0GB or 47.5GiB
+	  if [ $GPU_VENDOR = nvidia ]; then
+		nvidia-smi --query-gpu=memory.total --format=csv,noheader |
+				awk '{ printf "%.0f\n", $1 / 1024 }'
+		# NVidia-SMI reports in MiB.
+		# 1GB = 953.674MiB
+		# 2070 Max-Q       advertised:  8GB - NVidia-SMI: 7,982MiB  or  8.4GB or  7.8GiB
+		# GTX Titan        advertised: 12GB - NVidia-SMI: 12,212MiB or 12.8GB or 11.9GiB
+		# Titan  RTX       advertised: 24GB - NVidia-SMI: 24,219MiB or 25.4GB or 23.7GiB
+		# Quadro RTX 8000  advertised: 48GB - NVidia-SMI: 48,601MiB or 51.0GB or 47.5GiB
 
-	# awk 'END {printf "%.0f\n", 0.49 }' = 0
-	# awk 'END {printf "%.0f\n", 0.5  }' = 1
-	# awk 'END {print  int(0.49)      }' = 0
-	# awk 'END {print  int(0.5)       }' = 0
-
+		# awk 'END {printf "%.0f\n", 0.49 }' = 0
+		# awk 'END {printf "%.0f\n", 0.5  }' = 1
+		# awk 'END {print  int(0.49)      }' = 0
+		# awk 'END {print  int(0.5)       }' = 0
+	else
+		rocm-smi --showmeminfo vram --csv | sed '/^$/d' |
+			awk -F, 'NR!=1 { printf "%.0f\n", $2 / (1024^3) }'
+	fi | head -n1
 	# head -n1 becuase we're assuming all GPUs have the same capacity.
 	# It might be interesting to explore supporting different GPUs in the same machine but not right now
 }
@@ -82,10 +99,6 @@ metadata() {
 	# Total RAM
 	$awk '/MemTotal:/ { print "Memory", ($2 / (1024^2)) "GB"}' /proc/meminfo
 
-	# GPU Models
-	nvidia-smi --query-gpu=index,gpu_name --format=csv,noheader | \
-		$awk -v FS=', ' '{ print "GPU " $1, $2 }'
-
 	# CPU Model
 	lscpu | $awk '/Model name:/ {
 		if($5 ~ "CPU") cpu=$4;
@@ -94,10 +107,21 @@ metadata() {
 		exit;
 	}'
 
-	# CUDA Toolkit Version
-	nvcc --version | $awk '/release/ { print "CUDA", $6 }'
-	# Nvidia Driver Version
-	modinfo nvidia | $awk '/^version:/ { print "Nvidia", $2 }'
+	if [ "$GPU_VENDOR" = "nvidia" ]; then
+		# GPU Models
+		nvidia-smi --query-gpu=index,gpu_name --format=csv,noheader | \
+			$awk -v FS=', ' '{ print "GPU " $1, $2 }'
+
+		# CUDA Toolkit Version
+		nvcc --version | $awk '/release/ { print "CUDA", $6 }'
+
+		# Nvidia Driver Version
+		modinfo nvidia | $awk '/^version:/ { print "Nvidia", $2 }'
+	elif [ "$GPU_VENDOR" = "amd" ]; then
+		rocm-smi --showproductname --csv | sed '/^$/d' | $awk -F, 'NR!=1 { print $1, $2 }'
+		hipcc --version | $awk 'NR==1 { print "HIP", $3 }'
+		modinfo amdgpu  | $awk '/^version:/ { print "AMDGPU", $2 }'
+	fi
 
 	# Tensorflow Version
 	$print 'TF' $($PYTHON 2>/dev/null <<- EOF 
@@ -114,11 +138,20 @@ metadata() {
 
 }
 
+gpu_temps() {
+	if [ "$GPU_VENDOR" = "nvidia" ]; then
+		nvidia-smi \
+			--query-gpu=temperature.gpu --format=csv,noheader,nounits | awk '{ printf("%s, ", $0) }'
+	elif [ "$GPU_VENDOR" = "amd" ]; then
+		# rocm-smi adds a new-line before and after output
+		rocm-smi --showtemp --csv | sed '/^$/d' | awk -F, 'NR!=1 { print $3 }'
+	fi
+	
+}
 run_thermal() {
 	# Outputs
 	# timestamp, throughput, temp[, temp[, temp...]]
-	while printf "%s, %s, %s\n" "$(date +%s)" "$(cat $THROUGHPUT)" "$(nvidia-smi \
-		--query-gpu=temperature.gpu --format=csv,noheader,nounits | awk '{ printf("%s, ", $0) }')"; do
+	while printf "%s, %s, %s\n" "$(date +%s)" "$(cat $THROUGHPUT)" "$(gpu_temps)"; do
 		sleep $THERMAL_INTERVAL
 	done
 }
@@ -191,6 +224,7 @@ run_benchmark() {
     done | tee "$throughput_log"
 
   kill "$thermal_loop" 2>/dev/null
+  
   popd &> /dev/null
 }
 
