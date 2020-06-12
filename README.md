@@ -13,7 +13,7 @@ Environment:
 
 
 ```
-git clone https://github.com/lambdal/lambda-tensorflow-benchmark.git
+git clone https://github.com/lambdal/lambda-tensorflow-benchmark.git --recursive
 
 git checkout tf2
 ```
