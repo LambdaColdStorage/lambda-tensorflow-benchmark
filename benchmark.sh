@@ -5,6 +5,8 @@ IFS=', ' read -r -a gpus <<< "$GPU_INDEX"
 ITERATIONS=${2:-100}
 NUM_BATCHES=${3:-100}
 THERMAL_INTERVAL=${4:-1}
+SETTING=${5:-config_all}
+GPU_VENDOR=${6:-nvidia}
 
 MIN_NUM_GPU=${#gpus[@]}
 MAX_NUM_GPU=$MIN_NUM_GPU
@@ -247,7 +249,7 @@ run_benchmark_all() {
 main() {
   mkdir -p "$LOG_DIR" || true
   GPU_RAM="$(gpu_ram)GB" 
-  . config.sh
+  . ${SETTING}".sh"
 
   if [ $GPU_VENDOR = nvidia ]; then
     metadata > "$LOG_DIR/metadata"

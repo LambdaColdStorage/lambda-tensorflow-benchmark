@@ -5,7 +5,7 @@ This is the code used for a few of the blog posts on: https://lambdalabs.com/blo
 
 Environment:
 - OS: Ubuntu 18.04
-- TensorFlow version: 1.14.0
+- TensorFlow version: 2.2.0
 - CUDA Version 10.0
 - CUDNN Version 7.6.2
 
@@ -23,12 +23,12 @@ git submodule update --init --recursive
 #### Step Two: Run benchmark with thermal profile
 
 ```
-TF_XLA_FLAGS=--tf_xla_auto_jit=2 ./batch_benchmark.sh min_num_gpus max_num_gpus num_runs num_batches_per_run thermal_sampling_frequency
+./batch_benchmark.sh min_num_gpus max_num_gpus num_runs num_batches_per_run thermal_sampling_frequency
 python display_thermal.py path-to-thermal.log --thermal_threshold
 
-# example of benchmarking 4 2080_Ti (all used), 1 run, 200 batches per run, measuring thermal every 2 second. 2080_Ti throttles at 89 C.
-TF_XLA_FLAGS=--tf_xla_auto_jit=2 ./batch_benchmark.sh 4 4 1 200 2
-python display_thermal.py i9-7920X-GeForce_RTX_2080_Ti.logs/resnet152-syn-replicated-fp32-4gpus-32-1-thermal.log --thermal_threshold 89
+# example of benchmarking 4 2080_Ti (all used), 1 run, 100 batches per run, measuring thermal every 2 second. 2080_Ti throttles at 89 C.
+./batch_benchmark.sh 4 4 1 100 2 config_resnet50_replicated_fp32_train_syn
+python display_thermal.py path-to-thermal/1 --thermal_threshold 89
 
 ```
 
@@ -60,7 +60,7 @@ git clone https://github.com/lambdal/lambda-tensorflow-benchmark.git --recursive
 git checkout tf2
 git submodule update --init --recursive
 
-./batch_benchmark.sh 1 1 1 100 2 amd
+./batch_benchmark.sh 1 1 1 100 2 config_resnet50_replicated_fp32_train_syn amd
 ```
 
 
