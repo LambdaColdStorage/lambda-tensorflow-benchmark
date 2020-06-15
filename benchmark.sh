@@ -5,7 +5,8 @@ IFS=', ' read -r -a gpus <<< "$GPU_INDEX"
 ITERATIONS=${2:-100}
 NUM_BATCHES=${3:-100}
 THERMAL_INTERVAL=${4:-1}
-GPU_VENDOR=${5:-nvidia}
+SETTING=${5:-config_all}
+GPU_VENDOR=${6:-nvidia}
 
 MIN_NUM_GPU=${#gpus[@]}
 MAX_NUM_GPU=$MIN_NUM_GPU
@@ -62,7 +63,7 @@ fi
 gpu_ram() {
 	# Prints all GPUs' memory in GB
   if [ $GPU_VENDOR = nvidia ]; then
-    nvidia-smi --query-gpu=memory.total --format=csv,noheader | awk '{ printf "%.0f\n", int($1 / 1000)}' | head -n1
+    nvidia-smi --query-gpu=memory.total --format=csv,noheader | awk '{ printf "%.0f\n", $1 / 1024 }' | head -n1
   else
     echo 16
   fi
@@ -213,7 +214,7 @@ run_benchmark_all() {
 main() {
   mkdir -p "$LOG_DIR" || true
   GPU_RAM="$(gpu_ram)GB" 
-  . config.sh
+  . ${SETTING}".sh"
 
   if [ $GPU_VENDOR = nvidia ]; then
     metadata > "$LOG_DIR/metadata"

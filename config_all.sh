@@ -42,7 +42,7 @@ case "${GPU_RAM:-'12GB'}" in
 		alexnet=768
 		ssd300=64
 		;;		
-	'24GB')
+	'23GB'|'24GB')
 		resnet50=128
 		resnet152=64
 		inception3=128
@@ -51,7 +51,7 @@ case "${GPU_RAM:-'12GB'}" in
 		alexnet=1024
 		ssd300=64
 		;;
-	'32GB')
+	'31GB'|'32GB')
 		resnet50=192
 		resnet152=96
 		inception3=192
@@ -60,14 +60,14 @@ case "${GPU_RAM:-'12GB'}" in
 		alexnet=1536
 		ssd300=96
 		;;
-	'48GB')
+	'47GB'|'48GB')
 		resnet50=256
-                resnet152=128
-                inception3=256
-                inception4=64
-                vgg16=256
-                alexnet=2048
-                ssd300=128
+		resnet152=128
+		inception3=256
+		inception4=64
+		vgg16=256
+		alexnet=2048
+		ssd300=128
 		;;
 	*) echo "Batchsize for VRAM size '$GPU_RAM' not optimized" >&2;;
 esac
