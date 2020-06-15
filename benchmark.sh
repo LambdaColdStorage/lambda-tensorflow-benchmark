@@ -53,7 +53,20 @@ fi
 
 gpu_ram() {
 	# Prints all GPUs' memory in GB
-	nvidia-smi --query-gpu=memory.total --format=csv,noheader | awk '{ printf "%.0f\n", $1 / 1000 }' | head -n1
+	nvidia-smi --query-gpu=memory.total --format=csv,noheader |
+		awk '{ printf "%.0f\n", $1 / 1024 }' | head -n1
+	# NVidia-SMI reports in MiB.
+	# 1GB = 953.674MiB
+	# 2070 Max-Q       advertised:  8GB - NVidia-SMI: 7,982MiB  or  8.4GB or  7.8GiB
+	# GTX Titan        advertised: 12GB - NVidia-SMI: 12,212MiB or 12.8GB or 11.9GiB
+	# Titan  RTX       advertised: 24GB - NVidia-SMI: 24,219MiB or 25.4GB or 23.7GiB
+	# Quadro RTX 8000  advertised: 48GB - NVidia-SMI: 48,601MiB or 51.0GB or 47.5GiB
+
+	# awk 'END {printf "%.0f\n", 0.49 }' = 0
+	# awk 'END {printf "%.0f\n", 0.5  }' = 1
+	# awk 'END {print  int(0.49)      }' = 0
+	# awk 'END {print  int(0.5)       }' = 0
+
 	# head -n1 becuase we're assuming all GPUs have the same capacity.
 	# It might be interesting to explore supporting different GPUs in the same machine but not right now
 }
