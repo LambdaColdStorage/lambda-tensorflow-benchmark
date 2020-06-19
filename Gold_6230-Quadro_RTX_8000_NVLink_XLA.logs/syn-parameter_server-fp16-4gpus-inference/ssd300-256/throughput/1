@@ -1,0 +1,58 @@
+WARNING:tensorflow:From /home/ubuntu/venv-tf2.2.0/lib/python3.6/site-packages/tensorflow/python/compat/v2_compat.py:96: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+2020-06-19 03:34:30.551092: I tensorflow/core/platform/cpu_feature_guard.cc:143] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2020-06-19 03:34:30.577920: I tensorflow/core/platform/profile_utils/cpu_utils.cc:102] CPU Frequency: 2100000000 Hz
+2020-06-19 03:34:30.578199: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f1430000b20 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-06-19 03:34:30.578213: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-06-19 03:34:30.582327: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcuda.so.1
+2020-06-19 03:34:31.808681: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x437ebb0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2020-06-19 03:34:31.808720: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Quadro RTX 8000, Compute Capability 7.5
+2020-06-19 03:34:31.808725: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (1): Quadro RTX 8000, Compute Capability 7.5
+2020-06-19 03:34:31.808728: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (2): Quadro RTX 8000, Compute Capability 7.5
+2020-06-19 03:34:31.808731: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (3): Quadro RTX 8000, Compute Capability 7.5
+2020-06-19 03:34:31.829390: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 0 with properties:
+pciBusID: 0000:1a:00.0 name: Quadro RTX 8000 computeCapability: 7.5
+coreClock: 1.77GHz coreCount: 72 deviceMemorySize: 47.46GiB deviceMemoryBandwidth: 625.94GiB/s
+2020-06-19 03:34:31.833276: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 1 with properties:
+pciBusID: 0000:1c:00.0 name: Quadro RTX 8000 computeCapability: 7.5
+coreClock: 1.77GHz coreCount: 72 deviceMemorySize: 47.46GiB deviceMemoryBandwidth: 625.94GiB/s
+2020-06-19 03:34:31.838809: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 2 with properties:
+pciBusID: 0000:1d:00.0 name: Quadro RTX 8000 computeCapability: 7.5
+coreClock: 1.77GHz coreCount: 72 deviceMemorySize: 47.46GiB deviceMemoryBandwidth: 625.94GiB/s
+2020-06-19 03:34:31.844191: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 3 with properties:
+pciBusID: 0000:1e:00.0 name: Quadro RTX 8000 computeCapability: 7.5
+coreClock: 1.77GHz coreCount: 72 deviceMemorySize: 47.46GiB deviceMemoryBandwidth: 625.94GiB/s
+2020-06-19 03:34:31.844513: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
+2020-06-19 03:34:31.846752: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+2020-06-19 03:34:31.848327: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10
+2020-06-19 03:34:31.848702: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10
+2020-06-19 03:34:31.851119: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10
+2020-06-19 03:34:31.852931: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10
+2020-06-19 03:34:31.857646: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2020-06-19 03:34:31.929279: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1703] Adding visible gpu devices: 0, 1, 2, 3
+2020-06-19 03:34:31.929345: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
+2020-06-19 03:34:31.959660: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1102] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-06-19 03:34:31.959691: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1108]      0 1 2 3
+2020-06-19 03:34:31.959701: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 0:   N Y Y Y
+2020-06-19 03:34:31.959706: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 1:   Y N Y Y
+2020-06-19 03:34:31.959711: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 2:   Y Y N Y
+2020-06-19 03:34:31.959716: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 3:   Y Y Y N
+2020-06-19 03:34:31.997050: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 45523 MB memory) -> physical GPU (device: 0, name: Quadro RTX 8000, pci bus id: 0000:1a:00.0, compute capability: 7.5)
+2020-06-19 03:34:32.005792: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:1 with 45523 MB memory) -> physical GPU (device: 1, name: Quadro RTX 8000, pci bus id: 0000:1c:00.0, compute capability: 7.5)
+2020-06-19 03:34:32.015898: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:2 with 45523 MB memory) -> physical GPU (device: 2, name: Quadro RTX 8000, pci bus id: 0000:1d:00.0, compute capability: 7.5)
+2020-06-19 03:34:32.025564: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:3 with 45523 MB memory) -> physical GPU (device: 3, name: Quadro RTX 8000, pci bus id: 0000:1e:00.0, compute capability: 7.5)
+Traceback (most recent call last):
+File "tf_cnn_benchmarks.py", line 73, in <module>
+app.run(main)  # Raises error on invalid flags, unlike tf.app.run()
+File "/home/ubuntu/venv-tf2.2.0/lib/python3.6/site-packages/absl/app.py", line 299, in run
+_run_main(main, args)
+File "/home/ubuntu/venv-tf2.2.0/lib/python3.6/site-packages/absl/app.py", line 250, in _run_main
+sys.exit(main(argv))
+File "tf_cnn_benchmarks.py", line 62, in main
+bench = benchmark_cnn.BenchmarkCNN(params)
+File "/home/ubuntu/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 1305, in __init__
+self.params.model, self.dataset, self.params)
+File "/home/ubuntu/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/models/model_config.py", line 134, in get_model_config
+model = model_map[model_name](params=params)
+TypeError: 'str' object is not callable
