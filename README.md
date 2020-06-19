@@ -6,7 +6,7 @@ This is the code used for a few of the blog posts on: https://lambdalabs.com/blo
 Environment:
 - OS: Ubuntu 18.04
 - TensorFlow version: 2.2.0
-- CUDA Version 10.0
+- CUDA Version 10.1
 - CUDNN Version 7.6.2
 
 #### Step One: Clone benchmark repo
