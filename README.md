@@ -23,12 +23,14 @@ git submodule update --init --recursive
 #### Step Two: Run benchmark with thermal profile
 
 ```
-./batch_benchmark.sh min_num_gpus max_num_gpus num_runs num_batches_per_run thermal_sampling_frequency
+TF_XLA_FLAGS=--tf_xla_auto_jit=2 ./batch_benchmark.sh min_num_gpus max_num_gpus num_runs num_batches_per_run thermal_sampling_frequency
 python display_thermal.py path-to-thermal.log --thermal_threshold
 
 # example of benchmarking 4 2080_Ti (all used), 1 run, 100 batches per run, measuring thermal every 2 second. 2080_Ti throttles at 89 C.
-./batch_benchmark.sh 4 4 1 100 2 config_resnet50_replicated_fp32_train_syn
+TF_XLA_FLAGS=--tf_xla_auto_jit=2 ./batch_benchmark.sh 4 4 1 100 2 config_resnet50_replicated_fp32_train_syn
 python display_thermal.py path-to-thermal/1 --thermal_threshold 89
+
+./report.sh benchmark_name.logs/ > benchmark_name.md
 
 ```
 
