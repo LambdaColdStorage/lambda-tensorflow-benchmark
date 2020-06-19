@@ -249,14 +249,20 @@ run_benchmark_all() {
 main() {
   mkdir -p "$LOG_DIR" || true
   GPU_RAM="$(gpu_ram)GB" 
-  . ${SETTING}".sh"
 
+  . ${SETTING}".sh"
+  
   if [ $GPU_VENDOR = nvidia ]; then
     metadata > "$LOG_DIR/metadata"
   fi
 
   for run_mode in $RUN_MODE; do
     for precision in $PRECISION; do
+      if [ $precision = fp16 ]; then
+        . bs_fp16.sh 
+      else
+        . bs_fp32.sh
+      fi
       for data_mode in $DATA_MODE; do
         for variable_update in $VARIABLE_UPDATE; do
           for distortions in true false; do
