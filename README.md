@@ -30,8 +30,16 @@ python display_thermal.py path-to-thermal.log --thermal_threshold
 TF_XLA_FLAGS=--tf_xla_auto_jit=2 ./batch_benchmark.sh 4 4 1 100 2 config_resnet50_replicated_fp32_train_syn
 python display_thermal.py path-to-thermal/1 --thermal_threshold 89
 
+```
+
+#### Step Three: Report Results
+
+```
+# Compile resutls of a system setting to a markdown file
 ./report.sh benchmark_name.logs/ > benchmark_name.md
 
+# Gather all results to a CSV file
+python log2csv.py
 ```
 
 #### AMD
