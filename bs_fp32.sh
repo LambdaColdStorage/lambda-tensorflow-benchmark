@@ -19,12 +19,12 @@ case "${GPU_RAM:-'12GB'}" in
 		alexnet=384
 		ssd300=32
 		;;
-	'12GB')
+	'12GB'|'11GB')
 		resnet50=64
 		resnet152=32
 		inception3=64
 		inception4=16
-		vgg16=64
+		vgg16=56
 		alexnet=512
 		ssd300=32
 		;;
