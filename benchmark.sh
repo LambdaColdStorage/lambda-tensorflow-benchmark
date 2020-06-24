@@ -5,6 +5,7 @@ IFS=', ' read -r -a gpus <<< "$GPU_INDEX"
 ITERATIONS=${2:-100}
 NUM_BATCHES=${3:-100}
 THERMAL_INTERVAL=${4:-1}
+PYTHON=python3
 
 MIN_NUM_GPU=${#gpus[@]}
 MAX_NUM_GPU=$MIN_NUM_GPU
@@ -99,7 +100,7 @@ metadata() {
 	modinfo nvidia | $awk '/^version:/ { print "Nvidia", $2 }'
 
 	# Tensorflow Version
-	$print 'TF' $(python3 2>/dev/null <<- EOF 
+	$print 'TF' $($PYTHON 2>/dev/null <<- EOF 
 		import tensorflow
 		print(tensorflow.__version__)
 		EOF
@@ -109,7 +110,7 @@ metadata() {
 	$print Kernel "$(uname -r)"
 
 	# Python Version
-	python3 --version | tr ' ' "$OFS"
+	$PYTHON --version | tr ' ' "$OFS"
 
 }
 
@@ -171,7 +172,7 @@ run_benchmark() {
   run_thermal >> $thermal_log &
   thermal_loop="$!" # process ID of while loop
 
-  python3 -u tf_cnn_benchmarks.py "${args[@]}" |&
+  $PYTHON -u tf_cnn_benchmarks.py "${args[@]}" |&
     while read line; do
       case "$line" in
 	# Here's is an example of the line we're looking for:
