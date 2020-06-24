@@ -11,18 +11,20 @@ data = 'syn'
 
 
 list_test = ['alexnet',
-			 'inception3', 
-			 'inception4', 
-			 'resnet152', 
-			 'resnet50',
-			 'vgg16']
+	     'inception3', 
+	     'inception4', 
+	     'resnet152', 
+	     'resnet50',
+	     'vgg16']
 
 
 list_system = {"Gold_6230-Quadro_RTX_8000": [1, 2, 4, 8],
-			   "Gold_6230-Quadro_RTX_8000_XLA": [1, 2, 4, 8],
-			   "Gold_6230-Quadro_RTX_8000_NVLink": [1, 2, 4, 8],
-			   "Gold_6230-Quadro_RTX_8000_NVLink_XLA": [1, 2, 4, 8]
-			   }
+	       "Gold_6230-Quadro_RTX_8000_XLA": [1, 2, 4, 8],
+	       "Gold_6230-Quadro_RTX_8000_NVLink": [1, 2, 4, 8],
+	       "Gold_6230-Quadro_RTX_8000_NVLink_XLA": [1, 2, 4, 8],
+               "Gold_6230-GeForce_RTX_2080_Ti": [1, 2, 4, 8],
+               "Gold_6230-GeForce_RTX_2080_Ti_XLA": [1, 2, 4, 8]
+	      }
 
 def get_result(folder, model):
 	folder_path = glob.glob(folder + '/' + model + '*')[0]
