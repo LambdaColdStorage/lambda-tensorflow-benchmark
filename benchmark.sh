@@ -69,7 +69,7 @@ gpu_ram() {
 	# Prints all GPUs' memory in GB
 	  if [ $GPU_VENDOR = nvidia ]; then
 		nvidia-smi --query-gpu=memory.total --format=csv,noheader |
-				awk '{ printf "%.0f\n", $1 / 1024 }'
+				awk '{ printf "%.0f\n", $1 / 1024 }' | head -n1
 		# NVidia-SMI reports in MiB.
 		# 1GB = 953.674MiB
 		# 2070 Max-Q       advertised:  8GB - NVidia-SMI: 7,982MiB  or  8.4GB or  7.8GiB
@@ -83,7 +83,7 @@ gpu_ram() {
 		# awk 'END {print  int(0.5)       }' = 0
 	else
 		rocm-smi --showmeminfo vram --csv | sed '/^$/d' |
-			awk -F, 'NR!=1 { printf "%.0f\n", $2 / (1024^3) }'
+			awk -F, 'NR!=1 { printf "%.0f\n", $2 / (1024^3) }' | head -n1
 	fi 
 	# head -n1 becuase we're assuming all GPUs have the same capacity.
 	# It might be interesting to explore supporting different GPUs in the same machine but not right now
