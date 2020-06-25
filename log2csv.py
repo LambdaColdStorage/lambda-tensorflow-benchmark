@@ -23,10 +23,14 @@ list_system = {"Gold_6230-Quadro_RTX_8000": [1, 2, 4, 8],
 	       "Gold_6230-Quadro_RTX_8000_NVLink_XLA": [1, 2, 4, 8],
                "Gold_6230-GeForce_RTX_2080_Ti": [1, 2, 4, 8],
                "Gold_6230-GeForce_RTX_2080_Ti_XLA": [1, 2, 4, 8],
+               "Gold_6230-GeForce_RTX_2080_Ti_NVLink": [1, 2, 4, 8],
+               "Gold_6230-GeForce_RTX_2080_Ti_NVLink_XLA": [1, 2, 4, 8],
                "i7-6850K-GeForce_GTX_1080_Ti": [1]
 	      }
 
 def get_result(folder, model):
+        print(folder)
+        print(model)
 	folder_path = glob.glob(folder + '/' + model + '*')[0]
 	folder_name = folder_path.split('/')[-1]
 	batch_size = folder_name.split('-')[-1]
