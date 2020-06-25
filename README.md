@@ -70,7 +70,7 @@ git clone https://github.com/lambdal/lambda-tensorflow-benchmark.git --recursive
 git checkout tf2
 git submodule update --init --recursive
 
-./batch_benchmark.sh 1 1 1 100 2 config_resnet50_replicated_fp32_train_syn amd
+./batch_benchmark.sh 1 1 1 100 2 config_resnet50_replicated_fp32_train_syn
 ```
 
 
