@@ -35,7 +35,7 @@ CONFIG_NAME="${CPU_NAME}-${GPU_NAME}"
 echo $CONFIG_NAME
 
 
-DATA_DIR="/home/${USER}/nfs/imagenet_mini"
+DATA_DIR="/home/${USER}/imagenet_mini"
 LOG_DIR="$(pwd)/${CONFIG_NAME}.logs"
 
 THROUGHPUT="$(mktemp)"
@@ -147,6 +147,7 @@ run_benchmark() {
   fi
   if $distortions; then
     outer_dir+="-distortions"
+    args+=("--nodistort_color_in_yiq")
   fi
   if [ $precision = fp16 ]; then
     args+=("--use_fp16=True")
