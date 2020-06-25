@@ -1,0 +1,102 @@
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/tensorflow_core/python/compat/v2_compat.py:88: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+2020-06-24 19:44:23.342438: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 3700210000 Hz
+2020-06-24 19:44:23.342555: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x3719a10 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-06-24 19:44:23.342577: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-06-24 19:44:23.344208: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libhip_hcc.so
+2020-06-24 19:44:23.787219: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1573] Found device 0 with properties:
+pciBusID: 0000:03:00.0 name: Vega 20     ROCm AMD GPU ISA: gfx906
+coreClock: 1.7GHz coreCount: 60 deviceMemorySize: 15.98GiB deviceMemoryBandwidth: -1B/s
+2020-06-24 19:44:23.935129: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library librocblas.so
+2020-06-24 19:44:23.936030: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libMIOpen.so
+2020-06-24 19:44:24.116200: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library librocfft.so
+2020-06-24 19:44:24.117179: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library librocrand.so
+2020-06-24 19:44:24.117261: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1697] Adding visible gpu devices: 0
+2020-06-24 19:44:24.117337: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-06-24 19:44:24.117342: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1102]      0
+2020-06-24 19:44:24.117345: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] 0:   N
+2020-06-24 19:44:24.117437: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1241] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 15245 MB memory) -> physical GPU (device: 0, name: Vega 20, pci bus id: 0000:03:00.0)
+TensorFlow:  2.1
+Model:       inception3
+Dataset:     imagenet (synthetic)
+Mode:        forward only
+SingleSess:  False
+Batch size:  96 global
+96 per device
+Num batches: 100
+Num epochs:  0.01
+Devices:     ['/gpu:0']
+NUMA bind:   False
+Data format: NCHW
+Optimizer:   sgd
+Variables:   replicated
+AllReduce:   nccl
+==========
+Generating training model
+WARNING:tensorflow:From /dockerx/lambda-tensorflow-benchmark_tf2/benchmarks/scripts/tf_cnn_benchmarks/convnet_builder.py:134: conv2d (from tensorflow.python.layers.convolutional) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.keras.layers.Conv2D` instead.
+W0624 19:44:24.370994 140316695172928 deprecation.py:323] From /dockerx/lambda-tensorflow-benchmark_tf2/benchmarks/scripts/tf_cnn_benchmarks/convnet_builder.py:134: conv2d (from tensorflow.python.layers.convolutional) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.keras.layers.Conv2D` instead.
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/tensorflow_core/python/layers/convolutional.py:424: Layer.apply (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `layer.__call__` method instead.
+W0624 19:44:24.371994 140316695172928 deprecation.py:323] From /usr/local/lib/python3.6/dist-packages/tensorflow_core/python/layers/convolutional.py:424: Layer.apply (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `layer.__call__` method instead.
+WARNING:tensorflow:From /dockerx/lambda-tensorflow-benchmark_tf2/benchmarks/scripts/tf_cnn_benchmarks/convnet_builder.py:266: max_pooling2d (from tensorflow.python.layers.pooling) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.MaxPooling2D instead.
+W0624 19:44:24.400868 140316695172928 deprecation.py:323] From /dockerx/lambda-tensorflow-benchmark_tf2/benchmarks/scripts/tf_cnn_benchmarks/convnet_builder.py:266: max_pooling2d (from tensorflow.python.layers.pooling) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.MaxPooling2D instead.
+WARNING:tensorflow:From /dockerx/lambda-tensorflow-benchmark_tf2/benchmarks/scripts/tf_cnn_benchmarks/convnet_builder.py:266: average_pooling2d (from tensorflow.python.layers.pooling) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.AveragePooling2D instead.
+W0624 19:44:24.476762 140316695172928 deprecation.py:323] From /dockerx/lambda-tensorflow-benchmark_tf2/benchmarks/scripts/tf_cnn_benchmarks/convnet_builder.py:266: average_pooling2d (from tensorflow.python.layers.pooling) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.AveragePooling2D instead.
+Initializing graph
+WARNING:tensorflow:From /dockerx/lambda-tensorflow-benchmark_tf2/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py:2268: Supervisor.__init__ (from tensorflow.python.training.supervisor) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please switch to tf.train.MonitoredTrainingSession
+W0624 19:44:25.414136 140316695172928 deprecation.py:323] From /dockerx/lambda-tensorflow-benchmark_tf2/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py:2268: Supervisor.__init__ (from tensorflow.python.training.supervisor) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please switch to tf.train.MonitoredTrainingSession
+2020-06-24 19:44:25.619025: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1573] Found device 0 with properties:
+pciBusID: 0000:03:00.0 name: Vega 20     ROCm AMD GPU ISA: gfx906
+coreClock: 1.7GHz coreCount: 60 deviceMemorySize: 15.98GiB deviceMemoryBandwidth: -1B/s
+2020-06-24 19:44:25.619080: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library librocblas.so
+2020-06-24 19:44:25.619086: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libMIOpen.so
+2020-06-24 19:44:25.619091: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library librocfft.so
+2020-06-24 19:44:25.619095: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library librocrand.so
+2020-06-24 19:44:25.619135: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1697] Adding visible gpu devices: 0
+2020-06-24 19:44:25.619144: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-06-24 19:44:25.619147: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1102]      0
+2020-06-24 19:44:25.619149: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] 0:   N
+2020-06-24 19:44:25.619195: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1241] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 15245 MB memory) -> physical GPU (device: 0, name: Vega 20, pci bus id: 0000:03:00.0)
+INFO:tensorflow:Running local_init_op.
+I0624 19:44:26.233076 140316695172928 session_manager.py:504] Running local_init_op.
+INFO:tensorflow:Done running local_init_op.
+I0624 19:44:26.275518 140316695172928 session_manager.py:507] Done running local_init_op.
+Running warm up
+2020-06-24 19:44:26.861077: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library librocblas.so
+2020-06-24 19:44:26.891031: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libMIOpen.so
+Done warm up
+Step	Img/sec	total_loss	top_1_accuracy	top_5_accuracy
+1	images/sec: 561.1 +/- 0.0 (jitter = 0.0)	0.000	0.000	0.000 1593027873
+10	images/sec: 560.8 +/- 0.2 (jitter = 0.8)	0.000	0.000	0.010 1593027875
+20	images/sec: 560.8 +/- 0.2 (jitter = 0.8)	0.000	0.000	0.000 1593027877
+30	images/sec: 561.0 +/- 0.3 (jitter = 1.0)	0.000	0.000	0.000 1593027878
+40	images/sec: 560.7 +/- 0.2 (jitter = 1.0)	0.000	0.000	0.010 1593027880
+50	images/sec: 560.6 +/- 0.2 (jitter = 0.9)	0.000	0.000	0.000 1593027882
+60	images/sec: 560.5 +/- 0.2 (jitter = 1.0)	0.000	0.000	0.000 1593027883
+70	images/sec: 560.3 +/- 0.2 (jitter = 1.0)	0.000	0.000	0.000 1593027885
+80	images/sec: 560.3 +/- 0.1 (jitter = 1.0)	0.000	0.000	0.000 1593027887
+90	images/sec: 560.2 +/- 0.1 (jitter = 1.0)	0.000	0.000	0.000 1593027889
+100	images/sec: 560.1 +/- 0.1 (jitter = 0.9)	0.000	0.000	0.000 1593027890
+----------------------------------------------------------------
+total images/sec: 559.91
+----------------------------------------------------------------

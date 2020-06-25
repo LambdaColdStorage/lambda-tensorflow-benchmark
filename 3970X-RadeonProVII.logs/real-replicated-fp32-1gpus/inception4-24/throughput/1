@@ -1,0 +1,143 @@
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/tensorflow_core/python/compat/v2_compat.py:88: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+2020-06-24 23:26:40.674459: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 3700210000 Hz
+2020-06-24 23:26:40.674586: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x4959fb0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-06-24 23:26:40.674613: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-06-24 23:26:40.676219: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libhip_hcc.so
+2020-06-24 23:26:41.096322: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1573] Found device 0 with properties:
+pciBusID: 0000:03:00.0 name: Vega 20     ROCm AMD GPU ISA: gfx906
+coreClock: 1.7GHz coreCount: 60 deviceMemorySize: 15.98GiB deviceMemoryBandwidth: -1B/s
+2020-06-24 23:26:41.243382: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library librocblas.so
+2020-06-24 23:26:41.244249: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libMIOpen.so
+2020-06-24 23:26:41.425790: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library librocfft.so
+2020-06-24 23:26:41.426725: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library librocrand.so
+2020-06-24 23:26:41.426803: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1697] Adding visible gpu devices: 0
+2020-06-24 23:26:41.426876: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-06-24 23:26:41.426880: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1102]      0
+2020-06-24 23:26:41.426883: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] 0:   N
+2020-06-24 23:26:41.426983: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1241] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 15245 MB memory) -> physical GPU (device: 0, name: Vega 20, pci bus id: 0000:03:00.0)
+TensorFlow:  2.1
+Model:       inception4
+Dataset:     imagenet
+Mode:        training
+SingleSess:  False
+Batch size:  24 global
+24 per device
+Num batches: 100
+Num epochs:  0.00
+Devices:     ['/gpu:0']
+NUMA bind:   False
+Data format: NCHW
+Optimizer:   sgd
+Variables:   replicated
+AllReduce:   nccl
+==========
+Generating training model
+WARNING:tensorflow:From /dockerx/lambda-tensorflow-benchmark_tf2/benchmarks/scripts/tf_cnn_benchmarks/preprocessing.py:677: parallel_interleave (from tensorflow.python.data.experimental.ops.interleave_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.interleave(map_func, cycle_length, block_length, num_parallel_calls=tf.data.experimental.AUTOTUNE)` instead. If sloppy execution is desired, use `tf.data.Options.experimental_deterministic`.
+W0624 23:26:41.679904 139811010053952 deprecation.py:323] From /dockerx/lambda-tensorflow-benchmark_tf2/benchmarks/scripts/tf_cnn_benchmarks/preprocessing.py:677: parallel_interleave (from tensorflow.python.data.experimental.ops.interleave_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.interleave(map_func, cycle_length, block_length, num_parallel_calls=tf.data.experimental.AUTOTUNE)` instead. If sloppy execution is desired, use `tf.data.Options.experimental_deterministic`.
+WARNING:tensorflow:From /dockerx/lambda-tensorflow-benchmark_tf2/benchmarks/scripts/tf_cnn_benchmarks/preprocessing.py:691: shuffle_and_repeat (from tensorflow.python.data.experimental.ops.shuffle_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.shuffle(buffer_size, seed)` followed by `tf.data.Dataset.repeat(count)`. Static tf.data optimizations will take care of using the fused implementation.
+W0624 23:26:41.691772 139811010053952 deprecation.py:323] From /dockerx/lambda-tensorflow-benchmark_tf2/benchmarks/scripts/tf_cnn_benchmarks/preprocessing.py:691: shuffle_and_repeat (from tensorflow.python.data.experimental.ops.shuffle_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.shuffle(buffer_size, seed)` followed by `tf.data.Dataset.repeat(count)`. Static tf.data optimizations will take care of using the fused implementation.
+WARNING:tensorflow:From /dockerx/lambda-tensorflow-benchmark_tf2/benchmarks/scripts/tf_cnn_benchmarks/preprocessing.py:698: map_and_batch (from tensorflow.python.data.experimental.ops.batching) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.map(map_func, num_parallel_calls)` followed by `tf.data.Dataset.batch(batch_size, drop_remainder)`. Static tf.data optimizations will take care of using the fused implementation.
+W0624 23:26:41.693663 139811010053952 deprecation.py:323] From /dockerx/lambda-tensorflow-benchmark_tf2/benchmarks/scripts/tf_cnn_benchmarks/preprocessing.py:698: map_and_batch (from tensorflow.python.data.experimental.ops.batching) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.map(map_func, num_parallel_calls)` followed by `tf.data.Dataset.batch(batch_size, drop_remainder)`. Static tf.data optimizations will take care of using the fused implementation.
+WARNING:tensorflow:From /dockerx/lambda-tensorflow-benchmark_tf2/benchmarks/scripts/tf_cnn_benchmarks/preprocessing.py:346: sample_distorted_bounding_box (from tensorflow.python.ops.image_ops_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+`seed2` arg is deprecated.Use sample_distorted_bounding_box_v2 instead.
+W0624 23:26:42.449991 139811010053952 deprecation.py:323] From /dockerx/lambda-tensorflow-benchmark_tf2/benchmarks/scripts/tf_cnn_benchmarks/preprocessing.py:346: sample_distorted_bounding_box (from tensorflow.python.ops.image_ops_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+`seed2` arg is deprecated.Use sample_distorted_bounding_box_v2 instead.
+2020-06-24 23:26:42.461203: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1573] Found device 0 with properties:
+pciBusID: 0000:03:00.0 name: Vega 20     ROCm AMD GPU ISA: gfx906
+coreClock: 1.7GHz coreCount: 60 deviceMemorySize: 15.98GiB deviceMemoryBandwidth: -1B/s
+2020-06-24 23:26:42.461240: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library librocblas.so
+2020-06-24 23:26:42.461246: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libMIOpen.so
+2020-06-24 23:26:42.461251: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library librocfft.so
+2020-06-24 23:26:42.461256: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library librocrand.so
+2020-06-24 23:26:42.461296: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1697] Adding visible gpu devices: 0
+/usr/local/lib/python3.6/dist-packages/tensorflow_core/python/data/ops/dataset_ops.py:1743: UserWarning: Seed 1234 from outer graph might be getting used by function tf_data_experimental_map_and_batch_RecordInputImagePreprocessor.parse_and_preprocess, if the random op has not been provided any seed. Explicitly set the seed in the function if this is not the intended behavior.
+dataset = transformation_func(self)
+WARNING:tensorflow:From /dockerx/lambda-tensorflow-benchmark_tf2/benchmarks/scripts/tf_cnn_benchmarks/convnet_builder.py:134: conv2d (from tensorflow.python.layers.convolutional) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.keras.layers.Conv2D` instead.
+W0624 23:26:42.675158 139811010053952 deprecation.py:323] From /dockerx/lambda-tensorflow-benchmark_tf2/benchmarks/scripts/tf_cnn_benchmarks/convnet_builder.py:134: conv2d (from tensorflow.python.layers.convolutional) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.keras.layers.Conv2D` instead.
+WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/tensorflow_core/python/layers/convolutional.py:424: Layer.apply (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `layer.__call__` method instead.
+W0624 23:26:42.676131 139811010053952 deprecation.py:323] From /usr/local/lib/python3.6/dist-packages/tensorflow_core/python/layers/convolutional.py:424: Layer.apply (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `layer.__call__` method instead.
+WARNING:tensorflow:From /dockerx/lambda-tensorflow-benchmark_tf2/benchmarks/scripts/tf_cnn_benchmarks/convnet_builder.py:266: max_pooling2d (from tensorflow.python.layers.pooling) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.MaxPooling2D instead.
+W0624 23:26:42.711477 139811010053952 deprecation.py:323] From /dockerx/lambda-tensorflow-benchmark_tf2/benchmarks/scripts/tf_cnn_benchmarks/convnet_builder.py:266: max_pooling2d (from tensorflow.python.layers.pooling) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.MaxPooling2D instead.
+WARNING:tensorflow:From /dockerx/lambda-tensorflow-benchmark_tf2/benchmarks/scripts/tf_cnn_benchmarks/convnet_builder.py:266: average_pooling2d (from tensorflow.python.layers.pooling) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.AveragePooling2D instead.
+W0624 23:26:42.806692 139811010053952 deprecation.py:323] From /dockerx/lambda-tensorflow-benchmark_tf2/benchmarks/scripts/tf_cnn_benchmarks/convnet_builder.py:266: average_pooling2d (from tensorflow.python.layers.pooling) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.AveragePooling2D instead.
+WARNING:tensorflow:From /dockerx/lambda-tensorflow-benchmark_tf2/benchmarks/scripts/tf_cnn_benchmarks/convnet_builder.py:408: dropout (from tensorflow.python.layers.core) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.dropout instead.
+W0624 23:26:44.538225 139811010053952 deprecation.py:323] From /dockerx/lambda-tensorflow-benchmark_tf2/benchmarks/scripts/tf_cnn_benchmarks/convnet_builder.py:408: dropout (from tensorflow.python.layers.core) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.dropout instead.
+Initializing graph
+WARNING:tensorflow:From /dockerx/lambda-tensorflow-benchmark_tf2/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py:2268: Supervisor.__init__ (from tensorflow.python.training.supervisor) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please switch to tf.train.MonitoredTrainingSession
+W0624 23:26:45.501808 139811010053952 deprecation.py:323] From /dockerx/lambda-tensorflow-benchmark_tf2/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py:2268: Supervisor.__init__ (from tensorflow.python.training.supervisor) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please switch to tf.train.MonitoredTrainingSession
+2020-06-24 23:26:45.974153: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1573] Found device 0 with properties:
+pciBusID: 0000:03:00.0 name: Vega 20     ROCm AMD GPU ISA: gfx906
+coreClock: 1.7GHz coreCount: 60 deviceMemorySize: 15.98GiB deviceMemoryBandwidth: -1B/s
+2020-06-24 23:26:45.974208: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library librocblas.so
+2020-06-24 23:26:45.974215: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libMIOpen.so
+2020-06-24 23:26:45.974219: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library librocfft.so
+2020-06-24 23:26:45.974224: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library librocrand.so
+2020-06-24 23:26:45.974263: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1697] Adding visible gpu devices: 0
+2020-06-24 23:26:45.974272: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-06-24 23:26:45.974295: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1102]      0
+2020-06-24 23:26:45.974298: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] 0:   N
+2020-06-24 23:26:45.974344: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1241] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 15245 MB memory) -> physical GPU (device: 0, name: Vega 20, pci bus id: 0000:03:00.0)
+INFO:tensorflow:Running local_init_op.
+I0624 23:26:47.084814 139811010053952 session_manager.py:504] Running local_init_op.
+INFO:tensorflow:Done running local_init_op.
+I0624 23:26:47.257437 139811010053952 session_manager.py:507] Done running local_init_op.
+Running warm up
+2020-06-24 23:26:49.824896: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library librocblas.so
+2020-06-24 23:26:50.150601: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libMIOpen.so
+Done warm up
+Step	Img/sec	total_loss
+1	images/sec: 54.5 +/- 0.0 (jitter = 0.0)	7.804 1593041218
+10	images/sec: 54.6 +/- 0.0 (jitter = 0.1)	7.625 1593041222
+20	images/sec: 54.6 +/- 0.0 (jitter = 0.1)	7.579 1593041226
+30	images/sec: 54.5 +/- 0.0 (jitter = 0.2)	7.887 1593041231
+40	images/sec: 54.5 +/- 0.0 (jitter = 0.2)	7.586 1593041235
+50	images/sec: 54.5 +/- 0.0 (jitter = 0.2)	7.735 1593041239
+60	images/sec: 54.5 +/- 0.0 (jitter = 0.2)	7.859 1593041244
+70	images/sec: 54.5 +/- 0.0 (jitter = 0.2)	7.760 1593041248
+80	images/sec: 54.5 +/- 0.0 (jitter = 0.1)	7.783 1593041253
+90	images/sec: 54.5 +/- 0.0 (jitter = 0.2)	7.495 1593041257
+100	images/sec: 54.5 +/- 0.0 (jitter = 0.2)	7.561 1593041262
+----------------------------------------------------------------
+total images/sec: 54.47
+----------------------------------------------------------------
+2020-06-24 23:27:42.075717: W tensorflow/core/kernels/data/generator_dataset_op.cc:103] Error occurred when finalizing GeneratorDataset iterator: Cancelled: Operation was cancelled
