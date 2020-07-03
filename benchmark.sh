@@ -35,12 +35,7 @@ fi
 
 SCRIPT_DIR="$(pwd)/benchmarks/scripts/tf_cnn_benchmarks"
 
-CPU_NAME="$(lscpu | awk '/Model name:/ {
-  if ($3" "$4 ~ "AMD Ryzen") print $6;
-  else if ($5 ~ "CPU") print $4;
-  else print $5;
-  exit
-}')"
+CPU_NAME="$(lscpu | sed -En '/Model name:/ { s/^Model name:\s*//; s/\([^)]*\)//g; s/ /_/gp }')"
 
 GPU_NAME="${GPU_NAME// /_}"
 
@@ -139,12 +134,7 @@ metadata() {
 	$awk '/MemTotal:/ { print "Memory", ($2 / (1024^2)) "GB"}' /proc/meminfo
 
 	# CPU Model
-	lscpu | $awk '/Model name:/ {
-		if($5 ~ "CPU") cpu=$4;
-		else cpu=$5;
-		print "CPU", cpu;
-		exit;
-	}'
+	lscpu | $awk -F: '/Model name:/ { sub(/^[\t ]*/, "", $2); print "CPU Model", $2 }'
 
 	if [ "$GPU_VENDOR" = "nvidia" ]; then
 		# GPU Models
@@ -259,8 +249,9 @@ run_benchmark() {
 	# We append a timestamp to the line for no reason
 	[0-9]*images/sec*)
 		set $line; echo "$3" > "$THROUGHPUT"; echo "$line $(date +%s)";
-		# Timestamp,GPUs,Data Mode,Run Mode,Variable Update,XLA,NVlink,Model,Precision,Batch Size,Result
 		nvlink="$(nvidia-smi nvlink -s | wc -l)"
+
+		# Timestamp,GPUs,Data Mode,Run Mode,Variable Update,XLA,NVlink,Model,Precision,Batch Size,Result
 		echo "$(date +%s),$num_gpus,$data_mode,$run_mode,$variable_update,${TF_XLA_FLAGS##*=},$nvlink,$model,$batch_size,$3" \
 			>> ${LOG_DIR}/log.csv;;
         *) echo "$line";;
