@@ -160,7 +160,7 @@ run_benchmark() {
   pushd "$SCRIPT_DIR" &> /dev/null
 
   # Example: model=alexnet; alexnet=1536
-  eval batch_size=\$$model
+  batch_size="$(batch_size $model)"
   # Example: syn-replicated-fp32-1gpus
   outer_dir="${data_mode}-${variable_update}-${precision}-${num_gpus}gpus"
 
