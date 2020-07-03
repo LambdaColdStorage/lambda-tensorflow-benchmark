@@ -7,7 +7,7 @@ NUM_BATCHES=${3:-100}
 THERMAL_INTERVAL=${4:-1}
 PYTHON=python3
 SETTING=${5:-config}
-GPU_VENDOR=${6:-nvidia}
+GPU_VENDOR=${6}
 
 MIN_NUM_GPU=${#gpus[@]}
 MAX_NUM_GPU=$MIN_NUM_GPU
@@ -21,21 +21,22 @@ die() {
 	exit 1
 }
 
-if installed nvidia-smi; then
-  export CUDA_VISIBLE_DEVICES=$GPU_INDEX
-  GPU_VENDOR=${6:-nvidia}
-  GPU_NAME="$(nvidia-smi -i 0 --query-gpu=gpu_name --format=csv,noheader 2>/dev/null || echo PLACEHOLDER )"
+[ -z "$GPU_VENDOR" ] && if installed nvidia-smi; then
+  GPU_VENDOR='nvidia'
 elif installed rocm-smi; then
-  export HIP_VISIBLE_DEVICES=$GPU_INDEX
-  GPU_VENDOR=${6:-amd}
-  GPU_NAME=$(rocm-smi --showproductname | awk -F'\t' '/Card series/ { print $5 }')
+  GPU_VENDOR='amd'
 fi
 
 case $GPU_VENDOR in
-	"nvidia") nvidia-smi --query-gpu=gpu_name --format=csv,noheader 2>/dev/null |
-		awk '{ if (!name) name=$0; else if (name != $0) exit(1); }';;
-	"amd") rocm-smi --showproductname |
-		awk -F'\t' '/Card series/ { if (!name) name=$5; else if (name != $5) exit(1); }';;
+	"nvidia")
+		export CUDA_VISIBLE_DEVICES=$GPU_INDEX
+		GPU_NAME="$(nvidia-smi --query-gpu=gpu_name --format=csv,noheader 2>/dev/null |
+			awk '{ if (!name) name=$0; else if (name != $0) exit(1); } END { print name }')";;
+	"amd")
+		export HIP_VISIBLE_DEVICES=$GPU_INDEX
+		GPU_NAME="$(rocm-smi --showproductname | awk -F'\t' \
+			'/Card series/ { if (!name) name=$5; else if (name != $5) exit(1); } \
+			END { print name }')";;
 esac || die "refusing to run benchmark with different GPU models"
 
 
