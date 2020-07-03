@@ -41,6 +41,8 @@ esac || die "refusing to run benchmark with different GPU models"
 
 CPU_NAME="$(lscpu | sed -En '/Model name:/ { s/^Model name:\s*//; s/\([^)]*\)//g }')"
 
+BOARD_NAME="$(sed -E 's/^\s+|\s+$//g' /sys/devices/virtual/dmi/id/board_name)"
+
 SCRIPT_DIR="$(pwd)/benchmarks/scripts/tf_cnn_benchmarks"
 
 CONFIG_NAME="${CPU_NAME// /_}-${GPU_NAME// /_}"
@@ -137,6 +139,7 @@ metadata() {
 
 	# CPU Model
 	lscpu | $awk -F: '/Model name:/ { sub(/^[\t ]*/, "", $2); print "CPU Model", $2 }'
+	$print Motherboard "$BOARD_NAME"
 
 	if [ "$GPU_VENDOR" = "nvidia" ]; then
 		# GPU Models
@@ -253,8 +256,8 @@ run_benchmark() {
 		set $line; echo "$3" > "$THROUGHPUT"; echo "$line $(date +%s)";
 		nvlink="$(nvidia-smi nvlink -s | wc -l)"
 
-		# Timestamp,CPU Name,GPU Name,GPU Count,Data Mode,Run Mode,Variable Update,XLA,NVlink,Model,Precision,Batch Size,Result
-		echo "$(date +%s),$CPU_NAME,$GPU_NAME,$num_gpus,$data_mode,$run_mode,$variable_update,${TF_XLA_FLAGS##*=},$nvlink,$model,$batch_size,$3" \
+		# Timestamp,CPU Name,Motherboard,GPU Name,GPU Count,Data Mode,Run Mode,Variable Update,XLA,NVlink,Model,Precision,Batch Size,Result
+		echo "$(date +%s),$CPU_NAME,$BOARD_NAME,$GPU_NAME,$num_gpus,$data_mode,$run_mode,$variable_update,${TF_XLA_FLAGS##*=},$nvlink,$model,$batch_size,$3" \
 			>> ${LOG_DIR}/log.csv;;
         *) echo "$line";;
       esac
