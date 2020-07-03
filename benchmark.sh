@@ -39,14 +39,11 @@ case $GPU_VENDOR in
 			END { print name }')";;
 esac || die "refusing to run benchmark with different GPU models"
 
+CPU_NAME="$(lscpu | sed -En '/Model name:/ { s/^Model name:\s*//; s/\([^)]*\)//g }')"
 
 SCRIPT_DIR="$(pwd)/benchmarks/scripts/tf_cnn_benchmarks"
 
-CPU_NAME="$(lscpu | sed -En '/Model name:/ { s/^Model name:\s*//; s/\([^)]*\)//g; s/ /_/gp }')"
-
-GPU_NAME="${GPU_NAME// /_}"
-
-CONFIG_NAME="${CPU_NAME}-${GPU_NAME}"
+CONFIG_NAME="${CPU_NAME// /_}-${GPU_NAME// /_}"
 echo $CONFIG_NAME
 
 
