@@ -5,69 +5,38 @@ PRECISION="fp32 fp16"
 RUN_MODE="train inference"
 DATA_MODE="syn"
 
+# Base batch size multipliers
+
+  resnet50='5  + 1/3'
+ resnet152='2  + 2/3'
+inception3='5  + 1/3'
+inception4='1  + 1/3'
+     vgg16='5  + 1/3'
+   alexnet='42 + 2/3'
+    ssd300='2  + 2/3'
+
+
 case "${GPU_RAM}" in
 	'6GB') 
-		resnet50=32
-		resnet152=16
-		inception3=32
-		inception4=8
-		vgg16=32
-		alexnet=256
-		ssd300=16
+		multiplier=6
 		;;
 	'8GB')
-		resnet50=48
-		resnet152=32
-		inception3=48
-		inception4=12
-		vgg16=48
-		alexnet=384
-		ssd300=32
+		multiplier=8
 		;;
 	'11GB'|'12GB') # 11GB for 2080Ti
-		resnet50=64
-		resnet152=32
-		inception3=64
-		inception4=16
-		vgg16=64
-		alexnet=512
-		ssd300=32
+		multiplier=12
 		;;
 	'16GB')
-		resnet50=96
-		resnet152=64
-		inception3=96
-		inception4=24
-		vgg16=96
-		alexnet=768
-		ssd300=64
+		multiplier=16
 		;;		
 	'24GB')
-		resnet50=128
-		resnet152=64
-		inception3=128
-		inception4=32
-		vgg16=128
-		alexnet=1024
-		ssd300=64
+		multiplier=24
 		;;
 	'32GB')
-		resnet50=192
-		resnet152=96
-		inception3=192
-		inception4=48
-		vgg16=192
-		alexnet=1536
-		ssd300=96
+		multiplier=32
 		;;
 	'47GB'|'48GB') # 47GB for Quadro RTX
-		resnet50=256
-                resnet152=128
-                inception3=256
-                inception4=64
-                vgg16=256
-                alexnet=2048
-                ssd300=128
+		multiplier=48
 		;;
 	*)
 		cat 1>&2 <<- EOF
@@ -77,3 +46,15 @@ case "${GPU_RAM}" in
 		exit 1
 		;;
 esac
+
+# sets each model to its appropriate batchsize
+for model in $MODELS; do
+	# Example:
+	# multiplier=8
+	# resnet50='5  + 1/3'
+	# resnet50 = 8 * (5 + 1/3)
+	eval base=\$$model
+	unrounded=$(echo "($base) * $multiplier" | bc -l)
+	product=$(printf '%0.0f\n' "$unrounded")
+	eval $model=$product
+done
