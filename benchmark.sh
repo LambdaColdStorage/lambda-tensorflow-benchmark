@@ -21,7 +21,6 @@ die() {
 	exit 1
 }
 
-
 if installed nvidia-smi; then
   export CUDA_VISIBLE_DEVICES=$GPU_INDEX
   GPU_VENDOR=${6:-nvidia}
@@ -31,6 +30,13 @@ elif installed rocm-smi; then
   GPU_VENDOR=${6:-amd}
   GPU_NAME=$(rocm-smi --showproductname | awk -F'\t' '/Card series/ { print $5 }')
 fi
+
+case $GPU_VENDOR in
+	"nvidia") nvidia-smi --query-gpu=gpu_name --format=csv,noheader 2>/dev/null |
+		awk '{ if (!name) name=$0; else if (name != $0) exit(1); }';;
+	"amd") rocm-smi --showproductname |
+		awk -F'\t' '/Card series/ { if (!name) name=$5; else if (name != $5) exit(1); }';;
+esac || die "refusing to run benchmark with different GPU models"
 
 
 SCRIPT_DIR="$(pwd)/benchmarks/scripts/tf_cnn_benchmarks"
@@ -87,9 +93,7 @@ gpu_ram() {
 	else
 		rocm-smi --showmeminfo vram --csv | sed '/^$/d' |
 			awk -F, 'NR!=1 { printf "%.0f\n", $2 / (1024^3) }'
-	fi | head -n1
-	# head -n1 becuase we're assuming all GPUs have the same capacity.
-	# It might be interesting to explore supporting different GPUs in the same machine but not right now
+	fi | head -n1 # becuase we're assuming all GPUs have the same capacity.
 }
 
 # returns the appropriate batch size for the model in $1
@@ -251,8 +255,8 @@ run_benchmark() {
 		set $line; echo "$3" > "$THROUGHPUT"; echo "$line $(date +%s)";
 		nvlink="$(nvidia-smi nvlink -s | wc -l)"
 
-		# Timestamp,GPUs,Data Mode,Run Mode,Variable Update,XLA,NVlink,Model,Precision,Batch Size,Result
-		echo "$(date +%s),$num_gpus,$data_mode,$run_mode,$variable_update,${TF_XLA_FLAGS##*=},$nvlink,$model,$batch_size,$3" \
+		# Timestamp,GPU Name,GPU Count,Data Mode,Run Mode,Variable Update,XLA,NVlink,Model,Precision,Batch Size,Result
+		echo "$(date +%s),$GPU_NAME,$num_gpus,$data_mode,$run_mode,$variable_update,${TF_XLA_FLAGS##*=},$nvlink,$model,$batch_size,$3" \
 			>> ${LOG_DIR}/log.csv;;
         *) echo "$line";;
       esac
