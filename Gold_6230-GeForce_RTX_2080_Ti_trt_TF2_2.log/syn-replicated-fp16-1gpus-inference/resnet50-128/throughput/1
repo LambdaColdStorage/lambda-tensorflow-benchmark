@@ -1,0 +1,107 @@
+WARNING:tensorflow:From /home/ubuntu/venv-tf2.2.0/lib/python3.6/site-packages/tensorflow/python/compat/v2_compat.py:96: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+2020-07-02 17:16:52.692653: I tensorflow/core/platform/cpu_feature_guard.cc:143] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2020-07-02 17:16:52.721482: I tensorflow/core/platform/profile_utils/cpu_utils.cc:102] CPU Frequency: 2100000000 Hz
+2020-07-02 17:16:52.721886: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fcc24000b20 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-07-02 17:16:52.721938: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-07-02 17:16:52.727950: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcuda.so.1
+2020-07-02 17:16:53.064093: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x3b23390 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2020-07-02 17:16:53.064170: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): GeForce RTX 2080 Ti, Compute Capability 7.5
+2020-07-02 17:16:53.067516: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 0 with properties:
+pciBusID: 0000:1a:00.0 name: GeForce RTX 2080 Ti computeCapability: 7.5
+coreClock: 1.545GHz coreCount: 68 deviceMemorySize: 10.76GiB deviceMemoryBandwidth: 573.69GiB/s
+2020-07-02 17:16:53.068012: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
+2020-07-02 17:16:53.071988: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+2020-07-02 17:16:53.074854: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10
+2020-07-02 17:16:53.075513: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10
+2020-07-02 17:16:53.078126: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10
+2020-07-02 17:16:53.079426: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10
+2020-07-02 17:16:53.083179: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2020-07-02 17:16:53.086546: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1703] Adding visible gpu devices: 0
+2020-07-02 17:16:53.086591: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
+2020-07-02 17:16:53.088841: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1102] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-07-02 17:16:53.088857: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1108]      0
+2020-07-02 17:16:53.088865: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 0:   N
+2020-07-02 17:16:53.093095: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 10203 MB memory) -> physical GPU (device: 0, name: GeForce RTX 2080 Ti, pci bus id: 0000:1a:00.0, compute capability: 7.5)
+TensorFlow:  2.2
+Model:       resnet50
+Dataset:     imagenet (synthetic)
+Mode:        forward only
+SingleSess:  False
+Batch size:  128 global
+128 per device
+Num batches: 100
+Num epochs:  0.01
+Devices:     ['/gpu:0']
+NUMA bind:   False
+Data format: NCHW
+Optimizer:   sgd
+Variables:   replicated
+AllReduce:   nccl
+==========
+Generating training model
+WARNING:tensorflow:From /home/ubuntu/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/convnet_builder.py:134: conv2d (from tensorflow.python.layers.convolutional) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.keras.layers.Conv2D` instead.
+W0702 17:16:53.131176 140519211484992 deprecation.py:323] From /home/ubuntu/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/convnet_builder.py:134: conv2d (from tensorflow.python.layers.convolutional) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.keras.layers.Conv2D` instead.
+WARNING:tensorflow:From /home/ubuntu/venv-tf2.2.0/lib/python3.6/site-packages/tensorflow/python/layers/convolutional.py:424: Layer.apply (from tensorflow.python.keras.engine.base_layer_v1) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `layer.__call__` method instead.
+W0702 17:16:53.138554 140519211484992 deprecation.py:323] From /home/ubuntu/venv-tf2.2.0/lib/python3.6/site-packages/tensorflow/python/layers/convolutional.py:424: Layer.apply (from tensorflow.python.keras.engine.base_layer_v1) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `layer.__call__` method instead.
+WARNING:tensorflow:From /home/ubuntu/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/convnet_builder.py:266: max_pooling2d (from tensorflow.python.layers.pooling) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.MaxPooling2D instead.
+W0702 17:16:53.169001 140519211484992 deprecation.py:323] From /home/ubuntu/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/convnet_builder.py:266: max_pooling2d (from tensorflow.python.layers.pooling) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.MaxPooling2D instead.
+Initializing graph
+WARNING:tensorflow:From /home/ubuntu/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py:2268: Supervisor.__init__ (from tensorflow.python.training.supervisor) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please switch to tf.train.MonitoredTrainingSession
+W0702 17:16:54.369664 140519211484992 deprecation.py:323] From /home/ubuntu/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py:2268: Supervisor.__init__ (from tensorflow.python.training.supervisor) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please switch to tf.train.MonitoredTrainingSession
+2020-07-02 17:16:54.541893: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 0 with properties:
+pciBusID: 0000:1a:00.0 name: GeForce RTX 2080 Ti computeCapability: 7.5
+coreClock: 1.545GHz coreCount: 68 deviceMemorySize: 10.76GiB deviceMemoryBandwidth: 573.69GiB/s
+2020-07-02 17:16:54.541968: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
+2020-07-02 17:16:54.541976: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+2020-07-02 17:16:54.541982: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10
+2020-07-02 17:16:54.541987: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10
+2020-07-02 17:16:54.541993: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10
+2020-07-02 17:16:54.541998: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10
+2020-07-02 17:16:54.542004: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2020-07-02 17:16:54.544550: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1703] Adding visible gpu devices: 0
+2020-07-02 17:16:54.544580: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1102] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-07-02 17:16:54.544584: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1108]      0
+2020-07-02 17:16:54.544587: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 0:   N
+2020-07-02 17:16:54.546762: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 10203 MB memory) -> physical GPU (device: 0, name: GeForce RTX 2080 Ti, pci bus id: 0000:1a:00.0, compute capability: 7.5)
+INFO:tensorflow:Running local_init_op.
+I0702 17:16:55.529440 140519211484992 session_manager.py:505] Running local_init_op.
+INFO:tensorflow:Done running local_init_op.
+I0702 17:16:55.563334 140519211484992 session_manager.py:508] Done running local_init_op.
+Running warm up
+2020-07-02 17:16:55.821128: I tensorflow/core/grappler/optimizers/generic_layout_optimizer.cc:345] Cancel Transpose nodes around Pad: transpose_before=tower_0/v0/transpose pad=tower_0/v0/cg/conv0/Pad transpose_after=tower_0/v0/cg/conv0/conv2d/Conv2D-0-TransposeNCHWToNHWC-LayoutOptimizer
+2020-07-02 17:16:55.951322: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+2020-07-02 17:16:56.190693: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+Done warm up
+Step	Img/sec	total_loss	top_1_accuracy	top_5_accuracy
+1	images/sec: 2320.2 +/- 0.0 (jitter = 0.0)	0.000	0.000	0.008 1593735418
+10	images/sec: 2310.1 +/- 8.2 (jitter = 9.3)	0.000	0.008	0.008 1593735418
+20	images/sec: 2311.0 +/- 4.2 (jitter = 7.1)	0.000	0.000	0.000 1593735419
+30	images/sec: 2311.6 +/- 2.8 (jitter = 5.7)	0.000	0.000	0.008 1593735420
+40	images/sec: 2312.3 +/- 2.2 (jitter = 5.5)	0.000	0.008	0.016 1593735420
+50	images/sec: 2305.1 +/- 5.9 (jitter = 5.7)	0.000	0.000	0.008 1593735421
+60	images/sec: 2306.4 +/- 5.0 (jitter = 7.2)	0.000	0.000	0.000 1593735421
+70	images/sec: 2306.6 +/- 4.3 (jitter = 7.7)	0.000	0.000	0.000 1593735422
+80	images/sec: 2305.7 +/- 3.8 (jitter = 7.7)	0.000	0.000	0.008 1593735422
+90	images/sec: 2304.4 +/- 3.4 (jitter = 9.5)	0.000	0.000	0.000 1593735423
+100	images/sec: 2304.0 +/- 3.1 (jitter = 9.3)	0.000	0.000	0.000 1593735423
+----------------------------------------------------------------
+total images/sec: 2297.36
+----------------------------------------------------------------

@@ -1,0 +1,197 @@
+WARNING:tensorflow:From /home/ubuntu/venv-tf2.2.0/lib/python3.6/site-packages/tensorflow/python/compat/v2_compat.py:96: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+2020-07-02 21:47:21.564310: I tensorflow/core/platform/cpu_feature_guard.cc:143] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2020-07-02 21:47:21.593454: I tensorflow/core/platform/profile_utils/cpu_utils.cc:102] CPU Frequency: 2100000000 Hz
+2020-07-02 21:47:21.593913: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7ff184000b20 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-07-02 21:47:21.593971: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-07-02 21:47:21.599647: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcuda.so.1
+2020-07-02 21:47:24.098960: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7ff158000b20 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2020-07-02 21:47:24.099032: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): GeForce RTX 2080 Ti, Compute Capability 7.5
+2020-07-02 21:47:24.099047: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (1): GeForce RTX 2080 Ti, Compute Capability 7.5
+2020-07-02 21:47:24.099058: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (2): GeForce RTX 2080 Ti, Compute Capability 7.5
+2020-07-02 21:47:24.099069: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (3): GeForce RTX 2080 Ti, Compute Capability 7.5
+2020-07-02 21:47:24.099079: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (4): GeForce RTX 2080 Ti, Compute Capability 7.5
+2020-07-02 21:47:24.099089: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (5): GeForce RTX 2080 Ti, Compute Capability 7.5
+2020-07-02 21:47:24.099100: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (6): GeForce RTX 2080 Ti, Compute Capability 7.5
+2020-07-02 21:47:24.099111: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (7): GeForce RTX 2080 Ti, Compute Capability 7.5
+2020-07-02 21:47:24.110671: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 0 with properties:
+pciBusID: 0000:1a:00.0 name: GeForce RTX 2080 Ti computeCapability: 7.5
+coreClock: 1.545GHz coreCount: 68 deviceMemorySize: 10.76GiB deviceMemoryBandwidth: 573.69GiB/s
+2020-07-02 21:47:24.113634: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 1 with properties:
+pciBusID: 0000:1b:00.0 name: GeForce RTX 2080 Ti computeCapability: 7.5
+coreClock: 1.545GHz coreCount: 68 deviceMemorySize: 10.76GiB deviceMemoryBandwidth: 573.69GiB/s
+2020-07-02 21:47:24.115147: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 2 with properties:
+pciBusID: 0000:3d:00.0 name: GeForce RTX 2080 Ti computeCapability: 7.5
+coreClock: 1.545GHz coreCount: 68 deviceMemorySize: 10.76GiB deviceMemoryBandwidth: 573.69GiB/s
+2020-07-02 21:47:24.116663: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 3 with properties:
+pciBusID: 0000:3e:00.0 name: GeForce RTX 2080 Ti computeCapability: 7.5
+coreClock: 1.545GHz coreCount: 68 deviceMemorySize: 10.76GiB deviceMemoryBandwidth: 573.69GiB/s
+2020-07-02 21:47:24.118170: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 4 with properties:
+pciBusID: 0000:88:00.0 name: GeForce RTX 2080 Ti computeCapability: 7.5
+coreClock: 1.545GHz coreCount: 68 deviceMemorySize: 10.76GiB deviceMemoryBandwidth: 573.69GiB/s
+2020-07-02 21:47:24.119665: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 5 with properties:
+pciBusID: 0000:89:00.0 name: GeForce RTX 2080 Ti computeCapability: 7.5
+coreClock: 1.545GHz coreCount: 68 deviceMemorySize: 10.76GiB deviceMemoryBandwidth: 573.69GiB/s
+2020-07-02 21:47:24.121167: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 6 with properties:
+pciBusID: 0000:b1:00.0 name: GeForce RTX 2080 Ti computeCapability: 7.5
+coreClock: 1.545GHz coreCount: 68 deviceMemorySize: 10.76GiB deviceMemoryBandwidth: 573.69GiB/s
+2020-07-02 21:47:24.122663: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 7 with properties:
+pciBusID: 0000:b2:00.0 name: GeForce RTX 2080 Ti computeCapability: 7.5
+coreClock: 1.545GHz coreCount: 68 deviceMemorySize: 10.76GiB deviceMemoryBandwidth: 573.69GiB/s
+2020-07-02 21:47:24.122948: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
+2020-07-02 21:47:24.125277: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+2020-07-02 21:47:24.127144: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10
+2020-07-02 21:47:24.127523: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10
+2020-07-02 21:47:24.130149: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10
+2020-07-02 21:47:24.132055: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10
+2020-07-02 21:47:24.137751: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2020-07-02 21:47:24.161503: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1703] Adding visible gpu devices: 0, 1, 2, 3, 4, 5, 6, 7
+2020-07-02 21:47:24.161566: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
+2020-07-02 21:47:24.176742: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1102] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-07-02 21:47:24.176768: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1108]      0 1 2 3 4 5 6 7
+2020-07-02 21:47:24.176775: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 0:   N N N N N N N N
+2020-07-02 21:47:24.176779: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 1:   N N N N N N N N
+2020-07-02 21:47:24.176783: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 2:   N N N N N N N N
+2020-07-02 21:47:24.176787: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 3:   N N N N N N N N
+2020-07-02 21:47:24.176791: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 4:   N N N N N N N N
+2020-07-02 21:47:24.176794: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 5:   N N N N N N N N
+2020-07-02 21:47:24.176798: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 6:   N N N N N N N N
+2020-07-02 21:47:24.176801: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 7:   N N N N N N N N
+2020-07-02 21:47:24.196353: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 10201 MB memory) -> physical GPU (device: 0, name: GeForce RTX 2080 Ti, pci bus id: 0000:1a:00.0, compute capability: 7.5)
+2020-07-02 21:47:24.198666: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:1 with 10201 MB memory) -> physical GPU (device: 1, name: GeForce RTX 2080 Ti, pci bus id: 0000:1b:00.0, compute capability: 7.5)
+2020-07-02 21:47:24.201510: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:2 with 10201 MB memory) -> physical GPU (device: 2, name: GeForce RTX 2080 Ti, pci bus id: 0000:3d:00.0, compute capability: 7.5)
+2020-07-02 21:47:24.204300: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:3 with 10201 MB memory) -> physical GPU (device: 3, name: GeForce RTX 2080 Ti, pci bus id: 0000:3e:00.0, compute capability: 7.5)
+2020-07-02 21:47:24.206494: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:4 with 10201 MB memory) -> physical GPU (device: 4, name: GeForce RTX 2080 Ti, pci bus id: 0000:88:00.0, compute capability: 7.5)
+2020-07-02 21:47:24.209243: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:5 with 10201 MB memory) -> physical GPU (device: 5, name: GeForce RTX 2080 Ti, pci bus id: 0000:89:00.0, compute capability: 7.5)
+2020-07-02 21:47:24.212233: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:6 with 10201 MB memory) -> physical GPU (device: 6, name: GeForce RTX 2080 Ti, pci bus id: 0000:b1:00.0, compute capability: 7.5)
+2020-07-02 21:47:24.214565: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:7 with 10201 MB memory) -> physical GPU (device: 7, name: GeForce RTX 2080 Ti, pci bus id: 0000:b2:00.0, compute capability: 7.5)
+TensorFlow:  2.2
+Model:       inception4
+Dataset:     imagenet (synthetic)
+Mode:        forward only
+SingleSess:  False
+Batch size:  256 global
+32 per device
+Num batches: 100
+Num epochs:  0.02
+Devices:     ['/gpu:0', '/gpu:1', '/gpu:2', '/gpu:3', '/gpu:4', '/gpu:5', '/gpu:6', '/gpu:7']
+NUMA bind:   False
+Data format: NCHW
+Optimizer:   sgd
+Variables:   replicated
+AllReduce:   nccl
+==========
+Generating training model
+WARNING:tensorflow:From /home/ubuntu/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/convnet_builder.py:134: conv2d (from tensorflow.python.layers.convolutional) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.keras.layers.Conv2D` instead.
+W0702 21:47:24.256953 140679724091200 deprecation.py:323] From /home/ubuntu/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/convnet_builder.py:134: conv2d (from tensorflow.python.layers.convolutional) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.keras.layers.Conv2D` instead.
+WARNING:tensorflow:From /home/ubuntu/venv-tf2.2.0/lib/python3.6/site-packages/tensorflow/python/layers/convolutional.py:424: Layer.apply (from tensorflow.python.keras.engine.base_layer_v1) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `layer.__call__` method instead.
+W0702 21:47:24.264654 140679724091200 deprecation.py:323] From /home/ubuntu/venv-tf2.2.0/lib/python3.6/site-packages/tensorflow/python/layers/convolutional.py:424: Layer.apply (from tensorflow.python.keras.engine.base_layer_v1) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `layer.__call__` method instead.
+WARNING:tensorflow:From /home/ubuntu/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/convnet_builder.py:266: max_pooling2d (from tensorflow.python.layers.pooling) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.MaxPooling2D instead.
+W0702 21:47:24.356622 140679724091200 deprecation.py:323] From /home/ubuntu/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/convnet_builder.py:266: max_pooling2d (from tensorflow.python.layers.pooling) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.MaxPooling2D instead.
+WARNING:tensorflow:From /home/ubuntu/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/convnet_builder.py:266: average_pooling2d (from tensorflow.python.layers.pooling) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.AveragePooling2D instead.
+W0702 21:47:24.547739 140679724091200 deprecation.py:323] From /home/ubuntu/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/convnet_builder.py:266: average_pooling2d (from tensorflow.python.layers.pooling) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.AveragePooling2D instead.
+WARNING:tensorflow:From /home/ubuntu/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/convnet_builder.py:408: dropout (from tensorflow.python.layers.core) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.dropout instead.
+W0702 21:47:26.946768 140679724091200 deprecation.py:323] From /home/ubuntu/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/convnet_builder.py:408: dropout (from tensorflow.python.layers.core) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.dropout instead.
+Initializing graph
+WARNING:tensorflow:From /home/ubuntu/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py:2268: Supervisor.__init__ (from tensorflow.python.training.supervisor) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please switch to tf.train.MonitoredTrainingSession
+W0702 21:47:52.325497 140679724091200 deprecation.py:323] From /home/ubuntu/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py:2268: Supervisor.__init__ (from tensorflow.python.training.supervisor) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please switch to tf.train.MonitoredTrainingSession
+2020-07-02 21:47:55.806583: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 0 with properties:
+pciBusID: 0000:1a:00.0 name: GeForce RTX 2080 Ti computeCapability: 7.5
+coreClock: 1.545GHz coreCount: 68 deviceMemorySize: 10.76GiB deviceMemoryBandwidth: 573.69GiB/s
+2020-07-02 21:47:55.807734: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 1 with properties:
+pciBusID: 0000:1b:00.0 name: GeForce RTX 2080 Ti computeCapability: 7.5
+coreClock: 1.545GHz coreCount: 68 deviceMemorySize: 10.76GiB deviceMemoryBandwidth: 573.69GiB/s
+2020-07-02 21:47:55.808818: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 2 with properties:
+pciBusID: 0000:3d:00.0 name: GeForce RTX 2080 Ti computeCapability: 7.5
+coreClock: 1.545GHz coreCount: 68 deviceMemorySize: 10.76GiB deviceMemoryBandwidth: 573.69GiB/s
+2020-07-02 21:47:55.809919: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 3 with properties:
+pciBusID: 0000:3e:00.0 name: GeForce RTX 2080 Ti computeCapability: 7.5
+coreClock: 1.545GHz coreCount: 68 deviceMemorySize: 10.76GiB deviceMemoryBandwidth: 573.69GiB/s
+2020-07-02 21:47:55.812429: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 4 with properties:
+pciBusID: 0000:88:00.0 name: GeForce RTX 2080 Ti computeCapability: 7.5
+coreClock: 1.545GHz coreCount: 68 deviceMemorySize: 10.76GiB deviceMemoryBandwidth: 573.69GiB/s
+2020-07-02 21:47:55.814707: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 5 with properties:
+pciBusID: 0000:89:00.0 name: GeForce RTX 2080 Ti computeCapability: 7.5
+coreClock: 1.545GHz coreCount: 68 deviceMemorySize: 10.76GiB deviceMemoryBandwidth: 573.69GiB/s
+2020-07-02 21:47:55.815806: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 6 with properties:
+pciBusID: 0000:b1:00.0 name: GeForce RTX 2080 Ti computeCapability: 7.5
+coreClock: 1.545GHz coreCount: 68 deviceMemorySize: 10.76GiB deviceMemoryBandwidth: 573.69GiB/s
+2020-07-02 21:47:55.816884: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1561] Found device 7 with properties:
+pciBusID: 0000:b2:00.0 name: GeForce RTX 2080 Ti computeCapability: 7.5
+coreClock: 1.545GHz coreCount: 68 deviceMemorySize: 10.76GiB deviceMemoryBandwidth: 573.69GiB/s
+2020-07-02 21:47:55.816944: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
+2020-07-02 21:47:55.816955: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+2020-07-02 21:47:55.816982: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcufft.so.10
+2020-07-02 21:47:55.816991: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcurand.so.10
+2020-07-02 21:47:55.817000: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusolver.so.10
+2020-07-02 21:47:55.817008: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcusparse.so.10
+2020-07-02 21:47:55.817019: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2020-07-02 21:47:55.853797: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1703] Adding visible gpu devices: 0, 1, 2, 3, 4, 5, 6, 7
+2020-07-02 21:47:55.855369: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1102] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-07-02 21:47:55.855385: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1108]      0 1 2 3 4 5 6 7
+2020-07-02 21:47:55.855392: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 0:   N N N N N N N N
+2020-07-02 21:47:55.855396: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 1:   N N N N N N N N
+2020-07-02 21:47:55.855401: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 2:   N N N N N N N N
+2020-07-02 21:47:55.855405: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 3:   N N N N N N N N
+2020-07-02 21:47:55.855409: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 4:   N N N N N N N N
+2020-07-02 21:47:55.855413: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 5:   N N N N N N N N
+2020-07-02 21:47:55.855418: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 6:   N N N N N N N N
+2020-07-02 21:47:55.855422: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1121] 7:   N N N N N N N N
+2020-07-02 21:47:55.897630: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 10201 MB memory) -> physical GPU (device: 0, name: GeForce RTX 2080 Ti, pci bus id: 0000:1a:00.0, compute capability: 7.5)
+2020-07-02 21:47:55.901598: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:1 with 10201 MB memory) -> physical GPU (device: 1, name: GeForce RTX 2080 Ti, pci bus id: 0000:1b:00.0, compute capability: 7.5)
+2020-07-02 21:47:55.906964: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:2 with 10201 MB memory) -> physical GPU (device: 2, name: GeForce RTX 2080 Ti, pci bus id: 0000:3d:00.0, compute capability: 7.5)
+2020-07-02 21:47:55.910566: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:3 with 10201 MB memory) -> physical GPU (device: 3, name: GeForce RTX 2080 Ti, pci bus id: 0000:3e:00.0, compute capability: 7.5)
+2020-07-02 21:47:55.916130: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:4 with 10201 MB memory) -> physical GPU (device: 4, name: GeForce RTX 2080 Ti, pci bus id: 0000:88:00.0, compute capability: 7.5)
+2020-07-02 21:47:55.920031: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:5 with 10201 MB memory) -> physical GPU (device: 5, name: GeForce RTX 2080 Ti, pci bus id: 0000:89:00.0, compute capability: 7.5)
+2020-07-02 21:47:55.925348: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:6 with 10201 MB memory) -> physical GPU (device: 6, name: GeForce RTX 2080 Ti, pci bus id: 0000:b1:00.0, compute capability: 7.5)
+2020-07-02 21:47:55.929470: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1247] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:7 with 10201 MB memory) -> physical GPU (device: 7, name: GeForce RTX 2080 Ti, pci bus id: 0000:b2:00.0, compute capability: 7.5)
+2020-07-02 21:48:02.950653: W tensorflow/compiler/jit/mark_for_compilation_pass.cc:1631] (One-time warning): Not using XLA:CPU for cluster because envvar TF_XLA_FLAGS=--tf_xla_cpu_global_jit was not set.  If you want XLA:CPU, either set that envvar, or use experimental_jit_scope to enable XLA:CPU.  To confirm that XLA is active, pass --vmodule=xla_compilation_cache=1 (as a proper command-line flag, not via TF_XLA_FLAGS) or set the envvar XLA_FLAGS=--xla_hlo_profile.
+INFO:tensorflow:Running local_init_op.
+I0702 21:48:11.231318 140679724091200 session_manager.py:505] Running local_init_op.
+INFO:tensorflow:Done running local_init_op.
+I0702 21:48:15.020772 140679724091200 session_manager.py:508] Done running local_init_op.
+Running warm up
+2020-07-02 21:48:27.720819: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2020-07-02 21:48:28.928869: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcublas.so.10
+2020-07-02 21:48:45.409027: I tensorflow/compiler/jit/xla_compilation_cache.cc:241] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+Done warm up
+Step	Img/sec	total_loss	top_1_accuracy	top_5_accuracy
+1	images/sec: 5297.1 +/- 0.0 (jitter = 0.0)	0.000	0.000	0.004 1593751733
+10	images/sec: 5404.1 +/- 40.4 (jitter = 167.9)	0.000	0.004	0.012 1593751733
+20	images/sec: 5387.6 +/- 26.3 (jitter = 125.2)	0.000	0.000	0.008 1593751733
+30	images/sec: 5434.8 +/- 24.8 (jitter = 156.0)	0.000	0.000	0.000 1593751734
+40	images/sec: 5428.9 +/- 23.7 (jitter = 155.4)	0.000	0.000	0.000 1593751734
+50	images/sec: 5441.4 +/- 21.3 (jitter = 131.8)	0.000	0.004	0.012 1593751735
+60	images/sec: 5423.1 +/- 19.8 (jitter = 148.1)	0.000	0.000	0.004 1593751735
+70	images/sec: 5427.9 +/- 17.3 (jitter = 141.5)	0.000	0.000	0.016 1593751736
+80	images/sec: 5417.6 +/- 16.2 (jitter = 143.2)	0.000	0.004	0.008 1593751736
+90	images/sec: 5387.4 +/- 19.1 (jitter = 149.0)	0.000	0.000	0.004 1593751737
+100	images/sec: 5380.2 +/- 18.2 (jitter = 144.1)	0.000	0.000	0.000 1593751737
+----------------------------------------------------------------
+total images/sec: 5362.21
+----------------------------------------------------------------
