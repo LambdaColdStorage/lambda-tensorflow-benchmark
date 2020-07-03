@@ -253,8 +253,8 @@ run_benchmark() {
 		set $line; echo "$3" > "$THROUGHPUT"; echo "$line $(date +%s)";
 		nvlink="$(nvidia-smi nvlink -s | wc -l)"
 
-		# Timestamp,GPU Name,GPU Count,Data Mode,Run Mode,Variable Update,XLA,NVlink,Model,Precision,Batch Size,Result
-		echo "$(date +%s),$GPU_NAME,$num_gpus,$data_mode,$run_mode,$variable_update,${TF_XLA_FLAGS##*=},$nvlink,$model,$batch_size,$3" \
+		# Timestamp,CPU Name,GPU Name,GPU Count,Data Mode,Run Mode,Variable Update,XLA,NVlink,Model,Precision,Batch Size,Result
+		echo "$(date +%s),$CPU_NAME,$GPU_NAME,$num_gpus,$data_mode,$run_mode,$variable_update,${TF_XLA_FLAGS##*=},$nvlink,$model,$batch_size,$3" \
 			>> ${LOG_DIR}/log.csv;;
         *) echo "$line";;
       esac
