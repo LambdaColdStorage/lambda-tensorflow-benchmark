@@ -14,7 +14,13 @@ MAX_NUM_GPU=$MIN_NUM_GPU
 
 installed() {
 	command -v "$1" >/dev/null 2>&1
-} 
+}
+
+die() {
+	echo "$*" 1>&2
+	exit 1
+}
+
 
 if installed nvidia-smi; then
   export CUDA_VISIBLE_DEVICES=$GPU_INDEX
@@ -279,6 +285,8 @@ main() {
   . ${SETTING}".sh"
 
   metadata > "$LOG_DIR/metadata"
+  $PYTHON -c 'import tensorflow as tf; exit(tf.test.is_gpu_available())' &&
+    die "either could not import Tensorflow or tf.test.is_gpu_available() returned false - exiting" 
 
   for run_mode in $RUN_MODE; do
     for precision in $PRECISION; do
