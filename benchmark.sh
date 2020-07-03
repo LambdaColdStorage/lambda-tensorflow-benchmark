@@ -257,7 +257,12 @@ run_benchmark() {
 	# to not buffer output doesn't look pretty
 	#
 	# We append a timestamp to the line for no reason
-	[0-9]*images/sec*) set $line; echo "$3" > "$THROUGHPUT"; echo "$line $(date +%s)";;
+	[0-9]*images/sec*)
+		set $line; echo "$3" > "$THROUGHPUT"; echo "$line $(date +%s)";
+		# GPUs,Data Mode,Run Mode,Variable Update,XLA,NVlink,Model,Precision,Batch Size,Result
+		nvlink="$(nvidia-smi nvlink -s | wc -l)"
+		echo "$num_gpus,$data_mode,$run_mode,$variable_update,${TF_XLA_FLAGS##*=},$nvlink,$model,$batch_size,$3" \
+			>> ${LOG_DIR}/log.csv;;
         *) echo "$line";;
       esac
     done | tee "$throughput_log"
