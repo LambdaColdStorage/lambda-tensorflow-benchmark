@@ -37,12 +37,19 @@ esac
 
 # sets each model to its appropriate batchsize
 for model in $MODELS; do
+done
+
+# returns the appropriate batch size for the model in $1
+# - takes current precision into account
+batch_size() {
 	# Example:
-	# multiplier=8
-	# resnet50='5  + 1/3'
-	# resnet50 = 8 * (5 + 1/3)
+	# batch_size resnet
+	# 	multiplier=8
+	# 	resnet50='5  + 1/3'
+	# 	precision=fp32
+	# 	echo $((8 * (5 + 1/3)))
 	eval base=\$$model
 	unrounded=$(echo "($base) * $multiplier" | bc -l)
 	product=$(printf '%0.0f\n' "$unrounded")
 	eval $model=$product
-done
+}
