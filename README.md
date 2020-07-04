@@ -19,12 +19,14 @@ git clone https://github.com/lambdal/lambda-tensorflow-benchmark.git -b tf2
 #### Step Two: Run benchmark with thermal profile
 
 ```
-./benchmark.sh -l <min_num_gpus> -h <max_num_gpus> -n <num_runs> -b <num_batches_per_run> -t <thermal_sampling_frequency>
+TF_XLA_FLAGS=--tf_xla_auto_jit=2 ./benchmark.sh -l <min_num_gpus> -h <max_num_gpus> -n <num_runs> -b <num_batches_per_run> -t <thermal_sampling_frequency>
 python display_thermal.py path-to-thermal.log --thermal_threshold
 
 # example of benchmarking 4 2080_Ti (all used), 1 run, 100 batches per run, measuring thermal every 2 second. 2080_Ti throttles at 89 C.
-./benchmark.sh -l 4 -h 4 -n 1 -b 100 -t 2 -c config_resnet50_replicated_fp32_train_syn
+TF_XLA_FLAGS=--tf_xla_auto_jit=2 ./benchmark.sh -l 4 -h 4 -n 1 -b 100 -t 2 -c config_resnet50_replicated_fp32_train_syn
 python display_thermal.py path-to-thermal/1 --thermal_threshold 89
+
+./report.sh benchmark_name.logs/ > benchmark_name.md
 
 ```
 
