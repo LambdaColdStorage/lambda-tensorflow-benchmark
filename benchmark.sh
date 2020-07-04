@@ -1,23 +1,10 @@
 #!/bin/bash -e 
-GPU_INDEX=${1:-0}
-IFS=', ' read -r -a gpus <<< "$GPU_INDEX"
-
-ITERATIONS=${2:-100}
-NUM_BATCHES=${3:-100}
-THERMAL_INTERVAL=${4:-1}
-PYTHON=python3
-SETTING=${5:-config}
-GPU_VENDOR=${6}
-
-MIN_NUM_GPU=${#gpus[@]}
-MAX_NUM_GPU=$MIN_NUM_GPU
-
 installed() {
 	command -v "$1" >/dev/null 2>&1
 }
 
 die() {
-	echo "$*" 1>&2
+	echo "$0: $*" 1>&2
 	exit 1
 }
 
@@ -26,35 +13,6 @@ die() {
 elif installed rocm-smi; then
   GPU_VENDOR='amd'
 fi
-
-case $GPU_VENDOR in
-	"nvidia")
-		export CUDA_VISIBLE_DEVICES=$GPU_INDEX
-		GPU_NAME="$(nvidia-smi --query-gpu=gpu_name --format=csv,noheader 2>/dev/null |
-			awk '{ if (!name) name=$0; else if (name != $0) exit(1); } END { print name }')";;
-	"amd")
-		export HIP_VISIBLE_DEVICES=$GPU_INDEX
-		GPU_NAME="$(rocm-smi --showproductname | awk -F'\t' \
-			'/Card series/ { if (!name) name=$5; else if (name != $5) exit(1); } \
-			END { print name }')";;
-esac || die "refusing to run benchmark with different GPU models"
-
-CPU_NAME="$(lscpu | sed -En '/Model name:/ { s/^Model name:\s*//; s/\([^)]*\)//g }')"
-
-BOARD_NAME="$(sed -E 's/^\s+|\s+$//g' /sys/devices/virtual/dmi/id/board_name)"
-
-SCRIPT_DIR="$(pwd)/benchmarks/scripts/tf_cnn_benchmarks"
-
-CONFIG_NAME="${CPU_NAME// /_}-${GPU_NAME// /_}"
-echo $CONFIG_NAME
-
-
-DATA_DIR="/home/${USER}/nfs/imagenet_mini"
-LOG_DIR="$(pwd)/${CONFIG_NAME}.logs"
-
-THROUGHPUT="$(mktemp)"
-echo 0 > $THROUGHPUT
-
 
 declare -A DATASET_NAMES=(
   [resnet50]=imagenet
@@ -73,6 +31,14 @@ if git submodule status | grep -q ^-; then
 	echo "${0##*/}: initializing submodules" 1>&2
 	git submodule update --init --recursive
 fi
+
+# list GPUs by their model name
+lsgpu() {
+	case $GPU_VENDOR in
+		"nvidia") nvidia-smi --query-gpu=gpu_name --format=csv,noheader;;
+		"amd") rocm-smi --showproductname | awk -F'\t' '/Card series/ { print $5 }';;
+	esac
+}
 
 gpu_ram() {
 	# Prints all GPUs' memory in GB
@@ -279,10 +245,66 @@ run_benchmark_all() {
 }
 
 
+parse_opts() {
+	while getopts "i:l:h:n:b:c:v:t:" opt; do
+		case "$opt" in
+			i) GPU_INDEX="$OPTARG";;
+			l) MIN_NUM_GPU="$OPTARG";;
+			h) MAX_NUM_GPU="$OPTARG";;
+			n) ITERATIONS="$OPTARG";;
+			b) NUM_BATCHES="$OPTARG";;
+			c) SETTING="$OPTARG";;
+			v) GPU_VENDOR="$OPTARG";;
+			t) THERMAL_INTERVAL="$OPTARG";;
+			*) die "unrecognized option: $opt";;
+		esac
+	done
+
+	if [ -z "$GPU_INDEX" ] && [ -z "$MAX_NUM_GPU" ]; then
+		MAX_NUM_GPU=$(lsgpu | wc -l)
+		GPU_INDEX="$(seq 0 $((MAX_NUM_GPU-1)) | paste -sd,)"
+	elif [ -z "$GPU_INDEX" ] && [ -n "$MAX_NUM_GPU" ]; then
+		GPU_INDEX="$(seq 0 $((MAX_NUM_GPU-1)) | paste -sd,)"
+	elif [ -n "$GPU_INDEX" ] && [ -z "$MAX_NUM_GPU" ]; then
+		MAX_NUM_GPU="$(echo "$GPU_INDEX" | awk -F, '{print NF}')"
+	elif [ "$MAX_NUM_GPU" -gt  "$(echo "$GPU_INDEX" | awk -F, '{print NF}')" ]; then
+		die "maximum number of GPUs($MAX_NUM_GPU) higher than that allowed by GPU indicies($GPU_INDEX)"
+	fi # after this point, GPU_INDEX & MAX_NUM_GPU are defined 
+
+	if [ "$MAX_NUM_GPU" -gt "${MIN_NUM_GPU:="$MAX_NUM_GPU"}" ]; then
+		die "min number of GPUs($MIN_NUM_GPU) higher max($MAX_NUM_GPU)"
+	fi
+}
 
 main() {
-  mkdir -p "$LOG_DIR" || true
+  ITERATIONS=100
+  NUM_BATCHES=100
+  THERMAL_INTERVAL=1
+  PYTHON=python3
+  SETTING=config
   GPU_RAM="$(gpu_ram)GB" 
+
+  parse_opts "$@"
+
+  case $GPU_VENDOR in
+    "nvidia") export CUDA_VISIBLE_DEVICES=$GPU_INDEX;;
+    "amd") export HIP_VISIBLE_DEVICES=$GPU_INDEX;;
+  esac
+
+  GPU_NAME="$(lsgpu | sort -u)";
+  [ "$(echo $GPU_NAME | wc -l)" -eq 1 ] ||
+    die "refusing to run benchmark with different GPU models"
+
+  CPU_NAME="$(lscpu | sed -En '/Model name:/ { s/^Model name:\s*//; s/\([^)]*\)//g }')"
+  BOARD_NAME="$(sed -E 's/^\s+|\s+$//g' /sys/devices/virtual/dmi/id/board_name)"
+  SCRIPT_DIR="$(pwd)/benchmarks/scripts/tf_cnn_benchmarks"
+  CONFIG_NAME="${CPU_NAME// /_}-${GPU_NAME// /_}"
+  DATA_DIR="/home/${USER}/nfs/imagenet_mini"
+  LOG_DIR="$(pwd)/${CONFIG_NAME}.logs"
+  echo $CONFIG_NAME
+  echo 0 > ${THROUGHPUT=$(mktemp)}
+
+  mkdir -p "$LOG_DIR" || true
   . ${SETTING}".sh"
 
   metadata > "$LOG_DIR/metadata"

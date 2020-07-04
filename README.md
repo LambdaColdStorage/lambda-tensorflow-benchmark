@@ -19,11 +19,11 @@ git clone https://github.com/lambdal/lambda-tensorflow-benchmark.git
 #### Step Two: Run benchmark with thermal profile
 
 ```
-./batch_benchmark.sh min_num_gpus max_num_gpus num_runs num_batches_per_run thermal_sampling_frequency
+./benchmark.sh -l <min_num_gpus> -h <max_num_gpus> -n <num_runs> -b <num_batches_per_run> -t <thermal_sampling_frequency>
 python display_thermal.py path-to-thermal.log --thermal_threshold
 
 # example of benchmarking 4 2080_Ti (all used), 1 run, 100 batches per run, measuring thermal every 2 second. 2080_Ti throttles at 89 C.
-./batch_benchmark.sh 4 4 1 100 2 config_resnet50_replicated_fp32_train_syn
+./benchmark.sh -l 4 -h 4 -n 1 -b 100 -t 2 -c config_resnet50_replicated_fp32_train_syn
 python display_thermal.py path-to-thermal/1 --thermal_threshold 89
 
 ```
@@ -56,7 +56,7 @@ git clone https://github.com/lambdal/lambda-tensorflow-benchmark.git --recursive
 git checkout tf2
 git submodule update --init --recursive
 
-./batch_benchmark.sh 1 1 1 100 2 config_resnet50_replicated_fp32_train_syn
+./benchmark.sh -l 1 -h 1 -n 1 -b 100 -t 2 -c config_resnet50_replicated_fp32_train_syn
 ```
 
 
@@ -70,7 +70,7 @@ Use large num_batches_per_run for a thorough test.
 * Input proper gpu_indices (a comma seperated list, default 0) and num_iterations (default 10)
 ```
 cd lambda-tensorflow-benchmark
-./benchmark.sh gpu_indices num_iterations
+./benchmark.sh -i <gpu_indices> -n <num_iterations>
 ```
 
 #### Step Three: Report results
@@ -84,7 +84,7 @@ cd lambda-tensorflow-benchmark
 #### Batch process:
 
 ```
-TF_XLA_FLAGS=--tf_xla_auto_jit=2 ./batch_benchmark.sh min_num_gpus max_num_gpus num_iterations
+TF_XLA_FLAGS=--tf_xla_auto_jit=2 ./benchmark.sh -l <min_num_gpus> -h <max_num_gpus> -n <num_iterations>
 
 ./report.sh <cpu>-<gpu>.logs
 
