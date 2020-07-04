@@ -181,6 +181,7 @@ run_benchmark() {
   fi
   if $distortions; then
     outer_dir+="-distortions"
+    args+=("--nodistort_color_in_yiq")
   fi
   if [ $precision = fp16 ]; then
     args+=("--use_fp16=True")
