@@ -5,7 +5,7 @@ This is the code used for a few of the blog posts on: https://lambdalabs.com/blo
 
 Environment:
 - OS: Ubuntu 18.04
-- TensorFlow version: 1.14.0
+- TensorFlow version: 1.15.3
 - CUDA Version 10.0
 - CUDNN Version 7.6.2
 
