@@ -281,6 +281,7 @@ main() {
   PYTHON=python3
   SETTING=config
   GPU_RAM="$(gpu_ram)GB" 
+  . ${SETTING}".sh"
 
   parse_opts "$@"
 
