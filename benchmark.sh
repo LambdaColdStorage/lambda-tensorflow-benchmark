@@ -236,12 +236,10 @@ run_benchmark() {
 
 run_benchmark_all() {
   for model in $MODELS; do
-    for num_gpus in `seq ${MAX_NUM_GPU} -1 ${MIN_NUM_GPU}`; do 
-      for iter in $(seq 1 $ITERATIONS); do
-        run_benchmark
-      done
+    for iter in $(seq 1 $ITERATIONS); do
+      run_benchmark
     done
-  done  
+  done
 }
 
 
@@ -311,17 +309,19 @@ main() {
   $PYTHON -c 'import tensorflow as tf; exit(tf.test.is_gpu_available())' &&
     die "either could not import Tensorflow or tf.test.is_gpu_available() returned false - exiting" 
 
-  for run_mode in $RUN_MODE; do
-    for precision in $PRECISION; do
-      for data_mode in $DATA_MODE; do
-        for variable_update in $VARIABLE_UPDATE; do
-          for distortions in true false; do
-            if [ $data_mode = syn ] && $distortions; then
-              # skip distortion for synthetic data
-              :
-            else
-              run_benchmark_all
-            fi
+  for num_gpus in `seq ${MAX_NUM_GPU} -1 ${MIN_NUM_GPU}`; do
+    for run_mode in $RUN_MODE; do
+      for precision in $PRECISION; do
+        for data_mode in $DATA_MODE; do
+          for variable_update in $VARIABLE_UPDATE; do
+            for distortions in true false; do
+              if [ $data_mode = syn ] && $distortions; then
+                # skip distortion for synthetic data
+                :
+              else
+                run_benchmark_all
+              fi
+            done
           done
         done
       done
