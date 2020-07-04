@@ -6,6 +6,8 @@ ITERATIONS=${2:-100}
 NUM_BATCHES=${3:-100}
 THERMAL_INTERVAL=${4:-1}
 PYTHON=python3
+SETTING=${5:-config}
+GPU_VENDOR=${6:-nvidia}
 
 MIN_NUM_GPU=${#gpus[@]}
 MAX_NUM_GPU=$MIN_NUM_GPU
@@ -16,11 +18,11 @@ installed() {
 
 if installed nvidia-smi; then
   export CUDA_VISIBLE_DEVICES=$GPU_INDEX
-  GPU_VENDOR=${5:-nvidia}
+  GPU_VENDOR=${6:-nvidia}
   GPU_NAME="$(nvidia-smi -i 0 --query-gpu=gpu_name --format=csv,noheader 2>/dev/null || echo PLACEHOLDER )"
 elif installed rocm-smi; then
   export HIP_VISIBLE_DEVICES=$GPU_INDEX
-  GPU_VENDOR=${5:-amd}
+  GPU_VENDOR=${6:-amd}
   GPU_NAME=$(rocm-smi --showproductname | awk -F'\t' '/Card series/ { print $5 }')
 fi
 
@@ -274,7 +276,7 @@ run_benchmark_all() {
 main() {
   mkdir -p "$LOG_DIR" || true
   GPU_RAM="$(gpu_ram)GB" 
-  . config.sh
+  . ${SETTING}".sh"
 
   metadata > "$LOG_DIR/metadata"
 
