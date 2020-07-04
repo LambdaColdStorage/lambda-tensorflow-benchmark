@@ -10,23 +10,43 @@ data = 'syn'
 
 
 list_test = ['alexnet',
-	     'inception3', 
-	     'inception4', 
-	     'resnet152', 
-	     'resnet50',
-	     'vgg16']
+	     	 'inception3', 
+	         'inception4', 
+	         'resnet152', 
+	         'resnet50',
+	         'vgg16']
 
+# # Gold_6230-GeForce_RTX_2080_Ti
+# list_system = {
+# 	"Gold_6230-GeForce_RTX_2080_Ti_trt_TF1_15": [8],
+# 	"Gold_6230-GeForce_RTX_2080_Ti_NVLink_trt_TF1_15": [8],
+# 	"Gold_6230-GeForce_RTX_2080_Ti_trt2_TF1_15": [8],
+# 	"Gold_6230-GeForce_RTX_2080_Ti_NVLink_trt2_TF1_15": [8],
+# }
 
-list_system = {"Gold_6230-Quadro_RTX_8000": [1, 2, 4, 8],
-	       "Gold_6230-Quadro_RTX_8000_XLA": [1, 2, 4, 8],
-	       "Gold_6230-Quadro_RTX_8000_NVLink": [1, 2, 4, 8],
-	       "Gold_6230-Quadro_RTX_8000_NVLink_XLA": [1, 2, 4, 8],
-               "Gold_6230-GeForce_RTX_2080_Ti": [1, 2, 4, 8],
-               "Gold_6230-GeForce_RTX_2080_Ti_XLA": [1, 2, 4, 8],
-               "Gold_6230-GeForce_RTX_2080_Ti_NVLink": [1, 2, 4, 8],
-               "Gold_6230-GeForce_RTX_2080_Ti_NVLink_XLA": [1, 2, 4, 8],
-               "i7-6850K-GeForce_GTX_1080_Ti": [1]
-	      }
+# # Gold_6230-GeForce_RTX_2080_Ti_XLA
+# list_system = {
+# 	"Gold_6230-GeForce_RTX_2080_Ti_XLA_trt_TF1_15": [8],
+# 	"Gold_6230-GeForce_RTX_2080_Ti_NVLink_XLA_trt_TF1_15": [8],
+# 	"Gold_6230-GeForce_RTX_2080_Ti_XLA_trt2_TF1_15": [8],
+# 	"Gold_6230-GeForce_RTX_2080_Ti_NVLink_XLA_trt2_TF1_15": [8],
+# }
+
+# # Gold_6230-Quadro_RTX_8000
+# list_system = {
+# 	"Gold_6230-Quadro_RTX_8000_trt_TF1_15": [8],
+# 	"Gold_6230-Quadro_RTX_8000_NVLink_trt_TF1_15": [8],
+# 	"Gold_6230-Quadro_RTX_8000_trt2_TF2_2": [8],
+# 	"Gold_6230-Quadro_RTX_8000_NVLink_trt2_TF2_2": [8],
+# }
+
+# # Gold_6230-Quadro_RTX_8000_XLA
+# list_system = {
+# 	"Gold_6230-Quadro_RTX_8000_XLA_trt_TF1_15": [8],
+# 	"Gold_6230-Quadro_RTX_8000_NVLink_XLA_trt_TF1_15": [8],
+# 	"Gold_6230-Quadro_RTX_8000_XLA_trt2_TF2_2": [8],
+# 	"Gold_6230-Quadro_RTX_8000_NVLink_XLA_trt2_TF2_2": [8],
+# }
 
 def get_result(folder, model):
         print(folder)
