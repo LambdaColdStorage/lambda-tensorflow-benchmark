@@ -60,7 +60,7 @@ for param_dir in */; do
 	:------:|:------:|
 	$(for model_dir in *; do
 		model="$(basename $model_dir)"
-		avg="$(awk '/total images/ { s+=$3 } END { print s/(ARGC-1) }' `find $model_dir/throughput -type f`)"
+		avg="$(awk '!/total/ && /images\/sec/ { s+=$3; c++ } END { print s/c }' `find $model_dir/throughput -type f`)"
 		echo "$model | $avg |"
 	done)
 
