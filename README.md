@@ -4,16 +4,16 @@ This is the code used for a few of the blog posts on: https://lambdalabs.com/blo
 - 2080 Ti Deep Learning Benchmarks: https://lambdalabs.com/blog/2080-ti-deep-learning-benchmarks/
 
 Environment:
-- OS: Ubuntu 18.04
-- TensorFlow version: 1.15.3
-- CUDA Version 10.0
-- CUDNN Version 7.6.2
+- OS: Ubuntu 20.04
+- TensorFlow version: 2.2.0
+- CUDA Version 10.2
+- CUDNN Version 7.6.5
 
 #### Step One: Clone benchmark repo
 
 
 ```
-git clone https://github.com/lambdal/lambda-tensorflow-benchmark.git
+git clone https://github.com/lambdal/lambda-tensorflow-benchmark.git -b tf2
 ```
 
 #### Step Two: Run benchmark with thermal profile
