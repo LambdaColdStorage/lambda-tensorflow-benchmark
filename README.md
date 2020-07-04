@@ -92,13 +92,3 @@ TF_XLA_FLAGS=--tf_xla_auto_jit=2 ./benchmark.sh -l <min_num_gpus> -h <max_num_gp
 ```
 
  -->
-
----
-
-### TODO
-
-* Add options
-	* -l(low, --min-gpus
-	* -h(high), --max-gpus
-	* -n, --iterations
-	* -i, --gpu-indices
