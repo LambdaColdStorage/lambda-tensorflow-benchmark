@@ -281,6 +281,28 @@ main() {
   PYTHON=python3
   SETTING=config
   GPU_RAM="$(gpu_ram)GB" 
+
+  parse_opts "$@"
+
+  case $GPU_VENDOR in
+    "nvidia") export CUDA_VISIBLE_DEVICES=$GPU_INDEX;;
+    "amd") export HIP_VISIBLE_DEVICES=$GPU_INDEX;;
+  esac
+
+  GPU_NAME="$(lsgpu | sort -u)";
+  [ "$(echo $GPU_NAME | wc -l)" -eq 1 ] ||
+    die "refusing to run benchmark with different GPU models"
+
+  CPU_NAME="$(lscpu | sed -En '/Model name:/ { s/^Model name:\s*//; s/\([^)]*\)//g }')"
+  BOARD_NAME="$(sed -E 's/^\s+|\s+$//g' /sys/devices/virtual/dmi/id/board_name)"
+  SCRIPT_DIR="$(pwd)/benchmarks/scripts/tf_cnn_benchmarks"
+  CONFIG_NAME="${CPU_NAME// /_}-${GPU_NAME// /_}"
+  DATA_DIR="/home/${USER}/nfs/imagenet_mini"
+  LOG_DIR="$(pwd)/${CONFIG_NAME}.logs"
+  echo $CONFIG_NAME
+  echo 0 > ${THROUGHPUT=$(mktemp)}
+
+  mkdir -p "$LOG_DIR" || true
   . ${SETTING}".sh"
 
   parse_opts "$@"
