@@ -15,7 +15,6 @@ SUMMARY
 | inception-v3 | 299 x 299 | 91 MB | 89 MB | 6 BFLOPs |
 | vgg-vd-19 | 224 x 224 | 548 MB | 63 MB | 20 BFLOPs |
 | alexnet | 227 x 227 | 233 MB | 3 MB | 1.5 BFLOPs |
-| ssd-300 | 300 x 300 | 100 MB | 116 MB | 31 GFLOPS |
 
 
 EOF
