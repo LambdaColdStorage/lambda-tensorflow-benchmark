@@ -48,6 +48,18 @@ list_test = ['alexnet',
 # 	"Gold_6230-Quadro_RTX_8000_NVLink_XLA_trt2_TF2_2": [8],
 # }
 
+# Gold_6230-GeForce_RTX_2080_Ti
+list_system = {
+	"Gold_6230-GeForce_RTX_2080_Ti_NVLink_trt_TF1_15": [8],
+	"Gold_6230-GeForce_RTX_2080_Ti_NVLink_trt_TF2_2": [8],
+	"Gold_6230-GeForce_RTX_2080_Ti_NVLink_XLA_trt_TF1_15": [8],
+	"Gold_6230-GeForce_RTX_2080_Ti_NVLink_XLA_trt_TF2_2": [8],
+	"Gold_6230-GeForce_RTX_2080_Ti_trt_TF1_15": [8],
+	"Gold_6230-GeForce_RTX_2080_Ti_trt_TF2_2": [8],
+	"Gold_6230-GeForce_RTX_2080_Ti_XLA_trt_TF1_15": [8],
+	"Gold_6230-GeForce_RTX_2080_Ti_XLA_trt_TF2_2": [8],		
+}
+
 def get_result(folder, model):
         print(folder)
         print(model)
