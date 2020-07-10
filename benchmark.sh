@@ -239,6 +239,7 @@ run_benchmark_all() {
     for num_gpus in `seq ${MAX_NUM_GPU} -1 ${MIN_NUM_GPU}`; do 
       for iter in $(seq 1 $ITERATIONS); do
         run_benchmark
+	sleep 5
       done
     done
   done  
