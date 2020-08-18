@@ -40,8 +40,8 @@ CONFIG_NAME="${CPU_NAME}-${GPU_NAME}"
 echo $CONFIG_NAME
 
 
-#DATA_DIR="/home/${USER}/imagenet_mini"
-DATA_DIR="/dockerx/imagenet_mini"
+DATA_DIR="/home/${USER}/imagenet_mini"
+#DATA_DIR="/dockerx/imagenet_mini"
 
 LOG_DIR="$(pwd)/${CONFIG_NAME}.logs"
 
