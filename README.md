@@ -59,11 +59,11 @@ alias drun='sudo docker run \
       --security-opt seccomp=unconfined \
       -v $HOME/dockerx:/dockerx'
 
-drun rocm/tensorflow:latest
+drun rocm/tensorflow:rocm3.5-tf2.1-dev
 
-apt install rocm-libs hipcub miopen-hip
-pip3 install --user tensorflow-rocm --upgrade
-pip3 install tensorflow
+#installed these two in the container
+https://repo.radeon.com/rocm/apt/3.5/pool/main/m/miopenkernels-gfx906-60/miopenkernels-gfx906-60_1.0.0_amd64.deb 
+https://repo.radeon.com/rocm/apt/3.5/pool/main/m/miopenkernels-gfx906-64/miopenkernels-gfx906-64_1.0.0_amd64.deb
 
 cd /home/dockerx
 git clone https://github.com/lambdal/lambda-tensorflow-benchmark.git --recursive
