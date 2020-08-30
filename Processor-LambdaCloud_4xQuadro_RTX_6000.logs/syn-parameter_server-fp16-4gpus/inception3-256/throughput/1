@@ -1,0 +1,31 @@
+2020-08-29 23:31:06.494711: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.2
+2020-08-29 23:31:06.501684: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.2
+WARNING:root:Limited tf.compat.v2.summary API due to missing TensorBoard installation.
+Traceback (most recent call last):
+File "tf_cnn_benchmarks.py", line 29, in <module>
+import benchmark_cnn
+File "/home/ubuntu/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 51, in <module>
+from models import model_config
+File "/home/ubuntu/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/models/model_config.py", line 152, in <module>
+from tensorflow.contrib import slim  # pylint: disable=unused-import
+File "/usr/lib/python3/dist-packages/tensorflow/contrib/__init__.py", line 90, in <module>
+from tensorflow.contrib import tensor_forest
+File "/usr/lib/python3/dist-packages/tensorflow/contrib/tensor_forest/__init__.py", line 21, in <module>
+from tensorflow.contrib.tensor_forest.client import *
+File "/usr/lib/python3/dist-packages/tensorflow/contrib/tensor_forest/client/__init__.py", line 22, in <module>
+from tensorflow.contrib.tensor_forest.client import random_forest
+File "/usr/lib/python3/dist-packages/tensorflow/contrib/tensor_forest/client/random_forest.py", line 27, in <module>
+from tensorflow.contrib.tensor_forest.python import tensor_forest
+File "/usr/lib/python3/dist-packages/tensorflow/contrib/tensor_forest/python/__init__.py", line 21, in <module>
+from tensorflow.contrib.tensor_forest.python import tensor_forest
+File "/usr/lib/python3/dist-packages/tensorflow/contrib/tensor_forest/python/tensor_forest.py", line 29, in <module>
+from tensorflow.contrib.tensor_forest.python.ops import data_ops
+File "/usr/lib/python3/dist-packages/tensorflow/contrib/tensor_forest/python/ops/data_ops.py", line 20, in <module>
+from tensorflow.contrib.tensor_forest.python.ops import tensor_forest_ops
+File "/usr/lib/python3/dist-packages/tensorflow/contrib/tensor_forest/python/ops/tensor_forest_ops.py", line 27, in <module>
+_tensor_forest_ops = loader.load_op_library(
+File "/usr/lib/python3/dist-packages/tensorflow/contrib/util/loader.py", line 56, in load_op_library
+ret = load_library.load_op_library(path)
+File "/usr/lib/python3/dist-packages/tensorflow/python/framework/load_library.py", line 61, in load_op_library
+lib_handle = py_tf.TF_LoadLibrary(library_filename)
+tensorflow.python.framework.errors_impl.NotFoundError: libforestprotos.so: cannot open shared object file: No such file or directory
