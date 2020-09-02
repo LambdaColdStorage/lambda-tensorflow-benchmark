@@ -49,16 +49,23 @@ list_test = ['alexnet',
 # }
 
 # Gold_6230-GeForce_RTX_2080_Ti
+# list_system = {
+# 	"Gold_6230-GeForce_RTX_2080_Ti_NVLink_trt_TF1_15": [8],
+# 	"Gold_6230-GeForce_RTX_2080_Ti_NVLink_trt_TF2_2": [8],
+# 	"Gold_6230-GeForce_RTX_2080_Ti_NVLink_XLA_trt_TF1_15": [8],
+# 	"Gold_6230-GeForce_RTX_2080_Ti_NVLink_XLA_trt_TF2_2": [8],
+# 	"Gold_6230-GeForce_RTX_2080_Ti_trt_TF1_15": [8],
+# 	"Gold_6230-GeForce_RTX_2080_Ti_trt_TF2_2": [8],
+# 	"Gold_6230-GeForce_RTX_2080_Ti_XLA_trt_TF1_15": [8],
+# 	"Gold_6230-GeForce_RTX_2080_Ti_XLA_trt_TF2_2": [8],		
+# }
+
 list_system = {
-	"Gold_6230-GeForce_RTX_2080_Ti_NVLink_trt_TF1_15": [8],
-	"Gold_6230-GeForce_RTX_2080_Ti_NVLink_trt_TF2_2": [8],
-	"Gold_6230-GeForce_RTX_2080_Ti_NVLink_XLA_trt_TF1_15": [8],
-	"Gold_6230-GeForce_RTX_2080_Ti_NVLink_XLA_trt_TF2_2": [8],
-	"Gold_6230-GeForce_RTX_2080_Ti_trt_TF1_15": [8],
-	"Gold_6230-GeForce_RTX_2080_Ti_trt_TF2_2": [8],
-	"Gold_6230-GeForce_RTX_2080_Ti_XLA_trt_TF1_15": [8],
-	"Gold_6230-GeForce_RTX_2080_Ti_XLA_trt_TF2_2": [8],		
+	"Processor-LambdaCloud_1xQuadro_RTX_6000": [1],
+	"Processor-LambdaCloud_2xQuadro_RTX_6000": [2],
+	"Processor-LambdaCloud_4xQuadro_RTX_6000": [4],
 }
+
 
 def get_result(folder, model):
         print(folder)
