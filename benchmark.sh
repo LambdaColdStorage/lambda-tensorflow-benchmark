@@ -42,7 +42,7 @@ echo $CONFIG_NAME
 
 #DATA_DIR="/home/${USER}/imagenet_mini"
 #DATA_DIR="/dockerx/imagenet_mini"
-DATA_DIR="/data/imagenet_mini"
+DATA_DIR="/chuan/imagenet_mini"
 
 LOG_DIR="$(pwd)/${CONFIG_NAME}.logs"
 
