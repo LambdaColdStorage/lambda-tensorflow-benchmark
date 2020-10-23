@@ -7,7 +7,7 @@ import glob
 path_logs = "logs_named"
 mode = 'replicated'
 data = 'syn'
-precision = 'fp16'
+precision = 'fp32'
 
 
 list_test = ['alexnet',
@@ -89,9 +89,11 @@ def create_row_throughput(key, num_gpu, df, is_train=True):
             batch_size, throughput = get_result(folder_fp16, model)
 
         if num_gpu == 1:
-            df.at[key , model] = throughput
+            df.at[key, model] = throughput
+            df.at[key, 'num_gpu'] = num_gpu
         else:
-            df.at[str(num_gpu) + "x" + key , model] = throughput    
+            df.at[str(num_gpu) + "x" + key , model] = throughput
+            df.at[str(num_gpu) + "x" + key, 'num_gpu'] = num_gpu
 
 
 def create_row_batch_size(key, num_gpu, df, is_train=True):
@@ -115,15 +117,14 @@ def create_row_batch_size(key, num_gpu, df, is_train=True):
             batch_size, throughput = get_result(folder_fp16, model)
         if num_gpu == 1:
             df.at[key , model] = int(batch_size)
+            df.at[key, 'num_gpu'] = num_gpu
         else:
             df.at[str(num_gpu) + "x" + key , model] = int(batch_size) * num_gpu
+            df.at[str(num_gpu) + "x" + key, 'num_gpu'] = num_gpu
 
 columns = []
+columns.append('num_gpu')
 for model in list_test:
-    # if precision == 'fp32':
-    #     columns.append(model + '_fp32')
-    # else:
-    #     columns.append(model + '_fp16')
     columns.append(model)
 
 
