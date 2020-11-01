@@ -263,9 +263,9 @@ main() {
   for run_mode in $RUN_MODE; do
     for precision in $PRECISION; do
       if [ $precision = fp16 ]; then
-        . bs_fp16.sh 
+        . config/bs_fp16.sh 
       else
-        . bs_fp32.sh
+        . config/bs_fp32.sh
       fi
       for data_mode in $DATA_MODE; do
         for variable_update in $VARIABLE_UPDATE; do
