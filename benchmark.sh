@@ -44,7 +44,7 @@ echo $CONFIG_NAME
 #DATA_DIR="/dockerx/imagenet_mini"
 DATA_DIR="/chuan/imagenet_mini"
 
-LOG_DIR="$(pwd)/${CONFIG_NAME}.logs"
+LOG_DIR="$(pwd)/logs/${CONFIG_NAME}.logs"
 
 THROUGHPUT="$(mktemp)"
 echo 0 > $THROUGHPUT
