@@ -47,12 +47,12 @@ case "${GPU_RAM:-'12GB'}" in
 		ssd300=64
 		;;		
 	'23GB'|'24GB')
-		resnet50=128
-		resnet152=64
-		inception3=128
-		inception4=32
-		vgg16=128
-		alexnet=1024
+		resnet50=112
+		resnet152=48
+		inception3=112
+		inception4=24
+		vgg16=48
+		alexnet=896
 		ssd300=64
 		;;
 	'31GB'|'32GB')
