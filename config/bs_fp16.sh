@@ -57,8 +57,8 @@ case "${GPU_RAM:-'12GB'}" in
 		;;
 	'39GB'|'40GB')
 		resnet50=448
-		resnet152=224
-		inception3=448
+		resnet152=200
+		inception3=360
 		inception4=112
 		vgg16=448
 		alexnet=3584
