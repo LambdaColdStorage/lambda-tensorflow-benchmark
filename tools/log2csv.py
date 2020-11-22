@@ -7,7 +7,7 @@ import glob
 path_logs = "logs_named"
 mode = 'replicated'
 data = 'syn'
-precision = 'fp32'
+precision = 'fp16'
 
 
 list_test = ['alexnet',
@@ -19,35 +19,36 @@ list_test = ['alexnet',
 
 
 list_system = {
-    "1080Ti": [1],
-    "2080Ti_XLA_trt": [1, 2, 4, 8],
-    "2070MaxQ": [1],
-    "2070MaxQ_XLA": [1],
-    "2080MaxQ": [1],
-    "2080MaxQ_XLA": [1],
-    "2080SuperMaxQ": [1],
-    "2080SuperMaxQ_XLA": [1],
-    "2080Ti_NVLink_trt": [1, 2, 4, 8],
-    "2080Ti_NVLink_trt2": [1, 2, 4, 8],
-    "2080Ti_NVLink_XLA_trt": [1, 2, 4, 8],
-    "2080Ti_NVLink_XLA_trt2": [1, 2, 4, 8],
-    "2080Ti_trt": [1, 2, 4, 8],
-    "2080Ti_trt2": [1, 2, 4, 8],
-    "2080Ti_XLA_trt": [1, 2, 4, 8],
-    "2080Ti_XLA_trt2": [1, 2, 4, 8],
-    "A100-SXM4": [1, 2, 4, 8],
-    "A100-SXM4_XLA": [1, 2, 4, 8],
-    "3080": [1],
-    "3080_XLA": [1],
-    "V100": [1, 8],
-    "QuadroRTX8000_trt": [1, 2, 4, 8],
-    "QuadroRTX8000_trt2": [1, 2, 4, 8],
-    "QuadroRTX8000_XLA_trt": [1, 2, 4, 8],
-    "QuadroRTX8000_XLA_trt2": [1, 2, 4, 8],
-    "QuadroRTX8000_NVLink_trt": [1, 2, 4, 8],
-    "QuadroRTX8000_NVLink_trt2": [1, 2, 4, 8],
-    "QuadroRTX8000_NVLink_XLA_trt": [1, 2, 4, 8],
-    "QuadroRTX8000_NVLink_XLA_trt2": [1, 2, 4, 8]
+    "1080Ti": ([1], ['GTX 1080Ti']),
+    # "2080Ti_XLA_trt": [1, 2, 4, 8],
+    # "2070MaxQ": [1],
+    "2070MaxQ_XLA": ([1], ['RTX 2070 MAX-Q']),
+    # "2080MaxQ": [1],
+    "2080MaxQ_XLA": ([1], ['RTX 2080 MAX-Q']),
+    # "2080SuperMaxQ": [1],
+    "2080SuperMaxQ_XLA": ([1], ['RTX 2080 SUPER MAX-Q']),
+    # "2080Ti_NVLink_trt": [1, 2, 4, 8],
+    # "2080Ti_NVLink_trt2": [1, 2, 4, 8],
+    "2080Ti_NVLink_XLA_trt": ([2, 4, 8], ['2x RTX 2080Ti NVLink', '4x RTX 2080Ti NVLink', '8x RTX 2080Ti NVLink']),
+    # "2080Ti_NVLink_XLA_trt2": [1, 2, 4, 8],
+    # "2080Ti_trt": [1, 2, 4, 8],
+    # "2080Ti_trt2": [1, 2, 4, 8],
+    "2080Ti_XLA_trt": ([1, 2, 4, 8], ['2x RTX 2080Ti', '4x RTX 2080Ti', '8x RTX 2080Ti']),
+    # "2080Ti_XLA_trt2": [1, 2, 4, 8],
+    # "A100-SXM4": [1, 2, 4, 8],
+    # "A100-SXM4_XLA": ([1, 2, 4, 8], ['A100 40GB SXM4', '2x A100 40GB SXM4', '4x A100 40GB SXM4', '8x A100 40GB SXM4']),
+    "V100": ([1, 8], ['V100 32GB', '8x V100 32GB']),
+    # "QuadroRTX8000_trt": [1, 2, 4, 8],
+    # "QuadroRTX8000_trt2": [1, 2, 4, 8],
+    "QuadroRTX8000_XLA_trt": ([1, 2, 4, 8], ['RTX 8000', '2x RTX 8000', '4x RTX 8000', '8x RTX 8000']),
+    # "QuadroRTX8000_XLA_trt2": [1, 2, 4, 8],
+    # "QuadroRTX8000_NVLink_trt": [1, 2, 4, 8],
+    # "QuadroRTX8000_NVLink_trt2": [1, 2, 4, 8],
+    "QuadroRTX8000_NVLink_XLA_trt": ([2, 4, 8], ['2x RTX 8000 NVLink', '4x RTX 8000 NVLink', '8x RTX 8000 NVLink']),
+    # "QuadroRTX8000_NVLink_XLA_trt2": [1, 2, 4, 8],
+    "A100PCIe_XLA": ([1, 2, 4, 8], ['A100 40GB PCIe', '2x A100 40GB PCIe', '4x A100 40GB PCIe', '8x A100 40GB PCIe']),
+    "3080_XLA": ([1, 2], ['RTX 3080', '2x RTX 3080']),
+    "3090_XLA": ([1, 2, 3], ['RTX 3090', '2x RTX 3090', '3x RTX 3090'])
 }
 
 
@@ -70,7 +71,7 @@ def get_result(folder, model):
 
     return batch_size, throughput
 
-def create_row_throughput(key, num_gpu, df, is_train=True):
+def create_row_throughput(key, num_gpu, name, df, is_train=True):
     if is_train:
         if precision == 'fp32':
             folder_fp32 = key + '.logs/' + data + '-' + mode + '-fp32-' + str(num_gpu)+'gpus'
@@ -88,21 +89,17 @@ def create_row_throughput(key, num_gpu, df, is_train=True):
         else:
             batch_size, throughput = get_result(folder_fp16, model)
 
-        if num_gpu == 1:
-            df.at[key, model] = throughput
-            df.at[key, 'num_gpu'] = num_gpu
-        else:
-            df.at[str(num_gpu) + "x" + key , model] = throughput
-            df.at[str(num_gpu) + "x" + key, 'num_gpu'] = num_gpu
+        df.at[name, model] = throughput
+
+    df.at[name, 'num_gpu'] = num_gpu
 
 
-def create_row_batch_size(key, num_gpu, df, is_train=True):
+def create_row_batch_size(key, num_gpu, name, df, is_train=True):
     if is_train:
         if precision == 'fp32':
             folder_fp32 = key + '.logs/' + data + '-' + mode + '-fp32-' + str(num_gpu)+'gpus'
         else:
             folder_fp16 = key + '.logs/' + data + '-' + mode + '-fp16-' + str(num_gpu)+'gpus'
-        
     else:
         if precision == 'fp32':
             folder_fp32 = key + '.logs/' + data + '-' + mode + '-fp32-' + str(num_gpu)+'gpus' + '-inference'
@@ -115,12 +112,10 @@ def create_row_batch_size(key, num_gpu, df, is_train=True):
             batch_size, throughput = get_result(folder_fp32, model)
         else:
             batch_size, throughput = get_result(folder_fp16, model)
-        if num_gpu == 1:
-            df.at[key , model] = int(batch_size)
-            df.at[key, 'num_gpu'] = num_gpu
-        else:
-            df.at[str(num_gpu) + "x" + key , model] = int(batch_size) * num_gpu
-            df.at[str(num_gpu) + "x" + key, 'num_gpu'] = num_gpu
+
+        df.at[name, model] = throughput
+
+    df.at[name, 'num_gpu'] = num_gpu
 
 columns = []
 columns.append('num_gpu')
@@ -129,47 +124,41 @@ for model in list_test:
 
 
 list_row = []
-# for key in list_system:
 for key, value in sorted(list_system.items()):  
-    list_gpus = value
-    for num_gpu in list_gpus:
-        if num_gpu == 1:
-            list_row.append(key)
-        else:
-            list_row.append(str(num_gpu) + "x" + key)
+    for name in value[1]:
+        list_row.append(name)
 
 # Train Throughput
 df_throughput = pd.DataFrame(index=list_row, columns=columns)
 
 for key in list_system:
-    list_gpus = list_system[key]
-    for num_gpu in list_gpus:
-        create_row_throughput(key, num_gpu, df_throughput)
+    # list_gpus = list_system[key][0]
+    for (num_gpu, name) in zip(list_system[key][0], list_system[key][1]):
+        create_row_throughput(key, num_gpu, name, df_throughput)
 
 df_throughput.index.name = 'name_gpu'
 
 df_throughput.to_csv('tf-train-throughput-' + precision + '.csv')
 
-# Inference Throughput
-df_throughput = pd.DataFrame(index=list_row, columns=columns)
+# # Inference Throughput
+# df_throughput = pd.DataFrame(index=list_row, columns=columns)
 
-for key in list_system:
-    list_gpus = list_system[key]
-    for num_gpu in list_gpus:
-        create_row_throughput(key, num_gpu, df_throughput, False)
+# for key in list_system:
+#     list_gpus = list_system[key]
+#     for num_gpu in list_gpus:
+#         create_row_throughput(key, num_gpu, df_throughput, False)
 
-df_throughput.index.name = 'name_gpu'
+# df_throughput.index.name = 'name_gpu'
 
-df_throughput.to_csv('tf-inference-throughput-' + precision + '.csv')
+# df_throughput.to_csv('tf-inference-throughput-' + precision + '.csv')
 
 
 # Train Batch Size
 df_bs = pd.DataFrame(index=list_row, columns=columns)
 
 for key in list_system:
-    list_gpus = list_system[key]
-    for num_gpu in list_gpus:
-        create_row_batch_size(key, num_gpu, df_bs)
+    for (num_gpu, name) in zip(list_system[key][0], list_system[key][1]):
+        create_row_batch_size(key, num_gpu, name, df_bs)
 
 df_bs.index.name = 'name_gpu'
 
