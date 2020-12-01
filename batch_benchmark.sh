@@ -1,4 +1,6 @@
-#!/bin/bash -e
+#!/usr/bin/env bash
+
+set -eEu
 
 MIN_NUM_GPU=${1:-1}
 MAX_NUM_GPU=${2:-1}

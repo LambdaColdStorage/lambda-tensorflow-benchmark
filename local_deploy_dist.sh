@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+set -eEu
 
 GPU_INDEX=0,1,2,3
 ITERATIONS=1

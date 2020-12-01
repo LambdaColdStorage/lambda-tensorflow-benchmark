@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/usr/bin/env sh
+
+set -eu
 
 if [ "$#" -lt 1 ] || [ ! -d "$1" ]; then
 	echo "${0##*/}: provide a directory as the first argument"
