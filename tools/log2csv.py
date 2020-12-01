@@ -33,7 +33,7 @@ list_system = {
     # "2080Ti_NVLink_XLA_trt2": [1, 2, 4, 8],
     # "2080Ti_trt": [1, 2, 4, 8],
     # "2080Ti_trt2": [1, 2, 4, 8],
-    "2080Ti_XLA_trt": ([1, 2, 4, 8], ['2x RTX 2080Ti', '4x RTX 2080Ti', '8x RTX 2080Ti']),
+    "2080Ti_XLA_trt": ([1, 2, 4, 8], ['RTX 2080Ti', '2x RTX 2080Ti', '4x RTX 2080Ti', '8x RTX 2080Ti']),
     # "2080Ti_XLA_trt2": [1, 2, 4, 8],
     # "A100-SXM4": [1, 2, 4, 8],
     # "A100-SXM4_XLA": ([1, 2, 4, 8], ['A100 40GB SXM4', '2x A100 40GB SXM4', '4x A100 40GB SXM4', '8x A100 40GB SXM4']),
@@ -113,7 +113,7 @@ def create_row_batch_size(key, num_gpu, name, df, is_train=True):
         else:
             batch_size, throughput = get_result(folder_fp16, model)
 
-        df.at[name, model] = throughput
+        df.at[name, model] = int(batch_size) * num_gpu
 
     df.at[name, 'num_gpu'] = num_gpu
 
