@@ -1,4 +1,7 @@
-#!/bin/bash -e 
+#!/usr/bin/env bash
+
+set -eEu
+
 GPU_INDEX=${1:-0}
 IFS=', ' read -r -a gpus <<< "$GPU_INDEX"
 
