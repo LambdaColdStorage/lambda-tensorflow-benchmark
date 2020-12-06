@@ -1,13 +1,10 @@
 import os
 import re
-import pandas as pd
 import glob
+import argparse
 
 
-path_logs = "logs_named"
-mode = 'replicated'
-data = 'syn'
-precision = 'fp16'
+import pandas as pd
 
 
 list_test = ['alexnet',
@@ -17,45 +14,29 @@ list_test = ['alexnet',
              'resnet50',
              'vgg16']
 
+# Naming convention
+# Key: log name
+# Value: ([num_gpus], [names])
+# num_gpus: Since each log folder has all the record for different numbers of GPUs, it is convenient to specify the benchmarks you want to pull by listing the num_gpus
+# names: rename the experiments so they are easier to undertand
 
 list_system = {
-    "1080Ti": ([1], ['GTX 1080Ti']),
-    # "2080Ti_XLA_trt": [1, 2, 4, 8],
-    # "2070MaxQ": [1],
-    "2070MaxQ_XLA": ([1], ['RTX 2070 MAX-Q']),
-    # "2080MaxQ": [1],
-    "2080MaxQ_XLA": ([1], ['RTX 2080 MAX-Q']),
-    # "2080SuperMaxQ": [1],
-    "2080SuperMaxQ_XLA": ([1], ['RTX 2080 SUPER MAX-Q']),
-    # "2080Ti_NVLink_trt": [1, 2, 4, 8],
-    # "2080Ti_NVLink_trt2": [1, 2, 4, 8],
-    "2080Ti_NVLink_XLA_trt": ([2, 4, 8], ['2x RTX 2080Ti NVLink', '4x RTX 2080Ti NVLink', '8x RTX 2080Ti NVLink']),
-    # "2080Ti_NVLink_XLA_trt2": [1, 2, 4, 8],
-    # "2080Ti_trt": [1, 2, 4, 8],
-    # "2080Ti_trt2": [1, 2, 4, 8],
-    "2080Ti_XLA_trt": ([1, 2, 4, 8], ['RTX 2080Ti', '2x RTX 2080Ti', '4x RTX 2080Ti', '8x RTX 2080Ti']),
-    # "2080Ti_XLA_trt2": [1, 2, 4, 8],
-    # "A100-SXM4": [1, 2, 4, 8],
-    # "A100-SXM4_XLA": ([1, 2, 4, 8], ['A100 40GB SXM4', '2x A100 40GB SXM4', '4x A100 40GB SXM4', '8x A100 40GB SXM4']),
-    "V100": ([1, 8], ['V100 32GB', '8x V100 32GB']),
-    # "QuadroRTX8000_trt": [1, 2, 4, 8],
-    # "QuadroRTX8000_trt2": [1, 2, 4, 8],
-    "QuadroRTX8000_XLA_trt": ([1, 2, 4, 8], ['RTX 8000', '2x RTX 8000', '4x RTX 8000', '8x RTX 8000']),
-    # "QuadroRTX8000_XLA_trt2": [1, 2, 4, 8],
-    # "QuadroRTX8000_NVLink_trt": [1, 2, 4, 8],
-    # "QuadroRTX8000_NVLink_trt2": [1, 2, 4, 8],
-    "QuadroRTX8000_NVLink_XLA_trt": ([2, 4, 8], ['2x RTX 8000 NVLink', '4x RTX 8000 NVLink', '8x RTX 8000 NVLink']),
-    # "QuadroRTX8000_NVLink_XLA_trt2": [1, 2, 4, 8],
-    "A100PCIe_XLA": ([1, 2, 4, 8], ['A100 40GB PCIe', '2x A100 40GB PCIe', '4x A100 40GB PCIe', '8x A100 40GB PCIe']),
-    "3080_XLA": ([1, 2], ['RTX 3080', '2x RTX 3080']),
-    "3090_XLA": ([1, 2, 3], ['RTX 3090', '2x RTX 3090', '3x RTX 3090'])
+    "i7-6850K-GeForce_GTX_1080_Ti": ([1], ['GTX 1080Ti']),
+    "i7-9750H-GeForce_RTX_2070_with_Max-Q_Design_XLA_TF1_15": ([1], ['RTX 2070 MAX-Q']),
+    "i7-9750H-GeForce_RTX_2080_with_Max-Q_Design_XLA_TF1_15": ([1], ['RTX 2080 MAX-Q']),
+    "i7-10875H-GeForce_RTX_2080_Super_with_Max-Q_Design_XLA_TF2_2": ([1], ['RTX 2080 SUPER MAX-Q']),
+    "Gold_6230-GeForce_RTX_2080_Ti_NVLink_XLA_trt_TF1_15": ([2, 4, 8], ['2x RTX 2080Ti NVLink', '4x RTX 2080Ti NVLink', '8x RTX 2080Ti NVLink']),
+    "Gold_6230-GeForce_RTX_2080_Ti_XLA_trt_TF1_15": ([1, 2, 4, 8], ['RTX 2080Ti', '2x RTX 2080Ti', '4x RTX 2080Ti', '8x RTX 2080Ti']),
+    "Platinum-Tesla_V100-SXM3-32GB_HP16_TF2_2": ([1, 8], ['V100 32GB', '8x V100 32GB']),
+    "Gold_6230-Quadro_RTX_8000_XLA_trt_TF1_15": ([1, 2, 4, 8], ['RTX 8000', '2x RTX 8000', '4x RTX 8000', '8x RTX 8000']),
+    "Gold_6230-Quadro_RTX_8000_NVLink_XLA_trt_TF1_15": ([2, 4, 8], ['2x RTX 8000 NVLink', '4x RTX 8000 NVLink', '8x RTX 8000 NVLink']),
+    "7502-A100-PCIE-40GB": ([1, 2, 4, 8], ['A100 40GB PCIe', '2x A100 40GB PCIe', '4x A100 40GB PCIe', '8x A100 40GB PCIe']),
+    "3960X-GeForce_RTX_3080_XLA": ([1, 2], ['RTX 3080', '2x RTX 3080']),
+    "3970X-GeForce_RTX_3090_XLA": ([1, 2, 3], ['RTX 3090', '2x RTX 3090', '3x RTX 3090'])
 }
 
 
-def get_result(folder, model):
-    print(folder)
-    print(model)
-    print(path_logs + '/' + folder + '/' + model)
+def get_result(path_logs, folder, model):
     folder_path = glob.glob(path_logs + '/' + folder + '/' + model + '*')[0]
     folder_name = folder_path.split('/')[-1]
     batch_size = folder_name.split('-')[-1]
@@ -71,7 +52,7 @@ def get_result(folder, model):
 
     return batch_size, throughput
 
-def create_row_throughput(key, num_gpu, name, df, is_train=True):
+def create_row_throughput(path_logs, mode, data, precision, key, num_gpu, name, df, is_train=True):
     if is_train:
         if precision == 'fp32':
             folder_fp32 = key + '.logs/' + data + '-' + mode + '-fp32-' + str(num_gpu)+'gpus'
@@ -85,16 +66,16 @@ def create_row_throughput(key, num_gpu, name, df, is_train=True):
 
     for model in list_test:
         if precision == 'fp32':
-            batch_size, throughput = get_result(folder_fp32, model)
+            batch_size, throughput = get_result(path_logs, folder_fp32, model)
         else:
-            batch_size, throughput = get_result(folder_fp16, model)
+            batch_size, throughput = get_result(path_logs, folder_fp16, model)
 
         df.at[name, model] = throughput
 
     df.at[name, 'num_gpu'] = num_gpu
 
 
-def create_row_batch_size(key, num_gpu, name, df, is_train=True):
+def create_row_batch_size(path_logs, mode, data, precision, key, num_gpu, name, df, is_train=True):
     if is_train:
         if precision == 'fp32':
             folder_fp32 = key + '.logs/' + data + '-' + mode + '-fp32-' + str(num_gpu)+'gpus'
@@ -109,57 +90,86 @@ def create_row_batch_size(key, num_gpu, name, df, is_train=True):
 
     for model in list_test:
         if precision == 'fp32':
-            batch_size, throughput = get_result(folder_fp32, model)
+            batch_size, throughput = get_result(path_logs, folder_fp32, model)
         else:
-            batch_size, throughput = get_result(folder_fp16, model)
+            batch_size, throughput = get_result(path_logs, folder_fp16, model)
 
         df.at[name, model] = int(batch_size) * num_gpu
 
     df.at[name, 'num_gpu'] = num_gpu
 
-columns = []
-columns.append('num_gpu')
-for model in list_test:
-    columns.append(model)
 
 
-list_row = []
-for key, value in sorted(list_system.items()):  
-    for name in value[1]:
-        list_row.append(name)
+def main():
 
-# Train Throughput
-df_throughput = pd.DataFrame(index=list_row, columns=columns)
+    parser = argparse.ArgumentParser(description='Gather benchmark results.')
 
-for key in list_system:
-    # list_gpus = list_system[key][0]
-    for (num_gpu, name) in zip(list_system[key][0], list_system[key][1]):
-        create_row_throughput(key, num_gpu, name, df_throughput)
+    parser.add_argument('--path', type=str, default='logs',
+                        help='path that has the logs')    
+    
+    parser.add_argument('--mode', type=str, default='replicated',
+                        choices=['replicated', 'parameter_server'],
+                        help='Method for parameter update')  
 
-df_throughput.index.name = 'name_gpu'
+    parser.add_argument('--data', type=str, default='syn',
+                        choices=['syn', 'real'],
+                        help='Choose between synthetic data and real data')
 
-df_throughput.to_csv('tf-train-throughput-' + precision + '.csv')
+    parser.add_argument('--precision', type=str, default='fp32',
+                        choices=['fp32', 'fp16'],
+                        help='Choose becnhmark precision')
 
-# # Inference Throughput
-# df_throughput = pd.DataFrame(index=list_row, columns=columns)
-
-# for key in list_system:
-#     list_gpus = list_system[key]
-#     for num_gpu in list_gpus:
-#         create_row_throughput(key, num_gpu, df_throughput, False)
-
-# df_throughput.index.name = 'name_gpu'
-
-# df_throughput.to_csv('tf-inference-throughput-' + precision + '.csv')
+    args = parser.parse_args()
 
 
-# Train Batch Size
-df_bs = pd.DataFrame(index=list_row, columns=columns)
+    columns = []
+    columns.append('num_gpu')
+    for model in list_test:
+        columns.append(model)
 
-for key in list_system:
-    for (num_gpu, name) in zip(list_system[key][0], list_system[key][1]):
-        create_row_batch_size(key, num_gpu, name, df_bs)
 
-df_bs.index.name = 'name_gpu'
+    list_row = []
+    for key, value in sorted(list_system.items()):  
+        for name in value[1]:
+            list_row.append(name)
 
-df_bs.to_csv('tf-train-bs-' + precision + '.csv')
+    # Train Throughput
+    df_throughput = pd.DataFrame(index=list_row, columns=columns)
+
+    for key in list_system:
+        # list_gpus = list_system[key][0]
+        for (num_gpu, name) in zip(list_system[key][0], list_system[key][1]):
+            create_row_throughput(args.path, args.mode, args.data, args.precision, key, num_gpu, name, df_throughput)
+
+    df_throughput.index.name = 'name_gpu'
+
+    df_throughput.to_csv('tf-train-throughput-' + args.precision + '.csv')
+
+    # # Inference Throughput
+    # df_throughput = pd.DataFrame(index=list_row, columns=columns)
+
+    # for key in list_system:
+    #     list_gpus = list_system[key]
+    #     for num_gpu in list_gpus:
+    #         create_row_throughput(args.path, args.mode, key, num_gpu, df_throughput, False)
+
+    # df_throughput.index.name = 'name_gpu'
+
+    # df_throughput.to_csv('tf-inference-throughput-' + precision + '.csv')
+
+
+    # Train Batch Size
+    df_bs = pd.DataFrame(index=list_row, columns=columns)
+
+    for key in list_system:
+        for (num_gpu, name) in zip(list_system[key][0], list_system[key][1]):
+            create_row_batch_size(args.path, args.mode, args.data, args.precision, key, num_gpu, name, df_bs)
+
+    df_bs.index.name = 'name_gpu'
+
+    df_bs.to_csv('tf-train-bs-' + args.precision + '.csv')
+
+
+if __name__ == "__main__":
+    main()
+
