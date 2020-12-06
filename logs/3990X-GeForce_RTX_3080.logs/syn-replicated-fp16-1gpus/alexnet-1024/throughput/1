@@ -1,0 +1,124 @@
+2020-09-21 19:37:33.013441: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.11.0
+WARNING:tensorflow:Deprecation warnings have been disabled. Set TF_ENABLE_DEPRECATION_WARNINGS=1 to re-enable them.
+2020-09-21 19:37:34.422585: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2899965000 Hz
+2020-09-21 19:37:34.422741: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x4d5b540 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-09-21 19:37:34.422772: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-09-21 19:37:34.425119: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcuda.so.1
+2020-09-21 19:37:34.532021: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x4d52970 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2020-09-21 19:37:34.532046: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): GeForce RTX 3080, Compute Capability 8.6
+2020-09-21 19:37:34.534267: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1634] Found device 0 with properties:
+name: GeForce RTX 3080 major: 8 minor: 6 memoryClockRate(GHz): 1.755
+pciBusID: 0000:01:00.0
+2020-09-21 19:37:34.534297: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.11.0
+2020-09-21 19:37:34.536798: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.11
+2020-09-21 19:37:34.537920: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcufft.so.10
+2020-09-21 19:37:34.538169: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcurand.so.10
+2020-09-21 19:37:34.540825: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusolver.so.10
+2020-09-21 19:37:34.541455: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusparse.so.11
+2020-09-21 19:37:34.541601: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudnn.so.8
+2020-09-21 19:37:34.543854: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1762] Adding visible gpu devices: 0
+2020-09-21 19:37:34.543884: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.11.0
+2020-09-21 19:37:34.765811: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1175] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-09-21 19:37:34.765849: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1181]      0
+2020-09-21 19:37:34.765854: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1194] 0:   N
+2020-09-21 19:37:34.766834: W tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:39] Overriding allow_growth setting because the TF_FORCE_GPU_ALLOW_GROWTH environment variable is set. Original config value was 0.
+2020-09-21 19:37:34.766858: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1320] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 9031 MB memory) -> physical GPU (device: 0, name: GeForce RTX 3080, pci bus id: 0000:01:00.0, compute capability: 8.6)
+TensorFlow:  1.15
+Model:       alexnet
+Dataset:     imagenet (synthetic)
+Mode:        training
+SingleSess:  False
+Batch size:  1024 global
+1024 per device
+Num batches: 500
+Num epochs:  0.40
+Devices:     ['/gpu:0']
+NUMA bind:   False
+Data format: NCHW
+Optimizer:   sgd
+Variables:   replicated
+AllReduce:   nccl
+==========
+Generating training model
+Initializing graph
+2020-09-21 19:37:34.996455: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1634] Found device 0 with properties:
+name: GeForce RTX 3080 major: 8 minor: 6 memoryClockRate(GHz): 1.755
+pciBusID: 0000:01:00.0
+2020-09-21 19:37:34.996490: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.11.0
+2020-09-21 19:37:34.996512: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.11
+2020-09-21 19:37:34.996519: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcufft.so.10
+2020-09-21 19:37:34.996526: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcurand.so.10
+2020-09-21 19:37:34.996532: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusolver.so.10
+2020-09-21 19:37:34.996538: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusparse.so.11
+2020-09-21 19:37:34.996545: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudnn.so.8
+2020-09-21 19:37:34.997301: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1762] Adding visible gpu devices: 0
+2020-09-21 19:37:34.997323: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1175] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-09-21 19:37:34.997327: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1181]      0
+2020-09-21 19:37:34.997330: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1194] 0:   N
+2020-09-21 19:37:34.998105: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1320] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 9031 MB memory) -> physical GPU (device: 0, name: GeForce RTX 3080, pci bus id: 0000:01:00.0, compute capability: 8.6)
+INFO:tensorflow:Running local_init_op.
+I0921 19:37:35.041708 140318008305472 session_manager.py:500] Running local_init_op.
+INFO:tensorflow:Done running local_init_op.
+I0921 19:37:35.062213 140318008305472 session_manager.py:502] Done running local_init_op.
+Running warm up
+2020-09-21 19:37:35.203240: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.11
+2020-09-21 19:37:35.672707: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudnn.so.8
+2020-09-21 19:37:36.798592: W tensorflow/stream_executor/cuda/redzone_allocator.cc:312] Internal: ptxas exited with non-zero error code 65280, output: ptxas fatal   : Value 'sm_86' is not defined for option 'gpu-name'
+
+Relying on driver to perform ptx compilation. This message will be only logged once.
+Done warm up
+Step	Img/sec	total_loss
+1	images/sec: 895.1 +/- 0.0 (jitter = 0.0)	7.230 1600717140
+10	images/sec: 2903.3 +/- 720.1 (jitter = 24.1)	7.229 1600717142
+20	images/sec: 4029.0 +/- 381.6 (jitter = 33.7)	7.229 1600717144
+30	images/sec: 4625.2 +/- 258.9 (jitter = 28.7)	7.229 1600717145
+40	images/sec: 4996.8 +/- 195.9 (jitter = 31.8)	7.229 1600717147
+50	images/sec: 5250.1 +/- 157.6 (jitter = 27.6)	7.229 1600717148
+60	images/sec: 5433.3 +/- 131.8 (jitter = 25.4)	7.229 1600717150
+70	images/sec: 5571.0 +/- 113.2 (jitter = 27.6)	7.235 1600717152
+80	images/sec: 5678.6 +/- 99.2 (jitter = 25.7)	7.229 1600717153
+90	images/sec: 5766.1 +/- 88.3 (jitter = 25.1)	7.229 1600717155
+100	images/sec: 5836.9 +/- 79.6 (jitter = 24.6)	7.229 1600717156
+110	images/sec: 5896.5 +/- 72.4 (jitter = 23.1)	7.229 1600717158
+120	images/sec: 5947.5 +/- 66.4 (jitter = 22.6)	7.229 1600717159
+130	images/sec: 5990.6 +/- 61.3 (jitter = 22.6)	7.229 1600717161
+140	images/sec: 6026.9 +/- 57.0 (jitter = 24.1)	7.229 1600717162
+150	images/sec: 6059.9 +/- 53.2 (jitter = 24.5)	7.229 1600717164
+160	images/sec: 6088.8 +/- 49.9 (jitter = 24.7)	7.229 1600717166
+170	images/sec: 6114.6 +/- 47.0 (jitter = 24.8)	7.229 1600717167
+180	images/sec: 6136.8 +/- 44.4 (jitter = 26.9)	7.229 1600717169
+190	images/sec: 6157.9 +/- 42.0 (jitter = 27.5)	7.229 1600717170
+200	images/sec: 6176.1 +/- 40.0 (jitter = 28.5)	7.229 1600717172
+210	images/sec: 6192.7 +/- 38.1 (jitter = 28.4)	7.229 1600717173
+220	images/sec: 6207.5 +/- 36.3 (jitter = 27.9)	7.229 1600717175
+230	images/sec: 6220.7 +/- 34.8 (jitter = 29.5)	7.229 1600717177
+240	images/sec: 6233.0 +/- 33.3 (jitter = 29.5)	7.229 1600717178
+250	images/sec: 6244.3 +/- 32.0 (jitter = 29.1)	7.229 1600717180
+260	images/sec: 6254.6 +/- 30.8 (jitter = 29.9)	7.229 1600717181
+270	images/sec: 6264.6 +/- 29.6 (jitter = 30.0)	7.229 1600717183
+280	images/sec: 6274.0 +/- 28.6 (jitter = 30.7)	7.229 1600717184
+290	images/sec: 6282.9 +/- 27.6 (jitter = 31.1)	7.229 1600717186
+300	images/sec: 6290.9 +/- 26.7 (jitter = 32.8)	7.229 1600717187
+310	images/sec: 6298.3 +/- 25.8 (jitter = 33.4)	7.229 1600717189
+320	images/sec: 6305.1 +/- 25.0 (jitter = 33.8)	7.229 1600717191
+330	images/sec: 6311.6 +/- 24.2 (jitter = 34.3)	7.229 1600717192
+340	images/sec: 6317.7 +/- 23.5 (jitter = 35.0)	7.229 1600717194
+350	images/sec: 6323.7 +/- 22.9 (jitter = 35.0)	7.229 1600717195
+360	images/sec: 6329.0 +/- 22.2 (jitter = 36.2)	7.229 1600717197
+370	images/sec: 6333.9 +/- 21.6 (jitter = 37.0)	7.229 1600717198
+380	images/sec: 6339.1 +/- 21.1 (jitter = 37.1)	7.229 1600717200
+390	images/sec: 6343.6 +/- 20.5 (jitter = 36.7)	7.229 1600717202
+400	images/sec: 6348.3 +/- 20.0 (jitter = 36.7)	7.229 1600717203
+410	images/sec: 6352.5 +/- 19.5 (jitter = 36.8)	7.229 1600717205
+420	images/sec: 6356.6 +/- 19.1 (jitter = 36.8)	7.229 1600717206
+430	images/sec: 6360.4 +/- 18.6 (jitter = 37.2)	7.229 1600717208
+440	images/sec: 6364.2 +/- 18.2 (jitter = 36.9)	7.229 1600717209
+450	images/sec: 6367.6 +/- 17.8 (jitter = 36.8)	7.229 1600717211
+460	images/sec: 6371.0 +/- 17.4 (jitter = 36.8)	7.229 1600717213
+470	images/sec: 6374.1 +/- 17.0 (jitter = 37.3)	7.229 1600717214
+480	images/sec: 6377.1 +/- 16.7 (jitter = 37.6)	7.229 1600717216
+490	images/sec: 6380.2 +/- 16.3 (jitter = 37.4)	7.229 1600717217
+500	images/sec: 6382.9 +/- 16.0 (jitter = 37.7)	7.229 1600717219
+----------------------------------------------------------------
+total images/sec: 6380.76
+----------------------------------------------------------------

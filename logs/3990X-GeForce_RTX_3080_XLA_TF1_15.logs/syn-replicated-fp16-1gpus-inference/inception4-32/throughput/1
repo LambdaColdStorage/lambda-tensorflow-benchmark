@@ -1,0 +1,135 @@
+2020-09-21 17:29:21.907163: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.11.0
+WARNING:tensorflow:Deprecation warnings have been disabled. Set TF_ENABLE_DEPRECATION_WARNINGS=1 to re-enable them.
+2020-09-21 17:29:23.318322: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2899965000 Hz
+2020-09-21 17:29:23.318456: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x54903a0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-09-21 17:29:23.318486: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-09-21 17:29:23.320901: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcuda.so.1
+2020-09-21 17:29:23.410596: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x547d140 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2020-09-21 17:29:23.410618: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): GeForce RTX 3080, Compute Capability 8.6
+2020-09-21 17:29:23.411489: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1634] Found device 0 with properties:
+name: GeForce RTX 3080 major: 8 minor: 6 memoryClockRate(GHz): 1.755
+pciBusID: 0000:01:00.0
+2020-09-21 17:29:23.411512: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.11.0
+2020-09-21 17:29:23.414291: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.11
+2020-09-21 17:29:23.415548: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcufft.so.10
+2020-09-21 17:29:23.415823: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcurand.so.10
+2020-09-21 17:29:23.418797: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusolver.so.10
+2020-09-21 17:29:23.419512: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusparse.so.11
+2020-09-21 17:29:23.419681: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudnn.so.8
+2020-09-21 17:29:23.421078: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1762] Adding visible gpu devices: 0
+2020-09-21 17:29:23.421111: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.11.0
+2020-09-21 17:29:23.641143: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1175] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-09-21 17:29:23.641179: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1181]      0
+2020-09-21 17:29:23.641183: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1194] 0:   N
+2020-09-21 17:29:23.642231: W tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:39] Overriding allow_growth setting because the TF_FORCE_GPU_ALLOW_GROWTH environment variable is set. Original config value was 0.
+2020-09-21 17:29:23.642255: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1320] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 9029 MB memory) -> physical GPU (device: 0, name: GeForce RTX 3080, pci bus id: 0000:01:00.0, compute capability: 8.6)
+TensorFlow:  1.15
+Model:       inception4
+Dataset:     imagenet (synthetic)
+Mode:        forward only
+SingleSess:  False
+Batch size:  32 global
+32 per device
+Num batches: 500
+Num epochs:  0.01
+Devices:     ['/gpu:0']
+NUMA bind:   False
+Data format: NCHW
+Optimizer:   sgd
+Variables:   replicated
+AllReduce:   nccl
+==========
+Generating training model
+Initializing graph
+2020-09-21 17:29:26.249091: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1634] Found device 0 with properties:
+name: GeForce RTX 3080 major: 8 minor: 6 memoryClockRate(GHz): 1.755
+pciBusID: 0000:01:00.0
+2020-09-21 17:29:26.249130: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudart.so.11.0
+2020-09-21 17:29:26.249154: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.11
+2020-09-21 17:29:26.249162: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcufft.so.10
+2020-09-21 17:29:26.249170: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcurand.so.10
+2020-09-21 17:29:26.249177: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusolver.so.10
+2020-09-21 17:29:26.249184: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcusparse.so.11
+2020-09-21 17:29:26.249191: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudnn.so.8
+2020-09-21 17:29:26.250237: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1762] Adding visible gpu devices: 0
+2020-09-21 17:29:26.250273: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1175] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-09-21 17:29:26.250280: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1181]      0
+2020-09-21 17:29:26.250286: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1194] 0:   N
+2020-09-21 17:29:26.251658: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1320] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 9029 MB memory) -> physical GPU (device: 0, name: GeForce RTX 3080, pci bus id: 0000:01:00.0, compute capability: 8.6)
+2020-09-21 17:29:26.890070: W tensorflow/compiler/jit/mark_for_compilation_pass.cc:1648] (One-time warning): Not using XLA:CPU for cluster because envvar TF_XLA_FLAGS=--tf_xla_cpu_global_jit was not set.  If you want XLA:CPU, either set that envvar, or use experimental_jit_scope to enable XLA:CPU.  To confirm that XLA is active, pass --vmodule=xla_compilation_cache=1 (as a proper command-line flag, not via TF_XLA_FLAGS) or set the envvar XLA_FLAGS=--xla_hlo_profile.
+INFO:tensorflow:Running local_init_op.
+I0921 17:29:27.008060 140017374439232 session_manager.py:500] Running local_init_op.
+INFO:tensorflow:Done running local_init_op.
+I0921 17:29:27.078247 140017374439232 session_manager.py:502] Done running local_init_op.
+Running warm up
+2020-09-21 17:29:28.345397: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcublas.so.11
+2020-09-21 17:29:28.808018: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library libcudnn.so.8
+2020-09-21 17:29:29.775548: W tensorflow/stream_executor/cuda/redzone_allocator.cc:312] Internal: ptxas exited with non-zero error code 65280, output: ptxas fatal   : Value 'sm_86' is not defined for option 'gpu-name'
+
+Relying on driver to perform ptx compilation. This message will be only logged once.
+2020-09-21 17:30:19.470257: W tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:590] Internal: ptxas exited with non-zero error code 65280, output: ptxas fatal   : Value 'sm_86' is not defined for option 'gpu-name'
+
+Relying on driver to perform ptx compilation. This message will be only logged once.
+2020-09-21 17:31:21.172802: W tensorflow/compiler/xla/service/gpu/nvptx_compiler.cc:70] Can't find ptxas binary in ${CUDA_DIR}/bin.  Will back to the GPU driver for PTX -> sass compilation.  This is OK so long as you don't see a warning below about an out-of-date driver version.
+2020-09-21 17:31:21.172837: W tensorflow/compiler/xla/service/gpu/nvptx_compiler.cc:71] Searched for CUDA in the following directories:
+2020-09-21 17:31:21.172846: W tensorflow/compiler/xla/service/gpu/nvptx_compiler.cc:74]   ./cuda_sdk_lib
+2020-09-21 17:31:21.172851: W tensorflow/compiler/xla/service/gpu/nvptx_compiler.cc:74]   /usr/local/cuda
+2020-09-21 17:31:21.172855: W tensorflow/compiler/xla/service/gpu/nvptx_compiler.cc:74]   .
+2020-09-21 17:31:21.172860: W tensorflow/compiler/xla/service/gpu/nvptx_compiler.cc:76] You can choose the search directory by setting xla_gpu_cuda_data_dir in HloModule's DebugOptions.  For most apps, setting the environment variable XLA_FLAGS=--xla_gpu_cuda_data_dir=/path/to/cuda will work.
+2020-09-21 17:31:21.197254: I tensorflow/compiler/jit/xla_compilation_cache.cc:237] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+Done warm up
+Step	Img/sec	total_loss	top_1_accuracy	top_5_accuracy
+1	images/sec: 881.3 +/- 0.0 (jitter = 0.0)	0.000	0.000	0.000 1600709482
+10	images/sec: 878.7 +/- 1.6 (jitter = 5.1)	0.000	0.000	0.000 1600709483
+20	images/sec: 878.3 +/- 1.2 (jitter = 6.1)	0.000	0.000	0.000 1600709483
+30	images/sec: 878.2 +/- 0.8 (jitter = 4.0)	0.000	0.000	0.000 1600709483
+40	images/sec: 878.9 +/- 0.7 (jitter = 3.5)	0.000	0.000	0.000 1600709484
+50	images/sec: 879.5 +/- 0.7 (jitter = 4.4)	0.000	0.000	0.000 1600709484
+60	images/sec: 879.4 +/- 0.6 (jitter = 4.1)	0.000	0.000	0.000 1600709484
+70	images/sec: 879.6 +/- 0.5 (jitter = 4.5)	0.000	0.000	0.000 1600709485
+80	images/sec: 879.3 +/- 0.5 (jitter = 4.6)	0.000	0.000	0.000 1600709485
+90	images/sec: 879.4 +/- 0.5 (jitter = 4.5)	0.000	0.000	0.000 1600709486
+100	images/sec: 879.3 +/- 0.4 (jitter = 4.5)	0.000	0.000	0.000 1600709486
+110	images/sec: 879.3 +/- 0.4 (jitter = 4.1)	0.000	0.000	0.000 1600709486
+120	images/sec: 879.3 +/- 0.4 (jitter = 4.2)	0.000	0.000	0.031 1600709487
+130	images/sec: 879.2 +/- 0.3 (jitter = 4.0)	0.000	0.000	0.000 1600709487
+140	images/sec: 879.0 +/- 0.3 (jitter = 4.2)	0.000	0.000	0.000 1600709487
+150	images/sec: 878.5 +/- 0.5 (jitter = 4.2)	0.000	0.031	0.031 1600709488
+160	images/sec: 878.3 +/- 0.5 (jitter = 4.4)	0.000	0.000	0.000 1600709488
+170	images/sec: 878.2 +/- 0.5 (jitter = 4.4)	0.000	0.000	0.031 1600709488
+180	images/sec: 878.2 +/- 0.5 (jitter = 4.3)	0.000	0.000	0.000 1600709489
+190	images/sec: 877.8 +/- 0.5 (jitter = 4.3)	0.000	0.000	0.000 1600709489
+200	images/sec: 877.7 +/- 0.5 (jitter = 4.2)	0.000	0.000	0.000 1600709490
+210	images/sec: 877.7 +/- 0.5 (jitter = 4.2)	0.000	0.000	0.000 1600709490
+220	images/sec: 877.7 +/- 0.4 (jitter = 4.1)	0.000	0.000	0.000 1600709490
+230	images/sec: 877.7 +/- 0.4 (jitter = 4.2)	0.000	0.000	0.000 1600709491
+240	images/sec: 877.5 +/- 0.5 (jitter = 4.3)	0.000	0.000	0.000 1600709491
+250	images/sec: 877.3 +/- 0.5 (jitter = 4.4)	0.000	0.000	0.000 1600709491
+260	images/sec: 877.4 +/- 0.5 (jitter = 4.3)	0.000	0.000	0.000 1600709492
+270	images/sec: 877.4 +/- 0.5 (jitter = 4.3)	0.000	0.000	0.000 1600709492
+280	images/sec: 877.4 +/- 0.4 (jitter = 4.1)	0.000	0.000	0.031 1600709492
+290	images/sec: 877.1 +/- 0.5 (jitter = 4.3)	0.000	0.000	0.000 1600709493
+300	images/sec: 877.0 +/- 0.5 (jitter = 4.3)	0.000	0.000	0.000 1600709493
+310	images/sec: 877.0 +/- 0.5 (jitter = 4.2)	0.000	0.031	0.031 1600709494
+320	images/sec: 877.0 +/- 0.4 (jitter = 4.2)	0.000	0.000	0.000 1600709494
+330	images/sec: 877.0 +/- 0.4 (jitter = 4.1)	0.000	0.000	0.000 1600709494
+340	images/sec: 877.0 +/- 0.4 (jitter = 4.1)	0.000	0.000	0.000 1600709495
+350	images/sec: 876.9 +/- 0.4 (jitter = 4.1)	0.000	0.000	0.000 1600709495
+360	images/sec: 876.8 +/- 0.4 (jitter = 4.2)	0.000	0.000	0.000 1600709495
+370	images/sec: 876.6 +/- 0.4 (jitter = 4.2)	0.000	0.000	0.031 1600709496
+380	images/sec: 876.5 +/- 0.4 (jitter = 4.2)	0.000	0.000	0.000 1600709496
+390	images/sec: 876.4 +/- 0.4 (jitter = 4.2)	0.000	0.000	0.031 1600709496
+400	images/sec: 876.3 +/- 0.4 (jitter = 4.3)	0.000	0.000	0.000 1600709497
+410	images/sec: 876.2 +/- 0.4 (jitter = 4.5)	0.000	0.000	0.031 1600709497
+420	images/sec: 876.0 +/- 0.4 (jitter = 4.6)	0.000	0.000	0.000 1600709498
+430	images/sec: 876.0 +/- 0.4 (jitter = 4.6)	0.000	0.000	0.000 1600709498
+440	images/sec: 875.9 +/- 0.4 (jitter = 4.6)	0.000	0.000	0.000 1600709498
+450	images/sec: 875.8 +/- 0.4 (jitter = 4.7)	0.000	0.000	0.000 1600709499
+460	images/sec: 875.7 +/- 0.3 (jitter = 4.8)	0.000	0.000	0.000 1600709499
+470	images/sec: 875.6 +/- 0.4 (jitter = 4.8)	0.000	0.000	0.000 1600709499
+480	images/sec: 875.5 +/- 0.3 (jitter = 4.8)	0.000	0.000	0.000 1600709500
+490	images/sec: 875.4 +/- 0.3 (jitter = 4.9)	0.000	0.000	0.000 1600709500
+500	images/sec: 875.2 +/- 0.4 (jitter = 4.9)	0.000	0.000	0.000 1600709501
+----------------------------------------------------------------
+total images/sec: 874.16
+----------------------------------------------------------------

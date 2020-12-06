@@ -5,26 +5,86 @@ This is the code used for a few of the blog posts on: https://lambdalabs.com/blo
 
 Environment:
 - OS: Ubuntu 18.04
-- TensorFlow version: 1.11.0-rc1
-- CUDA Version 10.0
-- CUDNN Version 7.3.0
-
-<!-- #### Step One: Download mini imagenet data (1.5 GB)
-
-
-```
-(mkdir ~/data;
-curl https://s3-us-west-2.amazonaws.com/lambdalabs-files/imagenet_mini.tar.gz | tar xvz -C ~/data)
-``` -->
+- TensorFlow version: 2.2.0
+- CUDA Version 10.1
+- CUDNN Version 7.6.2
 
 #### Step One: Clone benchmark repo
 
 
 ```
 git clone https://github.com/lambdal/lambda-tensorflow-benchmark.git --recursive
+
+git checkout tf2
+
+git submodule update --init --recursive
 ```
 
-#### Step Two: Run benchmark
+#### Step Two: Run benchmark with thermal profile
+
+```
+TF_XLA_FLAGS=--tf_xla_auto_jit=2 ./batch_benchmark.sh min_num_gpus max_num_gpus num_runs num_batches_per_run thermal_sampling_frequency
+python display_thermal.py path-to-thermal.log --thermal_threshold
+
+# example of benchmarking 4 2080_Ti (all used), 1 run, 100 batches per run, measuring thermal every 2 second. 2080_Ti throttles at 89 C.
+TF_XLA_FLAGS=--tf_xla_auto_jit=2 ./batch_benchmark.sh 4 4 1 100 2 config_resnet50_replicated_fp32_train_syn
+python display_thermal.py path-to-thermal/1 --thermal_threshold 89
+
+```
+
+#### Step Three: Report Results
+
+```
+# Compile resutls of a system setting to a markdown file
+./report.sh benchmark_name.logs/ > benchmark_name.md
+
+# Gather all results to a CSV file
+python log2csv.py
+```
+
+#### AMD
+
+Follow the guidance [here](https://github.com/ROCmSoftwarePlatform/tensorflow-upstream)
+
+```
+alias drun='sudo docker run \
+      -it \
+      --network=host \
+      --device=/dev/kfd \
+      --device=/dev/dri \
+      --ipc=host \
+      --shm-size 16G \
+      --group-add video \
+      --cap-add=SYS_PTRACE \
+      --security-opt seccomp=unconfined \
+      -v $HOME/dockerx:/dockerx'
+
+drun rocm/tensorflow:rocm3.5-tf2.1-dev
+
+#installed these two in the container
+https://repo.radeon.com/rocm/apt/3.5/pool/main/m/miopenkernels-gfx906-60/miopenkernels-gfx906-60_1.0.0_amd64.deb 
+https://repo.radeon.com/rocm/apt/3.5/pool/main/m/miopenkernels-gfx906-64/miopenkernels-gfx906-64_1.0.0_amd64.deb
+
+cd /home/dockerx
+git clone https://github.com/lambdal/lambda-tensorflow-benchmark.git --recursive
+git checkout tf2
+git submodule update --init --recursive
+
+# Run a quick resnet50 test in FP32
+./batch_benchmark.sh 1 1 1 100 2 config_resnet50_replicated_fp32_train_syn
+
+# Run full test for all models, FP32 and FP16, training and inference
+./batch_benchmark.sh 1 1 1 100 2 config_all
+
+```
+
+
+#### Note
+
+Use large num_batches_per_run for a thorough test.
+
+
+<!-- #### Step Two: Run benchmark
 
 * Input proper gpu_indices (a comma seperated list, default 0) and num_iterations (default 10)
 ```
@@ -39,3 +99,15 @@ cd lambda-tensorflow-benchmark
 ```
 ./report.sh <cpu>-<gpu>.logs num_iterations gpu_indices
 ```
+
+#### Batch process:
+
+```
+TF_XLA_FLAGS=--tf_xla_auto_jit=2 ./batch_benchmark.sh min_num_gpus max_num_gpus num_iterations
+
+./batch_report.sh <cpu>-<gpu>.logs min_num_gpus max_num_gpus num_iterations
+
+./gether.sh
+```
+
+ -->
