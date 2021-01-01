@@ -1,0 +1,83 @@
+2020-12-31 22:26:43.900415: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+WARNING:tensorflow:Deprecation warnings have been disabled. Set TF_ENABLE_DEPRECATION_WARNINGS=1 to re-enable them.
+2020-12-31 22:26:45.741624: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2500090000 Hz
+2020-12-31 22:26:45.741839: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5cf88b0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-12-31 22:26:45.741881: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-12-31 22:26:45.743889: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcuda.so.1
+2020-12-31 22:26:47.277298: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5d025b0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2020-12-31 22:26:47.277346: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): RTX A6000, Compute Capability 8.6
+2020-12-31 22:26:48.199366: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1665] Found device 0 with properties:
+name: RTX A6000 major: 8 minor: 6 memoryClockRate(GHz): 1.8
+pciBusID: 0000:01:00.0
+2020-12-31 22:26:48.199416: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2020-12-31 22:26:48.203443: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2020-12-31 22:26:48.204996: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2020-12-31 22:26:48.205399: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2020-12-31 22:26:48.210052: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.11
+2020-12-31 22:26:48.210587: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2020-12-31 22:26:48.210696: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2020-12-31 22:26:48.748755: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1793] Adding visible gpu devices: 0
+2020-12-31 22:26:48.748797: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2020-12-31 22:26:50.471524: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1206] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-12-31 22:26:50.471589: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1212]      0
+2020-12-31 22:26:50.471596: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1225] 0:   N
+2020-12-31 22:26:50.478003: W tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:39] Overriding allow_growth setting because the TF_FORCE_GPU_ALLOW_GROWTH environment variable is set. Original config value was 0.
+2020-12-31 22:26:50.478042: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1351] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 46776 MB memory) -> physical GPU (device: 0, name: RTX A6000, pci bus id: 0000:01:00.0, compute capability: 8.6)
+TensorFlow:  1.15
+Model:       inception4
+Dataset:     imagenet (synthetic)
+Mode:        training
+SingleSess:  False
+Batch size:  128 global
+128 per device
+Num batches: 100
+Num epochs:  0.01
+Devices:     ['/gpu:0']
+NUMA bind:   False
+Data format: NCHW
+Optimizer:   sgd
+Variables:   replicated
+AllReduce:   nccl
+==========
+Generating training model
+Initializing graph
+2020-12-31 22:26:57.213416: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1665] Found device 0 with properties:
+name: RTX A6000 major: 8 minor: 6 memoryClockRate(GHz): 1.8
+pciBusID: 0000:01:00.0
+2020-12-31 22:26:57.213493: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2020-12-31 22:26:57.213546: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2020-12-31 22:26:57.213568: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2020-12-31 22:26:57.213587: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2020-12-31 22:26:57.213606: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.11
+2020-12-31 22:26:57.213623: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2020-12-31 22:26:57.213642: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2020-12-31 22:26:57.228598: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1793] Adding visible gpu devices: 0
+2020-12-31 22:26:57.228653: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1206] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-12-31 22:26:57.228661: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1212]      0
+2020-12-31 22:26:57.228668: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1225] 0:   N
+2020-12-31 22:26:57.237018: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1351] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 46776 MB memory) -> physical GPU (device: 0, name: RTX A6000, pci bus id: 0000:01:00.0, compute capability: 8.6)
+2020-12-31 22:26:59.349473: W tensorflow/compiler/jit/mark_for_compilation_pass.cc:1648] (One-time warning): Not using XLA:CPU for cluster because envvar TF_XLA_FLAGS=--tf_xla_cpu_global_jit was not set.  If you want XLA:CPU, either set that envvar, or use experimental_jit_scope to enable XLA:CPU.  To confirm that XLA is active, pass --vmodule=xla_compilation_cache=1 (as a proper command-line flag, not via TF_XLA_FLAGS) or set the envvar XLA_FLAGS=--xla_hlo_profile.
+INFO:tensorflow:Running local_init_op.
+I1231 22:27:00.600249 140172860835648 session_manager.py:500] Running local_init_op.
+INFO:tensorflow:Done running local_init_op.
+I1231 22:27:00.806092 140172860835648 session_manager.py:502] Done running local_init_op.
+Running warm up
+2020-12-31 22:27:11.869992: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2020-12-31 22:27:15.916921: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2020-12-31 22:28:28.646982: I tensorflow/compiler/jit/xla_compilation_cache.cc:241] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+Done warm up
+Step	Img/sec	total_loss
+1	images/sec: 330.6 +/- 0.0 (jitter = 0.0)	7.685 1609453716
+10	images/sec: 329.8 +/- 0.3 (jitter = 0.5)	7.670 1609453720
+20	images/sec: 329.6 +/- 0.3 (jitter = 1.3)	7.684 1609453724
+30	images/sec: 328.8 +/- 0.3 (jitter = 1.4)	7.712 1609453728
+40	images/sec: 328.5 +/- 0.3 (jitter = 1.7)	7.664 1609453731
+50	images/sec: 328.2 +/- 0.2 (jitter = 1.9)	7.709 1609453735
+60	images/sec: 327.9 +/- 0.2 (jitter = 1.6)	7.568 1609453739
+70	images/sec: 327.5 +/- 0.2 (jitter = 1.8)	7.618 1609453743
+80	images/sec: 327.2 +/- 0.2 (jitter = 2.0)	7.585 1609453747
+90	images/sec: 326.8 +/- 0.2 (jitter = 2.4)	7.663 1609453751
+100	images/sec: 326.5 +/- 0.2 (jitter = 2.6)	7.606 1609453755
+----------------------------------------------------------------
+total images/sec: 326.43
+----------------------------------------------------------------

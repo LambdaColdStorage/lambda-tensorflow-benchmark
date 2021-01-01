@@ -1,0 +1,119 @@
+2021-01-01 02:04:11.769564: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+WARNING:tensorflow:Deprecation warnings have been disabled. Set TF_ENABLE_DEPRECATION_WARNINGS=1 to re-enable them.
+2021-01-01 02:04:13.629639: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2500090000 Hz
+2021-01-01 02:04:13.629886: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x66ca160 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2021-01-01 02:04:13.629932: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2021-01-01 02:04:13.633610: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcuda.so.1
+2021-01-01 02:04:18.993161: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x66b2c20 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2021-01-01 02:04:18.993241: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): RTX A6000, Compute Capability 8.6
+2021-01-01 02:04:18.993251: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (1): RTX A6000, Compute Capability 8.6
+2021-01-01 02:04:18.993259: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (2): RTX A6000, Compute Capability 8.6
+2021-01-01 02:04:18.993267: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (3): RTX A6000, Compute Capability 8.6
+2021-01-01 02:04:19.005740: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1665] Found device 0 with properties:
+name: RTX A6000 major: 8 minor: 6 memoryClockRate(GHz): 1.8
+pciBusID: 0000:01:00.0
+2021-01-01 02:04:19.008005: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1665] Found device 1 with properties:
+name: RTX A6000 major: 8 minor: 6 memoryClockRate(GHz): 1.8
+pciBusID: 0000:25:00.0
+2021-01-01 02:04:19.010297: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1665] Found device 2 with properties:
+name: RTX A6000 major: 8 minor: 6 memoryClockRate(GHz): 1.8
+pciBusID: 0000:41:00.0
+2021-01-01 02:04:19.012546: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1665] Found device 3 with properties:
+name: RTX A6000 major: 8 minor: 6 memoryClockRate(GHz): 1.8
+pciBusID: 0000:61:00.0
+2021-01-01 02:04:19.012588: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-01-01 02:04:19.015273: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2021-01-01 02:04:19.016173: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-01-01 02:04:19.016402: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-01-01 02:04:19.018677: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.11
+2021-01-01 02:04:19.019210: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2021-01-01 02:04:19.019337: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2021-01-01 02:04:19.037328: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1793] Adding visible gpu devices: 0, 1, 2, 3
+2021-01-01 02:04:19.037366: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-01-01 02:04:24.318224: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1206] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-01-01 02:04:24.318298: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1212]      0 1 2 3
+2021-01-01 02:04:24.318305: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1225] 0:   N Y Y Y
+2021-01-01 02:04:24.318309: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1225] 1:   Y N Y Y
+2021-01-01 02:04:24.318312: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1225] 2:   Y Y N Y
+2021-01-01 02:04:24.318318: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1225] 3:   Y Y Y N
+2021-01-01 02:04:24.342151: W tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:39] Overriding allow_growth setting because the TF_FORCE_GPU_ALLOW_GROWTH environment variable is set. Original config value was 0.
+2021-01-01 02:04:24.342202: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1351] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 46776 MB memory) -> physical GPU (device: 0, name: RTX A6000, pci bus id: 0000:01:00.0, compute capability: 8.6)
+2021-01-01 02:04:24.348065: W tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:39] Overriding allow_growth setting because the TF_FORCE_GPU_ALLOW_GROWTH environment variable is set. Original config value was 0.
+2021-01-01 02:04:24.348094: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1351] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:1 with 46776 MB memory) -> physical GPU (device: 1, name: RTX A6000, pci bus id: 0000:25:00.0, compute capability: 8.6)
+2021-01-01 02:04:24.354647: W tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:39] Overriding allow_growth setting because the TF_FORCE_GPU_ALLOW_GROWTH environment variable is set. Original config value was 0.
+2021-01-01 02:04:24.354678: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1351] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:2 with 46776 MB memory) -> physical GPU (device: 2, name: RTX A6000, pci bus id: 0000:41:00.0, compute capability: 8.6)
+2021-01-01 02:04:24.360210: W tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:39] Overriding allow_growth setting because the TF_FORCE_GPU_ALLOW_GROWTH environment variable is set. Original config value was 0.
+2021-01-01 02:04:24.360239: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1351] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:3 with 46776 MB memory) -> physical GPU (device: 3, name: RTX A6000, pci bus id: 0000:61:00.0, compute capability: 8.6)
+TensorFlow:  1.15
+Model:       resnet152
+Dataset:     imagenet (synthetic)
+Mode:        forward only
+SingleSess:  False
+Batch size:  512 global
+128 per device
+Num batches: 100
+Num epochs:  0.04
+Devices:     ['/gpu:0', '/gpu:1', '/gpu:2', '/gpu:3']
+NUMA bind:   False
+Data format: NCHW
+Optimizer:   sgd
+Variables:   replicated
+AllReduce:   nccl
+==========
+Generating training model
+Initializing graph
+2021-01-01 02:04:42.932349: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1665] Found device 0 with properties:
+name: RTX A6000 major: 8 minor: 6 memoryClockRate(GHz): 1.8
+pciBusID: 0000:01:00.0
+2021-01-01 02:04:42.938318: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1665] Found device 1 with properties:
+name: RTX A6000 major: 8 minor: 6 memoryClockRate(GHz): 1.8
+pciBusID: 0000:25:00.0
+2021-01-01 02:04:42.943031: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1665] Found device 2 with properties:
+name: RTX A6000 major: 8 minor: 6 memoryClockRate(GHz): 1.8
+pciBusID: 0000:41:00.0
+2021-01-01 02:04:42.946812: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1665] Found device 3 with properties:
+name: RTX A6000 major: 8 minor: 6 memoryClockRate(GHz): 1.8
+pciBusID: 0000:61:00.0
+2021-01-01 02:04:42.946865: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-01-01 02:04:42.946954: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2021-01-01 02:04:42.946988: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-01-01 02:04:42.947008: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-01-01 02:04:42.947040: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.11
+2021-01-01 02:04:42.947060: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2021-01-01 02:04:42.947085: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2021-01-01 02:04:42.968801: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1793] Adding visible gpu devices: 0, 1, 2, 3
+2021-01-01 02:04:42.968987: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1206] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-01-01 02:04:42.969020: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1212]      0 1 2 3
+2021-01-01 02:04:42.969025: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1225] 0:   N Y Y Y
+2021-01-01 02:04:42.969028: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1225] 1:   Y N Y Y
+2021-01-01 02:04:42.969032: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1225] 2:   Y Y N Y
+2021-01-01 02:04:42.969036: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1225] 3:   Y Y Y N
+2021-01-01 02:04:42.981024: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1351] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 46776 MB memory) -> physical GPU (device: 0, name: RTX A6000, pci bus id: 0000:01:00.0, compute capability: 8.6)
+2021-01-01 02:04:42.983516: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1351] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:1 with 46776 MB memory) -> physical GPU (device: 1, name: RTX A6000, pci bus id: 0000:25:00.0, compute capability: 8.6)
+2021-01-01 02:04:42.985997: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1351] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:2 with 46776 MB memory) -> physical GPU (device: 2, name: RTX A6000, pci bus id: 0000:41:00.0, compute capability: 8.6)
+2021-01-01 02:04:42.988460: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1351] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:3 with 46776 MB memory) -> physical GPU (device: 3, name: RTX A6000, pci bus id: 0000:61:00.0, compute capability: 8.6)
+2021-01-01 02:04:50.142898: W tensorflow/compiler/jit/mark_for_compilation_pass.cc:1648] (One-time warning): Not using XLA:CPU for cluster because envvar TF_XLA_FLAGS=--tf_xla_cpu_global_jit was not set.  If you want XLA:CPU, either set that envvar, or use experimental_jit_scope to enable XLA:CPU.  To confirm that XLA is active, pass --vmodule=xla_compilation_cache=1 (as a proper command-line flag, not via TF_XLA_FLAGS) or set the envvar XLA_FLAGS=--xla_hlo_profile.
+INFO:tensorflow:Running local_init_op.
+I0101 02:04:54.969786 140013860181824 session_manager.py:500] Running local_init_op.
+INFO:tensorflow:Done running local_init_op.
+I0101 02:04:58.146981 140013860181824 session_manager.py:502] Done running local_init_op.
+Running warm up
+2021-01-01 02:05:10.573051: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2021-01-01 02:05:17.250394: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2021-01-01 02:06:02.088264: I tensorflow/compiler/jit/xla_compilation_cache.cc:241] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+Done warm up
+Step	Img/sec	total_loss	top_1_accuracy	top_5_accuracy
+1	images/sec: 3423.9 +/- 0.0 (jitter = 0.0)	0.000	0.000	0.002 1609466764
+10	images/sec: 3400.3 +/- 10.4 (jitter = 44.1)	0.000	0.002	0.010 1609466765
+20	images/sec: 3394.0 +/- 7.1 (jitter = 41.1)	0.000	0.000	0.000 1609466767
+30	images/sec: 3389.6 +/- 5.5 (jitter = 39.4)	0.000	0.000	0.004 1609466768
+40	images/sec: 3390.4 +/- 4.7 (jitter = 34.2)	0.000	0.000	0.006 1609466770
+50	images/sec: 3392.7 +/- 4.3 (jitter = 42.8)	0.000	0.000	0.002 1609466771
+60	images/sec: 3393.1 +/- 4.0 (jitter = 40.0)	0.000	0.000	0.010 1609466773
+70	images/sec: 3394.1 +/- 3.7 (jitter = 38.6)	0.000	0.000	0.000 1609466774
+80	images/sec: 3394.1 +/- 3.5 (jitter = 39.8)	0.000	0.000	0.006 1609466776
+90	images/sec: 3394.0 +/- 3.2 (jitter = 38.6)	0.000	0.000	0.004 1609466777
+100	images/sec: 3393.1 +/- 3.0 (jitter = 39.1)	0.000	0.000	0.008 1609466779
+----------------------------------------------------------------
+total images/sec: 3391.35
+----------------------------------------------------------------

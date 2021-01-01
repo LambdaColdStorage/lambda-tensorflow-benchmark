@@ -32,7 +32,8 @@ list_system = {
     "Gold_6230-Quadro_RTX_8000_NVLink_XLA_trt_TF1_15": ([2, 4, 8], ['2x RTX 8000 NVLink', '4x RTX 8000 NVLink', '8x RTX 8000 NVLink']),
     "7502-A100-PCIE-40GB": ([1, 2, 4, 8], ['A100 40GB PCIe', '2x A100 40GB PCIe', '4x A100 40GB PCIe', '8x A100 40GB PCIe']),
     "3960X-GeForce_RTX_3080_XLA": ([1, 2], ['RTX 3080', '2x RTX 3080']),
-    "3970X-GeForce_RTX_3090_XLA": ([1, 2, 3], ['RTX 3090', '2x RTX 3090', '3x RTX 3090'])
+    "3970X-GeForce_RTX_3090_XLA": ([1, 2, 3], ['RTX 3090', '2x RTX 3090', '3x RTX 3090']),
+    "7502-RTX_A6000_XLA_TF1_15": ([1, 2, 4, 8], ['RTX A6000', '2x RTX A6000', '4x RTX A6000', '8x RTX A6000'])
 }
 
 

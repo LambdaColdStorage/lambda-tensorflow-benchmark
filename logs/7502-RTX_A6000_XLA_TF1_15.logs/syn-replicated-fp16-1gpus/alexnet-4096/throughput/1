@@ -1,0 +1,287 @@
+2020-12-31 22:23:10.212221: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+WARNING:tensorflow:Deprecation warnings have been disabled. Set TF_ENABLE_DEPRECATION_WARNINGS=1 to re-enable them.
+2020-12-31 22:23:12.049650: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2500090000 Hz
+2020-12-31 22:23:12.049895: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x689f000 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-12-31 22:23:12.049943: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-12-31 22:23:12.053652: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcuda.so.1
+2020-12-31 22:23:13.674961: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x6893820 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2020-12-31 22:23:13.675011: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): RTX A6000, Compute Capability 8.6
+2020-12-31 22:23:13.680949: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1665] Found device 0 with properties:
+name: RTX A6000 major: 8 minor: 6 memoryClockRate(GHz): 1.8
+pciBusID: 0000:01:00.0
+2020-12-31 22:23:13.680988: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2020-12-31 22:23:13.685282: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2020-12-31 22:23:13.686624: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2020-12-31 22:23:13.686856: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2020-12-31 22:23:13.689684: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.11
+2020-12-31 22:23:13.690206: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2020-12-31 22:23:13.690316: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2020-12-31 22:23:15.157822: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1793] Adding visible gpu devices: 0
+2020-12-31 22:23:15.157903: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2020-12-31 22:23:16.880506: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1206] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-12-31 22:23:16.880560: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1212]      0
+2020-12-31 22:23:16.880570: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1225] 0:   N
+2020-12-31 22:23:16.888253: W tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:39] Overriding allow_growth setting because the TF_FORCE_GPU_ALLOW_GROWTH environment variable is set. Original config value was 0.
+2020-12-31 22:23:16.888302: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1351] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 46776 MB memory) -> physical GPU (device: 0, name: RTX A6000, pci bus id: 0000:01:00.0, compute capability: 8.6)
+TensorFlow:  1.15
+Model:       alexnet
+Dataset:     imagenet (synthetic)
+Mode:        training
+SingleSess:  False
+Batch size:  4096 global
+4096 per device
+Num batches: 100
+Num epochs:  0.32
+Devices:     ['/gpu:0']
+NUMA bind:   False
+Data format: NCHW
+Optimizer:   sgd
+Variables:   replicated
+AllReduce:   nccl
+==========
+Generating training model
+Initializing graph
+2020-12-31 22:23:18.390749: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1665] Found device 0 with properties:
+name: RTX A6000 major: 8 minor: 6 memoryClockRate(GHz): 1.8
+pciBusID: 0000:01:00.0
+2020-12-31 22:23:18.390825: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2020-12-31 22:23:18.390877: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2020-12-31 22:23:18.390898: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2020-12-31 22:23:18.390916: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2020-12-31 22:23:18.390935: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.11
+2020-12-31 22:23:18.390953: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2020-12-31 22:23:18.390972: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2020-12-31 22:23:18.576866: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1793] Adding visible gpu devices: 0
+2020-12-31 22:23:18.576917: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1206] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-12-31 22:23:18.576925: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1212]      0
+2020-12-31 22:23:18.576931: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1225] 0:   N
+2020-12-31 22:23:18.585538: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1351] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 46776 MB memory) -> physical GPU (device: 0, name: RTX A6000, pci bus id: 0000:01:00.0, compute capability: 8.6)
+2020-12-31 22:23:18.626834: W tensorflow/compiler/jit/mark_for_compilation_pass.cc:1648] (One-time warning): Not using XLA:CPU for cluster because envvar TF_XLA_FLAGS=--tf_xla_cpu_global_jit was not set.  If you want XLA:CPU, either set that envvar, or use experimental_jit_scope to enable XLA:CPU.  To confirm that XLA is active, pass --vmodule=xla_compilation_cache=1 (as a proper command-line flag, not via TF_XLA_FLAGS) or set the envvar XLA_FLAGS=--xla_hlo_profile.
+INFO:tensorflow:Running local_init_op.
+I1231 22:23:18.647246 140198791485248 session_manager.py:500] Running local_init_op.
+INFO:tensorflow:Done running local_init_op.
+I1231 22:23:18.710952 140198791485248 session_manager.py:502] Done running local_init_op.
+Running warm up
+2020-12-31 22:23:19.980471: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2020-12-31 22:23:23.773102: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2020-12-31 22:24:57.173746: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 0: 1491 vs 1024
+2020-12-31 22:24:57.173813: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 1: 1483 vs 1024
+2020-12-31 22:24:57.173818: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 2: 1487 vs 1024
+2020-12-31 22:24:57.173822: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 3: 1486 vs 1024
+2020-12-31 22:24:57.173825: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 4: 1485 vs 1024
+2020-12-31 22:24:57.173829: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 5: 1489 vs 1024
+2020-12-31 22:24:57.173832: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 6: 1482 vs 1024
+2020-12-31 22:24:57.173836: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 7: 1489 vs 1024
+2020-12-31 22:24:57.173842: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 8: 1489 vs 1024
+2020-12-31 22:24:57.173845: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 9: 1498 vs 1024
+2020-12-31 22:24:57.173867: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:561] Results mismatch between different convolution algorithms. This is likely a bug/unexpected loss of precision in cudnn.
+%custom-call.5 = (f16[3,3,384,256]{2,1,0,3}, u8[0]{0}) custom-call(f16[4096,13,13,384]{3,2,1,0} %maximum.182, f16[4096,13,13,256]{3,2,1,0} %select.377), window={size=3x3 pad=1_1x1_1}, dim_labels=b01f_01io->b01f, custom_call_target="__cudnn$convBackwardFilter", metadata={op_type="Conv2DBackpropFilter" op_name="tower_0/v0/gradients/tower_0/v0/cg/conv4/conv2d/Conv2D_grad/Conv2DBackpropFilter"}, backend_config="{"algorithm":"0","tensor_ops_enabled":false,"conv_result_scale":1,"activation_mode":"0","side_input_scale":0}" for 1+TC vs 0+TC
+2020-12-31 22:24:57.173871: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:208] Device: RTX A6000
+2020-12-31 22:24:57.173875: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:209] Platform: Compute Capability 8.6
+2020-12-31 22:24:57.173878: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:210] Driver: 11020 (460.27.4)
+2020-12-31 22:24:57.173881: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:211] Runtime: <undefined>
+2020-12-31 22:24:57.173886: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:218] cudnn version: 8.0.4
+2020-12-31 22:24:57.271893: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 0: 1491 vs 1024
+2020-12-31 22:24:57.271909: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 1: 1483 vs 1024
+2020-12-31 22:24:57.271913: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 2: 1487 vs 1024
+2020-12-31 22:24:57.271917: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 3: 1486 vs 1024
+2020-12-31 22:24:57.271920: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 4: 1485 vs 1024
+2020-12-31 22:24:57.271924: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 5: 1489 vs 1024
+2020-12-31 22:24:57.271927: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 6: 1482 vs 1024
+2020-12-31 22:24:57.271931: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 7: 1489 vs 1024
+2020-12-31 22:24:57.271934: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 8: 1489 vs 1024
+2020-12-31 22:24:57.271938: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 9: 1498 vs 1024
+2020-12-31 22:24:57.271957: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:561] Results mismatch between different convolution algorithms. This is likely a bug/unexpected loss of precision in cudnn.
+%custom-call.5 = (f16[3,3,384,256]{2,1,0,3}, u8[0]{0}) custom-call(f16[4096,13,13,384]{3,2,1,0} %maximum.182, f16[4096,13,13,256]{3,2,1,0} %select.377), window={size=3x3 pad=1_1x1_1}, dim_labels=b01f_01io->b01f, custom_call_target="__cudnn$convBackwardFilter", metadata={op_type="Conv2DBackpropFilter" op_name="tower_0/v0/gradients/tower_0/v0/cg/conv4/conv2d/Conv2D_grad/Conv2DBackpropFilter"}, backend_config="{"algorithm":"0","tensor_ops_enabled":false,"conv_result_scale":1,"activation_mode":"0","side_input_scale":0}" for 1+TC vs 0+TC
+2020-12-31 22:24:57.271960: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:208] Device: RTX A6000
+2020-12-31 22:24:57.271963: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:209] Platform: Compute Capability 8.6
+2020-12-31 22:24:57.271966: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:210] Driver: 11020 (460.27.4)
+2020-12-31 22:24:57.271968: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:211] Runtime: <undefined>
+2020-12-31 22:24:57.271973: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:218] cudnn version: 8.0.4
+2020-12-31 22:24:57.370164: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 0: 1491 vs 1024
+2020-12-31 22:24:57.370180: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 1: 1483 vs 1024
+2020-12-31 22:24:57.370184: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 2: 1487 vs 1024
+2020-12-31 22:24:57.370187: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 3: 1486 vs 1024
+2020-12-31 22:24:57.370191: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 4: 1485 vs 1024
+2020-12-31 22:24:57.370194: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 5: 1489 vs 1024
+2020-12-31 22:24:57.370198: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 6: 1482 vs 1024
+2020-12-31 22:24:57.370201: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 7: 1489 vs 1024
+2020-12-31 22:24:57.370205: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 8: 1489 vs 1024
+2020-12-31 22:24:57.370209: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 9: 1498 vs 1024
+2020-12-31 22:24:57.370227: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:561] Results mismatch between different convolution algorithms. This is likely a bug/unexpected loss of precision in cudnn.
+%custom-call.5 = (f16[3,3,384,256]{2,1,0,3}, u8[0]{0}) custom-call(f16[4096,13,13,384]{3,2,1,0} %maximum.182, f16[4096,13,13,256]{3,2,1,0} %select.377), window={size=3x3 pad=1_1x1_1}, dim_labels=b01f_01io->b01f, custom_call_target="__cudnn$convBackwardFilter", metadata={op_type="Conv2DBackpropFilter" op_name="tower_0/v0/gradients/tower_0/v0/cg/conv4/conv2d/Conv2D_grad/Conv2DBackpropFilter"}, backend_config="{"algorithm":"0","tensor_ops_enabled":false,"conv_result_scale":1,"activation_mode":"0","side_input_scale":0}" for 1+TC vs 0
+2020-12-31 22:24:57.370230: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:208] Device: RTX A6000
+2020-12-31 22:24:57.370233: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:209] Platform: Compute Capability 8.6
+2020-12-31 22:24:57.370236: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:210] Driver: 11020 (460.27.4)
+2020-12-31 22:24:57.370239: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:211] Runtime: <undefined>
+2020-12-31 22:24:57.370243: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:218] cudnn version: 8.0.4
+2020-12-31 22:24:57.468171: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 0: 1491 vs 1024
+2020-12-31 22:24:57.468188: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 1: 1483 vs 1024
+2020-12-31 22:24:57.468192: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 2: 1487 vs 1024
+2020-12-31 22:24:57.468196: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 3: 1486 vs 1024
+2020-12-31 22:24:57.468199: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 4: 1485 vs 1024
+2020-12-31 22:24:57.468203: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 5: 1489 vs 1024
+2020-12-31 22:24:57.468206: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 6: 1482 vs 1024
+2020-12-31 22:24:57.468210: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 7: 1489 vs 1024
+2020-12-31 22:24:57.468214: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 8: 1489 vs 1024
+2020-12-31 22:24:57.468217: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 9: 1498 vs 1024
+2020-12-31 22:24:57.468235: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:561] Results mismatch between different convolution algorithms. This is likely a bug/unexpected loss of precision in cudnn.
+%custom-call.5 = (f16[3,3,384,256]{2,1,0,3}, u8[0]{0}) custom-call(f16[4096,13,13,384]{3,2,1,0} %maximum.182, f16[4096,13,13,256]{3,2,1,0} %select.377), window={size=3x3 pad=1_1x1_1}, dim_labels=b01f_01io->b01f, custom_call_target="__cudnn$convBackwardFilter", metadata={op_type="Conv2DBackpropFilter" op_name="tower_0/v0/gradients/tower_0/v0/cg/conv4/conv2d/Conv2D_grad/Conv2DBackpropFilter"}, backend_config="{"algorithm":"0","tensor_ops_enabled":false,"conv_result_scale":1,"activation_mode":"0","side_input_scale":0}" for 1+TC vs 0
+2020-12-31 22:24:57.468239: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:208] Device: RTX A6000
+2020-12-31 22:24:57.468242: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:209] Platform: Compute Capability 8.6
+2020-12-31 22:24:57.468245: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:210] Driver: 11020 (460.27.4)
+2020-12-31 22:24:57.468248: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:211] Runtime: <undefined>
+2020-12-31 22:24:57.468251: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:218] cudnn version: 8.0.4
+2020-12-31 22:25:05.708586: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 0: 1493 vs 1024
+2020-12-31 22:25:05.708649: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 1: 1480 vs 1024
+2020-12-31 22:25:05.708654: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 2: 1483 vs 1024
+2020-12-31 22:25:05.708658: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 3: 1492 vs 1024
+2020-12-31 22:25:05.708662: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 4: 1493 vs 1024
+2020-12-31 22:25:05.708666: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 5: 1494 vs 1024
+2020-12-31 22:25:05.708670: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 6: 1476 vs 1024
+2020-12-31 22:25:05.708674: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 7: 1486 vs 1024
+2020-12-31 22:25:05.708678: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 8: 1489 vs 1024
+2020-12-31 22:25:05.708682: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 9: 1494 vs 1024
+2020-12-31 22:25:05.708705: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:561] Results mismatch between different convolution algorithms. This is likely a bug/unexpected loss of precision in cudnn.
+%custom-call.7 = (f16[3,3,384,384]{2,1,0,3}, u8[0]{0}) custom-call(f16[4096,13,13,384]{3,2,1,0} %maximum.170, f16[4096,13,13,384]{3,2,1,0} %select.398), window={size=3x3 pad=1_1x1_1}, dim_labels=b01f_01io->b01f, custom_call_target="__cudnn$convBackwardFilter", metadata={op_type="Conv2DBackpropFilter" op_name="tower_0/v0/gradients/tower_0/v0/cg/conv3/conv2d/Conv2D_grad/Conv2DBackpropFilter"}, backend_config="{"algorithm":"0","tensor_ops_enabled":false,"conv_result_scale":1,"activation_mode":"0","side_input_scale":0}" for 1+TC vs 0+TC
+2020-12-31 22:25:05.708711: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:208] Device: RTX A6000
+2020-12-31 22:25:05.708714: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:209] Platform: Compute Capability 8.6
+2020-12-31 22:25:05.708717: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:210] Driver: 11020 (460.27.4)
+2020-12-31 22:25:05.708720: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:211] Runtime: <undefined>
+2020-12-31 22:25:05.708725: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:218] cudnn version: 8.0.4
+2020-12-31 22:25:05.884578: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 0: 1493 vs 1024
+2020-12-31 22:25:05.884598: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 1: 1480 vs 1024
+2020-12-31 22:25:05.884602: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 2: 1483 vs 1024
+2020-12-31 22:25:05.884605: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 3: 1492 vs 1024
+2020-12-31 22:25:05.884609: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 4: 1493 vs 1024
+2020-12-31 22:25:05.884613: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 5: 1494 vs 1024
+2020-12-31 22:25:05.884616: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 6: 1476 vs 1024
+2020-12-31 22:25:05.884620: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 7: 1486 vs 1024
+2020-12-31 22:25:05.884623: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 8: 1489 vs 1024
+2020-12-31 22:25:05.884627: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 9: 1494 vs 1024
+2020-12-31 22:25:05.884646: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:561] Results mismatch between different convolution algorithms. This is likely a bug/unexpected loss of precision in cudnn.
+%custom-call.7 = (f16[3,3,384,384]{2,1,0,3}, u8[0]{0}) custom-call(f16[4096,13,13,384]{3,2,1,0} %maximum.170, f16[4096,13,13,384]{3,2,1,0} %select.398), window={size=3x3 pad=1_1x1_1}, dim_labels=b01f_01io->b01f, custom_call_target="__cudnn$convBackwardFilter", metadata={op_type="Conv2DBackpropFilter" op_name="tower_0/v0/gradients/tower_0/v0/cg/conv3/conv2d/Conv2D_grad/Conv2DBackpropFilter"}, backend_config="{"algorithm":"0","tensor_ops_enabled":false,"conv_result_scale":1,"activation_mode":"0","side_input_scale":0}" for 1+TC vs 0
+2020-12-31 22:25:05.884650: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:208] Device: RTX A6000
+2020-12-31 22:25:05.884653: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:209] Platform: Compute Capability 8.6
+2020-12-31 22:25:05.884656: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:210] Driver: 11020 (460.27.4)
+2020-12-31 22:25:05.884658: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:211] Runtime: <undefined>
+2020-12-31 22:25:05.884663: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:218] cudnn version: 8.0.4
+2020-12-31 22:25:17.853702: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 0: 1483 vs 1024
+2020-12-31 22:25:17.853762: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 1: 1483 vs 1024
+2020-12-31 22:25:17.853767: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 2: 1485 vs 1024
+2020-12-31 22:25:17.853770: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 3: 1487 vs 1024
+2020-12-31 22:25:17.853774: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 4: 1482 vs 1024
+2020-12-31 22:25:17.853778: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 5: 1481 vs 1024
+2020-12-31 22:25:17.853781: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 6: 1493 vs 1024
+2020-12-31 22:25:17.853786: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 7: 1488 vs 1024
+2020-12-31 22:25:17.853789: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 8: 1481 vs 1024
+2020-12-31 22:25:17.853793: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 9: 1490 vs 1024
+2020-12-31 22:25:17.853813: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:561] Results mismatch between different convolution algorithms. This is likely a bug/unexpected loss of precision in cudnn.
+%custom-call.9 = (f16[3,3,192,384]{2,1,0,3}, u8[0]{0}) custom-call(f16[4096,13,13,192]{3,2,1,0} %reduce-window.158, f16[4096,13,13,384]{3,2,1,0} %select.423), window={size=3x3 pad=1_1x1_1}, dim_labels=b01f_01io->b01f, custom_call_target="__cudnn$convBackwardFilter", metadata={op_type="Conv2DBackpropFilter" op_name="tower_0/v0/gradients/tower_0/v0/cg/conv2/conv2d/Conv2D_grad/Conv2DBackpropFilter"}, backend_config="{"algorithm":"0","tensor_ops_enabled":false,"conv_result_scale":1,"activation_mode":"0","side_input_scale":0}" for 1+TC vs 0+TC
+2020-12-31 22:25:17.853819: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:208] Device: RTX A6000
+2020-12-31 22:25:17.853822: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:209] Platform: Compute Capability 8.6
+2020-12-31 22:25:17.853825: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:210] Driver: 11020 (460.27.4)
+2020-12-31 22:25:17.853828: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:211] Runtime: <undefined>
+2020-12-31 22:25:17.853832: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:218] cudnn version: 8.0.4
+2020-12-31 22:25:17.942143: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 0: 1483 vs 1024
+2020-12-31 22:25:17.942160: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 1: 1483 vs 1024
+2020-12-31 22:25:17.942164: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 2: 1485 vs 1024
+2020-12-31 22:25:17.942167: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 3: 1487 vs 1024
+2020-12-31 22:25:17.942171: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 4: 1482 vs 1024
+2020-12-31 22:25:17.942175: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 5: 1481 vs 1024
+2020-12-31 22:25:17.942178: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 6: 1493 vs 1024
+2020-12-31 22:25:17.942182: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 7: 1488 vs 1024
+2020-12-31 22:25:17.942185: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 8: 1481 vs 1024
+2020-12-31 22:25:17.942189: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 9: 1490 vs 1024
+2020-12-31 22:25:17.942207: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:561] Results mismatch between different convolution algorithms. This is likely a bug/unexpected loss of precision in cudnn.
+%custom-call.9 = (f16[3,3,192,384]{2,1,0,3}, u8[0]{0}) custom-call(f16[4096,13,13,192]{3,2,1,0} %reduce-window.158, f16[4096,13,13,384]{3,2,1,0} %select.423), window={size=3x3 pad=1_1x1_1}, dim_labels=b01f_01io->b01f, custom_call_target="__cudnn$convBackwardFilter", metadata={op_type="Conv2DBackpropFilter" op_name="tower_0/v0/gradients/tower_0/v0/cg/conv2/conv2d/Conv2D_grad/Conv2DBackpropFilter"}, backend_config="{"algorithm":"0","tensor_ops_enabled":false,"conv_result_scale":1,"activation_mode":"0","side_input_scale":0}" for 1+TC vs 0
+2020-12-31 22:25:17.942211: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:208] Device: RTX A6000
+2020-12-31 22:25:17.942214: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:209] Platform: Compute Capability 8.6
+2020-12-31 22:25:17.942217: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:210] Driver: 11020 (460.27.4)
+2020-12-31 22:25:17.942219: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:211] Runtime: <undefined>
+2020-12-31 22:25:17.942223: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:218] cudnn version: 8.0.4
+2020-12-31 22:25:24.434945: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 0: 6440 vs 4096
+2020-12-31 22:25:24.434991: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 1: 6444 vs 4096
+2020-12-31 22:25:24.434996: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 2: 6436 vs 4096
+2020-12-31 22:25:24.435000: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 3: 6452 vs 4096
+2020-12-31 22:25:24.435004: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 4: 6400 vs 4096
+2020-12-31 22:25:24.435008: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 5: 6420 vs 4096
+2020-12-31 22:25:24.435011: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 6: 6492 vs 4096
+2020-12-31 22:25:24.435015: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 7: 6432 vs 4096
+2020-12-31 22:25:24.435019: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 8: 6416 vs 4096
+2020-12-31 22:25:24.435022: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 9: 6416 vs 4096
+2020-12-31 22:25:24.435042: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:561] Results mismatch between different convolution algorithms. This is likely a bug/unexpected loss of precision in cudnn.
+%custom-call.11 = (f16[5,5,64,192]{2,1,0,3}, u8[0]{0}) custom-call(f16[4096,27,27,64]{3,2,1,0} %reduce-window.140, f16[4096,27,27,192]{3,2,1,0} %select.464), window={size=5x5 pad=2_2x2_2}, dim_labels=b01f_01io->b01f, custom_call_target="__cudnn$convBackwardFilter", metadata={op_type="Conv2DBackpropFilter" op_name="tower_0/v0/gradients/tower_0/v0/cg/conv1/conv2d/Conv2D_grad/Conv2DBackpropFilter"}, backend_config="{"algorithm":"0","tensor_ops_enabled":false,"conv_result_scale":1,"activation_mode":"0","side_input_scale":0}" for 1+TC vs 0+TC
+2020-12-31 22:25:24.435046: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:208] Device: RTX A6000
+2020-12-31 22:25:24.435049: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:209] Platform: Compute Capability 8.6
+2020-12-31 22:25:24.435052: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:210] Driver: 11020 (460.27.4)
+2020-12-31 22:25:24.435055: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:211] Runtime: <undefined>
+2020-12-31 22:25:24.435059: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:218] cudnn version: 8.0.4
+2020-12-31 22:25:24.592941: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 0: 6440 vs 4096
+2020-12-31 22:25:24.592958: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 1: 6444 vs 4096
+2020-12-31 22:25:24.592962: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 2: 6436 vs 4096
+2020-12-31 22:25:24.592966: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 3: 6452 vs 4096
+2020-12-31 22:25:24.592969: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 4: 6400 vs 4096
+2020-12-31 22:25:24.592973: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 5: 6420 vs 4096
+2020-12-31 22:25:24.592976: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 6: 6492 vs 4096
+2020-12-31 22:25:24.592980: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 7: 6432 vs 4096
+2020-12-31 22:25:24.592983: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 8: 6416 vs 4096
+2020-12-31 22:25:24.592987: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 9: 6416 vs 4096
+2020-12-31 22:25:24.593006: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:561] Results mismatch between different convolution algorithms. This is likely a bug/unexpected loss of precision in cudnn.
+%custom-call.11 = (f16[5,5,64,192]{2,1,0,3}, u8[0]{0}) custom-call(f16[4096,27,27,64]{3,2,1,0} %reduce-window.140, f16[4096,27,27,192]{3,2,1,0} %select.464), window={size=5x5 pad=2_2x2_2}, dim_labels=b01f_01io->b01f, custom_call_target="__cudnn$convBackwardFilter", metadata={op_type="Conv2DBackpropFilter" op_name="tower_0/v0/gradients/tower_0/v0/cg/conv1/conv2d/Conv2D_grad/Conv2DBackpropFilter"}, backend_config="{"algorithm":"0","tensor_ops_enabled":false,"conv_result_scale":1,"activation_mode":"0","side_input_scale":0}" for 1+TC vs 0
+2020-12-31 22:25:24.593010: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:208] Device: RTX A6000
+2020-12-31 22:25:24.593013: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:209] Platform: Compute Capability 8.6
+2020-12-31 22:25:24.593016: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:210] Driver: 11020 (460.27.4)
+2020-12-31 22:25:24.593018: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:211] Runtime: <undefined>
+2020-12-31 22:25:24.593022: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:218] cudnn version: 8.0.4
+2020-12-31 22:25:38.321827: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 0: 30992 vs 16384
+2020-12-31 22:25:38.321872: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 1: 30992 vs 16384
+2020-12-31 22:25:38.321878: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 2: 31008 vs 16384
+2020-12-31 22:25:38.321883: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 3: 30992 vs 16400
+2020-12-31 22:25:38.321889: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 4: 31024 vs 16384
+2020-12-31 22:25:38.321894: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 5: 30992 vs 16384
+2020-12-31 22:25:38.321899: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 6: 30992 vs 16384
+2020-12-31 22:25:38.321904: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 7: 30992 vs 16384
+2020-12-31 22:25:38.321910: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 8: 31008 vs 16384
+2020-12-31 22:25:38.321915: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 9: 31008 vs 16384
+2020-12-31 22:25:38.321940: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:561] Results mismatch between different convolution algorithms. This is likely a bug/unexpected loss of precision in cudnn.
+%custom-call.15 = (f16[11,11,4,64]{2,1,0,3}, u8[0]{0}) custom-call(f16[4096,227,227,4]{3,2,1,0} %pad.2, f16[4096,55,55,64]{3,2,1,0} %select.505), window={size=11x11 stride=4x4}, dim_labels=b01f_01io->b01f, custom_call_target="__cudnn$convBackwardFilter", metadata={op_type="Conv2DBackpropFilter" op_name="tower_0/v0/gradients/tower_0/v0/cg/conv0/conv2d/Conv2D_grad/Conv2DBackpropFilter"}, backend_config="{"algorithm":"0","tensor_ops_enabled":false,"conv_result_scale":1,"activation_mode":"0","side_input_scale":0}" for 1+TC vs 0+TC
+2020-12-31 22:25:38.321946: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:208] Device: RTX A6000
+2020-12-31 22:25:38.321950: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:209] Platform: Compute Capability 8.6
+2020-12-31 22:25:38.321954: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:210] Driver: 11020 (460.27.4)
+2020-12-31 22:25:38.321958: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:211] Runtime: <undefined>
+2020-12-31 22:25:38.321963: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:218] cudnn version: 8.0.4
+2020-12-31 22:25:38.391979: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 0: 30992 vs 16384
+2020-12-31 22:25:38.391996: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 1: 30992 vs 16384
+2020-12-31 22:25:38.392002: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 2: 31008 vs 16384
+2020-12-31 22:25:38.392007: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 3: 30992 vs 16400
+2020-12-31 22:25:38.392012: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 4: 31024 vs 16384
+2020-12-31 22:25:38.392017: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 5: 30992 vs 16384
+2020-12-31 22:25:38.392023: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 6: 30992 vs 16384
+2020-12-31 22:25:38.392028: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 7: 30992 vs 16384
+2020-12-31 22:25:38.392033: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 8: 31008 vs 16384
+2020-12-31 22:25:38.392038: E tensorflow/compiler/xla/service/gpu/buffer_comparator.cc:665] Difference at 9: 31008 vs 16384
+2020-12-31 22:25:38.392062: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:561] Results mismatch between different convolution algorithms. This is likely a bug/unexpected loss of precision in cudnn.
+%custom-call.15 = (f16[11,11,4,64]{2,1,0,3}, u8[0]{0}) custom-call(f16[4096,227,227,4]{3,2,1,0} %pad.2, f16[4096,55,55,64]{3,2,1,0} %select.505), window={size=11x11 stride=4x4}, dim_labels=b01f_01io->b01f, custom_call_target="__cudnn$convBackwardFilter", metadata={op_type="Conv2DBackpropFilter" op_name="tower_0/v0/gradients/tower_0/v0/cg/conv0/conv2d/Conv2D_grad/Conv2DBackpropFilter"}, backend_config="{"algorithm":"0","tensor_ops_enabled":false,"conv_result_scale":1,"activation_mode":"0","side_input_scale":0}" for 1+TC vs 0
+2020-12-31 22:25:38.392068: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:208] Device: RTX A6000
+2020-12-31 22:25:38.392072: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:209] Platform: Compute Capability 8.6
+2020-12-31 22:25:38.392076: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:210] Driver: 11020 (460.27.4)
+2020-12-31 22:25:38.392080: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:211] Runtime: <undefined>
+2020-12-31 22:25:38.392085: E tensorflow/compiler/xla/service/gpu/gpu_conv_algorithm_picker.cc:218] cudnn version: 8.0.4
+2020-12-31 22:25:41.073996: I tensorflow/compiler/jit/xla_compilation_cache.cc:241] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+Done warm up
+Step	Img/sec	total_loss
+1	images/sec: 10014.4 +/- 0.0 (jitter = 0.0)	7.223 1609453545
+10	images/sec: 10007.8 +/- 9.8 (jitter = 31.2)	7.223 1609453549
+20	images/sec: 10018.5 +/- 6.3 (jitter = 31.9)	7.223 1609453553
+30	images/sec: 10018.1 +/- 6.2 (jitter = 32.4)	7.223 1609453557
+40	images/sec: 10016.1 +/- 5.0 (jitter = 31.6)	7.223 1609453561
+50	images/sec: 10012.9 +/- 4.5 (jitter = 33.5)	7.223 1609453565
+60	images/sec: 10014.3 +/- 6.0 (jitter = 34.5)	7.223 1609453569
+70	images/sec: 10012.4 +/- 5.3 (jitter = 34.0)	7.223 1609453573
+80	images/sec: 10009.6 +/- 4.9 (jitter = 33.5)	7.223 1609453577
+90	images/sec: 10005.9 +/- 4.7 (jitter = 34.3)	7.223 1609453581
+100	images/sec: 10002.8 +/- 4.4 (jitter = 34.1)	7.223 1609453585
+----------------------------------------------------------------
+total images/sec: 10000.58
+----------------------------------------------------------------
