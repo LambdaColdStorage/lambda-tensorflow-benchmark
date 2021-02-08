@@ -1,0 +1,101 @@
+2021-02-07 19:03:18.144765: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-02-07 19:03:18.146547: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+WARNING:tensorflow:From /usr/lib/python3/dist-packages/tensorflow/python/compat/v2_compat.py:96: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+2021-02-07 19:03:19.907034: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-02-07 19:03:19.907919: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcuda.so.1
+2021-02-07 19:03:20.082558: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties:
+pciBusID: 0000:28:00.0 name: GeForce RTX 3090 computeCapability: 8.6
+coreClock: 1.695GHz coreCount: 82 deviceMemorySize: 23.70GiB deviceMemoryBandwidth: 871.81GiB/s
+2021-02-07 19:03:20.082591: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-02-07 19:03:20.085791: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2021-02-07 19:03:20.085854: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.11
+2021-02-07 19:03:20.087052: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-02-07 19:03:20.087337: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-02-07 19:03:20.090781: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.11
+2021-02-07 19:03:20.091638: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2021-02-07 19:03:20.091784: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2021-02-07 19:03:20.096206: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2021-02-07 19:03:20.603473: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1261] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-02-07 19:03:20.603520: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1267]      0
+2021-02-07 19:03:20.603525: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 0:   N
+2021-02-07 19:03:20.608971: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 22429 MB memory) -> physical GPU (device: 0, name: GeForce RTX 3090, pci bus id: 0000:28:00.0, compute capability: 8.6)
+TensorFlow:  2.4
+Model:       resnet50
+Dataset:     imagenet (synthetic)
+Mode:        forward only
+SingleSess:  False
+Batch size:  96 global
+96 per device
+Num batches: 100
+Num epochs:  0.01
+Devices:     ['/gpu:0']
+NUMA bind:   False
+Data format: NCHW
+Optimizer:   sgd
+Variables:   replicated
+AllReduce:   nccl
+==========
+Generating training model
+/usr/lib/python3/dist-packages/tensorflow/python/keras/legacy_tf_layers/convolutional.py:414: UserWarning: `tf.layers.conv2d` is deprecated and will be removed in a future version. Please Use `tf.keras.layers.Conv2D` instead.
+warnings.warn('`tf.layers.conv2d` is deprecated and '
+/usr/lib/python3/dist-packages/tensorflow/python/keras/engine/base_layer_v1.py:1719: UserWarning: `layer.apply` is deprecated and will be removed in a future version. Please use `layer.__call__` method instead.
+warnings.warn('`layer.apply` is deprecated and '
+/usr/lib/python3/dist-packages/tensorflow/python/keras/legacy_tf_layers/pooling.py:310: UserWarning: `tf.layers.max_pooling2d` is deprecated and will be removed in a future version. Please use `tf.keras.layers.MaxPooling2D` instead.
+warnings.warn('`tf.layers.max_pooling2d` is deprecated and '
+Initializing graph
+WARNING:tensorflow:From /home/ubuntu/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py:2252: Supervisor.__init__ (from tensorflow.python.training.supervisor) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please switch to tf.train.MonitoredTrainingSession
+W0207 19:03:21.670110 139813771581248 deprecation.py:333] From /home/ubuntu/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py:2252: Supervisor.__init__ (from tensorflow.python.training.supervisor) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please switch to tf.train.MonitoredTrainingSession
+2021-02-07 19:03:21.818833: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-02-07 19:03:21.821200: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties:
+pciBusID: 0000:28:00.0 name: GeForce RTX 3090 computeCapability: 8.6
+coreClock: 1.695GHz coreCount: 82 deviceMemorySize: 23.70GiB deviceMemoryBandwidth: 871.81GiB/s
+2021-02-07 19:03:21.821234: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-02-07 19:03:21.821304: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2021-02-07 19:03:21.821314: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.11
+2021-02-07 19:03:21.821331: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-02-07 19:03:21.821346: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-02-07 19:03:21.821362: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.11
+2021-02-07 19:03:21.821376: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2021-02-07 19:03:21.821393: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2021-02-07 19:03:21.825013: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0
+2021-02-07 19:03:21.825071: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1261] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-02-07 19:03:21.825076: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1267]      0
+2021-02-07 19:03:21.825081: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 0:   N
+2021-02-07 19:03:21.828610: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 22429 MB memory) -> physical GPU (device: 0, name: GeForce RTX 3090, pci bus id: 0000:28:00.0, compute capability: 8.6)
+2021-02-07 19:03:21.850171: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:196] None of the MLIR optimization passes are enabled (registered 0 passes)
+2021-02-07 19:03:21.894008: I tensorflow/core/platform/profile_utils/cpu_utils.cc:112] CPU Frequency: 1999940000 Hz
+2021-02-07 19:03:22.059373: W tensorflow/compiler/jit/mark_for_compilation_pass.cc:1642] (One-time warning): Not using XLA:CPU for cluster because envvar TF_XLA_FLAGS=--tf_xla_cpu_global_jit was not set.  If you want XLA:CPU, either set that envvar, or use experimental_jit_scope to enable XLA:CPU.  To confirm that XLA is active, pass --vmodule=xla_compilation_cache=1 (as a proper command-line flag, not via TF_XLA_FLAGS) or set the envvar XLA_FLAGS=--xla_hlo_profile.
+INFO:tensorflow:Running local_init_op.
+I0207 19:03:22.310914 139813771581248 session_manager.py:505] Running local_init_op.
+INFO:tensorflow:Done running local_init_op.
+I0207 19:03:22.329517 139813771581248 session_manager.py:508] Done running local_init_op.
+Running warm up
+2021-02-07 19:03:22.554226: I tensorflow/core/grappler/optimizers/generic_layout_optimizer.cc:345] Cancel Transpose nodes around Pad: transpose_before=tower_0/v0/transpose pad=tower_0/v0/cg/conv0/Pad transpose_after=tower_0/v0/cg/conv0/conv2d/Conv2D-0-TransposeNCHWToNHWC-LayoutOptimizer
+2021-02-07 19:03:22.667808: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2021-02-07 19:03:24.431305: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2021-02-07 19:03:24.978305: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.11
+2021-02-07 19:03:25.074410: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f1b86f6cf00 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2021-02-07 19:03:25.074478: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): GeForce RTX 3090, Compute Capability 8.6
+2021-02-07 19:03:25.694160: I tensorflow/compiler/jit/xla_compilation_cache.cc:333] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+Done warm up
+Step	Img/sec	total_loss	top_1_accuracy	top_5_accuracy
+1	images/sec: 3824.0 +/- 0.0 (jitter = 0.0)	0.000	0.000	0.000 1612742605
+10	images/sec: 3888.4 +/- 25.8 (jitter = 39.7)	0.000	0.000	0.000 1612742606
+20	images/sec: 3918.7 +/- 16.0 (jitter = 44.3)	0.000	0.000	0.000 1612742606
+30	images/sec: 3924.1 +/- 11.6 (jitter = 40.9)	0.000	0.000	0.000 1612742606
+40	images/sec: 3930.1 +/- 9.0 (jitter = 30.9)	0.000	0.000	0.000 1612742606
+50	images/sec: 3933.0 +/- 7.5 (jitter = 29.5)	0.000	0.000	0.000 1612742607
+60	images/sec: 3936.6 +/- 6.7 (jitter = 32.9)	0.000	0.000	0.000 1612742607
+70	images/sec: 3936.6 +/- 5.9 (jitter = 30.1)	0.000	0.000	0.010 1612742607
+80	images/sec: 3937.3 +/- 5.3 (jitter = 29.0)	0.000	0.000	0.000 1612742607
+90	images/sec: 3940.1 +/- 5.0 (jitter = 30.3)	0.000	0.000	0.000 1612742608
+100	images/sec: 3937.8 +/- 4.9 (jitter = 27.8)	0.000	0.000	0.000 1612742608
+----------------------------------------------------------------
+total images/sec: 3926.55
+----------------------------------------------------------------

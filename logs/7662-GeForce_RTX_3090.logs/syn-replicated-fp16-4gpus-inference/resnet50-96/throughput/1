@@ -1,0 +1,137 @@
+2021-02-07 19:53:28.341558: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-02-07 19:53:28.343281: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+WARNING:tensorflow:From /usr/lib/python3/dist-packages/tensorflow/python/compat/v2_compat.py:96: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+2021-02-07 19:53:30.049351: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-02-07 19:53:30.050282: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcuda.so.1
+2021-02-07 19:53:30.825958: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties:
+pciBusID: 0000:28:00.0 name: GeForce RTX 3090 computeCapability: 8.6
+coreClock: 1.695GHz coreCount: 82 deviceMemorySize: 23.70GiB deviceMemoryBandwidth: 871.81GiB/s
+2021-02-07 19:53:30.829367: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 1 with properties:
+pciBusID: 0000:29:00.0 name: GeForce RTX 3090 computeCapability: 8.6
+coreClock: 1.695GHz coreCount: 82 deviceMemorySize: 23.70GiB deviceMemoryBandwidth: 871.81GiB/s
+2021-02-07 19:53:30.831058: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 2 with properties:
+pciBusID: 0000:2a:00.0 name: GeForce RTX 3090 computeCapability: 8.6
+coreClock: 1.695GHz coreCount: 82 deviceMemorySize: 23.70GiB deviceMemoryBandwidth: 871.81GiB/s
+2021-02-07 19:53:30.832732: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 3 with properties:
+pciBusID: 0000:2b:00.0 name: GeForce RTX 3090 computeCapability: 8.6
+coreClock: 1.695GHz coreCount: 82 deviceMemorySize: 23.70GiB deviceMemoryBandwidth: 871.81GiB/s
+2021-02-07 19:53:30.832756: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-02-07 19:53:30.837973: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2021-02-07 19:53:30.838155: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.11
+2021-02-07 19:53:30.838875: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-02-07 19:53:30.839041: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-02-07 19:53:30.841124: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.11
+2021-02-07 19:53:30.841634: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2021-02-07 19:53:30.841722: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2021-02-07 19:53:30.859351: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0, 1, 2, 3
+2021-02-07 19:53:32.160527: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1261] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-02-07 19:53:32.160581: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1267]      0 1 2 3
+2021-02-07 19:53:32.160587: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 0:   N N N N
+2021-02-07 19:53:32.160590: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 1:   N N N N
+2021-02-07 19:53:32.160593: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 2:   N N N N
+2021-02-07 19:53:32.160596: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 3:   N N N N
+2021-02-07 19:53:32.170995: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 22429 MB memory) -> physical GPU (device: 0, name: GeForce RTX 3090, pci bus id: 0000:28:00.0, compute capability: 8.6)
+2021-02-07 19:53:32.174811: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:1 with 22429 MB memory) -> physical GPU (device: 1, name: GeForce RTX 3090, pci bus id: 0000:29:00.0, compute capability: 8.6)
+2021-02-07 19:53:32.178511: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:2 with 22429 MB memory) -> physical GPU (device: 2, name: GeForce RTX 3090, pci bus id: 0000:2a:00.0, compute capability: 8.6)
+2021-02-07 19:53:32.182359: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:3 with 22429 MB memory) -> physical GPU (device: 3, name: GeForce RTX 3090, pci bus id: 0000:2b:00.0, compute capability: 8.6)
+TensorFlow:  2.4
+Model:       resnet50
+Dataset:     imagenet (synthetic)
+Mode:        forward only
+SingleSess:  False
+Batch size:  384 global
+96 per device
+Num batches: 100
+Num epochs:  0.03
+Devices:     ['/gpu:0', '/gpu:1', '/gpu:2', '/gpu:3']
+NUMA bind:   False
+Data format: NCHW
+Optimizer:   sgd
+Variables:   replicated
+AllReduce:   nccl
+==========
+Generating training model
+/usr/lib/python3/dist-packages/tensorflow/python/keras/legacy_tf_layers/convolutional.py:414: UserWarning: `tf.layers.conv2d` is deprecated and will be removed in a future version. Please Use `tf.keras.layers.Conv2D` instead.
+warnings.warn('`tf.layers.conv2d` is deprecated and '
+/usr/lib/python3/dist-packages/tensorflow/python/keras/engine/base_layer_v1.py:1719: UserWarning: `layer.apply` is deprecated and will be removed in a future version. Please use `layer.__call__` method instead.
+warnings.warn('`layer.apply` is deprecated and '
+/usr/lib/python3/dist-packages/tensorflow/python/keras/legacy_tf_layers/pooling.py:310: UserWarning: `tf.layers.max_pooling2d` is deprecated and will be removed in a future version. Please use `tf.keras.layers.MaxPooling2D` instead.
+warnings.warn('`tf.layers.max_pooling2d` is deprecated and '
+Initializing graph
+WARNING:tensorflow:From /home/ubuntu/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py:2252: Supervisor.__init__ (from tensorflow.python.training.supervisor) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please switch to tf.train.MonitoredTrainingSession
+W0207 19:53:36.372770 140121682057024 deprecation.py:333] From /home/ubuntu/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py:2252: Supervisor.__init__ (from tensorflow.python.training.supervisor) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please switch to tf.train.MonitoredTrainingSession
+2021-02-07 19:53:36.908415: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2021-02-07 19:53:36.910611: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties:
+pciBusID: 0000:28:00.0 name: GeForce RTX 3090 computeCapability: 8.6
+coreClock: 1.695GHz coreCount: 82 deviceMemorySize: 23.70GiB deviceMemoryBandwidth: 871.81GiB/s
+2021-02-07 19:53:36.912311: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 1 with properties:
+pciBusID: 0000:29:00.0 name: GeForce RTX 3090 computeCapability: 8.6
+coreClock: 1.695GHz coreCount: 82 deviceMemorySize: 23.70GiB deviceMemoryBandwidth: 871.81GiB/s
+2021-02-07 19:53:36.914005: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 2 with properties:
+pciBusID: 0000:2a:00.0 name: GeForce RTX 3090 computeCapability: 8.6
+coreClock: 1.695GHz coreCount: 82 deviceMemorySize: 23.70GiB deviceMemoryBandwidth: 871.81GiB/s
+2021-02-07 19:53:36.915703: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 3 with properties:
+pciBusID: 0000:2b:00.0 name: GeForce RTX 3090 computeCapability: 8.6
+coreClock: 1.695GHz coreCount: 82 deviceMemorySize: 23.70GiB deviceMemoryBandwidth: 871.81GiB/s
+2021-02-07 19:53:36.915728: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-02-07 19:53:36.915802: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2021-02-07 19:53:36.915812: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.11
+2021-02-07 19:53:36.915823: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-02-07 19:53:36.915833: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-02-07 19:53:36.915843: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.11
+2021-02-07 19:53:36.915853: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2021-02-07 19:53:36.915864: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2021-02-07 19:53:36.928998: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0, 1, 2, 3
+2021-02-07 19:53:36.929084: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1261] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-02-07 19:53:36.929090: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1267]      0 1 2 3
+2021-02-07 19:53:36.929094: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 0:   N N N N
+2021-02-07 19:53:36.929097: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 1:   N N N N
+2021-02-07 19:53:36.929100: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 2:   N N N N
+2021-02-07 19:53:36.929103: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 3:   N N N N
+2021-02-07 19:53:36.951009: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 22429 MB memory) -> physical GPU (device: 0, name: GeForce RTX 3090, pci bus id: 0000:28:00.0, compute capability: 8.6)
+2021-02-07 19:53:36.956410: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:1 with 22429 MB memory) -> physical GPU (device: 1, name: GeForce RTX 3090, pci bus id: 0000:29:00.0, compute capability: 8.6)
+2021-02-07 19:53:36.961055: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:2 with 22429 MB memory) -> physical GPU (device: 2, name: GeForce RTX 3090, pci bus id: 0000:2a:00.0, compute capability: 8.6)
+2021-02-07 19:53:36.965714: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:3 with 22429 MB memory) -> physical GPU (device: 3, name: GeForce RTX 3090, pci bus id: 0000:2b:00.0, compute capability: 8.6)
+2021-02-07 19:53:37.051632: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:196] None of the MLIR optimization passes are enabled (registered 0 passes)
+2021-02-07 19:53:37.178022: I tensorflow/core/platform/profile_utils/cpu_utils.cc:112] CPU Frequency: 1999940000 Hz
+2021-02-07 19:53:37.969206: W tensorflow/compiler/jit/mark_for_compilation_pass.cc:1642] (One-time warning): Not using XLA:CPU for cluster because envvar TF_XLA_FLAGS=--tf_xla_cpu_global_jit was not set.  If you want XLA:CPU, either set that envvar, or use experimental_jit_scope to enable XLA:CPU.  To confirm that XLA is active, pass --vmodule=xla_compilation_cache=1 (as a proper command-line flag, not via TF_XLA_FLAGS) or set the envvar XLA_FLAGS=--xla_hlo_profile.
+INFO:tensorflow:Running local_init_op.
+I0207 19:53:39.944154 140121682057024 session_manager.py:505] Running local_init_op.
+INFO:tensorflow:Done running local_init_op.
+I0207 19:53:40.466457 140121682057024 session_manager.py:508] Done running local_init_op.
+Running warm up
+2021-02-07 19:53:41.459760: I tensorflow/core/grappler/optimizers/generic_layout_optimizer.cc:345] Cancel Transpose nodes around Pad: transpose_before=tower_0/v0/transpose pad=tower_0/v0/cg/conv0/Pad transpose_after=tower_0/v0/cg/conv0/conv2d/Conv2D-0-TransposeNCHWToNHWC-LayoutOptimizer
+2021-02-07 19:53:41.459844: I tensorflow/core/grappler/optimizers/generic_layout_optimizer.cc:345] Cancel Transpose nodes around Pad: transpose_before=tower_3/v3/transpose pad=tower_3/v3/cg/conv0/Pad transpose_after=tower_3/v3/cg/conv0/conv2d/Conv2D-0-TransposeNCHWToNHWC-LayoutOptimizer
+2021-02-07 19:53:41.459861: I tensorflow/core/grappler/optimizers/generic_layout_optimizer.cc:345] Cancel Transpose nodes around Pad: transpose_before=tower_1/v1/transpose pad=tower_1/v1/cg/conv0/Pad transpose_after=tower_1/v1/cg/conv0/conv2d/Conv2D-0-TransposeNCHWToNHWC-LayoutOptimizer
+2021-02-07 19:53:41.459873: I tensorflow/core/grappler/optimizers/generic_layout_optimizer.cc:345] Cancel Transpose nodes around Pad: transpose_before=tower_2/v2/transpose pad=tower_2/v2/cg/conv0/Pad transpose_after=tower_2/v2/cg/conv0/conv2d/Conv2D-0-TransposeNCHWToNHWC-LayoutOptimizer
+2021-02-07 19:53:41.971975: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2021-02-07 19:53:45.456968: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2021-02-07 19:53:47.026056: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.11
+2021-02-07 19:53:48.659911: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f518e2d14f0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2021-02-07 19:53:48.659969: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): GeForce RTX 3090, Compute Capability 8.6
+2021-02-07 19:53:48.659977: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (1): GeForce RTX 3090, Compute Capability 8.6
+2021-02-07 19:53:48.659984: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (2): GeForce RTX 3090, Compute Capability 8.6
+2021-02-07 19:53:48.659991: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (3): GeForce RTX 3090, Compute Capability 8.6
+2021-02-07 19:53:49.428973: I tensorflow/compiler/jit/xla_compilation_cache.cc:333] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+Done warm up
+Step	Img/sec	total_loss	top_1_accuracy	top_5_accuracy
+1	images/sec: 14712.4 +/- 0.0 (jitter = 0.0)	0.000	0.005	0.008 1612745630
+10	images/sec: 15114.0 +/- 74.4 (jitter = 127.8)	0.000	0.000	0.005 1612745631
+20	images/sec: 15209.3 +/- 44.8 (jitter = 110.6)	0.000	0.000	0.003 1612745631
+30	images/sec: 15247.3 +/- 32.6 (jitter = 102.7)	0.000	0.003	0.005 1612745631
+40	images/sec: 15245.7 +/- 27.5 (jitter = 114.9)	0.000	0.000	0.003 1612745631
+50	images/sec: 15216.6 +/- 25.2 (jitter = 125.1)	0.000	0.003	0.003 1612745632
+60	images/sec: 15228.3 +/- 22.1 (jitter = 123.2)	0.000	0.003	0.003 1612745632
+70	images/sec: 15228.1 +/- 20.2 (jitter = 138.2)	0.000	0.000	0.005 1612745632
+80	images/sec: 15241.0 +/- 19.3 (jitter = 143.8)	0.000	0.000	0.005 1612745632
+90	images/sec: 15247.5 +/- 17.4 (jitter = 138.8)	0.000	0.003	0.005 1612745633
+100	images/sec: 15255.4 +/- 16.4 (jitter = 135.2)	0.000	0.000	0.010 1612745633
+----------------------------------------------------------------
+total images/sec: 15213.79
+----------------------------------------------------------------
