@@ -1,0 +1,115 @@
+2021-03-24 23:50:12.812811: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+WARNING:tensorflow:Deprecation warnings have been disabled. Set TF_ENABLE_DEPRECATION_WARNINGS=1 to re-enable them.
+2021-03-24 23:50:14.283188: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2500040000 Hz
+2021-03-24 23:50:14.283438: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x33cf920 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2021-03-24 23:50:14.283499: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2021-03-24 23:50:14.286999: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcuda.so.1
+2021-03-24 23:50:14.889828: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5474c50 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2021-03-24 23:50:14.889884: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): GeForce RTX 3070, Compute Capability 8.6
+2021-03-24 23:50:14.889896: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (1): GeForce RTX 3070, Compute Capability 8.6
+2021-03-24 23:50:14.889905: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (2): GeForce RTX 3070, Compute Capability 8.6
+2021-03-24 23:50:14.889914: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (3): GeForce RTX 3070, Compute Capability 8.6
+2021-03-24 23:50:14.892434: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1665] Found device 0 with properties:
+name: GeForce RTX 3070 major: 8 minor: 6 memoryClockRate(GHz): 1.725
+pciBusID: 0000:01:00.0
+2021-03-24 23:50:14.894265: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1665] Found device 1 with properties:
+name: GeForce RTX 3070 major: 8 minor: 6 memoryClockRate(GHz): 1.725
+pciBusID: 0000:25:00.0
+2021-03-24 23:50:14.896078: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1665] Found device 2 with properties:
+name: GeForce RTX 3070 major: 8 minor: 6 memoryClockRate(GHz): 1.725
+pciBusID: 0000:41:00.0
+2021-03-24 23:50:14.897872: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1665] Found device 3 with properties:
+name: GeForce RTX 3070 major: 8 minor: 6 memoryClockRate(GHz): 1.725
+pciBusID: 0000:61:00.0
+2021-03-24 23:50:14.897904: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-03-24 23:50:14.901151: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2021-03-24 23:50:14.901907: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-03-24 23:50:14.902089: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-03-24 23:50:14.904384: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.11
+2021-03-24 23:50:14.904910: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2021-03-24 23:50:14.905032: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2021-03-24 23:50:14.914585: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1793] Adding visible gpu devices: 0, 1, 2, 3
+2021-03-24 23:50:14.914614: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-03-24 23:50:15.768209: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1206] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-03-24 23:50:15.768292: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1212]      0 1 2 3
+2021-03-24 23:50:15.768299: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1225] 0:   N N N N
+2021-03-24 23:50:15.768303: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1225] 1:   N N N N
+2021-03-24 23:50:15.768307: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1225] 2:   N N N N
+2021-03-24 23:50:15.768311: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1225] 3:   N N N N
+2021-03-24 23:50:15.774693: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1351] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 6173 MB memory) -> physical GPU (device: 0, name: GeForce RTX 3070, pci bus id: 0000:01:00.0, compute capability: 8.6)
+2021-03-24 23:50:15.776729: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1351] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:1 with 6173 MB memory) -> physical GPU (device: 1, name: GeForce RTX 3070, pci bus id: 0000:25:00.0, compute capability: 8.6)
+2021-03-24 23:50:15.778635: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1351] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:2 with 6173 MB memory) -> physical GPU (device: 2, name: GeForce RTX 3070, pci bus id: 0000:41:00.0, compute capability: 8.6)
+2021-03-24 23:50:15.780492: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1351] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:3 with 6173 MB memory) -> physical GPU (device: 3, name: GeForce RTX 3070, pci bus id: 0000:61:00.0, compute capability: 8.6)
+TensorFlow:  1.15
+Model:       inception4
+Dataset:     imagenet (synthetic)
+Mode:        forward only
+SingleSess:  False
+Batch size:  32 global
+8 per device
+Num batches: 100
+Num epochs:  0.00
+Devices:     ['/gpu:0', '/gpu:1', '/gpu:2', '/gpu:3']
+NUMA bind:   False
+Data format: NCHW
+Optimizer:   sgd
+Variables:   replicated
+AllReduce:   nccl
+==========
+Generating training model
+Initializing graph
+2021-03-24 23:50:28.602022: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1665] Found device 0 with properties:
+name: GeForce RTX 3070 major: 8 minor: 6 memoryClockRate(GHz): 1.725
+pciBusID: 0000:01:00.0
+2021-03-24 23:50:28.603337: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1665] Found device 1 with properties:
+name: GeForce RTX 3070 major: 8 minor: 6 memoryClockRate(GHz): 1.725
+pciBusID: 0000:25:00.0
+2021-03-24 23:50:28.604558: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1665] Found device 2 with properties:
+name: GeForce RTX 3070 major: 8 minor: 6 memoryClockRate(GHz): 1.725
+pciBusID: 0000:41:00.0
+2021-03-24 23:50:28.605782: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1665] Found device 3 with properties:
+name: GeForce RTX 3070 major: 8 minor: 6 memoryClockRate(GHz): 1.725
+pciBusID: 0000:61:00.0
+2021-03-24 23:50:28.605824: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-03-24 23:50:28.605883: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2021-03-24 23:50:28.605900: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-03-24 23:50:28.605912: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-03-24 23:50:28.605923: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.11
+2021-03-24 23:50:28.605934: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2021-03-24 23:50:28.605947: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2021-03-24 23:50:28.615323: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1793] Adding visible gpu devices: 0, 1, 2, 3
+2021-03-24 23:50:28.615408: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1206] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-03-24 23:50:28.615415: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1212]      0 1 2 3
+2021-03-24 23:50:28.615420: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1225] 0:   N N N N
+2021-03-24 23:50:28.615424: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1225] 1:   N N N N
+2021-03-24 23:50:28.615427: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1225] 2:   N N N N
+2021-03-24 23:50:28.615431: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1225] 3:   N N N N
+2021-03-24 23:50:28.621450: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1351] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 6173 MB memory) -> physical GPU (device: 0, name: GeForce RTX 3070, pci bus id: 0000:01:00.0, compute capability: 8.6)
+2021-03-24 23:50:28.622782: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1351] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:1 with 6173 MB memory) -> physical GPU (device: 1, name: GeForce RTX 3070, pci bus id: 0000:25:00.0, compute capability: 8.6)
+2021-03-24 23:50:28.628001: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1351] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:2 with 6173 MB memory) -> physical GPU (device: 2, name: GeForce RTX 3070, pci bus id: 0000:41:00.0, compute capability: 8.6)
+2021-03-24 23:50:28.629334: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1351] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:3 with 6173 MB memory) -> physical GPU (device: 3, name: GeForce RTX 3070, pci bus id: 0000:61:00.0, compute capability: 8.6)
+2021-03-24 23:50:33.830690: W tensorflow/compiler/jit/mark_for_compilation_pass.cc:1648] (One-time warning): Not using XLA:CPU for cluster because envvar TF_XLA_FLAGS=--tf_xla_cpu_global_jit was not set.  If you want XLA:CPU, either set that envvar, or use experimental_jit_scope to enable XLA:CPU.  To confirm that XLA is active, pass --vmodule=xla_compilation_cache=1 (as a proper command-line flag, not via TF_XLA_FLAGS) or set the envvar XLA_FLAGS=--xla_hlo_profile.
+INFO:tensorflow:Running local_init_op.
+I0324 23:50:35.834542 139705702033216 session_manager.py:500] Running local_init_op.
+INFO:tensorflow:Done running local_init_op.
+I0324 23:50:38.227519 139705702033216 session_manager.py:502] Done running local_init_op.
+Running warm up
+2021-03-24 23:50:44.888154: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2021-03-24 23:50:45.603540: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2021-03-24 23:50:59.800767: I tensorflow/compiler/jit/xla_compilation_cache.cc:241] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+Done warm up
+Step	Img/sec	total_loss	top_1_accuracy	top_5_accuracy
+1	images/sec: 828.3 +/- 0.0 (jitter = 0.0)	0.000	0.031	0.031 1616629860
+10	images/sec: 884.3 +/- 7.4 (jitter = 19.0)	0.000	0.000	0.000 1616629861
+20	images/sec: 864.5 +/- 12.9 (jitter = 21.6)	0.000	0.000	0.000 1616629861
+30	images/sec: 871.5 +/- 8.9 (jitter = 19.2)	0.000	0.000	0.000 1616629861
+40	images/sec: 876.7 +/- 6.9 (jitter = 21.6)	0.000	0.000	0.000 1616629862
+50	images/sec: 881.5 +/- 5.7 (jitter = 19.0)	0.000	0.000	0.000 1616629862
+60	images/sec: 883.5 +/- 4.9 (jitter = 19.3)	0.000	0.000	0.000 1616629862
+70	images/sec: 884.4 +/- 4.3 (jitter = 20.0)	0.000	0.000	0.000 1616629863
+80	images/sec: 886.0 +/- 3.8 (jitter = 19.8)	0.000	0.000	0.000 1616629863
+90	images/sec: 885.9 +/- 3.5 (jitter = 19.6)	0.000	0.000	0.000 1616629863
+100	images/sec: 886.9 +/- 3.2 (jitter = 19.9)	0.000	0.000	0.000 1616629864
+----------------------------------------------------------------
+total images/sec: 884.89
+----------------------------------------------------------------

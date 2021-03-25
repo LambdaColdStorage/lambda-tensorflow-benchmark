@@ -1,0 +1,384 @@
+2021-03-24 23:34:14.200651: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+WARNING:tensorflow:Deprecation warnings have been disabled. Set TF_ENABLE_DEPRECATION_WARNINGS=1 to re-enable them.
+2021-03-24 23:34:15.667169: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2500040000 Hz
+2021-03-24 23:34:15.667395: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x4c12a40 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2021-03-24 23:34:15.667454: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2021-03-24 23:34:15.670816: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcuda.so.1
+2021-03-24 23:34:16.282413: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x4c13240 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2021-03-24 23:34:16.282469: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): GeForce RTX 3070, Compute Capability 8.6
+2021-03-24 23:34:16.282480: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (1): GeForce RTX 3070, Compute Capability 8.6
+2021-03-24 23:34:16.282490: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (2): GeForce RTX 3070, Compute Capability 8.6
+2021-03-24 23:34:16.282499: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (3): GeForce RTX 3070, Compute Capability 8.6
+2021-03-24 23:34:16.285018: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1665] Found device 0 with properties:
+name: GeForce RTX 3070 major: 8 minor: 6 memoryClockRate(GHz): 1.725
+pciBusID: 0000:01:00.0
+2021-03-24 23:34:16.286852: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1665] Found device 1 with properties:
+name: GeForce RTX 3070 major: 8 minor: 6 memoryClockRate(GHz): 1.725
+pciBusID: 0000:25:00.0
+2021-03-24 23:34:16.288673: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1665] Found device 2 with properties:
+name: GeForce RTX 3070 major: 8 minor: 6 memoryClockRate(GHz): 1.725
+pciBusID: 0000:41:00.0
+2021-03-24 23:34:16.290472: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1665] Found device 3 with properties:
+name: GeForce RTX 3070 major: 8 minor: 6 memoryClockRate(GHz): 1.725
+pciBusID: 0000:61:00.0
+2021-03-24 23:34:16.290506: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-03-24 23:34:16.293479: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2021-03-24 23:34:16.294222: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-03-24 23:34:16.294394: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-03-24 23:34:16.296605: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.11
+2021-03-24 23:34:16.297126: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2021-03-24 23:34:16.297242: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2021-03-24 23:34:16.306728: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1793] Adding visible gpu devices: 0, 1, 2, 3
+2021-03-24 23:34:16.306760: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-03-24 23:34:17.169900: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1206] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-03-24 23:34:17.169992: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1212]      0 1 2 3
+2021-03-24 23:34:17.170000: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1225] 0:   N N N N
+2021-03-24 23:34:17.170004: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1225] 1:   N N N N
+2021-03-24 23:34:17.170007: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1225] 2:   N N N N
+2021-03-24 23:34:17.170011: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1225] 3:   N N N N
+2021-03-24 23:34:17.176474: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1351] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 6173 MB memory) -> physical GPU (device: 0, name: GeForce RTX 3070, pci bus id: 0000:01:00.0, compute capability: 8.6)
+2021-03-24 23:34:17.178566: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1351] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:1 with 6173 MB memory) -> physical GPU (device: 1, name: GeForce RTX 3070, pci bus id: 0000:25:00.0, compute capability: 8.6)
+2021-03-24 23:34:17.180520: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1351] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:2 with 6173 MB memory) -> physical GPU (device: 2, name: GeForce RTX 3070, pci bus id: 0000:41:00.0, compute capability: 8.6)
+2021-03-24 23:34:17.182429: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1351] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:3 with 6173 MB memory) -> physical GPU (device: 3, name: GeForce RTX 3070, pci bus id: 0000:61:00.0, compute capability: 8.6)
+TensorFlow:  1.15
+Model:       alexnet
+Dataset:     imagenet (synthetic)
+Mode:        training
+SingleSess:  False
+Batch size:  1536 global
+384 per device
+Num batches: 100
+Num epochs:  0.12
+Devices:     ['/gpu:0', '/gpu:1', '/gpu:2', '/gpu:3']
+NUMA bind:   False
+Data format: NCHW
+Optimizer:   sgd
+Variables:   replicated
+AllReduce:   nccl
+==========
+Generating training model
+Initializing graph
+2021-03-24 23:34:18.003186: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1665] Found device 0 with properties:
+name: GeForce RTX 3070 major: 8 minor: 6 memoryClockRate(GHz): 1.725
+pciBusID: 0000:01:00.0
+2021-03-24 23:34:18.004447: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1665] Found device 1 with properties:
+name: GeForce RTX 3070 major: 8 minor: 6 memoryClockRate(GHz): 1.725
+pciBusID: 0000:25:00.0
+2021-03-24 23:34:18.005664: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1665] Found device 2 with properties:
+name: GeForce RTX 3070 major: 8 minor: 6 memoryClockRate(GHz): 1.725
+pciBusID: 0000:41:00.0
+2021-03-24 23:34:18.006875: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1665] Found device 3 with properties:
+name: GeForce RTX 3070 major: 8 minor: 6 memoryClockRate(GHz): 1.725
+pciBusID: 0000:61:00.0
+2021-03-24 23:34:18.006929: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-03-24 23:34:18.006966: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2021-03-24 23:34:18.006976: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-03-24 23:34:18.006986: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-03-24 23:34:18.006995: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.11
+2021-03-24 23:34:18.007004: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2021-03-24 23:34:18.007013: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2021-03-24 23:34:18.016333: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1793] Adding visible gpu devices: 0, 1, 2, 3
+2021-03-24 23:34:18.016400: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1206] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-03-24 23:34:18.016406: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1212]      0 1 2 3
+2021-03-24 23:34:18.016411: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1225] 0:   N N N N
+2021-03-24 23:34:18.016415: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1225] 1:   N N N N
+2021-03-24 23:34:18.016418: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1225] 2:   N N N N
+2021-03-24 23:34:18.016422: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1225] 3:   N N N N
+2021-03-24 23:34:18.022366: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1351] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 6173 MB memory) -> physical GPU (device: 0, name: GeForce RTX 3070, pci bus id: 0000:01:00.0, compute capability: 8.6)
+2021-03-24 23:34:18.023703: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1351] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:1 with 6173 MB memory) -> physical GPU (device: 1, name: GeForce RTX 3070, pci bus id: 0000:25:00.0, compute capability: 8.6)
+2021-03-24 23:34:18.025001: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1351] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:2 with 6173 MB memory) -> physical GPU (device: 2, name: GeForce RTX 3070, pci bus id: 0000:41:00.0, compute capability: 8.6)
+2021-03-24 23:34:18.026309: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1351] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:3 with 6173 MB memory) -> physical GPU (device: 3, name: GeForce RTX 3070, pci bus id: 0000:61:00.0, compute capability: 8.6)
+2021-03-24 23:34:18.144833: W tensorflow/compiler/jit/mark_for_compilation_pass.cc:1648] (One-time warning): Not using XLA:CPU for cluster because envvar TF_XLA_FLAGS=--tf_xla_cpu_global_jit was not set.  If you want XLA:CPU, either set that envvar, or use experimental_jit_scope to enable XLA:CPU.  To confirm that XLA is active, pass --vmodule=xla_compilation_cache=1 (as a proper command-line flag, not via TF_XLA_FLAGS) or set the envvar XLA_FLAGS=--xla_hlo_profile.
+INFO:tensorflow:Running local_init_op.
+I0324 23:34:19.418051 139632310134592 session_manager.py:500] Running local_init_op.
+INFO:tensorflow:Done running local_init_op.
+I0324 23:34:19.574934 139632310134592 session_manager.py:502] Done running local_init_op.
+Running warm up
+2021-03-24 23:34:19.989155: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2021-03-24 23:34:20.729450: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2021-03-24 23:34:29.175680: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.175912: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.175931: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.175947: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.202128: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.202168: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.202182: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.202193: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.223625: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.223656: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.223668: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.223678: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.251995: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.252018: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.252034: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.252046: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.291058: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.291087: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.291100: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.291110: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.312009: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.312038: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.312048: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.312058: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.336413: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.336444: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.336457: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.336469: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.355919: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.355945: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.355955: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.355965: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.381378: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.381408: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.381419: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.381430: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.401041: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.401066: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.401078: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.401088: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.421205: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.421233: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.421242: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.421250: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.442233: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.442261: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.442272: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.442280: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.462367: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.462393: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.462407: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.462417: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.489516: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.489587: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.489602: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.489618: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.514705: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.514744: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.514756: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.514769: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.535369: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.535427: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.535450: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:34:29.535471: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+INFO:tensorflow:Error reported to Coordinator: <class 'tensorflow.python.framework.errors_impl.InternalError'>, 2 root error(s) found.
+(0) Internal: unhandled system error
+[[node allreduce_6/allreduce/NcclAllReduce_1 (defined at /usr/local/lib/python3.8/dist-packages/tensorflow_core/python/framework/ops.py:1748) ]]
+(1) Internal: unhandled system error
+[[node allreduce_6/allreduce/NcclAllReduce_1 (defined at /usr/local/lib/python3.8/dist-packages/tensorflow_core/python/framework/ops.py:1748) ]]
+[[GroupCrossDeviceControlEdges_0/main_fetch_group/_292]]
+0 successful operations.
+3 derived errors ignored.
+
+Original stack trace for 'allreduce_6/allreduce/NcclAllReduce_1':
+File "tf_cnn_benchmarks.py", line 73, in <module>
+app.run(main)  # Raises error on invalid flags, unlike tf.app.run()
+File "/usr/local/lib/python3.8/dist-packages/absl/app.py", line 303, in run
+_run_main(main, args)
+File "/usr/local/lib/python3.8/dist-packages/absl/app.py", line 251, in _run_main
+sys.exit(main(argv))
+File "tf_cnn_benchmarks.py", line 68, in main
+bench.run()
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 1883, in run
+return self._benchmark_train()
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 2079, in _benchmark_train
+build_result = self._build_graph()
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 2111, in _build_graph
+(input_producer_op, enqueue_ops, fetches) = self._build_model()
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 2891, in _build_model
+fetches = self._build_fetches(global_step, all_logits, losses, device_grads,
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 2921, in _build_fetches
+self.variable_mgr.preprocess_device_grads(device_grads))
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/variable_mgr.py", line 326, in preprocess_device_grads
+reduced_grads, self._warmup_ops = algorithm.batch_all_reduce(
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/batch_allreduce.py", line 177, in batch_all_reduce
+all_device_tensors = self._do_batch_all_reduce(all_device_packed_tensors)
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/batch_allreduce.py", line 366, in _do_batch_all_reduce
+aggregated_device_grads = allreduce.sum_gradients_all_reduce(
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/allreduce.py", line 454, in sum_gradients_all_reduce
+reduced_gv_list.append(sum_grad_and_var_all_reduce(
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/allreduce.py", line 341, in sum_grad_and_var_all_reduce
+summed_grads = all_reduce.build_nccl_all_reduce(scaled_grads, tf.add)
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/distribute/all_reduce.py", line 696, in build_nccl_all_reduce
+output_tensors = nccl_ops.all_sum(input_tensors)
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/ops/nccl_ops.py", line 47, in all_sum
+return _apply_all_reduce('sum', tensors)
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/ops/nccl_ops.py", line 236, in _apply_all_reduce
+return _all_reduce()
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/ops/nccl_ops.py", line 224, in _all_reduce
+gen_nccl_ops.nccl_all_reduce(
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/ops/gen_nccl_ops.py", line 83, in nccl_all_reduce
+_, _, _op = _op_def_lib._apply_op_helper(
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/framework/op_def_library.py", line 792, in _apply_op_helper
+op = g.create_op(op_type_name, inputs, dtypes=None, name=scope,
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/util/deprecation.py", line 513, in new_func
+return func(*args, **kwargs)
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/framework/ops.py", line 3356, in create_op
+return self._create_op_internal(op_type, inputs, dtypes, input_types, name,
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/framework/ops.py", line 3418, in _create_op_internal
+ret = Operation(
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/framework/ops.py", line 1748, in __init__
+self._traceback = tf_stack.extract_stack()
+
+I0324 23:34:29.551081 139632310134592 coordinator.py:222] Error reported to Coordinator: <class 'tensorflow.python.framework.errors_impl.InternalError'>, 2 root error(s) found.
+(0) Internal: unhandled system error
+[[node allreduce_6/allreduce/NcclAllReduce_1 (defined at /usr/local/lib/python3.8/dist-packages/tensorflow_core/python/framework/ops.py:1748) ]]
+(1) Internal: unhandled system error
+[[node allreduce_6/allreduce/NcclAllReduce_1 (defined at /usr/local/lib/python3.8/dist-packages/tensorflow_core/python/framework/ops.py:1748) ]]
+[[GroupCrossDeviceControlEdges_0/main_fetch_group/_292]]
+0 successful operations.
+3 derived errors ignored.
+
+Original stack trace for 'allreduce_6/allreduce/NcclAllReduce_1':
+File "tf_cnn_benchmarks.py", line 73, in <module>
+app.run(main)  # Raises error on invalid flags, unlike tf.app.run()
+File "/usr/local/lib/python3.8/dist-packages/absl/app.py", line 303, in run
+_run_main(main, args)
+File "/usr/local/lib/python3.8/dist-packages/absl/app.py", line 251, in _run_main
+sys.exit(main(argv))
+File "tf_cnn_benchmarks.py", line 68, in main
+bench.run()
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 1883, in run
+return self._benchmark_train()
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 2079, in _benchmark_train
+build_result = self._build_graph()
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 2111, in _build_graph
+(input_producer_op, enqueue_ops, fetches) = self._build_model()
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 2891, in _build_model
+fetches = self._build_fetches(global_step, all_logits, losses, device_grads,
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 2921, in _build_fetches
+self.variable_mgr.preprocess_device_grads(device_grads))
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/variable_mgr.py", line 326, in preprocess_device_grads
+reduced_grads, self._warmup_ops = algorithm.batch_all_reduce(
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/batch_allreduce.py", line 177, in batch_all_reduce
+all_device_tensors = self._do_batch_all_reduce(all_device_packed_tensors)
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/batch_allreduce.py", line 366, in _do_batch_all_reduce
+aggregated_device_grads = allreduce.sum_gradients_all_reduce(
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/allreduce.py", line 454, in sum_gradients_all_reduce
+reduced_gv_list.append(sum_grad_and_var_all_reduce(
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/allreduce.py", line 341, in sum_grad_and_var_all_reduce
+summed_grads = all_reduce.build_nccl_all_reduce(scaled_grads, tf.add)
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/distribute/all_reduce.py", line 696, in build_nccl_all_reduce
+output_tensors = nccl_ops.all_sum(input_tensors)
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/ops/nccl_ops.py", line 47, in all_sum
+return _apply_all_reduce('sum', tensors)
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/ops/nccl_ops.py", line 236, in _apply_all_reduce
+return _all_reduce()
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/ops/nccl_ops.py", line 224, in _all_reduce
+gen_nccl_ops.nccl_all_reduce(
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/ops/gen_nccl_ops.py", line 83, in nccl_all_reduce
+_, _, _op = _op_def_lib._apply_op_helper(
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/framework/op_def_library.py", line 792, in _apply_op_helper
+op = g.create_op(op_type_name, inputs, dtypes=None, name=scope,
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/util/deprecation.py", line 513, in new_func
+return func(*args, **kwargs)
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/framework/ops.py", line 3356, in create_op
+return self._create_op_internal(op_type, inputs, dtypes, input_types, name,
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/framework/ops.py", line 3418, in _create_op_internal
+ret = Operation(
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/framework/ops.py", line 1748, in __init__
+self._traceback = tf_stack.extract_stack()
+
+Traceback (most recent call last):
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/client/session.py", line 1365, in _do_call
+return fn(*args)
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/client/session.py", line 1349, in _run_fn
+return self._call_tf_sessionrun(options, feed_dict, fetch_list,
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/client/session.py", line 1441, in _call_tf_sessionrun
+return tf_session.TF_SessionRun_wrapper(self._session, options, feed_dict,
+tensorflow.python.framework.errors_impl.InternalError: 2 root error(s) found.
+(0) Internal: unhandled system error
+[[{{node allreduce_6/allreduce/NcclAllReduce_1}}]]
+(1) Internal: unhandled system error
+[[{{node allreduce_6/allreduce/NcclAllReduce_1}}]]
+[[GroupCrossDeviceControlEdges_0/main_fetch_group/_292]]
+0 successful operations.
+3 derived errors ignored.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+File "tf_cnn_benchmarks.py", line 73, in <module>
+app.run(main)  # Raises error on invalid flags, unlike tf.app.run()
+File "/usr/local/lib/python3.8/dist-packages/absl/app.py", line 303, in run
+_run_main(main, args)
+File "/usr/local/lib/python3.8/dist-packages/absl/app.py", line 251, in _run_main
+sys.exit(main(argv))
+File "tf_cnn_benchmarks.py", line 68, in main
+bench.run()
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 1883, in run
+return self._benchmark_train()
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 2088, in _benchmark_train
+return self._benchmark_graph(result_to_benchmark, eval_build_results)
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 2293, in _benchmark_graph
+stats = self.benchmark_with_session(
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 2424, in benchmark_with_session
+(summary_str, last_average_loss) = benchmark_one_step(
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 870, in benchmark_one_step
+results = sess.run(fetches, options=run_options, run_metadata=run_metadata)
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/client/session.py", line 955, in run
+result = self._run(None, fetches, feed_dict, options_ptr,
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/client/session.py", line 1179, in _run
+results = self._do_run(handle, final_targets, final_fetches,
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/client/session.py", line 1358, in _do_run
+return self._do_call(_run_fn, feeds, fetches, targets, options,
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/client/session.py", line 1384, in _do_call
+raise type(e)(node_def, op, message)
+tensorflow.python.framework.errors_impl.InternalError: 2 root error(s) found.
+(0) Internal: unhandled system error
+[[node allreduce_6/allreduce/NcclAllReduce_1 (defined at /usr/local/lib/python3.8/dist-packages/tensorflow_core/python/framework/ops.py:1748) ]]
+(1) Internal: unhandled system error
+[[node allreduce_6/allreduce/NcclAllReduce_1 (defined at /usr/local/lib/python3.8/dist-packages/tensorflow_core/python/framework/ops.py:1748) ]]
+[[GroupCrossDeviceControlEdges_0/main_fetch_group/_292]]
+0 successful operations.
+3 derived errors ignored.
+
+Original stack trace for 'allreduce_6/allreduce/NcclAllReduce_1':
+File "tf_cnn_benchmarks.py", line 73, in <module>
+app.run(main)  # Raises error on invalid flags, unlike tf.app.run()
+File "/usr/local/lib/python3.8/dist-packages/absl/app.py", line 303, in run
+_run_main(main, args)
+File "/usr/local/lib/python3.8/dist-packages/absl/app.py", line 251, in _run_main
+sys.exit(main(argv))
+File "tf_cnn_benchmarks.py", line 68, in main
+bench.run()
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 1883, in run
+return self._benchmark_train()
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 2079, in _benchmark_train
+build_result = self._build_graph()
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 2111, in _build_graph
+(input_producer_op, enqueue_ops, fetches) = self._build_model()
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 2891, in _build_model
+fetches = self._build_fetches(global_step, all_logits, losses, device_grads,
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 2921, in _build_fetches
+self.variable_mgr.preprocess_device_grads(device_grads))
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/variable_mgr.py", line 326, in preprocess_device_grads
+reduced_grads, self._warmup_ops = algorithm.batch_all_reduce(
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/batch_allreduce.py", line 177, in batch_all_reduce
+all_device_tensors = self._do_batch_all_reduce(all_device_packed_tensors)
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/batch_allreduce.py", line 366, in _do_batch_all_reduce
+aggregated_device_grads = allreduce.sum_gradients_all_reduce(
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/allreduce.py", line 454, in sum_gradients_all_reduce
+reduced_gv_list.append(sum_grad_and_var_all_reduce(
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/allreduce.py", line 341, in sum_grad_and_var_all_reduce
+summed_grads = all_reduce.build_nccl_all_reduce(scaled_grads, tf.add)
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/distribute/all_reduce.py", line 696, in build_nccl_all_reduce
+output_tensors = nccl_ops.all_sum(input_tensors)
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/ops/nccl_ops.py", line 47, in all_sum
+return _apply_all_reduce('sum', tensors)
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/ops/nccl_ops.py", line 236, in _apply_all_reduce
+return _all_reduce()
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/ops/nccl_ops.py", line 224, in _all_reduce
+gen_nccl_ops.nccl_all_reduce(
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/ops/gen_nccl_ops.py", line 83, in nccl_all_reduce
+_, _, _op = _op_def_lib._apply_op_helper(
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/framework/op_def_library.py", line 792, in _apply_op_helper
+op = g.create_op(op_type_name, inputs, dtypes=None, name=scope,
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/util/deprecation.py", line 513, in new_func
+return func(*args, **kwargs)
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/framework/ops.py", line 3356, in create_op
+return self._create_op_internal(op_type, inputs, dtypes, input_types, name,
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/framework/ops.py", line 3418, in _create_op_internal
+ret = Operation(
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/framework/ops.py", line 1748, in __init__
+self._traceback = tf_stack.extract_stack()
+

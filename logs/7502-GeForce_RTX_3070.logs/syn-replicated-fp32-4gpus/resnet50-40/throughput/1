@@ -1,0 +1,964 @@
+2021-03-24 23:33:25.726904: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+WARNING:tensorflow:Deprecation warnings have been disabled. Set TF_ENABLE_DEPRECATION_WARNINGS=1 to re-enable them.
+2021-03-24 23:33:27.215155: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2500040000 Hz
+2021-03-24 23:33:27.215382: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x4fc68d0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2021-03-24 23:33:27.215442: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2021-03-24 23:33:27.218832: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcuda.so.1
+2021-03-24 23:33:27.832958: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x4fc60d0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2021-03-24 23:33:27.833011: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): GeForce RTX 3070, Compute Capability 8.6
+2021-03-24 23:33:27.833023: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (1): GeForce RTX 3070, Compute Capability 8.6
+2021-03-24 23:33:27.833032: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (2): GeForce RTX 3070, Compute Capability 8.6
+2021-03-24 23:33:27.833041: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (3): GeForce RTX 3070, Compute Capability 8.6
+2021-03-24 23:33:27.835602: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1665] Found device 0 with properties:
+name: GeForce RTX 3070 major: 8 minor: 6 memoryClockRate(GHz): 1.725
+pciBusID: 0000:01:00.0
+2021-03-24 23:33:27.837441: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1665] Found device 1 with properties:
+name: GeForce RTX 3070 major: 8 minor: 6 memoryClockRate(GHz): 1.725
+pciBusID: 0000:25:00.0
+2021-03-24 23:33:27.839267: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1665] Found device 2 with properties:
+name: GeForce RTX 3070 major: 8 minor: 6 memoryClockRate(GHz): 1.725
+pciBusID: 0000:41:00.0
+2021-03-24 23:33:27.841079: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1665] Found device 3 with properties:
+name: GeForce RTX 3070 major: 8 minor: 6 memoryClockRate(GHz): 1.725
+pciBusID: 0000:61:00.0
+2021-03-24 23:33:27.841117: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-03-24 23:33:27.844980: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2021-03-24 23:33:27.845722: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-03-24 23:33:27.845898: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-03-24 23:33:27.848069: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.11
+2021-03-24 23:33:27.848586: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2021-03-24 23:33:27.848693: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2021-03-24 23:33:27.858258: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1793] Adding visible gpu devices: 0, 1, 2, 3
+2021-03-24 23:33:27.858289: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-03-24 23:33:28.707664: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1206] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-03-24 23:33:28.707750: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1212]      0 1 2 3
+2021-03-24 23:33:28.707757: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1225] 0:   N N N N
+2021-03-24 23:33:28.707761: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1225] 1:   N N N N
+2021-03-24 23:33:28.707765: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1225] 2:   N N N N
+2021-03-24 23:33:28.707768: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1225] 3:   N N N N
+2021-03-24 23:33:28.714161: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1351] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 6173 MB memory) -> physical GPU (device: 0, name: GeForce RTX 3070, pci bus id: 0000:01:00.0, compute capability: 8.6)
+2021-03-24 23:33:28.716200: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1351] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:1 with 6173 MB memory) -> physical GPU (device: 1, name: GeForce RTX 3070, pci bus id: 0000:25:00.0, compute capability: 8.6)
+2021-03-24 23:33:28.718082: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1351] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:2 with 6173 MB memory) -> physical GPU (device: 2, name: GeForce RTX 3070, pci bus id: 0000:41:00.0, compute capability: 8.6)
+2021-03-24 23:33:28.720090: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1351] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:3 with 6173 MB memory) -> physical GPU (device: 3, name: GeForce RTX 3070, pci bus id: 0000:61:00.0, compute capability: 8.6)
+TensorFlow:  1.15
+Model:       resnet50
+Dataset:     imagenet (synthetic)
+Mode:        training
+SingleSess:  False
+Batch size:  160 global
+40 per device
+Num batches: 100
+Num epochs:  0.01
+Devices:     ['/gpu:0', '/gpu:1', '/gpu:2', '/gpu:3']
+NUMA bind:   False
+Data format: NCHW
+Optimizer:   sgd
+Variables:   replicated
+AllReduce:   nccl
+==========
+Generating training model
+Initializing graph
+2021-03-24 23:33:36.817808: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1665] Found device 0 with properties:
+name: GeForce RTX 3070 major: 8 minor: 6 memoryClockRate(GHz): 1.725
+pciBusID: 0000:01:00.0
+2021-03-24 23:33:36.819084: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1665] Found device 1 with properties:
+name: GeForce RTX 3070 major: 8 minor: 6 memoryClockRate(GHz): 1.725
+pciBusID: 0000:25:00.0
+2021-03-24 23:33:36.820305: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1665] Found device 2 with properties:
+name: GeForce RTX 3070 major: 8 minor: 6 memoryClockRate(GHz): 1.725
+pciBusID: 0000:41:00.0
+2021-03-24 23:33:36.821510: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1665] Found device 3 with properties:
+name: GeForce RTX 3070 major: 8 minor: 6 memoryClockRate(GHz): 1.725
+pciBusID: 0000:61:00.0
+2021-03-24 23:33:36.821545: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-03-24 23:33:36.821578: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2021-03-24 23:33:36.821593: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-03-24 23:33:36.821604: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-03-24 23:33:36.821615: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.11
+2021-03-24 23:33:36.821625: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2021-03-24 23:33:36.821637: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2021-03-24 23:33:36.830973: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1793] Adding visible gpu devices: 0, 1, 2, 3
+2021-03-24 23:33:36.831052: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1206] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-03-24 23:33:36.831059: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1212]      0 1 2 3
+2021-03-24 23:33:36.831064: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1225] 0:   N N N N
+2021-03-24 23:33:36.831068: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1225] 1:   N N N N
+2021-03-24 23:33:36.831072: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1225] 2:   N N N N
+2021-03-24 23:33:36.831075: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1225] 3:   N N N N
+2021-03-24 23:33:36.837073: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1351] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 6173 MB memory) -> physical GPU (device: 0, name: GeForce RTX 3070, pci bus id: 0000:01:00.0, compute capability: 8.6)
+2021-03-24 23:33:36.838398: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1351] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:1 with 6173 MB memory) -> physical GPU (device: 1, name: GeForce RTX 3070, pci bus id: 0000:25:00.0, compute capability: 8.6)
+2021-03-24 23:33:36.839708: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1351] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:2 with 6173 MB memory) -> physical GPU (device: 2, name: GeForce RTX 3070, pci bus id: 0000:41:00.0, compute capability: 8.6)
+2021-03-24 23:33:36.841008: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1351] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:3 with 6173 MB memory) -> physical GPU (device: 3, name: GeForce RTX 3070, pci bus id: 0000:61:00.0, compute capability: 8.6)
+2021-03-24 23:33:38.852433: W tensorflow/compiler/jit/mark_for_compilation_pass.cc:1648] (One-time warning): Not using XLA:CPU for cluster because envvar TF_XLA_FLAGS=--tf_xla_cpu_global_jit was not set.  If you want XLA:CPU, either set that envvar, or use experimental_jit_scope to enable XLA:CPU.  To confirm that XLA is active, pass --vmodule=xla_compilation_cache=1 (as a proper command-line flag, not via TF_XLA_FLAGS) or set the envvar XLA_FLAGS=--xla_hlo_profile.
+INFO:tensorflow:Running local_init_op.
+I0324 23:33:40.354388 140007652349760 session_manager.py:500] Running local_init_op.
+INFO:tensorflow:Done running local_init_op.
+I0324 23:33:41.432680 140007652349760 session_manager.py:502] Done running local_init_op.
+Running warm up
+2021-03-24 23:33:46.346422: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2021-03-24 23:33:47.056924: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2021-03-24 23:33:55.250169: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.250657: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.250681: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.250707: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.282046: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.282082: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.282096: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.282109: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.311187: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.311234: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.311252: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.311266: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.337020: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.337066: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.337087: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.337100: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.368873: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.368905: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.368937: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.368950: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.396644: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.396673: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.396706: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.396780: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.424285: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.424311: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.424359: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.424394: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.454358: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.454389: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.454399: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.454413: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.478048: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.478089: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.478119: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.478132: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.508339: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.508368: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.508379: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.508393: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.531874: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.531902: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.531921: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.531932: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.564657: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.564689: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.564700: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.564742: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.593061: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.593091: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.593101: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.593116: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.620572: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.620618: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.620630: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.620640: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.648212: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.648240: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.648252: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.648283: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.675741: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.675767: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.675778: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.675789: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.702668: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.702706: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.702717: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.702731: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.732572: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.732600: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.732614: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.732650: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.755368: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.755395: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.755423: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.755462: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.784437: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.784464: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.784514: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.784559: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.812141: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.812176: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.812188: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.812201: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.840439: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.840469: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.840481: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.840528: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.863767: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.863798: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.863809: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.863832: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.893972: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.893999: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.894008: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.894051: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.925457: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.925489: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.925498: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.925521: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.953602: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.953628: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.953638: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.953652: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.981187: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.981218: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.981230: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:55.981256: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.010034: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.010065: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.010075: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.010085: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.041487: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.041579: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.041620: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.041641: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.068936: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.068973: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.068988: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.069020: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.094384: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.094433: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.094445: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.094464: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.123813: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.123848: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.123862: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.123873: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.145891: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.145954: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.145971: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.145991: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.178144: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.178179: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.178193: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.178207: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.199238: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.199279: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.199294: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.199307: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.223439: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.223494: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.223508: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.223527: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.245994: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.246028: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.246038: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.246053: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.272162: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.272281: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.272309: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.272329: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.293462: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.293492: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.293503: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.293522: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.324769: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.324800: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.324814: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.324830: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.350573: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.350604: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.350616: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.350631: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.381416: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.381451: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.381463: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.381480: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.401513: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.401547: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.401561: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.401574: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.430078: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.430115: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.430129: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.430165: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.455932: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.455960: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.455975: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.455987: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.485705: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.485737: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.485747: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.485764: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.510123: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.510156: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.510165: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.510175: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.541504: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.541552: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.541564: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.541577: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.562603: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.562636: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.562651: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.562664: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.595409: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.595442: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.595455: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.595470: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.616224: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.616257: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.616272: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.616286: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.645225: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.645260: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.645304: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.645321: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.666269: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.666303: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.666318: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.666333: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.694390: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.694422: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.694460: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.694476: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.716125: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.716160: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.716173: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.716191: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.746479: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.746510: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.746526: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.746541: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.773383: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.773420: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.773433: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.773451: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.806050: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.806089: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.806102: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.806113: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.836864: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.836899: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.836913: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.836928: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.868023: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.868053: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.868081: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.868096: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.888439: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.888473: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.888488: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.888502: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.919603: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.919639: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.919687: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.919702: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.946936: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.946971: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.946986: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.946999: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.972699: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.972783: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.972824: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.972919: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.992751: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.992849: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.992877: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:56.992896: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.014789: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.014819: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.014834: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.014864: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.034573: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.034616: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.034633: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.034652: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.065711: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.065766: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.065831: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.065856: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.085891: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.085929: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.085940: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.085955: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.110602: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.110653: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.110667: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.110682: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.130397: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.130428: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.130438: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.130457: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.161550: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.161582: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.161594: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.161606: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.183778: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.183811: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.183824: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.183840: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.214020: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.214055: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.214068: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.214082: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.238832: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.238866: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.238878: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.238910: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.268638: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.268669: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.268685: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.268726: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.289092: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.289124: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.289136: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.289149: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.319889: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.319966: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.319987: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.320024: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.348010: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.348046: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.348060: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.348079: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.378978: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.379014: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.379027: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.379042: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.408075: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.408113: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.408126: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.408142: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.435832: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.435876: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.435897: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.435910: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.457236: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.457270: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.457282: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.457295: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.488895: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.488925: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.488954: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.488970: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.509211: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.509248: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.509261: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.509276: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.538636: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.538670: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.538702: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.538736: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.558802: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.558836: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.558850: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.558866: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.585343: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.585378: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.585391: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.585404: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.607145: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.607184: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.607198: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.607213: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.635639: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.635673: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.635689: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.635724: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.656910: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.656950: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.656961: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.656975: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.689049: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.689096: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.689110: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.689157: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.709114: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.709155: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.709171: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.709185: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.739071: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.739106: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.739120: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.739146: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.758558: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.758624: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.758647: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.758660: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.787252: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.787319: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.787369: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.787413: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.813324: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.813361: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.813375: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.813386: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.841941: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.841992: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.842006: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.842038: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.872417: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.872516: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.872543: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.872562: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.904658: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.904701: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.904761: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.904776: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.928556: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.928592: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.928607: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.928627: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.955548: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.955579: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.955607: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.955619: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.982100: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.982135: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.982155: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:57.982171: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.012961: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.012996: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.013022: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.013037: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.039656: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.039695: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.039713: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.039729: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.069515: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.069581: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.069602: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.069618: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.097260: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.097414: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.097455: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.097478: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.128403: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.128435: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.128465: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.128516: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.156463: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.156498: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.156516: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.156550: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.187254: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.187335: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.187418: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.187483: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.217332: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.217385: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.217411: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.217447: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.248220: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.248267: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.248324: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.248349: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.287181: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.287291: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.287306: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.287340: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.319192: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.319251: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.319271: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.319344: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.346972: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.347023: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.347060: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.347111: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.375319: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.375418: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.375487: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.375564: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.405382: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.405414: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.405443: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.405456: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.433468: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.433515: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.433528: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.433540: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.464558: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.464724: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.464753: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.464797: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.495834: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.495910: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.495923: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.495958: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.518771: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.518811: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.518830: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.518862: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.545444: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.545509: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.545560: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.545618: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.573371: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.573418: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.573429: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.573442: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.604728: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.604828: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.604884: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.604932: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.633861: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.633905: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.633929: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.633946: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.662668: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.662748: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.662762: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.662777: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.689547: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.689578: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.689611: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.689626: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.719196: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.719305: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.719329: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.719353: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.743597: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.743645: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.743666: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.743695: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.774969: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.775002: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.775016: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.775029: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.803633: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.803662: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.803677: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.803691: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.827314: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.827347: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.827359: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.827372: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.858447: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.858491: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.858530: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.858555: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.883512: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.883543: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.883559: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.883576: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.917962: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.918031: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.918108: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.918195: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.941894: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.941972: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.941993: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.942015: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.969635: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.969672: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.969699: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.969715: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.996612: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.996644: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.996664: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:58.996685: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.026963: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.027030: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.027061: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.027114: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.053242: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.053271: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.053283: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.053295: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.081626: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.081673: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.081685: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.081727: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.104249: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.104279: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.104295: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.104309: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.126790: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.126844: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.126857: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.126881: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.150779: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.150810: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.150821: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.150833: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.180387: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.180464: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.180477: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.180490: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.206117: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.206148: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.206163: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.206177: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.234614: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.234665: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.234699: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.234737: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.257481: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.257509: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.257522: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.257535: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.288797: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.288871: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.288915: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.288996: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.318107: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.318143: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.318155: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.318168: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.351019: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.351055: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.351069: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.351084: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.372801: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.372832: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.372846: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.372860: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.403241: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.403280: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.403307: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.403325: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.424064: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.424101: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.424114: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.424127: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.451967: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.452027: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.452040: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.452055: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.473725: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.473762: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.473777: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.473791: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.503601: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.503640: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.503684: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.503728: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.525715: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.525751: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.525764: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.525778: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.556501: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.556535: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.556546: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.556579: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.578829: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.578860: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.578875: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.578887: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.604249: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.604419: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.604615: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+2021-03-24 23:33:59.604867: W tensorflow/core/framework/op_kernel.cc:1651] OP_REQUIRES failed at nccl_ops.cc:104 : Internal: unhandled system error
+INFO:tensorflow:Error reported to Coordinator: <class 'tensorflow.python.framework.errors_impl.InternalError'>, 2 root error(s) found.
+(0) Internal: unhandled system error
+[[node allreduce_141/allreduce/NcclAllReduce_1 (defined at /usr/local/lib/python3.8/dist-packages/tensorflow_core/python/framework/ops.py:1748) ]]
+[[main_fetch_group/_3898]]
+(1) Internal: unhandled system error
+[[node allreduce_141/allreduce/NcclAllReduce_1 (defined at /usr/local/lib/python3.8/dist-packages/tensorflow_core/python/framework/ops.py:1748) ]]
+0 successful operations.
+3 derived errors ignored.
+
+Original stack trace for 'allreduce_141/allreduce/NcclAllReduce_1':
+File "tf_cnn_benchmarks.py", line 73, in <module>
+app.run(main)  # Raises error on invalid flags, unlike tf.app.run()
+File "/usr/local/lib/python3.8/dist-packages/absl/app.py", line 303, in run
+_run_main(main, args)
+File "/usr/local/lib/python3.8/dist-packages/absl/app.py", line 251, in _run_main
+sys.exit(main(argv))
+File "tf_cnn_benchmarks.py", line 68, in main
+bench.run()
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 1883, in run
+return self._benchmark_train()
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 2079, in _benchmark_train
+build_result = self._build_graph()
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 2111, in _build_graph
+(input_producer_op, enqueue_ops, fetches) = self._build_model()
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 2891, in _build_model
+fetches = self._build_fetches(global_step, all_logits, losses, device_grads,
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 2921, in _build_fetches
+self.variable_mgr.preprocess_device_grads(device_grads))
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/variable_mgr.py", line 326, in preprocess_device_grads
+reduced_grads, self._warmup_ops = algorithm.batch_all_reduce(
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/batch_allreduce.py", line 177, in batch_all_reduce
+all_device_tensors = self._do_batch_all_reduce(all_device_packed_tensors)
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/batch_allreduce.py", line 366, in _do_batch_all_reduce
+aggregated_device_grads = allreduce.sum_gradients_all_reduce(
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/allreduce.py", line 454, in sum_gradients_all_reduce
+reduced_gv_list.append(sum_grad_and_var_all_reduce(
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/allreduce.py", line 341, in sum_grad_and_var_all_reduce
+summed_grads = all_reduce.build_nccl_all_reduce(scaled_grads, tf.add)
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/distribute/all_reduce.py", line 696, in build_nccl_all_reduce
+output_tensors = nccl_ops.all_sum(input_tensors)
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/ops/nccl_ops.py", line 47, in all_sum
+return _apply_all_reduce('sum', tensors)
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/ops/nccl_ops.py", line 236, in _apply_all_reduce
+return _all_reduce()
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/ops/nccl_ops.py", line 224, in _all_reduce
+gen_nccl_ops.nccl_all_reduce(
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/ops/gen_nccl_ops.py", line 83, in nccl_all_reduce
+_, _, _op = _op_def_lib._apply_op_helper(
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/framework/op_def_library.py", line 792, in _apply_op_helper
+op = g.create_op(op_type_name, inputs, dtypes=None, name=scope,
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/util/deprecation.py", line 513, in new_func
+return func(*args, **kwargs)
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/framework/ops.py", line 3356, in create_op
+return self._create_op_internal(op_type, inputs, dtypes, input_types, name,
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/framework/ops.py", line 3418, in _create_op_internal
+ret = Operation(
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/framework/ops.py", line 1748, in __init__
+self._traceback = tf_stack.extract_stack()
+
+I0324 23:33:59.619199 140007652349760 coordinator.py:222] Error reported to Coordinator: <class 'tensorflow.python.framework.errors_impl.InternalError'>, 2 root error(s) found.
+(0) Internal: unhandled system error
+[[node allreduce_141/allreduce/NcclAllReduce_1 (defined at /usr/local/lib/python3.8/dist-packages/tensorflow_core/python/framework/ops.py:1748) ]]
+[[main_fetch_group/_3898]]
+(1) Internal: unhandled system error
+[[node allreduce_141/allreduce/NcclAllReduce_1 (defined at /usr/local/lib/python3.8/dist-packages/tensorflow_core/python/framework/ops.py:1748) ]]
+0 successful operations.
+3 derived errors ignored.
+
+Original stack trace for 'allreduce_141/allreduce/NcclAllReduce_1':
+File "tf_cnn_benchmarks.py", line 73, in <module>
+app.run(main)  # Raises error on invalid flags, unlike tf.app.run()
+File "/usr/local/lib/python3.8/dist-packages/absl/app.py", line 303, in run
+_run_main(main, args)
+File "/usr/local/lib/python3.8/dist-packages/absl/app.py", line 251, in _run_main
+sys.exit(main(argv))
+File "tf_cnn_benchmarks.py", line 68, in main
+bench.run()
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 1883, in run
+return self._benchmark_train()
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 2079, in _benchmark_train
+build_result = self._build_graph()
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 2111, in _build_graph
+(input_producer_op, enqueue_ops, fetches) = self._build_model()
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 2891, in _build_model
+fetches = self._build_fetches(global_step, all_logits, losses, device_grads,
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 2921, in _build_fetches
+self.variable_mgr.preprocess_device_grads(device_grads))
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/variable_mgr.py", line 326, in preprocess_device_grads
+reduced_grads, self._warmup_ops = algorithm.batch_all_reduce(
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/batch_allreduce.py", line 177, in batch_all_reduce
+all_device_tensors = self._do_batch_all_reduce(all_device_packed_tensors)
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/batch_allreduce.py", line 366, in _do_batch_all_reduce
+aggregated_device_grads = allreduce.sum_gradients_all_reduce(
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/allreduce.py", line 454, in sum_gradients_all_reduce
+reduced_gv_list.append(sum_grad_and_var_all_reduce(
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/allreduce.py", line 341, in sum_grad_and_var_all_reduce
+summed_grads = all_reduce.build_nccl_all_reduce(scaled_grads, tf.add)
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/distribute/all_reduce.py", line 696, in build_nccl_all_reduce
+output_tensors = nccl_ops.all_sum(input_tensors)
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/ops/nccl_ops.py", line 47, in all_sum
+return _apply_all_reduce('sum', tensors)
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/ops/nccl_ops.py", line 236, in _apply_all_reduce
+return _all_reduce()
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/ops/nccl_ops.py", line 224, in _all_reduce
+gen_nccl_ops.nccl_all_reduce(
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/ops/gen_nccl_ops.py", line 83, in nccl_all_reduce
+_, _, _op = _op_def_lib._apply_op_helper(
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/framework/op_def_library.py", line 792, in _apply_op_helper
+op = g.create_op(op_type_name, inputs, dtypes=None, name=scope,
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/util/deprecation.py", line 513, in new_func
+return func(*args, **kwargs)
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/framework/ops.py", line 3356, in create_op
+return self._create_op_internal(op_type, inputs, dtypes, input_types, name,
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/framework/ops.py", line 3418, in _create_op_internal
+ret = Operation(
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/framework/ops.py", line 1748, in __init__
+self._traceback = tf_stack.extract_stack()
+
+Traceback (most recent call last):
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/client/session.py", line 1365, in _do_call
+return fn(*args)
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/client/session.py", line 1349, in _run_fn
+return self._call_tf_sessionrun(options, feed_dict, fetch_list,
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/client/session.py", line 1441, in _call_tf_sessionrun
+return tf_session.TF_SessionRun_wrapper(self._session, options, feed_dict,
+tensorflow.python.framework.errors_impl.InternalError: 2 root error(s) found.
+(0) Internal: unhandled system error
+[[{{node allreduce_141/allreduce/NcclAllReduce_1}}]]
+[[main_fetch_group/_3898]]
+(1) Internal: unhandled system error
+[[{{node allreduce_141/allreduce/NcclAllReduce_1}}]]
+0 successful operations.
+3 derived errors ignored.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+File "tf_cnn_benchmarks.py", line 73, in <module>
+app.run(main)  # Raises error on invalid flags, unlike tf.app.run()
+File "/usr/local/lib/python3.8/dist-packages/absl/app.py", line 303, in run
+_run_main(main, args)
+File "/usr/local/lib/python3.8/dist-packages/absl/app.py", line 251, in _run_main
+sys.exit(main(argv))
+File "tf_cnn_benchmarks.py", line 68, in main
+bench.run()
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 1883, in run
+return self._benchmark_train()
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 2088, in _benchmark_train
+return self._benchmark_graph(result_to_benchmark, eval_build_results)
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 2293, in _benchmark_graph
+stats = self.benchmark_with_session(
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 2424, in benchmark_with_session
+(summary_str, last_average_loss) = benchmark_one_step(
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 870, in benchmark_one_step
+results = sess.run(fetches, options=run_options, run_metadata=run_metadata)
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/client/session.py", line 955, in run
+result = self._run(None, fetches, feed_dict, options_ptr,
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/client/session.py", line 1179, in _run
+results = self._do_run(handle, final_targets, final_fetches,
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/client/session.py", line 1358, in _do_run
+return self._do_call(_run_fn, feeds, fetches, targets, options,
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/client/session.py", line 1384, in _do_call
+raise type(e)(node_def, op, message)
+tensorflow.python.framework.errors_impl.InternalError: 2 root error(s) found.
+(0) Internal: unhandled system error
+[[node allreduce_141/allreduce/NcclAllReduce_1 (defined at /usr/local/lib/python3.8/dist-packages/tensorflow_core/python/framework/ops.py:1748) ]]
+[[main_fetch_group/_3898]]
+(1) Internal: unhandled system error
+[[node allreduce_141/allreduce/NcclAllReduce_1 (defined at /usr/local/lib/python3.8/dist-packages/tensorflow_core/python/framework/ops.py:1748) ]]
+0 successful operations.
+3 derived errors ignored.
+
+Original stack trace for 'allreduce_141/allreduce/NcclAllReduce_1':
+File "tf_cnn_benchmarks.py", line 73, in <module>
+app.run(main)  # Raises error on invalid flags, unlike tf.app.run()
+File "/usr/local/lib/python3.8/dist-packages/absl/app.py", line 303, in run
+_run_main(main, args)
+File "/usr/local/lib/python3.8/dist-packages/absl/app.py", line 251, in _run_main
+sys.exit(main(argv))
+File "tf_cnn_benchmarks.py", line 68, in main
+bench.run()
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 1883, in run
+return self._benchmark_train()
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 2079, in _benchmark_train
+build_result = self._build_graph()
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 2111, in _build_graph
+(input_producer_op, enqueue_ops, fetches) = self._build_model()
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 2891, in _build_model
+fetches = self._build_fetches(global_step, all_logits, losses, device_grads,
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/benchmark_cnn.py", line 2921, in _build_fetches
+self.variable_mgr.preprocess_device_grads(device_grads))
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/variable_mgr.py", line 326, in preprocess_device_grads
+reduced_grads, self._warmup_ops = algorithm.batch_all_reduce(
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/batch_allreduce.py", line 177, in batch_all_reduce
+all_device_tensors = self._do_batch_all_reduce(all_device_packed_tensors)
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/batch_allreduce.py", line 366, in _do_batch_all_reduce
+aggregated_device_grads = allreduce.sum_gradients_all_reduce(
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/allreduce.py", line 454, in sum_gradients_all_reduce
+reduced_gv_list.append(sum_grad_and_var_all_reduce(
+File "/lambda-tensorflow-benchmark/benchmarks/scripts/tf_cnn_benchmarks/allreduce.py", line 341, in sum_grad_and_var_all_reduce
+summed_grads = all_reduce.build_nccl_all_reduce(scaled_grads, tf.add)
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/distribute/all_reduce.py", line 696, in build_nccl_all_reduce
+output_tensors = nccl_ops.all_sum(input_tensors)
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/ops/nccl_ops.py", line 47, in all_sum
+return _apply_all_reduce('sum', tensors)
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/ops/nccl_ops.py", line 236, in _apply_all_reduce
+return _all_reduce()
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/ops/nccl_ops.py", line 224, in _all_reduce
+gen_nccl_ops.nccl_all_reduce(
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/ops/gen_nccl_ops.py", line 83, in nccl_all_reduce
+_, _, _op = _op_def_lib._apply_op_helper(
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/framework/op_def_library.py", line 792, in _apply_op_helper
+op = g.create_op(op_type_name, inputs, dtypes=None, name=scope,
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/util/deprecation.py", line 513, in new_func
+return func(*args, **kwargs)
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/framework/ops.py", line 3356, in create_op
+return self._create_op_internal(op_type, inputs, dtypes, input_types, name,
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/framework/ops.py", line 3418, in _create_op_internal
+ret = Operation(
+File "/usr/local/lib/python3.8/dist-packages/tensorflow_core/python/framework/ops.py", line 1748, in __init__
+self._traceback = tf_stack.extract_stack()
+

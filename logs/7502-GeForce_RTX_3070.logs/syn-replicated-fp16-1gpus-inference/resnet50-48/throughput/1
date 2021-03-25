@@ -1,0 +1,83 @@
+2021-03-24 21:46:43.536814: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+WARNING:tensorflow:Deprecation warnings have been disabled. Set TF_ENABLE_DEPRECATION_WARNINGS=1 to re-enable them.
+2021-03-24 21:46:45.019178: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2500040000 Hz
+2021-03-24 21:46:45.019414: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5d10650 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2021-03-24 21:46:45.019473: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2021-03-24 21:46:45.022780: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcuda.so.1
+2021-03-24 21:46:45.188609: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5cd4ed0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2021-03-24 21:46:45.188673: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): GeForce RTX 3070, Compute Capability 8.6
+2021-03-24 21:46:45.190840: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1665] Found device 0 with properties:
+name: GeForce RTX 3070 major: 8 minor: 6 memoryClockRate(GHz): 1.725
+pciBusID: 0000:01:00.0
+2021-03-24 21:46:45.190882: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-03-24 21:46:45.195213: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2021-03-24 21:46:45.196684: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-03-24 21:46:45.197048: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-03-24 21:46:45.200549: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.11
+2021-03-24 21:46:45.201053: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2021-03-24 21:46:45.201163: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2021-03-24 21:46:45.203788: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1793] Adding visible gpu devices: 0
+2021-03-24 21:46:45.203815: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-03-24 21:46:45.442852: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1206] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-03-24 21:46:45.442953: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1212]      0
+2021-03-24 21:46:45.442960: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1225] 0:   N
+2021-03-24 21:46:45.445775: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1351] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 6173 MB memory) -> physical GPU (device: 0, name: GeForce RTX 3070, pci bus id: 0000:01:00.0, compute capability: 8.6)
+TensorFlow:  1.15
+Model:       resnet50
+Dataset:     imagenet (synthetic)
+Mode:        forward only
+SingleSess:  False
+Batch size:  48 global
+48 per device
+Num batches: 100
+Num epochs:  0.00
+Devices:     ['/gpu:0']
+NUMA bind:   False
+Data format: NCHW
+Optimizer:   sgd
+Variables:   replicated
+AllReduce:   nccl
+==========
+Generating training model
+Initializing graph
+2021-03-24 21:46:46.693918: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1665] Found device 0 with properties:
+name: GeForce RTX 3070 major: 8 minor: 6 memoryClockRate(GHz): 1.725
+pciBusID: 0000:01:00.0
+2021-03-24 21:46:46.693983: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-03-24 21:46:46.694017: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2021-03-24 21:46:46.694027: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10
+2021-03-24 21:46:46.694036: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10
+2021-03-24 21:46:46.694046: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.11
+2021-03-24 21:46:46.694054: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11
+2021-03-24 21:46:46.694065: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2021-03-24 21:46:46.696565: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1793] Adding visible gpu devices: 0
+2021-03-24 21:46:46.696601: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1206] Device interconnect StreamExecutor with strength 1 edge matrix:
+2021-03-24 21:46:46.696607: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1212]      0
+2021-03-24 21:46:46.696612: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1225] 0:   N
+2021-03-24 21:46:46.699136: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1351] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 6173 MB memory) -> physical GPU (device: 0, name: GeForce RTX 3070, pci bus id: 0000:01:00.0, compute capability: 8.6)
+2021-03-24 21:46:47.018989: W tensorflow/compiler/jit/mark_for_compilation_pass.cc:1648] (One-time warning): Not using XLA:CPU for cluster because envvar TF_XLA_FLAGS=--tf_xla_cpu_global_jit was not set.  If you want XLA:CPU, either set that envvar, or use experimental_jit_scope to enable XLA:CPU.  To confirm that XLA is active, pass --vmodule=xla_compilation_cache=1 (as a proper command-line flag, not via TF_XLA_FLAGS) or set the envvar XLA_FLAGS=--xla_hlo_profile.
+INFO:tensorflow:Running local_init_op.
+I0324 21:46:47.139814 140622634055488 session_manager.py:500] Running local_init_op.
+INFO:tensorflow:Done running local_init_op.
+I0324 21:46:47.177794 140622634055488 session_manager.py:502] Done running local_init_op.
+Running warm up
+2021-03-24 21:46:47.556901: I tensorflow/core/grappler/optimizers/generic_layout_optimizer.cc:349] Cancel Transpose nodes around Pad: transpose_before=tower_0/v0/transpose pad=tower_0/v0/cg/conv0/Pad transpose_after=tower_0/v0/cg/conv0/conv2d/Conv2D-0-TransposeNCHWToNHWC-LayoutOptimizer
+2021-03-24 21:46:47.795859: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11
+2021-03-24 21:46:48.306440: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8
+2021-03-24 21:46:52.201807: I tensorflow/compiler/jit/xla_compilation_cache.cc:241] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+Done warm up
+Step	Img/sec	total_loss	top_1_accuracy	top_5_accuracy
+1	images/sec: 2362.3 +/- 0.0 (jitter = 0.0)	0.000	0.000	0.000 1616622412
+10	images/sec: 2341.7 +/- 6.3 (jitter = 25.7)	0.000	0.000	0.000 1616622412
+20	images/sec: 2344.0 +/- 5.5 (jitter = 29.1)	0.000	0.000	0.000 1616622412
+30	images/sec: 2341.1 +/- 4.7 (jitter = 36.1)	0.000	0.000	0.000 1616622412
+40	images/sec: 2341.2 +/- 4.2 (jitter = 34.6)	0.000	0.000	0.000 1616622413
+50	images/sec: 2341.2 +/- 4.0 (jitter = 39.0)	0.000	0.000	0.021 1616622413
+60	images/sec: 2340.2 +/- 3.8 (jitter = 39.3)	0.000	0.000	0.000 1616622413
+70	images/sec: 2336.3 +/- 4.9 (jitter = 39.2)	0.000	0.000	0.000 1616622413
+80	images/sec: 2332.2 +/- 4.9 (jitter = 46.3)	0.000	0.000	0.021 1616622414
+90	images/sec: 2331.2 +/- 4.6 (jitter = 47.6)	0.000	0.000	0.000 1616622414
+100	images/sec: 2332.1 +/- 4.4 (jitter = 47.9)	0.000	0.000	0.000 1616622414
+----------------------------------------------------------------
+total images/sec: 2324.17
+----------------------------------------------------------------
