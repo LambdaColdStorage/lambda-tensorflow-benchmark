@@ -13,7 +13,7 @@ Tested Environment:
 - CUDA Version 10.0
 - CUDNN Version 7.6.5
 
-You can use [Lambda stack](https://lambdalabs.com/lambda-stack-deep-learning-software) which system-wise install the above software stack. If you have CUDA 10.0 installed, you can also create a Python virtual environment by following these steps:
+You can use [Lambda stack](https://lambdalabs.com/lambda-stack-deep-learning-software) which system-wise installs the above software stack. If you have CUDA 10.0 installed, you can also create a Python virtual environment by following these steps:
 
 ```
 virtualenv -p /usr/bin/python3.6 venv
@@ -69,7 +69,7 @@ RUN_MODE="train"
 DATA_MODE="syn"
 ```
 
-You can find more examples of configrations in the `config` folder.
+You can find more examples of configurations in the `config` folder.
 
 
 #### Step Three: Report Results
@@ -87,7 +87,7 @@ The gathered results are saved in `tf-train-throughput-fp16.csv`, `tf-train-thro
 Add your own log to the `list_system` dictionary in `tools/log2csv.py`, so they can be included in the generated csv.
 
 
-You can also dispaly the `throughput v.s. time` and `GPU temperature v.s. time` graph using this command:
+You can also display the `throughput v.s. time` and `GPU temperature v.s. time` graph using this command:
 
 ```
 python display_thermal.py path-to-thermal.log --thermal_threshold
@@ -106,7 +106,7 @@ logs/Gold_6230-GeForce_RTX_2080_Ti_XLA_trt_TF2_2.logs/syn-replicated-fp16-8gpus/
 
 Set `DATA_MODE="syn"` in the config file uses synthetic data in the benchmarks. In which case images of random pixel colors were generated on GPU memory to avoid overheads such as I/O and data augmentation. 
 
-You can also benchmark with real data. To do so, simply set `DATA_MODE="real"` in the config file. You also need to have imagenet tfrecords. For the purpose of benchmark training throughput, you can download and unzip this [mini portion of ImageNet](https://lambdalabs-files.s3-us-west-2.amazonaws.com/imagenet_mini.tar.gz)(1.3 GB) to your home directory. 
+You can also benchmark with real data. To do so, simply set `DATA_MODE="real"` in the config file. You also need to have imagenet tfrecords. For benchmark training throughput, you can download and unzip this [mini portion of ImageNet](https://lambdalabs-files.s3-us-west-2.amazonaws.com/imagenet_mini.tar.gz)(1.3 GB) to your home directory. 
 
  
 
