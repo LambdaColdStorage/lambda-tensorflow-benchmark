@@ -21,6 +21,7 @@ list_test = ['alexnet',
 # names: rename the experiments so they are easier to undertand
 
 list_system = {
+    "1600-Vega_10_XT_[Radeon_RX_Vega_64]": ([1], ['RX Vega 64']),
     "i7-6850K-GeForce_GTX_1080_Ti": ([1], ['GTX 1080Ti']),
     "i7-9750H-GeForce_RTX_2070_with_Max-Q_Design_XLA_TF1_15": ([1], ['RTX 2070 MAX-Q']),
     "i7-9750H-GeForce_RTX_2080_with_Max-Q_Design_XLA_TF1_15": ([1], ['RTX 2080 MAX-Q']),
@@ -40,7 +41,8 @@ list_system = {
 
 
 def get_result(path_logs, folder, model):
-    folder_path = glob.glob(path_logs + '/' + folder + '/' + model + '*')[0]
+    glob_path = glob.escape(path_logs + '/' + folder + '/' + model) + '*'
+    folder_path = glob.glob(glob_path)[0]
     folder_name = folder_path.split('/')[-1]
     batch_size = folder_name.split('-')[-1]
     file_throughput = folder_path + '/throughput/1'
