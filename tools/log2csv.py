@@ -21,21 +21,21 @@ list_test = ['alexnet',
 # names: rename the experiments so they are easier to undertand
 
 list_system = {
-    "i7-6850K-GeForce_GTX_1080_Ti": ([1], ['GTX 1080Ti']),
-    "i7-9750H-GeForce_RTX_2070_with_Max-Q_Design_XLA_TF1_15": ([1], ['RTX 2070 MAX-Q']),
-    "i7-9750H-GeForce_RTX_2080_with_Max-Q_Design_XLA_TF1_15": ([1], ['RTX 2080 MAX-Q']),
-    "i7-10875H-GeForce_RTX_2080_Super_with_Max-Q_Design_XLA_TF2_2": ([1], ['RTX 2080 SUPER MAX-Q']),
-    "Gold_6230-GeForce_RTX_2080_Ti_NVLink_XLA_trt_TF1_15": ([2, 4, 8], ['2x RTX 2080Ti NVLink', '4x RTX 2080Ti NVLink', '8x RTX 2080Ti NVLink']),
-    "Gold_6230-GeForce_RTX_2080_Ti_XLA_trt_TF1_15": ([1, 2, 4, 8], ['RTX 2080Ti', '2x RTX 2080Ti', '4x RTX 2080Ti', '8x RTX 2080Ti']),
-    "Platinum-Tesla_V100-SXM3-32GB_HP16_TF2_2": ([1, 8], ['V100 32GB', '8x V100 32GB']),
-    "Gold_6230-Quadro_RTX_8000_XLA_trt_TF1_15": ([1, 2, 4, 8], ['RTX 8000', '2x RTX 8000', '4x RTX 8000', '8x RTX 8000']),
-    "Gold_6230-Quadro_RTX_8000_NVLink_XLA_trt_TF1_15": ([2, 4, 8], ['2x RTX 8000 NVLink', '4x RTX 8000 NVLink', '8x RTX 8000 NVLink']),
-    "7502-A100-PCIE-40GB": ([1, 2, 4, 8], ['A100 40GB PCIe', '2x A100 40GB PCIe', '4x A100 40GB PCIe', '8x A100 40GB PCIe']),
-    "3960X-GeForce_RTX_3080_XLA": ([1, 2], ['RTX 3080', '2x RTX 3080']),
-    "3970X-GeForce_RTX_3090_XLA": ([3], ['3x RTX 3090']),
-    "7662-GeForce_RTX_3090": ([1, 2, 4, 8], ['RTX 3090', '2x RTX 3090', '4x RTX 3090', '8x RTX 3090']),
-    "7502-RTX_A6000_XLA_TF1_15": ([1, 2, 4, 8], ['RTX A6000', '2x RTX A6000', '4x RTX A6000', '8x RTX A6000']),
-    "LambdaCloud-RTX_A6000":  ([1, 2, 4], ['Lambda Cloud — RTX A6000', 'Lambda Cloud — 2x RTX A6000', 'Lambda Cloud — 4x RTX A6000'])
+    "i7-6850K-GeForce_GTX_1080_Ti": ([1], ['GTX 1080Ti'], 250),
+    "i7-9750H-GeForce_RTX_2070_with_Max-Q_Design_XLA_TF1_15": ([1], ['RTX 2070 MAX-Q'], 90),
+    "i7-9750H-GeForce_RTX_2080_with_Max-Q_Design_XLA_TF1_15": ([1], ['RTX 2080 MAX-Q'], 90),
+    "i7-10875H-GeForce_RTX_2080_Super_with_Max-Q_Design_XLA_TF2_2": ([1], ['RTX 2080 SUPER MAX-Q'], 80),
+    "Gold_6230-GeForce_RTX_2080_Ti_NVLink_XLA_trt_TF1_15": ([2, 4, 8], ['2x RTX 2080Ti NVLink', '4x RTX 2080Ti NVLink', '8x RTX 2080Ti NVLink'], 250),
+    "Gold_6230-GeForce_RTX_2080_Ti_XLA_trt_TF1_15": ([1, 2, 4, 8], ['RTX 2080Ti', '2x RTX 2080Ti', '4x RTX 2080Ti', '8x RTX 2080Ti'], 250),
+    "Platinum-Tesla_V100-SXM3-32GB_HP16_TF2_2": ([1, 8], ['V100 32GB', '8x V100 32GB'], 250),
+    "Gold_6230-Quadro_RTX_8000_XLA_trt_TF1_15": ([1, 2, 4, 8], ['RTX 8000', '2x RTX 8000', '4x RTX 8000', '8x RTX 8000'], 260),
+    "Gold_6230-Quadro_RTX_8000_NVLink_XLA_trt_TF1_15": ([2, 4, 8], ['2x RTX 8000 NVLink', '4x RTX 8000 NVLink', '8x RTX 8000 NVLink'], 260),
+    "7502-A100-PCIE-40GB": ([1, 2, 4, 8], ['A100 40GB PCIe', '2x A100 40GB PCIe', '4x A100 40GB PCIe', '8x A100 40GB PCIe'], 250),
+    "3960X-GeForce_RTX_3080_XLA": ([1, 2], ['RTX 3080', '2x RTX 3080'], 320),
+    "3970X-GeForce_RTX_3090_XLA": ([3], ['3x RTX 3090'], 350),
+    "7662-GeForce_RTX_3090": ([1, 2, 4, 8], ['RTX 3090', '2x RTX 3090', '4x RTX 3090', '8x RTX 3090'], 350),
+    "7502-RTX_A6000_XLA_TF1_15": ([1, 2, 4, 8], ['RTX A6000', '2x RTX A6000', '4x RTX A6000', '8x RTX A6000'], 300),
+    "LambdaCloud-RTX_A6000":  ([1, 2, 4], ['Lambda Cloud — RTX A6000', 'Lambda Cloud — 2x RTX A6000', 'Lambda Cloud — 4x RTX A6000'], 300)
 }
 
 
@@ -55,7 +55,7 @@ def get_result(path_logs, folder, model):
 
     return batch_size, throughput
 
-def create_row_throughput(path_logs, mode, data, precision, key, num_gpu, name, df, is_train=True):
+def create_row_throughput(path_logs, mode, data, precision, key, num_gpu, name, df, watt, is_train=True):
     if is_train:
         if precision == 'fp32':
             folder_fp32 = key + '.logs/' + data + '-' + mode + '-fp32-' + str(num_gpu)+'gpus'
@@ -76,9 +76,10 @@ def create_row_throughput(path_logs, mode, data, precision, key, num_gpu, name, 
         df.at[name, model] = throughput
 
     df.at[name, 'num_gpu'] = num_gpu
+    df.at[name, 'watt'] = num_gpu * watt
 
 
-def create_row_batch_size(path_logs, mode, data, precision, key, num_gpu, name, df, is_train=True):
+def create_row_batch_size(path_logs, mode, data, precision, key, num_gpu, name, df, watt, is_train=True):
     if is_train:
         if precision == 'fp32':
             folder_fp32 = key + '.logs/' + data + '-' + mode + '-fp32-' + str(num_gpu)+'gpus'
@@ -100,7 +101,7 @@ def create_row_batch_size(path_logs, mode, data, precision, key, num_gpu, name, 
         df.at[name, model] = int(batch_size) * num_gpu
 
     df.at[name, 'num_gpu'] = num_gpu
-
+    df.at[name, 'watt'] = num_gpu * watt
 
 
 def main():
@@ -127,6 +128,7 @@ def main():
 
     columns = []
     columns.append('num_gpu')
+    columns.append('watt')
     for model in list_test:
         columns.append(model)
 
@@ -142,7 +144,7 @@ def main():
     for key in list_system:
         # list_gpus = list_system[key][0]
         for (num_gpu, name) in zip(list_system[key][0], list_system[key][1]):
-            create_row_throughput(args.path, args.mode, args.data, args.precision, key, num_gpu, name, df_throughput)
+            create_row_throughput(args.path, args.mode, args.data, args.precision, key, num_gpu, name, df_throughput, list_system[key][2])
 
     df_throughput.index.name = 'name_gpu'
 
@@ -166,7 +168,7 @@ def main():
 
     for key in list_system:
         for (num_gpu, name) in zip(list_system[key][0], list_system[key][1]):
-            create_row_batch_size(args.path, args.mode, args.data, args.precision, key, num_gpu, name, df_bs)
+            create_row_batch_size(args.path, args.mode, args.data, args.precision, key, num_gpu, name, df_bs, list_system[key][2])
 
     df_bs.index.name = 'name_gpu'
 
