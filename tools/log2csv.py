@@ -24,9 +24,9 @@ list_test = ['alexnet',
 
 list_system = {
     "i7-6850K-GeForce_GTX_1080_Ti": ([1], ['GTX 1080Ti'], 250, 892),
-    "i7-9750H-GeForce_RTX_2070_with_Max-Q_Design_XLA_TF1_15": ([1], ['RTX 2070 MAX-Q'], 90, 600),
-    "i7-9750H-GeForce_RTX_2080_with_Max-Q_Design_XLA_TF1_15": ([1], ['RTX 2080 MAX-Q'], 90, 600),
-    "i7-10875H-GeForce_RTX_2080_Super_with_Max-Q_Design_XLA_TF2_2": ([1], ['RTX 2080 SUPER MAX-Q'], 80, 600),
+    "i7-9750H-GeForce_RTX_2070_with_Max-Q_Design_XLA_TF1_15": ([1], ['RTX 2070 MAX-Q'], 90, 975),
+    "i7-9750H-GeForce_RTX_2080_with_Max-Q_Design_XLA_TF1_15": ([1], ['RTX 2080 MAX-Q'], 90, 1032),
+    "i7-10875H-GeForce_RTX_2080_Super_with_Max-Q_Design_XLA_TF2_2": ([1], ['RTX 2080 SUPER MAX-Q'], 80, 1377),
     "Gold_6230-GeForce_RTX_2080_Ti_NVLink_XLA_trt_TF1_15": ([2, 4, 8], ['2x RTX 2080Ti NVLink', '4x RTX 2080Ti NVLink', '8x RTX 2080Ti NVLink'], 250, 1928),
     "Gold_6230-GeForce_RTX_2080_Ti_XLA_trt_TF1_15": ([1, 2, 4, 8], ['RTX 2080Ti', '2x RTX 2080Ti', '4x RTX 2080Ti', '8x RTX 2080Ti'], 250, 1928),
     "Platinum-Tesla_V100-SXM3-32GB_HP16_TF2_2": ([1, 8], ['V100 32GB', '8x V100 32GB'], 250, 11357),
