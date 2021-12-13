@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 case "${GPU_RAM:-'12GB'}" in
 	'6GB') 
